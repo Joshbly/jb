@@ -3,67 +3,66 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-// This would eventually come from a CMS or MDX files
 const latestThoughts = [
   {
-    date: "2025-10-12",
-    title: "The Agentic Web is here",
-    excerpt: "Why your website needs to be readable by machines first, humans second. The shift from SEO to AEO is just the beginning of the agentic transition.",
-    slug: "agentic-web-is-here"
-  },
-  {
-    date: "2025-09-28",
-    title: "Stop optimizing for keywords",
-    excerpt: "LLMs don't care about your keyword density. They care about semantic density and information gain. Here is how to write for the new algorithm.",
-    slug: "stop-optimizing-keywords"
+    date: "2025.11.24",
+    title: "What We Don't Say at Conferences",
+    excerpt: "I had dinner with a Director of Search last week. Halfway through our second glass of wine, she asked me something nobody asks in public...",
+    slug: "what-we-dont-say-at-conferences"
   }
 ];
 
 export function Thoughts() {
   return (
-    <section id="thoughts" className="py-24 border-b border-foreground/10 bg-background">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-      >
-        <h2 className="text-2xl font-display mb-8 text-foreground/90 flex items-baseline gap-4 italic font-bold">
-          Latest Thoughts
-          <span className="text-sm font-mono text-foreground/40 font-normal not-italic">/ Blog</span>
-        </h2>
+    <section id="thoughts" className="py-32 border-b-2 border-foreground bg-background relative">
+      {/* Vertical line decor */}
+      <div className="absolute top-0 bottom-0 left-12 md:left-24 w-px bg-foreground/20 hidden md:block" />
+
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-[1fr_2fr] gap-12">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="md:text-right md:pr-12 pt-2"
+        >
+           <h2 className="text-xl font-mono font-bold uppercase tracking-widest text-foreground sticky top-32">
+            Thoughts <br/>
+            <span className="opacity-40 font-normal text-xs normal-case mt-2 block">/ updated regularly</span>
+          </h2>
+        </motion.div>
         
-        <div className="space-y-12">
+        <div className="space-y-16 max-w-2xl">
           {latestThoughts.map((post, index) => (
             <motion.article 
               key={index}
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group cursor-pointer max-w-3xl pl-4 border-l-2 border-transparent hover:border-accent transition-all"
+              className="group cursor-pointer"
             >
-              <Link href={`/blog/${post.slug}`} className="block space-y-3">
-                <div className="text-xs font-mono text-accent/80 mb-2">{post.date}</div>
-                <h3 className="text-3xl font-display font-medium text-foreground group-hover:text-accent transition-colors italic">
+              <Link href={`/blog/${post.slug}`} className="block space-y-4">
+                <div className="flex items-center gap-4 font-mono text-xs text-accent/80 uppercase tracking-wide">
+                  <span>{post.date}</span>
+                  <span className="h-px w-8 bg-accent/30" />
+                </div>
+                
+                <h3 className="text-3xl font-display font-medium text-foreground group-hover:underline decoration-2 underline-offset-4 transition-all">
                   {post.title}
                 </h3>
-                <p className="text-lg text-foreground/60 leading-relaxed group-hover:text-foreground/80 transition-colors font-serif">
+                
+                <p className="text-lg text-foreground/70 leading-relaxed font-body">
                   {post.excerpt}
                 </p>
-                <div className="inline-flex items-center text-sm text-foreground/40 mt-2 group-hover:text-accent transition-colors font-serif italic">
-                  Read essay <span className="ml-2 not-italic">→</span>
+                
+                <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-foreground mt-4 group-hover:translate-x-2 transition-transform">
+                  Read Entry <span>→</span>
                 </div>
               </Link>
             </motion.article>
           ))}
         </div>
-        
-        <div className="mt-12 pl-4">
-          <Link href="/blog" className="text-sm text-foreground/40 hover:text-foreground transition-colors border-b border-foreground/20 hover:border-foreground pb-0.5 font-serif italic">
-            View archive
-          </Link>
-        </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  /* Light, academic 'book' background (Warm Paper) */
-  --background: #FDFBF7;
-  /* Ink Black text */
-  --foreground: #171717;
-  /* Academic Vermilion Red Accent */
-  --accent: #D9381E;
+  /* Warm, aged paper background */
+  --background: #F2F0E9;
+  /* Ink Black text - softer than pure #000, like aged ink */
+  --foreground: #1A1A1A;
+  /* Stamped Red Accent */
+  --accent: #C03015;
 }
 
 @theme inline {
@@ -16,6 +16,7 @@
   
   --font-display: var(--font-display);
   --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
 }
 
 /* Smooth scrolling */
@@ -27,6 +28,8 @@ html {
 body {
   background-color: var(--background);
   color: var(--foreground);
+  /* Add subtle noise texture */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
 }
 
 /* Custom Scrollbar */
@@ -40,7 +43,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #333;
-  border-radius: 4px;
+  border-radius: 0px; /* Sharp edges */
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -50,4 +53,15 @@ body {
 /* Typography Utilities */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
+}
+
+/* Rough double border utility */
+.border-double-rough {
+  border-bottom: 3px double var(--foreground);
+}
+
+.hover-underline-jitter:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
 }
