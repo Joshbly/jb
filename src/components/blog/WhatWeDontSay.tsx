@@ -65,7 +65,7 @@ export function WhatWeDontSay() {
           That's your website now: it's not dead. It's becoming infrastructure instead of destination. And nobody prepared us for that.
         </p>
         <p>
-          I pulled 4.6 billion citations last month. Four billion and six hundred million. You know what pattern emerged? Nothing. And everything. Reddit goes from 1% to 10% overnight because someone at OpenAI flips a switch. Wikipedia swings from 0% to 15% because of a partnership call. Your decade of SEO work? It's worth exactly as much as OpenAI's product manager decides it's worth on a Tuesday afternoon.
+          I pulled 4.6 billion citations last month. Four billion and six hundred million. You know what pattern emerged? Nothing. And everything. Reddit goes from 1% to 7% overnight because of a partnership call. Wikipedia swings from 5% to 15% back to 5% again because someone at OpenAI is flipping switches. Your decade of SEO work? It's worth exactly as much as OpenAI's product manager decides it's worth on a Tuesday afternoon.
         </p>
         <p>
           And the thing is? This isn't even malicious. It's just math. Probabilistic systems doing probabilistic things.
