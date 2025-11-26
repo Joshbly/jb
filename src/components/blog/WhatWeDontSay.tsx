@@ -62,10 +62,10 @@ export function WhatWeDontSay() {
         </figure>
 
         <p>
-          That's your website in 10 years: it's not gone, evaporated, or scrubbed from existence. It's becoming infrastructure instead of destination. And I don't care what you say, nobody prepared us for that.
+          That's your website now: it's not dead. It's becoming infrastructure instead of destination. And nobody prepared us for that.
         </p>
         <p>
-          I pulled 4.6 billion citations last month. Four billion and six hundred million citations. You know what pattern emerged? Nothing. And everything. Reddit goes from 1% to 7% over two weeks because of a partnership call. Wikipedia swings from 5% to 15% and back to 5% over a month because someone at OpenAI flips a switch. Your decade of SEO work? It's worth exactly as much as OpenAI's product manager decides it's worth on a Tuesday afternoon.
+          I pulled 534 million citations last month. Five hundred and thirty-four million. You know what pattern emerged? Nothing. And everything. Reddit goes from 1% to 10% overnight because someone at OpenAI flips a switch. Wikipedia swings from 0% to 15% because of a partnership call. Your decade of SEO work? It's worth exactly as much as OpenAI's product manager decides it's worth on a Tuesday afternoon.
         </p>
         <p>
           And the thing is? This isn't even malicious. It's just math. Probabilistic systems doing probabilistic things.
@@ -109,14 +109,14 @@ export function WhatWeDontSay() {
         </p>
 
         <div className="my-16 py-12 border-y-2 border-foreground/20 text-center">
-          <p className="text-lg font-mono uppercase tracking-widest mb-4 text-accent">A Note to You</p>
+          <p className="text-lg font-mono uppercase tracking-widest mb-4 text-accent">I need you to understand something, and this is me talking directly to YOU, the person reading this at your desk or on your phone pretending to work:</p>
           <p className="font-display text-2xl italic max-w-xl mx-auto">
-            "You're standing at the exact moment when marketing stops being about pushing and starts being about being useful."
+            "You're not crazy for feeling overwhelmed. You're not behind for still figuring out how to track AI visibility. You're not failing because your attribution models are breaking."
           </p>
         </div>
 
         <p>
-          You're not crazy for feeling overwhelmed. You're not behind for still figuring out how to track AI visibility. You're not failing because your attribution models are breaking.
+          You're standing at the exact moment when marketing stops being about manipulation and starts being about being useful. Actually useful. Not "valuable content" useful. But genuinely helping people get shit done useful.
         </p>
         <p>
           And here's the thing: we're building the infrastructure for this new world. We're creating the visibility tools, the tracking systems, the frameworks. Not perfectly, not completely, but we're doing it. Every brand I work with that embraces agent readiness, that builds for citation consistency, that creates genuinely helpful content… they're seeing results. Weird results. Different results. But results.
@@ -175,6 +175,9 @@ export function WhatWeDontSay() {
         <p className="text-2xl font-display italic text-accent mt-8">
           That's everything.
         </p>
+        <p className="text-xs font-mono opacity-40 mt-4">
+          (I love you, and I'm proud of you)
+        </p>
       </div>
 
       {/* Footer / Signoff */}
@@ -191,4 +194,3 @@ export function WhatWeDontSay() {
     </div>
   );
 }
-
