@@ -17,7 +17,7 @@ const talks = [
     conference: "Spotlight AR",
     location: "Kansas City, USA",
     title: "If Gen AI can't find you, neither can your buyers",
-    desc: "Expanding research on ChatGPT, Perplexity, and SGE patterns for US markets.",
+    desc: "How analyst relations is now at the center of B2B AI visibility",
     link: null, 
     video: "https://www.youtube.com/watch?v=twkME1D_IhM"
   },
