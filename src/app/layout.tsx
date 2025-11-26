@@ -1,16 +1,23 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { EB_Garamond, Source_Serif_4, Courier_Prime } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const ebGaramond = EB_Garamond({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const inter = Inter({
+const sourceSerif = Source_Serif_4({
   variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "600"],
+});
+
+const courierPrime = Courier_Prime({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -26,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${inter.variable} antialiased bg-background text-foreground font-body selection:bg-accent/20 selection:text-foreground`}
+        className={`${ebGaramond.variable} ${sourceSerif.variable} ${courierPrime.variable} antialiased bg-background text-foreground font-body selection:bg-black selection:text-white`}
       >
         {children}
       </body>

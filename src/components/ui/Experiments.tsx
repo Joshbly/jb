@@ -12,17 +12,17 @@ const experiments = [
 
 export function Experiments() {
   return (
-    <section id="experiments" className="py-24 border-t border-white/5">
+    <section id="experiments" className="py-32 border-t-2 border-foreground bg-background">
       <motion.h2 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-2xl font-display mb-12 text-white/90"
+        className="text-6xl font-display font-black uppercase tracking-tighter mb-16 text-foreground"
       >
         Experiments
       </motion.h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 border-l-2 border-t-2 border-foreground">
         {experiments.map((item, index) => (
           <motion.div
             key={index}
@@ -30,12 +30,12 @@ export function Experiments() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.05 }}
-            className="aspect-square bg-white/[0.02] border border-white/5 rounded-lg p-4 flex flex-col justify-between hover:bg-white/[0.05] hover:border-accent/30 transition-all group cursor-pointer"
+            className="aspect-square bg-background border-r-2 border-b-2 border-foreground p-6 flex flex-col justify-between hover:bg-foreground hover:text-background transition-all group cursor-pointer"
           >
-            <div className="w-8 h-8 rounded-full bg-accent/10 group-hover:bg-accent/20 transition-colors" />
+            <div className="w-8 h-8 bg-foreground group-hover:bg-background transition-colors" />
             <div>
-              <h3 className="font-medium text-sm text-white/90">{item.title}</h3>
-              <p className="text-xs text-white/40 mt-1">{item.desc}</p>
+              <h3 className="font-mono font-bold text-sm uppercase tracking-widest mb-2">{item.title}</h3>
+              <p className="text-xs font-mono opacity-60">{item.desc}</p>
             </div>
           </motion.div>
         ))}
@@ -43,4 +43,3 @@ export function Experiments() {
     </section>
   );
 }
-

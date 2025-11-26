@@ -6,74 +6,73 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen w-full flex items-center bg-background overflow-hidden border-b border-foreground/10">
+    <section className="relative min-h-screen w-full flex items-center overflow-hidden border-b-2 border-foreground">
       <div className="flex flex-col lg:flex-row w-full h-screen">
         
-        {/* Left Column: Image (60%) */}
-        <div className="relative w-full lg:w-[60%] h-[50vh] lg:h-full bg-background">
+        {/* Left Column: Image (55%) */}
+        <div className="relative w-full lg:w-[55%] h-[50vh] lg:h-full bg-black border-b-2 lg:border-b-0 lg:border-r-2 border-foreground overflow-hidden group">
            <Image
             src="/images/header2.png"
-            alt="Joshua Blyskal - Leading AI Strategy & Research at Profound"
+            alt="Josh Blyskal"
             fill
-            className="object-cover" 
+            className="object-cover filter grayscale contrast-[1.2] brightness-90 group-hover:contrast-[1.3] transition-all duration-700" 
             priority
             unoptimized
           />
-          {/* Seamless blending vignette:
-              1. Inner shadow for edges
-              2. Radial gradient overlay to fade edges to background color (#FDFBF7)
-          */}
-          <div className="absolute inset-0 pointer-events-none" 
-               style={{
-                 background: 'radial-gradient(circle at 60% 50%, transparent 0%, var(--background) 100%)',
-                 boxShadow: 'inset 0 0 100px 50px var(--background)'
-               }} 
+          {/* Halftone / Newsprint Effect Overlay */}
+          <div 
+            className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay"
+            style={{
+              backgroundImage: 'radial-gradient(#000 1px, transparent 1px)',
+              backgroundSize: '4px 4px'
+            }}
           />
           
-          {/* Right edge fade specifically for the split line */}
-          <div className="absolute inset-y-0 right-0 w-32 bg-linear-to-l from-background to-transparent z-10" /> 
+          {/* Archival Caption */}
+          <div className="absolute bottom-6 left-6 bg-background px-3 py-1 border border-foreground z-10">
+            <p className="font-mono text-xs tracking-tight text-foreground uppercase">
+              Fig. 1 — NYC · 2025
+            </p>
+          </div>
         </div>
 
-        {/* Right Column: Content (40%) */}
-        <div className="relative w-full lg:w-[40%] h-[50vh] lg:h-full flex flex-col justify-center px-8 lg:px-12 bg-background z-20">
+        {/* Right Column: Content (45%) */}
+        <div className="relative w-full lg:w-[45%] h-[50vh] lg:h-full flex flex-col justify-center px-8 lg:px-16 z-20 bg-background">
           <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="max-w-lg"
           >
-            <h1 className="text-[clamp(2.5rem,5vw,4rem)] font-display leading-none tracking-tight font-bold text-foreground">
-              Joshua Blyskal
-              <span className="block text-2xl md:text-3xl text-foreground/60 mt-2 font-normal italic">
-                Leading AI Strategy <br/> & Research
-              </span>
-            </h1>
-            
-            <div className="space-y-6">
-              <p className="text-lg leading-relaxed text-foreground/80 font-serif italic">
-                Defining how Fortune 500 brands secure visibility in the era of AI Answer Engines. 
-                Currently leading research at <a href="https://tryprofound.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline decoration-accent/30 underline-offset-4">Profound</a>.
-              </p>
-              
-              <div className="flex items-center gap-3 text-sm text-foreground/60 border-l-2 border-accent pl-4 p-2 bg-foreground/5 rounded-r">
-                <span className="block w-2 h-2 rounded-full bg-accent"></span>
-                <p className="font-medium">Now: Building the future of AI search from first principles.</p>
+            <div className="mb-8">
+              <h1 className="text-[clamp(3rem,5vw,5rem)] font-display leading-[0.9] font-normal text-foreground tracking-tight mb-4">
+                Josh Blyskal
+              </h1>
+              <div className="font-mono text-sm text-foreground/60 uppercase tracking-widest">
+                Leading AI Strategy & Research
               </div>
             </div>
+            
+            <div className="space-y-6 max-w-md mb-12">
+              <p className="text-xl font-body leading-relaxed text-foreground">
+                Defining how Fortune 500 brands secure visibility in the era of AI Answer Engines. Currently leading AI Strategy & Research at <a href="https://tryprofound.com" target="_blank" rel="noopener noreferrer" className="border-b border-accent text-foreground hover:bg-accent hover:text-background transition-colors">Profound</a>.
+              </p>
+            </div>
 
-            <div className="pt-4 flex flex-wrap gap-6 font-serif italic">
+            <div className="flex flex-col gap-3 font-mono text-xs uppercase tracking-widest">
               <Link 
                 href="#speaking"
-                className="inline-flex items-center text-accent hover:text-accent/80 transition-colors group border-b border-accent/30 hover:border-accent pb-0.5"
+                className="group flex items-center gap-3 hover:text-accent transition-colors"
               >
-                Speaking & Talks
-                <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
+                <span className="w-4 h-px bg-foreground group-hover:bg-accent transition-colors"></span>
+                See Speaking
               </Link>
               <Link 
                 href="#writing"
-                className="inline-flex items-center text-foreground/60 hover:text-foreground transition-colors border-b border-transparent hover:border-foreground/30 pb-0.5"
+                className="group flex items-center gap-3 hover:text-accent transition-colors"
               >
-                Selected Writing
+                <span className="w-4 h-px bg-foreground group-hover:bg-accent transition-colors"></span>
+                Read Selected Writing
               </Link>
             </div>
           </motion.div>
