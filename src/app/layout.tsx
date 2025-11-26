@@ -75,7 +75,8 @@ const jsonLd = {
   "sameAs": [
     "https://x.com/JBlyskal",
     "https://linkedin.com/in/joshuablyskal",
-    "https://speakerdeck.com/joshbly"
+    "https://speakerdeck.com/joshbly",
+    "https://blog.hubspot.com/marketing/author/josh-blyskal"
   ],
   "jobTitle": "Head of AI Strategy & Research",
   "worksFor": {
