@@ -12,15 +12,15 @@ export function Footer() {
           </a>
           
           <div className="flex gap-8">
-            <a href="https://x.com/JBlyskal" className="hover:text-accent border-b border-foreground/30 hover:border-accent transition-colors pb-0.5">Twitter</a>
-            <a href="https://linkedin.com/in/joshuablyskal" className="hover:text-accent border-b border-foreground/30 hover:border-accent transition-colors pb-0.5">LinkedIn</a>
+            <a href="https://x.com/JBlyskal" rel="me" className="hover:text-accent border-b border-foreground/30 hover:border-accent transition-colors pb-0.5">Twitter</a>
+            <a href="https://linkedin.com/in/joshuablyskal" rel="me" className="hover:text-accent border-b border-foreground/30 hover:border-accent transition-colors pb-0.5">LinkedIn</a>
           </div>
         </div>
         
         <div className="text-right text-foreground/50 space-y-2">
           <p>Typeset in EB Garamond & Courier Prime</p>
           <p>No Trackers. Pure Code.</p>
-          <p className="pt-4 text-foreground">© 2025 Joshua Blyskal</p>
+          <p className="pt-4 text-foreground">© 2025 Josh Blyskal</p>
         </div>
 
       </div>
