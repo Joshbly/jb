@@ -10,7 +10,7 @@ export function WhatWeDontSay() {
       <header className="mb-16 border-b-2 border-foreground pb-8">
         <div className="flex items-baseline justify-between mb-4">
           <Link href="/" className="font-mono text-xs uppercase tracking-widest hover:text-accent transition-colors">
-            ← Index
+            ← Josh Blyskal
           </Link>
           <div className="flex flex-col items-end font-mono text-xs uppercase tracking-widest text-foreground/50">
             <span>Nov 24, 2025 · 4 min read</span>
