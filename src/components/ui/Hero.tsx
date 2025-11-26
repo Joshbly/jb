@@ -37,39 +37,39 @@ export function Hero() {
         </div>
 
         {/* Right Column: Content (45%) */}
-        <div className="relative w-full lg:w-[45%] h-[50vh] lg:h-full flex flex-col justify-center px-8 lg:px-16 z-20 bg-background">
+        <div className="relative w-full lg:w-[45%] h-[50vh] lg:h-full flex flex-col justify-center px-6 md:px-8 lg:px-16 z-20 bg-background">
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="max-w-lg"
+            className="max-w-lg w-full pt-8 lg:pt-0"
           >
-            <div className="mb-8">
-              <h1 className="text-[clamp(3rem,5vw,5rem)] font-display leading-[0.9] font-normal text-foreground tracking-tight mb-4">
+            <div className="mb-6 lg:mb-8">
+              <h1 className="text-[clamp(3rem,8vw,5rem)] font-display leading-[0.9] font-normal text-foreground tracking-tight mb-3 lg:mb-4">
                 Josh Blyskal
               </h1>
-              <div className="font-mono text-sm text-foreground/60 uppercase tracking-widest">
+              <div className="font-mono text-[10px] lg:text-sm text-foreground/60 uppercase tracking-widest">
                 Leading AI Strategy & Research
               </div>
             </div>
             
-            <div className="space-y-6 max-w-md mb-12">
-              <p className="text-xl font-body leading-relaxed text-foreground">
+            <div className="space-y-4 lg:space-y-6 max-w-md mb-8 lg:mb-12">
+              <p className="text-lg lg:text-xl font-body leading-relaxed text-foreground">
                 Defining how Fortune 500 brands secure visibility in the era of AI Answer Engines. Currently leading AI Strategy & Research at <a href="https://tryprofound.com" target="_blank" rel="noopener noreferrer" className="border-b border-accent text-foreground hover:bg-accent hover:text-background transition-colors">Profound</a>.
               </p>
             </div>
 
-            <div className="flex flex-col gap-3 font-mono text-xs uppercase tracking-widest">
+            <div className="flex flex-col gap-2 lg:gap-3 font-mono text-[10px] lg:text-xs uppercase tracking-widest pb-8 lg:pb-0">
               <Link 
                 href="#speaking"
-                className="group flex items-center gap-3 hover:text-accent transition-colors"
+                className="group flex items-center gap-3 hover:text-accent transition-colors py-1"
               >
                 <span className="w-4 h-px bg-foreground group-hover:bg-accent transition-colors"></span>
                 See Speaking
               </Link>
               <Link 
                 href="#writing"
-                className="group flex items-center gap-3 hover:text-accent transition-colors"
+                className="group flex items-center gap-3 hover:text-accent transition-colors py-1"
               >
                 <span className="w-4 h-px bg-foreground group-hover:bg-accent transition-colors"></span>
                 Read Selected Writing
