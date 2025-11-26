@@ -46,35 +46,35 @@ const pressMentions = [
     domain: "useformat.ai",
     title: "Speed Series: Josh Blyskal",
     link: "https://useformat.ai/speed/josh-blyskal",
-    year: "2024"
+    year: "2025"
   },
   {
     outlet: "Profound Podcast",
     domain: "spotify.com",
     title: "AI Just Broke Marketing (And What You Need to Do Now)",
     link: "https://open.spotify.com/episode/0w4sALglHGrq9V7Yj4CSvw?si=c088583230ae4931",
-    year: "2024"
+    year: "2025"
   },
   {
     outlet: "The Long Game",
     domain: "spotify.com",
     title: "Answer Engine Optimization Strategies & Tactics",
     link: "https://open.spotify.com/episode/4156Yoc3rkk2tvyaQmeHIb?si=cfb116d1727f4e00",
-    year: "2024"
+    year: "2025"
   },
   {
     outlet: "Siege Media",
     domain: "spotify.com",
     title: "AEO Playbook: How to Optimize for AI",
     link: "https://open.spotify.com/episode/04xczqIbckYXWDLgID995E?si=cc12790b65fb43be",
-    year: "2024"
+    year: "2025"
   },
   {
     outlet: "The Agency Insider",
     domain: "spotify.com",
     title: "Inside ChatGPT's Algorithm: Why Some Sites Get Cited 32.9% More",
     link: "https://open.spotify.com/episode/7i20dQkZ43H9BDKKbtgaCR?si=c0ba2701f3ae4c2a",
-    year: "2024"
+    year: "2025"
   }
 ];
 
