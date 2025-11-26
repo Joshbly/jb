@@ -61,7 +61,7 @@ const jsonLd = {
   "@type": "Person",
   "@id": "https://www.joshblyskal.com/#identity",
   "name": "Josh Blyskal",
-  "alternateName": ["Joshua Blyskal", "Josh Bly"],
+  "alternateName": ["Joshua Blyskal"],
   "url": "https://www.joshblyskal.com",
   "image": "https://www.joshblyskal.com/images/headshot.png",
   "email": "josh@tryprofound.com",
