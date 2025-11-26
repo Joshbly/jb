@@ -21,8 +21,31 @@ const courierPrime = Courier_Prime({
 });
 
 export const metadata: Metadata = {
-  title: "Joshua Blyskal | AI Strategy & Research",
+  metadataBase: new URL('https://www.joshblyskal.com'),
+  title: {
+    default: "Joshua Blyskal | AI Strategy & Research",
+    template: "%s | Josh Blyskal"
+  },
   description: "Personal site of Joshua Blyskal. Leading AI Strategy & Research at Profound.",
+  openGraph: {
+    title: "Joshua Blyskal | AI Strategy & Research",
+    description: "Personal site of Joshua Blyskal. Leading AI Strategy & Research at Profound.",
+    url: 'https://www.joshblyskal.com',
+    siteName: 'Josh Blyskal',
+    locale: 'en_US',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
