@@ -18,8 +18,8 @@ export function Footer() {
         </div>
         
         <div className="text-right text-foreground/50 space-y-2">
-          <p>Typeset in EB Garamond & Courier Prime</p>
-          <p>No Trackers. Pure Code.</p>
+          <p>Optimized for AI Search & Answer Engines</p>
+          <p>Leading AI Strategy & Research at Profound</p>
           <p className="pt-4 text-foreground">© 2025 Josh Blyskal</p>
         </div>
 
