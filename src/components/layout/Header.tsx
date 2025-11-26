@@ -27,7 +27,7 @@ export function Header() {
 
       <div className="relative z-10">
         <motion.div 
-          className="max-w-7xl mx-auto px-6 flex items-center justify-between font-mono text-[10px] md:text-xs uppercase tracking-widest"
+          className="max-w-7xl mx-auto px-6 flex items-center justify-between font-mono text-[8px] md:text-xs uppercase tracking-widest"
           initial={{ paddingBlock: "24px" }}
           animate={{ paddingBlock: isScrolled ? "12px" : "24px" }}
           transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
