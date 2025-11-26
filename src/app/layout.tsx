@@ -23,17 +23,25 @@ const courierPrime = Courier_Prime({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.joshblyskal.com'),
   title: {
-    default: "Joshua Blyskal | AI Strategy & Research",
+    default: "Josh Blyskal | AI Strategy & Research",
     template: "%s | Josh Blyskal"
   },
-  description: "Personal site of Joshua Blyskal. Leading AI Strategy & Research at Profound.",
+  description: "Personal site of Josh Blyskal. Leading AI Strategy & Research at Profound.",
   openGraph: {
-    title: "Joshua Blyskal | AI Strategy & Research",
-    description: "Personal site of Joshua Blyskal. Leading AI Strategy & Research at Profound.",
+    title: "Josh Blyskal | AI Strategy & Research",
+    description: "Personal site of Josh Blyskal. Leading AI Strategy & Research at Profound.",
     url: 'https://www.joshblyskal.com',
     siteName: 'Josh Blyskal',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/images/header2.png',
+        width: 1200,
+        height: 630,
+        alt: 'Josh Blyskal',
+      },
+    ],
   },
   robots: {
     index: true,
@@ -48,6 +56,50 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Josh Blyskal",
+  "alternateName": ["Joshua Blyskal", "Josh Bly"],
+  "url": "https://www.joshblyskal.com",
+  "image": "https://www.joshblyskal.com/images/headshot.png",
+  "sameAs": [
+    "https://x.com/JBlyskal",
+    "https://linkedin.com/in/joshuablyskal",
+    "https://speakerdeck.com/joshbly"
+  ],
+  "jobTitle": "Head of AI Strategy & Research",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Profound",
+    "url": "https://tryprofound.com"
+  },
+  "alumniOf": [
+    {
+      "@type": "Organization",
+      "name": "HubSpot"
+    }
+  ],
+  "description": "Josh Blyskal is a leading expert at the intersection of AI and search marketing. Currently Leading AI Strategy & Research at Profound.",
+  "knowsAbout": [
+    {
+      "@type": "Thing",
+      "name": "Answer Engine Optimization",
+      "sameAs": "https://www.wikidata.org/wiki/Q97171941"
+    },
+    {
+      "@type": "Thing",
+      "name": "Generative Engine Optimization",
+      "sameAs": "https://www.wikidata.org/wiki/Q134083964"
+    },
+    {
+      "@type": "Thing",
+      "name": "Search Engine Optimization",
+      "sameAs": "https://www.wikidata.org/wiki/Q180711"
+    }
+  ]
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -59,6 +111,10 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${ebGaramond.variable} ${sourceSerif.variable} ${courierPrime.variable} antialiased bg-background text-foreground font-body selection:bg-black selection:text-white`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
       </body>
     </html>
