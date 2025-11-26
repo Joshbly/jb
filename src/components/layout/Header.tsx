@@ -43,7 +43,7 @@ export function Header() {
               color: isScrolled ? "var(--foreground)" : "#FFFFFF",
             }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="mix-blend-normal md:mix-blend-difference shrink-0 text-[clamp(6px,2.5vw,12px)]"
+            className="mix-blend-normal md:mix-blend-difference shrink-0 text-[clamp(6px,2.5vw,12px)] pr-4 md:pr-0"
           >
             <Link href="/" className="hover:opacity-70 transition-opacity">
               Josh Blyskal <span className="opacity-40 hidden sm:inline">/ Research</span>
@@ -61,7 +61,7 @@ export function Header() {
             }}
           >
             <div className="contents text-white md:text-foreground"> 
-              <div className={`flex gap-[clamp(6px,4vw,32px)] transition-colors duration-300 text-[clamp(6px,2.5vw,12px)] ${isScrolled ? 'text-foreground' : 'text-white md:text-foreground'}`}>
+              <div className={`flex gap-[clamp(4px,3vw,32px)] transition-colors duration-300 text-[clamp(6px,2.5vw,12px)] ${isScrolled ? 'text-foreground' : 'text-white md:text-foreground'}`}>
                 <Link href="#speaking" className="hover:text-accent transition-colors whitespace-nowrap">
                   [ Speaking ]
                 </Link>
