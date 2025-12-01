@@ -82,7 +82,12 @@ export function Speaking() {
         </motion.div>
 
         {/* Right: Ledger / List */}
-        <div className="border-t-2 border-foreground">
+        <div>
+          <div className="flex items-baseline justify-between border-b-2 border-foreground pb-4 mb-8">
+            <h3 className="text-2xl font-display font-normal italic text-foreground">Speaking Engagements</h3>
+            <span className="font-mono text-xs uppercase tracking-widest opacity-50">Ref. List 01</span>
+          </div>
+          
           {talks.map((talk, index) => (
             <div
               key={index}

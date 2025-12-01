@@ -46,7 +46,8 @@ const pressMentions = [
     domain: "useformat.ai",
     title: "Speed Series: Josh Blyskal",
     link: "https://useformat.ai/speed/josh-blyskal",
-    year: "2025"
+    year: "2025",
+    useTextFallback: true
   },
   {
     outlet: "Profound Podcast",
@@ -114,19 +115,24 @@ export function Press() {
 
               {/* Logo Area */}
               <div className="mb-6 h-8 flex items-center">
-                {/* Using Clearbit Logo API - simple, reliable for major domains */}
-                <img 
-                  src={`https://logo.clearbit.com/${item.domain}?size=60&greyscale=true`}
-                  alt={`${item.outlet} logo`}
-                  className="h-6 w-auto object-contain opacity-60 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0 mix-blend-multiply"
-                  onError={(e) => {
-                    // Fallback to text if logo fails
-                    e.currentTarget.style.display = 'none';
-                    const textFallback = e.currentTarget.nextElementSibling;
-                    if (textFallback) textFallback.classList.remove('hidden');
-                  }}
-                />
-                <span className="hidden font-display font-bold text-lg leading-none">{item.outlet}</span>
+                {item.useTextFallback ? (
+                  <span className="font-display font-bold text-lg leading-none">{item.outlet}</span>
+                ) : (
+                  <>
+                    <img 
+                      src={`https://logo.clearbit.com/${item.domain}?size=60&greyscale=true`}
+                      alt={`${item.outlet} logo`}
+                      className="h-6 w-auto object-contain opacity-60 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
+                      style={{ mixBlendMode: 'multiply' }}
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        const textFallback = e.currentTarget.nextElementSibling;
+                        if (textFallback) textFallback.classList.remove('hidden');
+                      }}
+                    />
+                    <span className="hidden font-display font-bold text-lg leading-none">{item.outlet}</span>
+                  </>
+                )}
               </div>
 
               {/* Content */}
