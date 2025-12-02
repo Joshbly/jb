@@ -53,7 +53,7 @@ export function WhatWeDontSay() {
         <figure className="my-12">
           <img 
             src="/images/liminal-mall.png" 
-            alt="Empty mall interior with red gumball machine" 
+            alt="Empty shopping mall interior with vintage red gumball machine - metaphor for digital spaces without human interaction" 
             className="w-full h-auto contrast-125 brightness-90 border-2 border-foreground/10"
           />
           <figcaption className="font-mono text-xs uppercase tracking-widest text-center mt-4 text-foreground/60">
@@ -185,7 +185,7 @@ export function WhatWeDontSay() {
         <div className="flex flex-col gap-2">
           <img 
             src="/images/signature.svg" 
-            alt="Signature" 
+            alt="Josh Blyskal signature" 
             className="h-48 w-auto -ml-4 opacity-70" 
           />
           <div className="font-display text-xl italic pl-2">Josh</div>

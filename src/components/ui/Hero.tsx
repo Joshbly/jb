@@ -13,7 +13,7 @@ export function Hero() {
         <div className="relative w-full lg:w-[55%] h-[50vh] lg:h-full bg-black border-b-2 lg:border-b-0 lg:border-r-2 border-foreground overflow-hidden group">
            <Image
             src="/images/header2.png"
-            alt="Josh Blyskal"
+            alt="Josh Blyskal, AI Strategy & Research expert speaking at Profound's Zero Click conference"
             fill
             className="object-cover filter grayscale contrast-[1.2] brightness-90 group-hover:contrast-[1.3] transition-all duration-700" 
             priority
