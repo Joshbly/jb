@@ -32,7 +32,7 @@ export function Now() {
                  <a href="/images/headshot.png" target="_blank" rel="noopener noreferrer">
                   <Image
                     src="/images/headshot.png"
-                    alt="Josh Blyskal Portrait"
+                    alt="Professional headshot of Josh Blyskal, Head of AI Strategy & Research at Profound"
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -69,7 +69,7 @@ export function Now() {
                         <a href="/images/headshot.png" target="_blank" rel="noopener noreferrer">
                           <Image
                             src="/images/headshot.png"
-                            alt="Josh Blyskal Portrait"
+                            alt="Professional headshot of Josh Blyskal, Head of AI Strategy & Research at Profound"
                             fill
                             className="object-cover"
                           />

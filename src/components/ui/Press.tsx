@@ -121,7 +121,7 @@ export function Press() {
                   <>
                     <img 
                       src={`https://logo.clearbit.com/${item.domain}?size=60&greyscale=true`}
-                      alt={`${item.outlet} logo`}
+                      alt={`${item.outlet} - Press mention featuring Josh Blyskal`}
                       className="h-6 w-auto object-contain opacity-60 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
                       style={{ mixBlendMode: 'multiply' }}
                       onError={(e) => {
