@@ -3,8 +3,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-// Using Clearbit Logo API for consistent branding
-// Fallback to text if logo fails or isn't found (handled by alt text + styling)
 const pressMentions = [
   {
     outlet: "The Verge",
@@ -127,10 +125,9 @@ export function Press() {
                 ) : (
                   <>
                     <img 
-                      src={`https://logo.clearbit.com/${item.domain}?size=60&greyscale=true`}
+                      src={`https://www.google.com/s2/favicons?domain=${item.domain}&sz=64`}
                       alt={`${item.outlet} - Press mention featuring Josh Blyskal`}
-                      className="h-6 w-auto object-contain opacity-60 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
-                      style={{ mixBlendMode: 'multiply' }}
+                      className="h-6 w-6 object-contain opacity-60 group-hover:opacity-100 transition-opacity"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
                         const textFallback = e.currentTarget.nextElementSibling;
