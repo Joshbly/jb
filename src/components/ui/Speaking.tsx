@@ -4,6 +4,15 @@ import { motion } from "framer-motion";
 
 const talks = [
   {
+    year: "December 2025",
+    conference: "TechSEO Connect",
+    location: "Brighton, UK",
+    title: "We analyzed 250 million AI search results: here's what I found",
+    desc: "Deep dive into Profound's largest research study analyzing AI search patterns across 8 answer engines.",
+    link: "https://speakerdeck.com/joshbly/we-analyzed-250-million-ai-search-results-heres-what-i-found",
+    video: "https://www.youtube.com/watch?v=ll_kZh5GVX0"
+  },
+  {
     year: "October 2025",
     conference: "Zero Click",
     location: "NYC, USA",

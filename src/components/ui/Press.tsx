@@ -7,6 +7,13 @@ import Image from "next/image";
 // Fallback to text if logo fails or isn't found (handled by alt text + styling)
 const pressMentions = [
   {
+    outlet: "The Verge",
+    domain: "theverge.com",
+    title: "AI companies are racing to build the operating system for AI agents",
+    link: "https://www.theverge.com/ai-artificial-intelligence/841156/ai-companies-aaif-anthropic-mcp-model-context-protocol",
+    year: "2025"
+  },
+  {
     outlet: "Search Engine Land",
     domain: "searchengineland.com",
     title: "ChatGPT is sending less traffic to websites – down 52% in a month",
