@@ -6,12 +6,13 @@ import { Speaking } from "@/components/ui/Speaking";
 import { Writing } from "@/components/ui/Writing";
 import { Press } from "@/components/ui/Press";
 import { Now } from "@/components/ui/Now";
+import { ViewportReveal } from "@/components/shared/ViewportReveal";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background selection:bg-accent selection:text-background">
       <Header />
-      
+      <ViewportReveal />
       <main>
         <Hero />
         {/* Thoughts section directly below Hero as requested */}

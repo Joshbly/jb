@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 const talks = [
   {
     year: "December 2025",
@@ -10,7 +6,7 @@ const talks = [
     title: "We analyzed 250 million AI search results: here's what we found",
     desc: "Deep dive into Profound's largest research study analyzing AI search patterns across 8 answer engines.",
     link: "https://speakerdeck.com/joshbly/we-analyzed-250-million-ai-search-results-heres-what-i-found",
-    video: "https://www.youtube.com/watch?v=ll_kZh5GVX0"
+    video: "https://www.youtube.com/watch?v=ll_kZh5GVX0",
   },
   {
     year: "October 2025",
@@ -19,7 +15,7 @@ const talks = [
     title: "The Machine Customer Era",
     desc: "Inaugural AI Search conference. Topic: how AI agents are becoming the primary customer.",
     link: "https://speakerdeck.com/joshbly/the-machine-customer-era-zero-click-2025",
-    video: "https://www.youtube.com/watch?v=pBe1BcuVqBw"
+    video: "https://www.youtube.com/watch?v=pBe1BcuVqBw",
   },
   {
     year: "Sept 2025",
@@ -27,8 +23,8 @@ const talks = [
     location: "Kansas City, MO, USA",
     title: "If Gen AI can't find you, neither can your buyers",
     desc: "How analyst relations is now at the center of B2B AI visibility",
-    link: null, 
-    video: "https://www.youtube.com/watch?v=twkME1D_IhM"
+    link: null,
+    video: "https://www.youtube.com/watch?v=twkME1D_IhM",
   },
   {
     year: "Sept 2025",
@@ -37,7 +33,7 @@ const talks = [
     title: "I analyzed 40 million search results: here's what I found",
     desc: "Expanding research on ChatGPT, Perplexity, and SGE patterns for US markets.",
     link: "https://speakerdeck.com/joshbly/josh-blyskal-profound-i-analyzed-40-million-search-results-heres-what-i-found",
-    video: null // Video same as Spotlight AR but kept distinct if needed, or null if not available
+    video: null,
   },
   {
     year: "April 2025",
@@ -46,7 +42,7 @@ const talks = [
     title: "I analyzed 10,000,000 AI search results: here's what I found",
     desc: "Revealing how AI-powered search results differ dramatically from traditional Google results.",
     link: "https://speakerdeck.com/joshbly/josh-blyskal-profound-we-analyed-10000-000-ai-search-results-dot-dot-dot",
-    video: "https://www.youtube.com/watch?v=slE1sgPReTM"
+    video: "https://www.youtube.com/watch?v=slE1sgPReTM",
   },
 ];
 
@@ -55,32 +51,35 @@ const topics = [
   "Large Language Model (LLM) Search Behavior",
   "AI-Driven Consumer Intent Analysis",
   "Entity-Based SEO Strategy",
-  "The Transition from Search to Answer Engines"
+  "The Transition from Search to Answer Engines",
 ];
 
 export function Speaking() {
   return (
-    <section id="speaking" className="py-32 border-t-2 border-foreground bg-background">
+    <section
+      id="speaking"
+      className="py-32 border-t-2 border-foreground bg-background"
+    >
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_2fr] gap-16 lg:gap-32">
-        
         {/* Left: Foreword / Context */}
-        <motion.div 
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="space-y-8"
-        >
+        <div className="space-y-8" data-reveal="idle">
           <div className="sticky top-32">
-            <h2 className="text-4xl font-display font-normal italic text-foreground mb-6">Speaking</h2>
+            <h2 className="text-4xl font-display font-normal italic text-foreground mb-6">
+              Speaking
+            </h2>
             <p className="text-lg font-body leading-relaxed text-foreground/80 mb-8">
-              Translating complex AI and search concepts into actionable insights. From keynote stages to webinars, sharing data-backed strategies on AEO and the future of discovery.
+              Translating complex AI and search concepts into actionable insights.
+              From keynote stages to webinars, sharing data-backed strategies on
+              AEO and the future of discovery.
             </p>
-            
+
             <div className="pt-8 border-t border-foreground/20">
-              <h3 className="font-mono text-xs uppercase tracking-widest mb-4 opacity-60">Core Topics</h3>
+              <h3 className="font-mono text-xs uppercase tracking-widest mb-4 opacity-60">
+                Core Topics
+              </h3>
               <ul className="space-y-2 font-mono text-xs">
-                {topics.map((topic, i) => (
-                  <li key={i} className="flex items-center gap-2">
+                {topics.map((topic) => (
+                  <li key={topic} className="flex items-center gap-2">
                     <span className="w-1 h-1 bg-accent" />
                     {topic}
                   </li>
@@ -88,19 +87,28 @@ export function Speaking() {
               </ul>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Right: Ledger / List */}
         <div>
-          <div className="flex items-baseline justify-between border-b-2 border-foreground pb-4 mb-8">
-            <h3 className="text-2xl font-display font-normal italic text-foreground">Speaking Engagements</h3>
-            <span className="font-mono text-xs uppercase tracking-widest opacity-50">Ref. List 01</span>
+          <div
+            className="flex items-baseline justify-between border-b-2 border-foreground pb-4 mb-8"
+            data-reveal="idle"
+          >
+            <h3 className="text-2xl font-display font-normal italic text-foreground">
+              Speaking Engagements
+            </h3>
+            <span className="font-mono text-xs uppercase tracking-widest opacity-50">
+              Ref. List 01
+            </span>
           </div>
-          
+
           {talks.map((talk, index) => (
             <div
-              key={index}
+              key={talk.title}
               className="group block py-8 border-b border-foreground/20 px-4 -mx-4"
+              data-reveal="idle"
+              style={{ transitionDelay: `${index * 80}ms` }}
             >
               <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-12 mb-2">
                 {/* Meta Column */}
@@ -121,26 +129,30 @@ export function Speaking() {
 
                   <div className="flex items-center gap-6 font-mono text-xs uppercase tracking-widest">
                     {talk.link && (
-                      <a 
-                        href={talk.link} 
-                        target="_blank" 
+                      <a
+                        href={talk.link}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="group/link flex items-center gap-2 text-foreground/60 hover:text-accent transition-colors"
                       >
                         <span>View Slides</span>
-                        <span className="opacity-0 group-hover/link:opacity-100 transition-opacity -translate-x-1 group-hover/link:translate-x-0">→</span>
+                        <span className="opacity-0 group-hover/link:opacity-100 transition-opacity -translate-x-1 group-hover/link:translate-x-0">
+                          →
+                        </span>
                       </a>
                     )}
-                    
+
                     {talk.video && (
-                      <a 
-                        href={talk.video} 
-                        target="_blank" 
+                      <a
+                        href={talk.video}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="group/video flex items-center gap-2 text-foreground/60 hover:text-accent transition-colors"
                       >
                         <span>Watch Recording</span>
-                        <span className="opacity-0 group-hover/video:opacity-100 transition-opacity -translate-x-1 group-hover/video:translate-x-0">→</span>
+                        <span className="opacity-0 group-hover/video:opacity-100 transition-opacity -translate-x-1 group-hover/video:translate-x-0">
+                          →
+                        </span>
                       </a>
                     )}
                   </div>
