@@ -33,31 +33,31 @@ export default function SmoothPage() {
   const episodes = getEpisodes();
   
   return (
-    <main className="min-h-screen py-24 md:py-32">
-      <div className="max-w-2xl mx-auto px-6">
-        <header className="mb-20 text-center">
-          <h1 className="font-mono text-4xl md:text-5xl tracking-[0.3em] uppercase mb-4">
+    <main className="min-h-screen py-20 md:py-28">
+      <div className="max-w-xl mx-auto px-6 md:px-12">
+        <header className="mb-16">
+          <h1 className="font-mono text-3xl md:text-4xl tracking-[0.2em] uppercase mb-3 text-white/90">
             Smooth
           </h1>
-          <p className="font-mono text-xs tracking-[0.2em] text-[#555]">
-            SCRIPTS & EPISODES
+          <p className="font-mono text-sm tracking-wide text-white/30">
+            Scripts & Episodes
           </p>
         </header>
         
         {episodes.length === 0 ? (
-          <p className="text-[#555] font-mono text-sm text-center">No episodes yet.</p>
+          <p className="text-white/40 font-mono">No episodes yet.</p>
         ) : (
-          <ul className="space-y-0">
+          <ul className="space-y-1">
             {episodes.map(ep => (
               <li key={ep.slug}>
                 <Link 
                   href={`/smooth/${ep.slug}`}
-                  className="group flex items-center gap-6 py-5 border-b border-[#222] hover:border-[#444] transition-colors"
+                  className="group flex items-baseline gap-5 py-4 border-b border-white/10 hover:border-white/20 transition-colors"
                 >
-                  <span className="font-mono text-sm text-[#444] group-hover:text-[#888] transition-colors w-8">
+                  <span className="font-mono text-base text-white/25 group-hover:text-white/50 transition-colors tabular-nums">
                     {String(ep.number).padStart(2, '0')}
                   </span>
-                  <span className="font-mono text-lg tracking-wide group-hover:text-white transition-colors">
+                  <span className="font-mono text-lg text-white/70 group-hover:text-white transition-colors">
                     {ep.title}
                   </span>
                 </Link>

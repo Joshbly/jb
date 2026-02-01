@@ -4,7 +4,7 @@ export default function SmoothLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="screenplay-theme min-h-screen bg-[#0a0a0a] text-[#e8e4dc] selection:bg-white selection:text-black">
+    <div className="screenplay-theme min-h-screen bg-[#111111] text-[#c8c4bc] selection:bg-white/20 selection:text-white">
       {children}
     </div>
   );
