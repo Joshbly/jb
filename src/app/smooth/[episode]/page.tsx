@@ -31,16 +31,18 @@ export default async function EpisodePage({ params }: PageProps) {
   }
 
   return (
-    <main className="min-h-screen py-16 md:py-24">
-      <div className="max-w-4xl mx-auto px-6">
-        <Link 
-          href="/smooth" 
-          className="font-mono text-xs uppercase tracking-[0.15em] text-[#555] hover:text-[#888] transition-colors mb-16 inline-block"
-        >
-          ← Back
-        </Link>
+    <main className="min-h-screen py-12 md:py-20">
+      <div className="max-w-3xl mx-auto px-6 md:px-12">
+        <nav className="mb-12">
+          <Link 
+            href="/smooth" 
+            className="font-mono text-sm tracking-wide text-white/30 hover:text-white/60 transition-colors"
+          >
+            ← All Episodes
+          </Link>
+        </nav>
         
-        <article>
+        <article className="pb-20">
           <ScreenplayRenderer content={content} />
         </article>
       </div>
