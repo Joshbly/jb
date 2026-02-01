@@ -102,9 +102,10 @@ export function ScreenplayRenderer({ content }: Props) {
               );
             }
             
-            // Short italic = inline emphasis (e.g., "You *know* this")
+            // Short italic = inline emphasis (e.g., "You *know* this" or "We had *something.*")
             // Long italic = action/scene description
-            const isInlineEmphasis = text.split(/\s+/).length <= 4 && !text.endsWith('.');
+            const wordCount = text.split(/\s+/).length;
+            const isInlineEmphasis = wordCount <= 2 || (wordCount <= 4 && !text.endsWith('.'));
             
             if (isInlineEmphasis) {
               return <em className="italic">{children}</em>;
