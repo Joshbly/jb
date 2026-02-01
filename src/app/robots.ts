@@ -5,6 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
+      disallow: '/smooth',
     },
     sitemap: 'https://www.joshblyskal.com/sitemap.xml',
   };
