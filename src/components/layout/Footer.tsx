@@ -22,6 +22,7 @@ export function Footer() {
           <p>Optimized for AI Search & Answer Engines</p>
           <p>Leading AI Strategy & Research at Profound</p>
           <p className="pt-4 text-foreground">© 2025 Josh Blyskal</p>
+          <a href="/smooth" className="block pt-2 text-foreground/20 hover:text-accent transition-colors">Smooth</a>
         </div>
 
       </div>
