@@ -1,6 +1,7 @@
 'use client';
 
 import Markdown from 'react-markdown';
+import { SceneBlock, SceneBreak } from './SceneBlock';
 
 type Props = {
   content: string;
@@ -11,6 +12,31 @@ const TRANSITIONS = ['FADE IN', 'FADE OUT', 'FADE TO', 'CUT TO', 'SMASH CUT', 'D
 function isTransition(text: string): boolean {
   const upper = text.toUpperCase();
   return TRANSITIONS.some(t => upper.includes(t));
+}
+
+function isFadeToBlack(text: string): boolean {
+  const upper = text.toUpperCase();
+  return upper.includes('FADE TO BLACK') || upper.includes('FADE OUT.');
+}
+
+function isTextOnScreen(text: string): boolean {
+  const upper = text.toUpperCase();
+  return upper.includes('TEXT ON SCREEN') || upper.startsWith('"') && upper.endsWith('"') && text.length < 100;
+}
+
+function isPostCredits(text: string): boolean {
+  const upper = text.toUpperCase();
+  return upper.includes('POST-CREDITS') || upper.includes('POST CREDITS');
+}
+
+function isEndOfEpisode(text: string): boolean {
+  const upper = text.toUpperCase();
+  return upper.includes('END OF EPISODE') || upper === 'ACTUAL END OF EPISODE.';
+}
+
+function isCredits(text: string): boolean {
+  const upper = text.toUpperCase();
+  return upper === 'CREDITS.' || upper === 'CREDITS';
 }
 
 function isCharacterCue(text: string): boolean {
@@ -28,6 +54,11 @@ function isTitleCard(text: string): boolean {
   return trimmed === trimmed.toUpperCase() || trimmed.startsWith('Episode');
 }
 
+function isBannerText(text: string): boolean {
+  // Quoted text in bold that looks like signs/banners
+  return text.startsWith('"') && text.endsWith('"') && text.length < 80;
+}
+
 export function ScreenplayRenderer({ content }: Props) {
   const cleanContent = content.replace(/<!--[\s\S]*?-->/g, '');
 
@@ -35,61 +66,139 @@ export function ScreenplayRenderer({ content }: Props) {
     <div className="screenplay font-mono text-lg leading-[1.7] max-w-[65ch]">
       <Markdown
         components={{
-          // Scene breaks - generous breathing room
-          hr: () => (
-            <div className="my-12 flex items-center gap-4 opacity-30">
-              <span className="flex-1 h-px bg-current" />
-              <span className="text-xs tracking-[0.3em]">•</span>
-              <span className="flex-1 h-px bg-current" />
-            </div>
-          ),
+          // Scene breaks with animation
+          hr: () => <SceneBreak />,
 
           // Episode title
           h1: ({ children }) => (
-            <h1 className="text-2xl tracking-[0.2em] uppercase mb-16 mt-8 opacity-60">
-              {children}
-            </h1>
+            <SceneBlock>
+              <h1 className="text-2xl tracking-[0.2em] uppercase mb-16 mt-8 text-white/50">
+                {children}
+              </h1>
+            </SceneBlock>
           ),
 
-          // Character cues and title cards
+          // Character cues, title cards, and banner text
           strong: ({ children }) => {
             const text = String(children);
             
             if (isCharacterCue(text)) {
               const name = text.replace(/:$/, '');
               return (
-                <span className="block text-xl tracking-[0.12em] uppercase mt-10 mb-3 text-white">
-                  {name}
-                </span>
+                <SceneBlock>
+                  <span className="sp-character block text-xl tracking-[0.12em] uppercase mt-10 mb-3 text-white">
+                    {name}
+                  </span>
+                </SceneBlock>
+              );
+            }
+            
+            if (isBannerText(text)) {
+              // Banner/sign styling - like ship banners, signs, etc.
+              return (
+                <SceneBlock>
+                  <span className="block text-center text-base tracking-widest uppercase my-4 py-3 text-amber-200/80 border-y border-white/10">
+                    {text}
+                  </span>
+                </SceneBlock>
               );
             }
             
             if (isTitleCard(text)) {
               return (
-                <span className="block text-xl tracking-[0.15em] uppercase my-8 text-white/90">
-                  {text}
-                </span>
+                <SceneBlock>
+                  <span className="sp-titlecard block text-xl tracking-[0.15em] uppercase my-8 text-white/90">
+                    {text}
+                  </span>
+                </SceneBlock>
               );
             }
             
             return <strong className="text-white font-bold">{children}</strong>;
           },
 
-          // Action, transitions, parentheticals, emphasis
+          // Action, transitions, parentheticals, emphasis, and special content
           em: ({ children }) => {
             const text = String(children);
             
-            if (isTransition(text)) {
+            // Fade to black - special dramatic effect
+            if (isFadeToBlack(text)) {
               return (
-                <span className="block uppercase tracking-[0.15em] text-white/40 my-10 text-base">
-                  {text}
-                </span>
+                <SceneBlock>
+                  <div className="sp-fade-to-black">
+                    <span className="block uppercase tracking-[0.2em] text-white/30 my-10 text-base text-center">
+                      {text}
+                    </span>
+                  </div>
+                </SceneBlock>
               );
             }
             
+            // Text on screen - dramatic card styling
+            if (isTextOnScreen(text)) {
+              return (
+                <SceneBlock>
+                  <div className="sp-text-on-screen">
+                    <span className="block text-white/70 text-base leading-relaxed">
+                      {text}
+                    </span>
+                  </div>
+                </SceneBlock>
+              );
+            }
+            
+            // Post-credits scene marker
+            if (isPostCredits(text)) {
+              return (
+                <div className="sp-post-credits">
+                  <SceneBlock>
+                    <span className="block uppercase tracking-[0.15em] text-white/50 my-8 text-base">
+                      {text}
+                    </span>
+                  </SceneBlock>
+                </div>
+              );
+            }
+            
+            // End of episode
+            if (isEndOfEpisode(text)) {
+              return (
+                <SceneBlock>
+                  <div className="sp-end-card">
+                    <span className="block uppercase tracking-[0.3em] text-white/40 text-sm">
+                      {text}
+                    </span>
+                  </div>
+                </SceneBlock>
+              );
+            }
+            
+            // Credits
+            if (isCredits(text)) {
+              return (
+                <SceneBlock>
+                  <span className="block uppercase tracking-[0.2em] text-white/30 my-12 text-base text-center">
+                    {text}
+                  </span>
+                </SceneBlock>
+              );
+            }
+            
+            // Regular transition
+            if (isTransition(text)) {
+              return (
+                <SceneBlock>
+                  <span className="sp-transition block uppercase tracking-[0.15em] text-white/40 my-10 text-base">
+                    {text}
+                  </span>
+                </SceneBlock>
+              );
+            }
+            
+            // Parenthetical
             if (isParenthetical(text)) {
               return (
-                <span className="block text-base text-white/50 mb-3">
+                <span className="sp-parenthetical block text-base text-white/50 mb-3">
                   {text}
                 </span>
               );
@@ -103,11 +212,13 @@ export function ScreenplayRenderer({ content }: Props) {
               return <em className="italic text-white/90">{children}</em>;
             }
             
-            // Action/scene description - slightly muted, generous spacing
+            // Action/scene description
             return (
-              <span className="block text-white/60 my-6 leading-[1.8]">
-                {text}
-              </span>
+              <SceneBlock>
+                <span className="sp-action block text-white/55 my-6 leading-[1.85]">
+                  {text}
+                </span>
+              </SceneBlock>
             );
           },
 
@@ -123,9 +234,9 @@ export function ScreenplayRenderer({ content }: Props) {
               return <div>{children}</div>;
             }
             
-            // Dialogue - full brightness, comfortable reading
+            // Dialogue
             return (
-              <p className="my-3 leading-[1.8]">
+              <p className="sp-dialogue my-3 leading-[1.85]">
                 {children}
               </p>
             );
