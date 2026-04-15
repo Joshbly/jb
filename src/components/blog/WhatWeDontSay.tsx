@@ -22,29 +22,26 @@ export function WhatWeDontSay() {
       {/* Content */}
       <div className="prose prose-lg prose-stone font-body text-foreground leading-relaxed space-y-6">
         <p className="first-letter:text-5xl first-letter:font-display first-letter:float-left first-letter:mr-3 first-letter:mt-[-6px] first-letter:text-accent">
-          I had dinner with a Director of Search last week, an old friend and smart as hell. Halfway through our second glass of red wine, she asked me something nobody asks in public: "Josh, are we just... done? Like, is marketing as we know it just done?"
+          I had dinner with a Director of Search last week. Old friend, sharp, been in it forever. Halfway through our second glass of red wine she asked me something nobody asks in public: "Josh, are we just... done? Like, is marketing as we know it just done?"
         </p>
         <p>
-          And I didn't have the neat answer I usually have. Because she wasn't asking about the normal tactics many marketers ask about, she was asking about meaning.
+          I didn't have my usual answer ready. She wasn't asking about tactics. She was asking something bigger than that, and I sat there with my mouth half-open like an idiot.
         </p>
         <p>
-          I think about you all the time, you know. Not in a creepy way. But when I'm staring at these citation patterns at 2am, when I'm watching Wikipedia eat another percent of ChatGPT's trust, I think about you trying to explain to your CEO why the rules changed again. I think about you in budget meetings defending headcount for a discipline that might not exist in five years. I think about how fucking tired you must be.
+          I think about you all the time, you know. Not in a creepy way. But when I'm staring at citation patterns at 2am, when I'm watching Wikipedia eat another percent of ChatGPT's trust, I think about you trying to explain to your CEO why the rules changed again. You in budget meetings defending headcount for a discipline that might not exist in five years. How fucking tired you must be.
         </p>
         <p className="font-bold">
           Because here's what we don't say at conferences: most of us are building the plane while flying it. And that's actually working.
         </p>
-        <p>
-          Let me tell you what I see in the data, but more importantly, what I feel in my bones after months of living in this stuff:
-        </p>
 
         <div className="my-12 p-8 border-l-4 border-accent bg-foreground/5">
           <h3 className="text-2xl font-display italic text-foreground mb-0">
-            We're witnessing the end of the website as the atomic unit of the internet.
+            The website as the atomic unit of the internet is ending.
           </h3>
         </div>
 
         <p>
-          I don't mean websites are dying. I mean they're becoming something else entirely. You know how shopping malls didn't disappear, they just stopped being where commerce actually happens? They became these vestigial spaces that still exist but don't quite serve their original purpose?
+          I don't mean websites are dying. I mean they're becoming something else. You know how shopping malls didn't disappear? They just stopped being where commerce actually happens. They became these vestigial spaces that still exist but don't quite serve their original purpose.
         </p>
 
         <figure className="my-12">
@@ -59,118 +56,91 @@ export function WhatWeDontSay() {
         </figure>
 
         <p>
-          That's your website now: it's not dead. It's becoming infrastructure instead of destination. And nobody prepared us for that.
+          Your website is becoming infrastructure instead of destination. Nobody prepared us for that.
         </p>
         <p>
-          I pulled 4.6 billion citations last month. Four billion and six hundred million. You know what pattern emerged? Nothing. And everything. Reddit goes from 1% to 7% overnight because of a partnership call. Wikipedia swings from 5% to 15% back to 5% again because someone at OpenAI is flipping switches. Your decade of SEO work? It's worth exactly as much as OpenAI's product manager decides it's worth on a Tuesday afternoon.
+          I pulled 4.6 billion citations last month. You know what pattern emerged? Nothing. And everything. Reddit goes from 1% to 7% overnight because of a partnership call. Wikipedia swings from 5% to 15% back to 5% again because someone at OpenAI flips a switch. Your decade of SEO work is worth exactly as much as OpenAI's product manager decides it's worth on a Tuesday afternoon.
         </p>
         <p>
-          And the thing is? This isn't even malicious. It's just math. Probabilistic systems doing probabilistic things.
+          This isn't malicious. It's just math. Probabilistic systems doing probabilistic things.
         </p>
 
         <h3 className="font-display text-2xl italic mt-12 mb-6">
-          But here's where it gets interesting, and I mean actually interesting, not conference keynote interesting:
+          The part that's actually interesting (not conference keynote interesting):
         </h3>
 
         <p>
-          We're not helpless here. We're building the tools to track this chaos, to find patterns in the noise. Every day I work with brands who are creating real visibility strategies that work. Not because they've cracked some code, but because they've accepted the new probabilistic statistics of this world.
+          We're not helpless. Every day I work with brands building real visibility strategies, not because they've cracked some code, but because they've accepted the new statistics of how this world works and started building around them.
         </p>
         <p>
-          My nephew plays Minecraft. And for years, I thought the point was to build stuff that looked good. But watching him play with his friends, I realized looking good was irrelevant. The point was to build stuff that WORKED. That other people could use. That solved problems in the world they were creating together.
+          My nephew plays Minecraft. For years I thought the point was building stuff that looked good. Then I watched him play with his friends and realized looking good was irrelevant. The point was building things that WORKED. Things other people could use, that solved problems in the world they were creating together.
         </p>
         <p className="text-xl font-display italic text-accent">
           That's what marketing is becoming. Not the pretty building. The useful one.
         </p>
         <p>
-          When I see that 37% of ChatGPT prompts are now "generative intent", people asking it to CREATE things rather than find things, I don't see the death of search. I see the birth of something we're actively shaping. And you, reading this, probably managing a team, probably having to report metrics that don't make sense anymore, you're not just witnessing this, you're building it.
+          37% of ChatGPT prompts are now "generative intent," people asking it to CREATE things rather than find things. That's not the death of search. And you, reading this, probably managing a team, probably reporting metrics that don't make sense anymore, you're not watching this happen. You're in it.
         </p>
 
-        <h3 className="font-display text-2xl italic mt-12 mb-6">
-          Let me tell you a secret:
-        </h3>
-        
         <p>
-          Last month, a Fortune 500 brand saw their sentiment scores decrease in ChatGPT responses. The AI kept surfacing old negative Reddit threads, outdated reviews, conversations from when they genuinely had problems. Their visibility was fine, but the narrative was killing them.
+          Last month a Fortune 500 brand saw their sentiment scores tank in ChatGPT responses. The AI kept surfacing old negative Reddit threads, outdated reviews, conversations from when they genuinely had problems. Visibility was fine. The narrative was killing them.
         </p>
         <p>
-          You know what they wanted to do? Delete the old threads. "Optimize" the negative content away.
+          They wanted to delete the old threads. "Optimize" the negative content away.
         </p>
         <p>
-          That's not the secret. The secret is what actually worked: they started new conversations (real ones). They got their actual customers talking about their actual experience TODAY. Not through influencer campaigns or paid posts, but just by being worth talking about now. The old negative content is still there, but it's been contextualized by a flood of authentic, recent experiences.
+          What actually worked was stupider and harder: they started new conversations. Real ones. Got their actual customers talking about their actual experience today. Not through influencer campaigns or paid posts, just by being worth talking about. The old content is still there, but it's buried under a flood of recent, authentic experience.
         </p>
         <p>
-          The sentiment shifted because they became the company people wanted to recommend.
-        </p>
-        <p>
-          That's the world we're in now. You can't optimize truth. But you can create new truths worth sharing.
+          The sentiment shifted because they became the company people wanted to recommend. Turns out you can't game your way out of a bad reputation, but you can outgrow one.
         </p>
 
         <div className="my-16 py-12 border-y-2 border-foreground/20 text-center">
-          <p className="text-lg font-mono uppercase tracking-widest mb-4 text-accent">I need you to understand something, and this is me talking directly to YOU, the person reading this at your desk or on your phone pretending to work:</p>
           <p className="font-display text-2xl italic max-w-xl mx-auto">
-            "You're not crazy for feeling overwhelmed. You're not behind for still figuring out how to track AI visibility. You're not failing because your attribution models are breaking."
+            If you feel overwhelmed, if your attribution models are breaking, if you're still figuring out how to track AI visibility, that's not failure. That's the job right now.
           </p>
         </div>
 
         <p>
-          You're standing at the exact moment when marketing stops being about manipulation and starts being about being useful. Actually useful. Not "valuable content" useful. But genuinely helping people get shit done useful.
+          I keep thinking we're at the moment when marketing has to be useful or it dies. Not "valuable content" useful. Actually helping people get shit done.
         </p>
         <p>
-          And here's the thing: we're building the infrastructure for this new world. We're creating the visibility tools, the tracking systems, the frameworks. Not perfectly, not completely, but we're doing it. Every brand I work with that embraces agent readiness, that builds for citation consistency, that creates genuinely helpful content… they're seeing results. Weird results. Different results. But results.
+          We are building the infrastructure for this. Badly, sometimes. Every brand I work with that builds for citation consistency, that creates genuinely helpful content, they're seeing results. Weird results. Different results. But results.
         </p>
         <p>
-          When Atlas executes DOM clicks on your site, it doesn't care about your hero image. It cares if your checkout works. When ChatGPT searches for answers, it doesn't care about your keyword density. It cares if you actually answered the question. When a user asks for the best solution to their problem, ChatGPT doesn't care about your budget or your conversion goals.
+          When Atlas executes DOM clicks on your site, it doesn't care about your hero image. It cares if your checkout works. When ChatGPT searches for answers, it doesn't care about your keyword density. It cares if you actually answered the question.
         </p>
         <p>
-          And that's terrifying.
-        </p>
-        <p>
-          But it's also beautiful. And we're learning to navigate it.
+          That's terrifying. It's also kind of beautiful? I go back and forth.
         </p>
 
-        <h3 className="font-display text-2xl italic mt-12 mb-6">
-          Here's what I think happens next:
-        </h3>
-
         <p>
-          The marketers who thrive won't be the ones who figure out the new tricks. They'll be the ones who build the new infrastructure. Who create monitoring systems that account for 60% citation drift. Who understands that being in position 1 doesn't matter when ChatGPT flattens citations across all ten positions. Who realize that "agent experience" isn't just a buzzword, it's a new way of interacting with websites.
+          The marketers who survive this won't be the ones who figure out new tricks. They'll be the ones who build new monitoring systems that account for 60% citation drift. Who get that position 1 doesn't matter when ChatGPT flattens citations across all ten spots.
         </p>
         <p>
-          We're not lost. We're pioneering.
-        </p>
-        <p>
-          You know what gives me hope? Real, actual hope?
-        </p>
-        <p>
-          Every time I show a marketer our data: the citation volatility, the Reddit dominance, the Wikipedia dependency… after the initial panic, I see something else in their eyes. Determination. Because finally, FINALLY, we can see what we're dealing with. We can measure the chaos. We can respond to it.
-        </p>
-        <p>
-          We are building the playbook as we go.
+          Every time I show a marketer our data, the citation volatility, the Reddit dominance, the Wikipedia dependency, there's a moment of panic. And then something else. Determination, maybe. Because finally we can see what we're dealing with. We can measure the chaos and respond to it.
         </p>
 
         <div className="bg-foreground text-background p-8 my-12 rounded-sm">
           <p className="font-mono text-xs uppercase tracking-widest mb-4 opacity-70">Something I've never said publicly</p>
           <p className="font-body text-lg leading-relaxed">
-            My dad's a cop now, but he had this stint in advertising years ago. Brief, but it marked him. He wrote this ad for Southwest Airlines, just a simple thing that said what flights cost and when they left. No clever copy. No angle. Just information people needed.
+            My dad's a cop. Before that, weirdly, he did a short run in advertising. He wrote this Southwest Airlines ad once, just listed the flights and what they cost. That's it. No tagline, no concept. Here's when the plane leaves, here's what you'll pay.
             <br/><br/>
-            He told me once that it was the most useful thing he'd ever written. That he got more satisfaction from that straightforward ad than from anything else he did in advertising. I thought he was being nostalgic. Now I think he understood something the rest of us are just catching up to.
+            He brought it up years later over beers. Said it was the only piece of work he was ever really proud of. I remember thinking that was kind of sad, a whole stint in advertising and the highlight is basically a timetable? But I keep coming back to it. I think he was onto something I'm only now starting to get.
           </p>
         </div>
 
         <p>
-          We're about to enter an era where the only marketing that works is marketing that isn't trying to be marketing. Where the only content that matters is content that forgets it's content. Where the only brands that survive are the ones that stop being brands and start being helpful, present, and real.
+          I think my dad's Southwest ad worked because it wasn't trying to be anything. It was just useful. Maybe that's where all of this is going.
         </p>
         <p>
-          And we're the ones building the tools to make that possible. To track it, measure it, optimize for it. Not the old way, but a new way we're inventing as we go.
+          We're building the tools to track and measure all of this. Not the old way. A new way we're inventing as we go.
         </p>
         <p>
-          You and me, we're figuring it out together. Not because we have all the answers, but because we're the ones brave enough to build in the uncertainty. To create visibility strategies when visibility itself keeps changing. To develop frameworks when the ground won't stop shifting.
-        </p>
-        <p>
-          And that's enough. That's more than enough.
+          You and me, we're figuring it out. We don't have answers. We're just stubborn enough to keep building while the ground shifts.
         </p>
         <p className="text-2xl font-display italic text-accent mt-8">
-          That's everything.
+          That's enough. That's more than enough.
         </p>
         <p className="text-xs font-mono opacity-40 mt-4">
           (I love you, and I'm proud of you)
