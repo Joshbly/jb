@@ -1,77 +1,75 @@
-import { WhatWeDontSay } from "@/components/blog/WhatWeDontSay";
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Signature } from "@/components/ui/Signature";
+import { postBySlug, posts } from "@/content/posts";
+import { site } from "@/content/site";
+import { formatDate } from "@/lib/time";
 
-// Only one post for now, but structured for future additions
-const blogPosts = {
-  "what-we-dont-say-at-conferences": {
-    title: "What We Don't Say at Conferences",
-    component: WhatWeDontSay,
-    date: "2025-11-24",
-    readTime: "6 min",
-    description: "Is marketing as we know it done? We're witnessing the end of the website as the atomic unit of the internet. The only marketing that works now is marketing that isn't trying to be marketing.",
-    image: "/images/liminal-mall.png"
-  }
-};
+export const dynamicParams = false;
 
-// Correctly type the Page props for Next.js 15+
-// Params are now a Promise in newer Next.js versions, but let's handle both
-type PageProps = {
-  params: Promise<{ slug: string }>;
-};
+type PageProps = { params: Promise<{ slug: string }> };
 
-// Generate Metadata for SEO
+export function generateStaticParams() {
+  return posts.map((p) => ({ slug: p.slug }));
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = blogPosts[slug as keyof typeof blogPosts];
-
-  if (!post) {
-    return {
-      title: "Post Not Found",
-    };
-  }
+  const post = postBySlug[slug];
 
   return {
-    title: `${post.title} | Josh Blyskal`,
+    title: post.title,
     description: post.description,
     openGraph: {
       title: post.title,
       description: post.description,
       type: "article",
       publishedTime: post.date,
-      authors: ["Josh Blyskal"],
-      images: [
-        {
-          url: post.image, // Uses the mall image
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
+      authors: [site.name],
+      images: [{ url: post.image, width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: [post.image], // Uses the mall image
+      images: [post.image],
     },
   };
 }
 
 export default async function Page({ params }: PageProps) {
-  // Await the params object
   const { slug } = await params;
-  
-  const post = blogPosts[slug as keyof typeof blogPosts];
-
-  if (!post) {
-    return <div className="py-32 text-center font-mono">Post not found.</div>;
-  }
-
-  const Content = post.component;
+  const post = postBySlug[slug];
+  const Body = post.Body;
 
   return (
     <article className="min-h-screen bg-background py-32">
-      <Content />
+      <div className="max-w-3xl mx-auto px-6">
+        <header className="mb-16 border-b-2 border-foreground pb-8">
+          <div className="flex items-baseline justify-between mb-4">
+            <Link
+              href="/"
+              className="font-mono text-xs uppercase tracking-widest hover:text-accent transition-colors"
+            >
+              ← {site.name}
+            </Link>
+            <div className="flex flex-col items-end font-mono text-xs uppercase tracking-widest text-foreground/50">
+              <span>
+                {formatDate(post.date)} · {post.readTime} read
+              </span>
+              <span className="mt-1">By {site.name}</span>
+            </div>
+          </div>
+          <h1 className="text-4xl md:text-6xl font-display font-normal italic text-foreground leading-tight">
+            {post.title}
+          </h1>
+        </header>
+        <Body />
+
+        <div className="mt-24 pt-8 border-t-2 border-foreground/20 flex justify-between items-end">
+          <Signature />
+        </div>
+      </div>
     </article>
   );
 }

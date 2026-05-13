@@ -1,28 +1,26 @@
-import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
+import { RevealRunner } from "@/components/shared/RevealRunner";
 import { Hero } from "@/components/ui/Hero";
-import { Thoughts } from "@/components/ui/Thoughts";
-import { Speaking } from "@/components/ui/Speaking";
-import { Writing } from "@/components/ui/Writing";
-import { Press } from "@/components/ui/Press";
 import { Now } from "@/components/ui/Now";
-import { ViewportReveal } from "@/components/shared/ViewportReveal";
+import { Press } from "@/components/ui/Press";
+import { Speaking } from "@/components/ui/Speaking";
+import { Thoughts } from "@/components/ui/Thoughts";
+import { Writing } from "@/components/ui/Writing";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background selection:bg-accent selection:text-background">
+    <div className="min-h-screen bg-background">
       <Header />
-      <ViewportReveal />
+      <RevealRunner />
       <main>
         <Hero />
-        {/* Thoughts section directly below Hero as requested */}
         <Thoughts />
         <Speaking />
         <Writing />
         <Press />
         <Now />
       </main>
-
       <Footer />
     </div>
   );
