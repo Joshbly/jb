@@ -1,13 +1,7 @@
-# Episode 5
-
-<!-- Paste your script content below -->
-
 ---
-
-**YACHT ROCK**
-
-**Episode V: "The Southern Question"**
-
+number: 5
+title: The Southern Question
+preview: A dinner party at Michael McDonald's Malibu house. The ocean is the only guest that never leaves. A question is about to be asked.
 ---
 
 *FADE IN:*

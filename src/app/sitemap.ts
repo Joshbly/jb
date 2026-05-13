@@ -1,21 +1,20 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from "next";
+import { latestPostDate, posts } from "@/content/posts";
+import { site } from "@/content/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.joshblyskal.com';
-  
   return [
     {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
+      url: site.url,
+      lastModified: latestPostDate,
+      changeFrequency: "monthly",
       priority: 1,
     },
-    {
-      url: `${baseUrl}/blog/what-we-dont-say-at-conferences`,
-      lastModified: new Date('2025-11-24'),
-      changeFrequency: 'monthly',
+    ...posts.map((p) => ({
+      url: `${site.url}/blog/${p.slug}`,
+      lastModified: new Date(p.date),
+      changeFrequency: "monthly" as const,
       priority: 0.8,
-    },
+    })),
   ];
 }
-

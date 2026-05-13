@@ -1,13 +1,7 @@
-# Episode 8
-
-<!-- Paste your script content below -->
-
 ---
-
-**YACHT ROCK**
-
-**Episode VIII: "The Waiting Room"**
-
+number: 8
+title: The Waiting Room
+preview: A dental office in Sherman Oaks. The chairs are mauve. The fish in the corner tank are doing their best. The wait is long.
 ---
 
 *FADE IN:*

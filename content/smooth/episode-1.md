@@ -1,13 +1,7 @@
-# Episode 1
-
-<!-- Paste your script content below -->
-
 ---
-
-**YACHT ROCK**
-
-**Episode I: "The Danger Zone"**
-
+number: 1
+title: The Danger Zone
+preview: A recording studio. 1986. Michael McDonald sits at an electric piano. The door opens. Kenny Loggins enters, wearing a leather jacket.
 ---
 
 *FADE IN:*

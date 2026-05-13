@@ -1,67 +1,88 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import type { Episode } from "@/lib/episodes";
 
 type Props = {
-  currentEpisode: number;
-  totalEpisodes: number;
+  current: Episode;
+  prev: Episode | null;
+  next: Episode | null;
+  total: number;
 };
 
-export function EpisodeNav({ currentEpisode, totalEpisodes }: Props) {
+const SCENE_SELECTOR = ".sp-scene-break";
+
+function scrollToScene(direction: 1 | -1) {
+  const breaks = Array.from(document.querySelectorAll<HTMLElement>(SCENE_SELECTOR));
+  if (!breaks.length) {
+    return;
+  }
+  const current = window.scrollY;
+  const offset = direction === 1 ? 100 : -50;
+  const ordered = direction === 1 ? breaks : breaks.reverse();
+
+  for (const el of ordered) {
+    const top = el.getBoundingClientRect().top + window.scrollY;
+    if (direction === 1 ? top > current + offset : top < current + offset) {
+      window.scrollTo({ top: top - 100, behavior: "smooth" });
+      return;
+    }
+  }
+  window.scrollTo({
+    top: direction === 1 ? document.body.scrollHeight : 0,
+    behavior: "smooth",
+  });
+}
+
+const episodeHref = (slug: string) => `/smooth/${slug}`;
+
+export function EpisodeNav({ current, prev, next, total }: Props) {
   const router = useRouter();
-  const hasPrev = currentEpisode > 1;
-  const hasNext = currentEpisode < totalEpisodes;
-  const prevSlug = `episode-${currentEpisode - 1}`;
-  const nextSlug = `episode-${currentEpisode + 1}`;
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't capture if user is typing in an input
+    const onKey = (e: KeyboardEvent) => {
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
         return;
       }
-
-      // Arrow keys for episode navigation
-      if (e.key === 'ArrowLeft' && hasPrev) {
-        router.push(`/smooth/${prevSlug}`);
-      } else if (e.key === 'ArrowRight' && hasNext) {
-        router.push(`/smooth/${nextSlug}`);
-      }
-      
-      // j/k for scene-by-scene scrolling
-      if (e.key === 'j') {
+      if (e.key === "ArrowLeft" && prev) {
+        router.push(episodeHref(prev.slug));
+      } else if (e.key === "ArrowRight" && next) {
+        router.push(episodeHref(next.slug));
+      } else if (e.key === "j") {
         e.preventDefault();
-        scrollToNextScene();
-      } else if (e.key === 'k') {
+        scrollToScene(1);
+      } else if (e.key === "k") {
         e.preventDefault();
-        scrollToPrevScene();
+        scrollToScene(-1);
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [router, hasPrev, hasNext, prevSlug, nextSlug]);
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [router, prev, next]);
 
   return (
     <nav className="sp-episode-nav">
-      {hasPrev ? (
-        <Link href={`/smooth/${prevSlug}`} className="group flex items-center gap-2">
+      {prev ? (
+        <Link href={episodeHref(prev.slug)} className="group flex items-center gap-2">
           <span className="text-white/20 group-hover:text-white/60 transition-colors">←</span>
-          <span>Episode {currentEpisode - 1}</span>
+          <span>Episode {prev.number}</span>
         </Link>
       ) : (
         <span />
       )}
-      
+
       <span className="text-white/20 text-xs tracking-widest">
-        {currentEpisode} / {totalEpisodes}
+        {current.number} / {total}
       </span>
-      
-      {hasNext ? (
-        <Link href={`/smooth/${nextSlug}`} className="group flex items-center gap-2">
-          <span>Episode {currentEpisode + 1}</span>
+
+      {next ? (
+        <Link href={episodeHref(next.slug)} className="group flex items-center gap-2">
+          <span>Episode {next.number}</span>
           <span className="text-white/20 group-hover:text-white/60 transition-colors">→</span>
         </Link>
       ) : (
@@ -69,43 +90,4 @@ export function EpisodeNav({ currentEpisode, totalEpisodes }: Props) {
       )}
     </nav>
   );
-}
-
-// Helper to scroll to next scene break
-function scrollToNextScene() {
-  const sceneBreaks = document.querySelectorAll('.sp-scene-break, .my-12');
-  const scrollY = window.scrollY + 100;
-  
-  for (const el of sceneBreaks) {
-    const rect = el.getBoundingClientRect();
-    const elTop = rect.top + window.scrollY;
-    
-    if (elTop > scrollY) {
-      window.scrollTo({ top: elTop - 100, behavior: 'smooth' });
-      return;
-    }
-  }
-  
-  // If no next scene, scroll to bottom
-  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-}
-
-// Helper to scroll to previous scene break
-function scrollToPrevScene() {
-  const sceneBreaks = document.querySelectorAll('.sp-scene-break, .my-12');
-  const scrollY = window.scrollY - 50;
-  
-  const breaks = Array.from(sceneBreaks).reverse();
-  for (const el of breaks) {
-    const rect = el.getBoundingClientRect();
-    const elTop = rect.top + window.scrollY;
-    
-    if (elTop < scrollY) {
-      window.scrollTo({ top: elTop - 100, behavior: 'smooth' });
-      return;
-    }
-  }
-  
-  // If no prev scene, scroll to top
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }

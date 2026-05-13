@@ -1,0 +1,205 @@
+:root {
+  --screenplay-bg: #0d0d0d;
+  --screenplay-fg: #c8c4bc;
+  --sp-reveal-duration: 1400ms;
+  --sp-reveal-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@theme inline {
+  --color-screenplay-bg: var(--screenplay-bg);
+  --color-screenplay-fg: var(--screenplay-fg);
+}
+
+.screenplay-theme {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+.screenplay-theme::-webkit-scrollbar {
+  width: 6px;
+}
+.screenplay-theme::-webkit-scrollbar-track {
+  background: transparent;
+}
+.screenplay-theme::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+.screenplay-theme::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.screenplay-theme a {
+  transition:
+    color 200ms ease,
+    opacity 200ms ease;
+}
+.screenplay-theme a:focus-visible,
+.screenplay-theme button:focus-visible {
+  outline: 2px solid rgba(251, 191, 36, 0.5);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.screenplay {
+  font-family: var(--font-mono), "Courier Prime", "Courier New", monospace;
+}
+.screenplay ::selection {
+  background: rgba(251, 191, 36, 0.3);
+  color: white;
+}
+.screenplay .sp-character {
+  font-weight: 700;
+}
+.screenplay .sp-dialogue {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.screenplay .sp-action,
+.screenplay .sp-parenthetical {
+  font-style: italic;
+}
+.screenplay .sp-titlecard {
+  font-weight: 700;
+}
+
+/* Yacht rock cadence: every block shares duration/ease and a per-element stagger delay
+   set by RevealRunner (--sp-reveal-delay). Blocks crest top-to-bottom like a wave. */
+.sp-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  filter: blur(3px);
+  transition:
+    opacity var(--sp-reveal-duration) var(--sp-reveal-ease) var(--sp-reveal-delay, 0ms),
+    transform var(--sp-reveal-duration) var(--sp-reveal-ease) var(--sp-reveal-delay, 0ms),
+    filter var(--sp-reveal-duration) var(--sp-reveal-ease) var(--sp-reveal-delay, 0ms);
+}
+.sp-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.sp-scene-break {
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition:
+    opacity var(--sp-reveal-duration) var(--sp-reveal-ease) var(--sp-reveal-delay, 0ms),
+    transform var(--sp-reveal-duration) var(--sp-reveal-ease) var(--sp-reveal-delay, 0ms);
+}
+.sp-scene-break.revealed {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.screenplay .sp-reveal.revealed .sp-character {
+  animation: spCharacterIn var(--sp-reveal-duration) var(--sp-reveal-ease)
+    var(--sp-reveal-delay, 0ms) both;
+}
+@keyframes spCharacterIn {
+  from {
+    letter-spacing: 0.55em;
+  }
+  to {
+    letter-spacing: 0.12em;
+  }
+}
+
+.screenplay .sp-reveal.revealed .sp-transition {
+  animation: spTransitionIn var(--sp-reveal-duration) var(--sp-reveal-ease)
+    var(--sp-reveal-delay, 0ms) both;
+}
+@keyframes spTransitionIn {
+  from {
+    letter-spacing: 0.4em;
+  }
+  to {
+    letter-spacing: 0.15em;
+  }
+}
+
+.screenplay .sp-reveal.revealed .sp-titlecard {
+  animation: spTitlecardIn var(--sp-reveal-duration) var(--sp-reveal-ease)
+    var(--sp-reveal-delay, 0ms) both;
+}
+@keyframes spTitlecardIn {
+  from {
+    letter-spacing: 0.45em;
+  }
+  to {
+    letter-spacing: 0.15em;
+  }
+}
+
+.sp-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(251, 191, 36, 0.6), rgba(251, 191, 36, 0.8));
+  z-index: 100;
+  transition: opacity 300ms ease;
+}
+
+.sp-episode-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 0;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.sp-episode-nav a {
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 300ms ease;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+.sp-episode-nav a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+.sp-episode-nav a:hover span:first-child {
+  animation: arrowBounceLeft 400ms ease infinite;
+}
+.sp-episode-nav a:hover span:last-child {
+  animation: arrowBounceRight 400ms ease infinite;
+}
+
+@keyframes arrowBounceLeft {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-3px);
+  }
+}
+@keyframes arrowBounceRight {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-reveal,
+  .sp-scene-break {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+  .screenplay .sp-reveal.revealed .sp-character,
+  .screenplay .sp-reveal.revealed .sp-transition,
+  .screenplay .sp-reveal.revealed .sp-titlecard {
+    animation: none;
+  }
+  .sp-episode-nav a:hover span {
+    animation: none;
+  }
+  .screenplay-theme a,
+  .screenplay-theme button {
+    transition: none;
+  }
+}

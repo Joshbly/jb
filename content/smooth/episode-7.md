@@ -1,13 +1,7 @@
-# Episode 7
-
-<!-- Paste your script content below -->
-
 ---
-
-**YACHT ROCK**
-
-**Episode VII: "The Origin"**
-
+number: 7
+title: The Origin
+preview: A therapist's office in Santa Monica. Christopher Cross on the leather couch. His eyes are closed. He is about to remember everything.
 ---
 
 *FADE IN:*
