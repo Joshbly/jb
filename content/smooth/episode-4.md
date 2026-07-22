@@ -1,13 +1,7 @@
-# Episode 4
-
-<!-- Paste your script content below -->
-
 ---
-
-**YACHT ROCK**
-
-**Episode IV: "The Certification"**
-
+number: 4
+title: The Certification
+preview: A windowless warehouse in Los Angeles. The parking lot has one car. Inside, a single folding chair. In the chair, Steve Perry.
 ---
 
 *FADE IN:*

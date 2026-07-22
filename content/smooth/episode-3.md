@@ -1,13 +1,7 @@
-# Episode 3
-
-<!-- Paste your script content below -->
-
 ---
-
-**YACHT ROCK**
-
-**Episode III: "The Marina Del Rey Harbor Association Annual Meeting"**
-
+number: 3
+title: The Marina Del Rey Harbor Association Annual Meeting
+preview: A conference room at the Marina del Rey Yacht Club. A hand-painted banner reads "SMOOTH SEAS, SMOOTH NEIGHBORS." The annual meeting begins.
 ---
 
 *FADE IN:*

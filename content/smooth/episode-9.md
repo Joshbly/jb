@@ -1,13 +1,7 @@
-# Episode 9
-
-<!-- Paste your script content below -->
-
 ---
-
-**YACHT ROCK**
-
-**Episode IX: "The Cruise"**
-
+number: 9
+title: The Cruise
+preview: The Port of Miami at dawn. A massive white cruise ship named THE CELESTIAL HARMONY waits for the passengers of Smooth Vessel VII.
 ---
 
 *FADE IN:*

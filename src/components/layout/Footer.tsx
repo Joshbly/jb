@@ -1,30 +1,38 @@
+import { site } from "@/content/site";
+
 export function Footer() {
   return (
     <footer className="py-24 border-t-2 border-foreground bg-background">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 font-mono text-xs uppercase tracking-widest">
-        
         <div className="space-y-6">
-          <a 
-            href="mailto:josh@tryprofound.com" 
+          <a
+            href={`mailto:${site.email}`}
             className="text-2xl font-display font-normal normal-case italic hover:text-accent transition-colors block mb-8"
           >
-            josh@tryprofound.com
+            {site.email}
           </a>
-          
           <div className="flex gap-8">
-            <a href="https://linkedin.com/in/joshuablyskal" rel="me" className="hover:text-accent border-b border-foreground/30 hover:border-accent transition-colors pb-0.5">LinkedIn</a>
-            <a href="https://x.com/JBlyskal" rel="me" className="hover:text-accent border-b border-foreground/30 hover:border-accent transition-colors pb-0.5">Twitter</a>
-            <a href="https://speakerdeck.com/joshbly" rel="me" className="hover:text-accent border-b border-foreground/30 hover:border-accent transition-colors pb-0.5">Speaker Deck</a>
+            {site.socials.map((s) => (
+              <a
+                key={s.href}
+                href={s.href}
+                rel="me"
+                className="hover:text-accent border-b border-foreground/30 hover:border-accent transition-colors pb-0.5"
+              >
+                {s.label}
+              </a>
+            ))}
           </div>
         </div>
-        
-        <div className="text-right text-foreground/50 space-y-2">
-          <p>Optimized for AI Search & Answer Engines</p>
-          <p>Leading AI Strategy & Research at Profound</p>
-          <p className="pt-4 text-foreground">© 2025 Josh Blyskal</p>
-          <a href="/smooth" className="block pt-2 text-foreground/20 hover:text-accent transition-colors">Smooth</a>
-        </div>
 
+        <div className="text-right text-foreground/50 space-y-2">
+          <p>
+            {site.role} at {site.employer.name}
+          </p>
+          <p className="pt-4 text-foreground">
+            © {new Date().getFullYear()} {site.name}
+          </p>
+        </div>
       </div>
     </footer>
   );

@@ -1,13 +1,7 @@
-# Episode 6
-
-<!-- Paste your script content below -->
-
 ---
-
-**YACHT ROCK**
-
-**Episode VI: "The Brunch"**
-
+number: 6
+title: The Brunch
+preview: Sunday brunch at Omelette Du Fromage in West Hollywood. The mimosas are bottomless. The clientele peaked in a specific window of time.
 ---
 
 *FADE IN:*

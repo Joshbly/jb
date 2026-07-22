@@ -1,13 +1,7 @@
-# Episode 2
-
-<!-- Paste your script content below -->
-
 ---
-
-**YACHT ROCK**
-
-**Episode II: "Porcaro"**
-
+number: 2
+title: Porcaro
+preview: A long hallway in a 1982 LA recording studio. Fluorescent lights hum. David Paich approaches a door with one word on it: PORCARO.
 ---
 
 *FADE IN:*
