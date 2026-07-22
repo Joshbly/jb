@@ -1,167 +1,82 @@
-const talks = [
-  {
-    year: "December 2025",
-    conference: "TechSEO Connect",
-    location: "Durham, NC, USA",
-    title: "We analyzed 250 million AI search results: here's what we found",
-    desc: "Deep dive into Profound's largest research study analyzing AI search patterns across 8 answer engines.",
-    link: "https://speakerdeck.com/joshbly/we-analyzed-250-million-ai-search-results-heres-what-i-found",
-    video: "https://www.youtube.com/watch?v=ll_kZh5GVX0",
-  },
-  {
-    year: "October 2025",
-    conference: "Zero Click",
-    location: "NYC, NY, USA",
-    title: "The Machine Customer Era",
-    desc: "Inaugural AI Search conference. Topic: how AI agents are becoming the primary customer.",
-    link: "https://speakerdeck.com/joshbly/the-machine-customer-era-zero-click-2025",
-    video: "https://www.youtube.com/watch?v=pBe1BcuVqBw",
-  },
-  {
-    year: "Sept 2025",
-    conference: "Spotlight AR",
-    location: "Kansas City, MO, USA",
-    title: "If Gen AI can't find you, neither can your buyers",
-    desc: "How analyst relations is now at the center of B2B AI visibility",
-    link: null,
-    video: "https://www.youtube.com/watch?v=twkME1D_IhM",
-  },
-  {
-    year: "Sept 2025",
-    conference: "BrightonSEO",
-    location: "San Diego, CA, USA",
-    title: "I analyzed 40 million search results: here's what I found",
-    desc: "Expanding research on ChatGPT, Perplexity, and SGE patterns for US markets.",
-    link: "https://speakerdeck.com/joshbly/josh-blyskal-profound-i-analyzed-40-million-search-results-heres-what-i-found",
-    video: null,
-  },
-  {
-    year: "April 2025",
-    conference: "BrightonSEO",
-    location: "Brighton, UK",
-    title: "I analyzed 10,000,000 AI search results: here's what I found",
-    desc: "Revealing how AI-powered search results differ dramatically from traditional Google results.",
-    link: "https://speakerdeck.com/joshbly/josh-blyskal-profound-we-analyed-10000-000-ai-search-results-dot-dot-dot",
-    video: "https://www.youtube.com/watch?v=slE1sgPReTM",
-  },
-];
+import { Reveal } from "@/components/shared/Reveal";
+import { DisplayH2, Section, SectionHeader } from "@/components/shared/Section";
+import { speakingTopics, talks } from "@/content/talks";
 
-const topics = [
-  "AI Answer Engine Optimization (AEO)",
-  "Large Language Model (LLM) Search Behavior",
-  "AI-Driven Consumer Intent Analysis",
-  "Entity-Based SEO Strategy",
-  "The Transition from Search to Answer Engines",
-];
+const TALK_LINKS = [
+  { key: "link", label: "View Slides" },
+  { key: "video", label: "Watch Recording" },
+] as const;
 
 export function Speaking() {
   return (
-    <section
-      id="speaking"
-      className="py-32 border-t-2 border-foreground bg-background"
-    >
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_2fr] gap-16 lg:gap-32">
-        {/* Left: Foreword / Context */}
-        <div className="space-y-8" data-reveal="idle">
-          <div className="sticky top-32">
-            <h2 className="text-4xl font-display font-normal italic text-foreground mb-6">
-              Speaking
-            </h2>
-            <p className="text-lg font-body leading-relaxed text-foreground/80 mb-8">
-              Translating complex AI and search concepts into actionable insights.
-              From keynote stages to webinars, sharing data-backed strategies on
-              AEO and the future of discovery.
-            </p>
-
-            <div className="pt-8 border-t border-foreground/20">
-              <h3 className="font-mono text-xs uppercase tracking-widest mb-4 opacity-60">
-                Core Topics
-              </h3>
-              <ul className="space-y-2 font-mono text-xs">
-                {topics.map((topic) => (
-                  <li key={topic} className="flex items-center gap-2">
-                    <span className="w-1 h-1 bg-accent" />
-                    {topic}
-                  </li>
-                ))}
-              </ul>
-            </div>
+    <Section id="speaking" layout="split">
+      <Reveal className="space-y-8">
+        <div className="sticky top-32">
+          <DisplayH2 className="mb-6">Speaking</DisplayH2>
+          <p className="text-lg font-body leading-relaxed text-foreground/80 mb-8">
+            Translating complex AI and search concepts into actionable insights. From keynote stages
+            to webinars, sharing data-backed strategies on AEO and the future of discovery.
+          </p>
+          <div className="pt-8 border-t border-foreground/20">
+            <h3 className="font-mono text-xs uppercase tracking-widest mb-4 opacity-60">
+              Core Topics
+            </h3>
+            <ul className="space-y-2 font-mono text-xs">
+              {speakingTopics.map((topic) => (
+                <li key={topic} className="flex items-center gap-2">
+                  <span className="w-1 h-1 bg-accent" />
+                  {topic}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
+      </Reveal>
 
-        {/* Right: Ledger / List */}
-        <div>
-          <div
-            className="flex items-baseline justify-between border-b-2 border-foreground pb-4 mb-8"
-            data-reveal="idle"
+      <div>
+        <Reveal>
+          <SectionHeader title="Speaking Engagements" eyebrow="Ref. List 01" className="mb-8" />
+        </Reveal>
+        {talks.map((talk, i) => (
+          <Reveal
+            key={talk.title}
+            index={i}
+            className="group block py-8 border-b border-foreground/20 px-4 -mx-4"
           >
-            <h3 className="text-2xl font-display font-normal italic text-foreground">
-              Speaking Engagements
-            </h3>
-            <span className="font-mono text-xs uppercase tracking-widest opacity-50">
-              Ref. List 01
-            </span>
-          </div>
-
-          {talks.map((talk, index) => (
-            <div
-              key={talk.title}
-              className="group block py-8 border-b border-foreground/20 px-4 -mx-4"
-              data-reveal="idle"
-              style={{ transitionDelay: `${index * 80}ms` }}
-            >
-              <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-12 mb-2">
-                {/* Meta Column */}
-                <div className="flex flex-col gap-1 font-mono text-xs text-accent w-32 shrink-0 uppercase tracking-wider">
-                  <span className="font-bold">{talk.conference}</span>
-                  <span className="text-foreground/60">{talk.location}</span>
-                  <span className="text-[10px] opacity-50 mt-1">{talk.year}</span>
-                </div>
-
-                {/* Content Column */}
-                <div className="flex-1">
-                  <h3 className="text-xl font-display font-bold mb-3">
-                    {talk.title}
-                  </h3>
-                  <p className="font-body text-sm text-foreground/70 leading-relaxed max-w-xl mb-4">
-                    {talk.desc}
-                  </p>
-
-                  <div className="flex items-center gap-6 font-mono text-xs uppercase tracking-widest">
-                    {talk.link && (
+            <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-12 mb-2">
+              <div className="flex flex-col gap-1 font-mono text-xs text-accent w-32 shrink-0 uppercase tracking-wider">
+                <span className="font-bold">{talk.conference}</span>
+                <span className="text-foreground/60">{talk.location}</span>
+                <span className="text-[10px] opacity-50 mt-1">{talk.year}</span>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-display font-bold mb-3">{talk.title}</h3>
+                <p className="font-body text-sm text-foreground/70 leading-relaxed max-w-xl mb-4">
+                  {talk.description}
+                </p>
+                <div className="flex items-center gap-6 font-mono text-xs uppercase tracking-widest">
+                  {TALK_LINKS.map(({ key, label }) =>
+                    talk[key] ? (
                       <a
-                        href={talk.link}
+                        key={key}
+                        href={talk[key]}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group/link flex items-center gap-2 text-foreground/60 hover:text-accent transition-colors"
                       >
-                        <span>View Slides</span>
+                        <span>{label}</span>
                         <span className="opacity-0 group-hover/link:opacity-100 transition-opacity -translate-x-1 group-hover/link:translate-x-0">
                           →
                         </span>
                       </a>
-                    )}
-
-                    {talk.video && (
-                      <a
-                        href={talk.video}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group/video flex items-center gap-2 text-foreground/60 hover:text-accent transition-colors"
-                      >
-                        <span>Watch Recording</span>
-                        <span className="opacity-0 group-hover/video:opacity-100 transition-opacity -translate-x-1 group-hover/video:translate-x-0">
-                          →
-                        </span>
-                      </a>
-                    )}
-                  </div>
+                    ) : null,
+                  )}
                 </div>
               </div>
             </div>
-          ))}
-        </div>
+          </Reveal>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 }

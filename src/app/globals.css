@@ -1,425 +1,93 @@
 @import "tailwindcss";
 
 :root {
-  /* Warm, aged paper background */
-  --background: #F2F0E9;
-  /* Ink Black text - softer than pure #000, like aged ink */
-  --foreground: #1A1A1A;
-  /* Stamped Red Accent */
-  --accent: #C03015;
+  --background: #f2f0e9;
+  --foreground: #1a1a1a;
+  --accent: #c03015;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
-  
+
   --font-display: var(--font-display);
   --font-body: var(--font-body);
   --font-mono: var(--font-mono);
+
+  --ease-strong: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-soft: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --duration-medium: 400ms;
+  --duration-slow: 700ms;
+
+  --text-hero-name: clamp(3rem, 8vw, 5rem);
+  --text-header-fluid: clamp(6px, 2.5vw, 12px);
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Base styles */
 body {
-  background-color: var(--background);
-  color: var(--foreground);
-  /* Add subtle noise texture */
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
   background: var(--background);
 }
-
 ::-webkit-scrollbar-thumb {
   background: #333;
-  border-radius: 0px; /* Sharp edges */
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: #444;
 }
 
-/* Typography Utilities */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
 }
 
-/* Rough double border utility */
-.border-double-rough {
-  border-bottom: 3px double var(--foreground);
+/* Decorative brackets for nav links. Pseudo-content is ignored by AT, so screen
+   readers announce the label cleanly. */
+.nav-bracket::before {
+  content: "[ ";
+}
+.nav-bracket::after {
+  content: " ]";
 }
 
-.hover-underline-jitter:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
+/* Reveal-on-scroll. The .js gate on <html> ensures no-JS users see content immediately
+   while JS-enabled clients start hidden so the IntersectionObserver can stage the fade. */
+[data-reveal] {
+  transition:
+    opacity 500ms var(--ease-strong),
+    transform 500ms var(--ease-strong);
 }
 
-/* Reveal utility driven by ViewportReveal */
-[data-reveal="hidden"] {
+html.js [data-reveal]:not([data-reveal="visible"]) {
   opacity: 0;
   transform: translateY(16px);
 }
 
-[data-reveal="visible"],
-[data-reveal="idle"] {
+[data-reveal="visible"] {
   opacity: 1;
   transform: translateY(0);
 }
 
-[data-reveal] {
-  transition: opacity 500ms cubic-bezier(0.32, 0.72, 0, 1),
-    transform 500ms cubic-bezier(0.32, 0.72, 0, 1);
-}
-
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   [data-reveal] {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-}
-
-/* Header scroll states */
-#site-header .header-bg {
-  opacity: 0;
-  transition: opacity 400ms cubic-bezier(0.32, 0.72, 0, 1);
-}
-
-#site-header[data-scrolled="true"] .header-bg {
-  opacity: 1;
-}
-
-#site-header .header-inner {
-  transition: padding 400ms cubic-bezier(0.32, 0.72, 0, 1);
-  padding-block: 24px;
-}
-
-#site-header[data-scrolled="true"] .header-inner {
-  padding-block: 12px;
-}
-
-#site-header .header-title {
-  color: #ffffff;
-  transition: color 400ms ease;
-}
-
-@media (min-width: 768px) {
-  #site-header .header-title {
-    mix-blend-mode: difference;
-  }
-}
-
-#site-header[data-scrolled="true"] .header-title {
-  color: var(--foreground);
-  mix-blend-mode: normal;
-}
-
-#site-header .header-links {
-  color: #ffffff;
-  transition: color 400ms ease;
-}
-
-@media (min-width: 768px) {
-  #site-header .header-links {
-    color: var(--foreground);
-  }
-}
-
-#site-header[data-scrolled="true"] .header-links {
-  color: var(--foreground);
-}
-
-/* Screenplay Styles */
-.screenplay-theme {
-  /* Film grain texture */
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='0.04'/%3E%3C/svg%3E");
-}
-
-/* Custom scrollbar for screenplay theme */
-.screenplay-theme::-webkit-scrollbar {
-  width: 6px;
-}
-
-.screenplay-theme::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.screenplay-theme::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 3px;
-}
-
-.screenplay-theme::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.screenplay {
-  font-family: var(--font-mono), 'Courier Prime', 'Courier New', monospace;
-}
-
-.screenplay .sp-title {
-  font-weight: 400;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-.screenplay .sp-character {
-  font-weight: 700;
-}
-
-.screenplay .sp-dialogue {
-  font-weight: 400;
-}
-
-.screenplay .sp-action {
-  font-style: italic;
-}
-
-.screenplay .sp-transition {
-  font-weight: 400;
-}
-
-.screenplay .sp-parenthetical {
-  font-style: italic;
-}
-
-.screenplay .sp-titlecard {
-  font-weight: 700;
-}
-
-.screenplay .sp-break {
-  opacity: 0.5;
-}
-
-/* Screenplay reveal animations */
-.sp-reveal {
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
-              transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sp-reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Scene break animation */
-.sp-scene-break {
-  opacity: 0;
-  transform: scaleX(0);
-  transition: opacity 400ms ease, transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sp-scene-break.revealed {
-  opacity: 1;
-  transform: scaleX(1);
-}
-
-/* Text on screen card */
-.sp-text-on-screen {
-  text-align: center;
-  padding: 2rem 0;
-  margin: 3rem 0;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-/* Post-credits styling */
-.sp-post-credits {
-  margin-top: 4rem;
-  padding-top: 3rem;
-  border-top: 1px solid rgba(255,255,255,0.2);
-  position: relative;
-}
-
-.sp-post-credits::before {
-  content: 'STAY AFTER THE CREDITS';
-  position: absolute;
-  top: -0.75rem;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #0d0d0d;
-  padding: 0 1rem;
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.3);
-}
-
-/* End of episode card */
-.sp-end-card {
-  text-align: center;
-  padding: 4rem 0;
-  margin-top: 4rem;
-}
-
-/* Fade to black effect */
-.sp-fade-to-black {
-  position: relative;
-  padding: 3rem 0;
-  margin: 2rem 0;
-}
-
-.sp-fade-to-black::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: -2rem;
-  right: -2rem;
-  height: 100px;
-  background: linear-gradient(to bottom, transparent, #0d0d0d);
-  pointer-events: none;
-}
-
-/* Reading progress bar */
-.sp-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(251,191,36,0.6), rgba(251,191,36,0.8));
-  z-index: 100;
-  transition: opacity 300ms ease;
-}
-
-/* Episode navigation */
-.sp-episode-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 3rem 0;
-  margin-top: 4rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.sp-episode-nav a {
-  color: rgba(255,255,255,0.4);
-  transition: color 300ms ease;
-  font-size: 0.875rem;
-  letter-spacing: 0.05em;
-}
-
-.sp-episode-nav a:hover {
-  color: rgba(255,255,255,0.8);
-}
-
-/* Focus states for keyboard navigation */
-.screenplay-theme a:focus-visible,
-.screenplay-theme button:focus-visible {
-  outline: 2px solid rgba(251, 191, 36, 0.5);
-  outline-offset: 4px;
-  border-radius: 2px;
-}
-
-/* Scene break hover effect */
-.sp-scene-break:hover span:first-child,
-.sp-scene-break:hover span:last-child {
-  transform: scaleX(1.1);
-  transition: transform 300ms ease;
-}
-
-/* Episode card hover glow */
-.screenplay-theme .group:hover {
-  box-shadow: 0 0 40px -10px rgba(251, 191, 36, 0.1);
-}
-
-/* Smooth link transitions */
-.screenplay-theme a {
-  transition: color 200ms ease, opacity 200ms ease;
-}
-
-/* Character name subtle pulse on reveal */
-.sp-character {
-  animation: none;
-}
-
-.sp-reveal.revealed .sp-character {
-  animation: characterReveal 600ms ease forwards;
-}
-
-@keyframes characterReveal {
-  0% {
-    opacity: 0.5;
-    letter-spacing: 0.2em;
-  }
-  100% {
     opacity: 1;
-    letter-spacing: 0.12em;
-  }
-}
-
-/* Text selection in screenplay */
-.screenplay ::selection {
-  background: rgba(251, 191, 36, 0.3);
-  color: white;
-}
-
-/* Line clamp utility */
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Subtle text shadow for readability */
-.screenplay .sp-dialogue {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-/* Navigation hover arrow animation */
-.sp-episode-nav a:hover span:first-child {
-  animation: arrowBounceLeft 400ms ease infinite;
-}
-
-.sp-episode-nav a:hover span:last-child {
-  animation: arrowBounceRight 400ms ease infinite;
-}
-
-@keyframes arrowBounceLeft {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(-3px); }
-}
-
-@keyframes arrowBounceRight {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(3px); }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .sp-reveal,
-  .sp-scene-break {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-  
-  .sp-fade-to-black::after {
-    display: none;
-  }
-  
-  .sp-reveal.revealed .sp-character {
-    animation: none;
-  }
-  
-  .sp-episode-nav a:hover span {
-    animation: none !important;
-  }
-  
-  .screenplay-theme a,
-  .screenplay-theme button {
-    transition: none !important;
+    transform: none;
+    transition: none;
   }
 }

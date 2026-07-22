@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# joshblyskal.com
 
-## Getting Started
+Personal site for Josh Blyskal. Editorial typography, screenplay-styled long form, and a single homepage.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router, React Compiler enabled)
+- React 19
+- Tailwind v4
+- Biome 2 (lint + format)
+- TypeScript strict
+
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+bun install
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `bun dev` — start the dev server
+- `bun run build` — production build
+- `bun run start` — serve the production build
+- `bun run check` — Biome lint + `tsc --noEmit`
+- `bun run lint:fix` — auto-fix lint issues
+- `bun run format` — format with Biome
 
-## Learn More
+## Layout
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/                 Next.js routes (home, /blog/[slug], /smooth, /smooth/[episode])
+  components/
+    layout/            Header, Footer
+    shared/            Reveal + Section primitives
+    smooth/            Screenplay renderer + episode navigation
+    ui/                Homepage sections (Hero, Thoughts, Speaking, Writing, Press, Now)
+  content/             Typed content: articles, press, talks, posts, site config
+  lib/                 Episode loader, SEO JSON-LD, time helpers
+content/smooth/        Episode markdown with YAML frontmatter
+public/                Images and static assets
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Blog posts live as TSX files under `src/content/posts/` so they can use real React for layout-rich essays.
 
-## Deploy on Vercel
+Screenplay episodes live as markdown under `content/smooth/` with YAML frontmatter:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```markdown
+---
+number: 1
+title: The Danger Zone
+preview: Short one-line teaser shown on the episode index.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*FADE IN:*
+
+...
+```
+
+The renderer interprets standard screenplay conventions: bold uppercase ending in `:` is a character cue, italic blocks on their own line are scene direction, `---` is a scene break.
