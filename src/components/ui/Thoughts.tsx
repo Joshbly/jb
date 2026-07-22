@@ -6,6 +6,10 @@ import { posts } from "@/content/posts";
 const dotDate = (iso: string) => iso.replaceAll("-", ".");
 
 export function Thoughts() {
+  if (posts.length === 0) {
+    return null;
+  }
+
   return (
     <Section id="thoughts">
       <div

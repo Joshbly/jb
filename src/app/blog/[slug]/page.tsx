@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Signature } from "@/components/ui/Signature";
 import { postBySlug, posts } from "@/content/posts";
 import { site } from "@/content/site";
@@ -16,6 +17,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = postBySlug[slug];
+  if (!post) {
+    return {};
+  }
 
   return {
     title: post.title,
@@ -40,6 +44,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
   const post = postBySlug[slug];
+  if (!post) {
+    notFound();
+  }
   const Body = post.Body;
 
   return (

@@ -10,6 +10,16 @@ export type Talk = {
 
 export const talks: readonly Talk[] = [
   {
+    year: "July 2026",
+    conference: "Zero Click",
+    location: "NYC, NY, USA",
+    title: "The State of AEO in 2026",
+    description:
+      "Data and insights on ChatGPT and Claude search visibility, with an AI Search advertising update. Co-presented with Jasman Singh.",
+    link: "https://speakerdeck.com/joshbly/the-state-of-aeo-2026",
+    video: "https://www.tryprofound.com/zeroclick/ny",
+  },
+  {
     year: "December 2025",
     conference: "TechSEO Connect",
     location: "Durham, NC, USA",

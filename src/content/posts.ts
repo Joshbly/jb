@@ -1,5 +1,4 @@
 import type { ComponentType } from "react";
-import * as whatWeDontSay from "./posts/what-we-dont-say-at-conferences";
 
 export type PostMeta = {
   slug: string;
@@ -15,7 +14,8 @@ export type Post = PostMeta & {
   Body: ComponentType;
 };
 
-const modules = [whatWeDontSay];
+// Empty until the future-of-marketing article is ready — import new posts from ./posts/ here.
+const modules: readonly { meta: PostMeta; default: ComponentType }[] = [];
 
 export const posts: readonly Post[] = modules
   .map((m) => ({ ...m.meta, Body: m.default }))
