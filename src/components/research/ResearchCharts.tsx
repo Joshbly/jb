@@ -178,7 +178,7 @@ export function ProportionChart({
         {segments.map((segment) => (
           <div
             key={segment.label}
-            className="grid grid-cols-[0.75rem_1fr_auto] items-start gap-3 border-t border-foreground/15 pt-3"
+            className="grid grid-cols-[0.75rem_1fr_auto] items-start gap-3 py-1"
           >
             <span className={`mt-1 h-2.5 w-2.5 ${toneClasses[segment.tone]}`} aria-hidden="true" />
             <dt className="font-body text-sm leading-snug text-foreground/70">{segment.label}</dt>
@@ -232,14 +232,14 @@ export function RangeShareChart({
           <span>100%</span>
         </div>
       </div>
-      <dl className="mt-5 grid gap-4 sm:grid-cols-2">
-        <div className="border-t-2 border-accent pt-3">
+      <dl className="mt-5 grid gap-px border border-foreground/20 bg-foreground/20 sm:grid-cols-2">
+        <div className="bg-background p-4">
           <dt className="font-body text-sm text-foreground/65">{rangeLabel}</dt>
           <dd className="mt-1 font-mono text-xl font-bold tabular-nums">
             {range[0]}–{range[1]}%
           </dd>
         </div>
-        <div className="border-t-2 border-foreground pt-3">
+        <div className="bg-background p-4">
           <dt className="font-body text-sm text-foreground/65">{complementLabel}</dt>
           <dd className="mt-1 font-mono text-xl font-bold tabular-nums">
             {100 - range[1]}–{100 - range[0]}%
@@ -324,7 +324,7 @@ export function BarChart({
                 {point.displayValue ?? `${point.value}${suffix}`}
               </span>
               {point.detail ? (
-                <span className="col-span-2 font-mono text-[10px] leading-relaxed text-foreground/45 sm:col-start-2 sm:col-end-4">
+                <span className="col-span-2 font-mono text-xs leading-relaxed text-foreground/45 sm:col-start-2 sm:col-end-4">
                   {point.detail}
                 </span>
               ) : null}
@@ -422,7 +422,7 @@ function PlotBar({
 
 function SeriesLegend({ firstLabel, secondLabel }: { firstLabel: string; secondLabel: string }) {
   return (
-    <div className="mb-7 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-wider">
+    <div className="mb-7 flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-wider">
       <span className="flex items-center gap-2">
         <span className="h-2 w-5 bg-accent" aria-hidden="true" />
         {firstLabel}
@@ -589,7 +589,7 @@ export function RankPlot({ series, maximumRank, ticks, ariaLabel, topRank = 3 }:
   return (
     <div>
       <span className="sr-only">{ariaLabel}</span>
-      <div className="mb-3 flex justify-end font-mono text-[10px] uppercase tracking-wider text-foreground/45">
+      <div className="mb-3 flex justify-end font-mono text-xs uppercase tracking-wider text-foreground/45">
         <span>Lower rank is better</span>
       </div>
       <Axis domain={domain} ticks={ticks} labelColumns="wide" />
@@ -643,22 +643,15 @@ type StatStripProps = {
 
 export function StatStrip({ stats }: StatStripProps) {
   return (
-    <dl className="grid grid-cols-2 border-y-2 border-foreground">
-      {stats.map((stat, statIndex) => (
-        <div
-          key={stat.label}
-          className={`py-5 ${
-            statIndex % 2 === 0 ? "pr-5" : "border-l border-foreground/25 pl-5"
-          } ${statIndex >= 2 ? "border-t border-foreground/25" : ""}`}
-        >
-          <dd className="font-display text-3xl font-semibold tabular-nums md:text-4xl">
+    <dl className="grid grid-cols-2 gap-px border border-foreground/20 bg-foreground/20">
+      {stats.map((stat) => (
+        <div key={stat.label} className="bg-background p-5">
+          <dd className="font-display text-3xl font-medium tabular-nums md:text-4xl">
             {stat.value}
           </dd>
           <dt className="mt-2 font-body text-sm leading-snug text-foreground/65">{stat.label}</dt>
           {stat.note ? (
-            <p className="mt-2 font-mono text-[10px] leading-relaxed text-foreground/45">
-              {stat.note}
-            </p>
+            <p className="mt-2 font-mono text-xs leading-relaxed text-foreground/45">{stat.note}</p>
           ) : null}
         </div>
       ))}

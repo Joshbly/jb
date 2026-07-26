@@ -16,18 +16,9 @@ export type ResearchSource = {
   url: string;
 };
 
-export type ResearchMethodology = {
-  dataSource: string;
-  sampleSize: string;
-  period: string;
-  approach: string;
-  limitations: string;
-};
-
 export type ResearchMeta = {
   slug: string;
   title: string;
-  question: string;
   finding: string;
   date: string;
   readTime: string;
@@ -36,7 +27,6 @@ export type ResearchMeta = {
   image: string;
   authors: readonly ResearchAuthor[];
   sources: readonly ResearchSource[];
-  methodology: ResearchMethodology;
 };
 
 export type ResearchArticle = ResearchMeta & {

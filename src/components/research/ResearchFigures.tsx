@@ -16,24 +16,20 @@ export function ResearchFigure({
   children,
 }: ResearchFigureProps) {
   return (
-    <figure className="my-12 border-y-2 border-foreground py-7">
-      <figcaption className="mb-6">
-        <span className="font-mono text-[10px] uppercase tracking-widest text-accent">
+    <figure className="my-14">
+      <figcaption className="mb-8">
+        <span className="font-mono text-xs uppercase tracking-widest text-accent">
           Fig. {number}
         </span>
-        <h3 className="mt-2 font-display text-xl font-semibold leading-[1.2] md:text-[1.375rem]">
-          {title}
-        </h3>
+        <h3 className="mt-2 max-w-3xl font-display text-xl font-medium leading-snug">{title}</h3>
         {description ? (
-          <p className="mt-2 max-w-2xl font-body text-[0.9375rem] leading-6 text-foreground/60">
+          <p className="mt-2 max-w-2xl font-body text-sm leading-relaxed text-foreground/70">
             {description}
           </p>
         ) : null}
       </figcaption>
       {children}
-      <p className="mt-6 font-mono text-[10px] uppercase tracking-wider text-foreground/50">
-        Source: {source}
-      </p>
+      <p className="mt-7 font-mono text-xs tracking-wide text-foreground/45">Source: {source}</p>
     </figure>
   );
 }

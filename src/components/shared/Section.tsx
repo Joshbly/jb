@@ -43,13 +43,15 @@ export function SectionHeader({ title, eyebrow, className }: SectionHeaderProps)
   return (
     <div
       className={cn(
-        "flex items-baseline justify-between border-b-2 border-foreground pb-4",
+        "flex items-baseline justify-between gap-4 border-b-2 border-foreground pb-4",
         className,
       )}
     >
       <DisplayH2>{title}</DisplayH2>
       {eyebrow ? (
-        <span className="font-mono text-xs uppercase tracking-widest opacity-50">{eyebrow}</span>
+        <span className="shrink-0 text-right font-mono text-xs uppercase tracking-widest opacity-50">
+          {eyebrow}
+        </span>
       ) : null}
     </div>
   );

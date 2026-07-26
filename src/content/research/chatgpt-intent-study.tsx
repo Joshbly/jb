@@ -1,9 +1,4 @@
-import {
-  KeyFindings,
-  PullQuote,
-  ResearchNote,
-  ResearchSection,
-} from "@/components/research/ResearchArticleElements";
+import { PullQuote, ResearchSection } from "@/components/research/ResearchArticleElements";
 import {
   DivergingBarChart,
   DumbbellChart,
@@ -15,7 +10,6 @@ import type { ResearchMeta } from "@/content/research";
 export const meta = {
   slug: "chatgpt-intent-study",
   title: "What 50 million ChatGPT prompts reveal about user intent",
-  question: "What are people actually trying to do when they use ChatGPT?",
   finding:
     "The largest intent category is generative: 37.5% of prompts ask ChatGPT to create, draft, or complete something.",
   date: "2025-06-25",
@@ -23,7 +17,7 @@ export const meta = {
   description:
     "A study of more than 50 million ChatGPT prompts finds that generative intent is larger than informational, commercial, navigational, or transactional intent.",
   excerpt:
-    "Generative requests account for 37.5 percent of ChatGPT use, while navigational intent falls from 32.2 percent in traditional search to 2.1 percent.",
+    "Generative requests account for 37.5 percent of classified ChatGPT prompts, while navigational intent falls from 32.2 percent in traditional search to 2.1 percent.",
   image: "/images/header2.png",
   authors: [
     {
@@ -43,18 +37,6 @@ export const meta = {
       url: "https://www.tryprofound.com/blog/chatgpt-intent-landmark-study",
     },
   ],
-  methodology: {
-    dataSource:
-      "Real ChatGPT conversations observed through Profound's Prompt Volumes dataset. The source material describes these as user interactions rather than survey responses, third-party estimates, or synthetic prompts.",
-    sampleSize:
-      "The source corpus contained more than 50 million prompts. Profound extracted and classified a subset, but the exact size of that classified subset was not published.",
-    period:
-      "Published June 25, 2025. The original article did not disclose the collection window for the underlying conversations.",
-    approach:
-      "Prompts were assigned to six intent classes: generative, informational, no intent, commercial, transactional, and navigational. The resulting mix was compared with a traditional-search intent baseline.",
-    limitations:
-      "The public study did not publish the classifier, validation procedure, classified-sample size, or source citation for the traditional-search baseline. The percentages below reproduce the disclosed findings and do not infer missing method details.",
-  },
 } satisfies ResearchMeta;
 
 const chatgptIntent = [
@@ -82,22 +64,7 @@ const intentChanges = [
 
 export default function ChatgptIntentStudy() {
   return (
-    <div className="space-y-8">
-      <p className="max-w-[44rem] font-body text-xl leading-8 text-foreground/90 md:text-[1.375rem] md:leading-9">
-        Search intent used to describe the page a person wanted next. ChatGPT changes the unit. In
-        the largest category we found, the user did not want a page at all. They wanted the model to
-        make the thing.
-      </p>
-
-      <KeyFindings
-        findings={[
-          "Generative intent accounted for 37.5 percent of classified ChatGPT prompts.",
-          "Informational intent fell from 52.7 percent in the traditional-search baseline to 32.7 percent in ChatGPT.",
-          "Navigational intent fell from 32.2 percent to 2.1 percent.",
-          "Transactional intent rose from 0.6 percent to 6.1 percent.",
-        ]}
-      />
-
+    <div className="space-y-20">
       <ResearchSection title="Generative intent is the largest category">
         <p>
           Generative prompts ask for an output: write the email, build the budget, summarize the
@@ -124,8 +91,7 @@ export default function ChatgptIntentStudy() {
           for revisions in the same thread.
         </p>
         <PullQuote>
-          In the largest intent category, the answer is not a route to the task. It is the first
-          version of the task.
+          In the largest intent category, ChatGPT returns the first version of the task itself.
         </PullQuote>
       </ResearchSection>
 
@@ -139,8 +105,8 @@ export default function ChatgptIntentStudy() {
         <ResearchFigure
           number={2}
           title="ChatGPT compressed the familiar search intents"
-          description="The comparison includes the four categories shared by both taxonomies. Generative and no-intent prompts have no traditional-search counterpart in the source study."
-          source="Profound study and the traditional-search baseline reported in the original article"
+          description="The four intent categories shared by ChatGPT and traditional search."
+          source="Profound ChatGPT intent study"
         >
           <DumbbellChart
             series={sharedIntentComparison}
@@ -169,7 +135,7 @@ export default function ChatgptIntentStudy() {
           number={3}
           title="The largest changes happened at opposite ends of the journey"
           description="Percentage-point change from the traditional-search baseline to ChatGPT."
-          source="Calculated from percentages published by Profound"
+          source="Profound ChatGPT intent study"
         >
           <DivergingBarChart
             series={intentChanges}
@@ -188,18 +154,10 @@ export default function ChatgptIntentStudy() {
           sequence, not a stack of independent queries. A short correction can change what the user
           sees next even though it carries no standalone search intent.
         </p>
-        <ResearchNote label="A boundary in the public data">
-          <p>
-            The original article did not publish the exact classified-sample size or the
-            classifier's treatment of multi-turn context. I would not use this study to estimate the
-            number of individual ChatGPT users or to claim that every conversational turn changed a
-            model's long-term view of a brand.
-          </p>
-        </ResearchNote>
         <p>
-          It does tell us that a prompt log contains connective language that keyword research would
-          throw away. If we study only the first turn, we miss the rejection, the constraint, and
-          the revision that reveal whether the first answer worked.
+          A prompt log contains connective language that keyword research would throw away. If we
+          study only the first turn, we miss the rejection, constraint, or revision that reveals
+          whether the first answer worked.
         </p>
       </ResearchSection>
 
@@ -210,13 +168,12 @@ export default function ChatgptIntentStudy() {
           a table. Several brands may influence the decision. None is guaranteed a visit.
         </p>
         <p>
-          That makes referral traffic a partial measure. Citations, mentions, recommendation
-          language, and the prompts that produced them describe the work happening before a click.
-          They do not replace revenue measurement. They explain a stage that click-based attribution
-          barely sees.
+          Referral traffic captures only part of this. Citations, mentions, recommendation language,
+          and the prompts that produced them show the work happening before a click. Revenue
+          measurement picks up the sale; click-based attribution sees little of this earlier stage.
         </p>
         <p>
-          The 37.5 percent finding is the cleanest statement of the change. A large share of users
+          At 37.5 percent, generative intent changes what content has to do. A large share of users
           arrive with a verb and expect the model to return a usable object. Content earns influence
           when the model can use it inside that object, even when the user never opens the source.
         </p>

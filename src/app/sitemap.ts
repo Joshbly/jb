@@ -22,12 +22,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${site.url}/research/methodology`,
-      lastModified: latestResearchDate,
-      changeFrequency: "yearly",
-      priority: 0.7,
-    },
-    {
       url: `${site.url}/about`,
       lastModified: latestResearchDate,
       changeFrequency: "yearly",
