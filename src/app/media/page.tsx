@@ -65,6 +65,33 @@ const archiveSections = [
   { href: "#linkedin", label: "LinkedIn", count: linkedinPosts.length },
 ] as const;
 
+const talkFamilyLabels: Record<string, string> = {
+  "large-scale-ai-search-research": "Large-scale AI search research",
+  "machine-customer-era": "The Machine Customer Era",
+  "marketing-engineering-2026": "The Marketing Engineer",
+  "state-of-aeo-2026": "The State of AEO in 2026",
+};
+
+const stageGroups = Array.from(
+  stageAppearances.reduce((groupMap, appearance) => {
+    const groupId = appearance.talkFamilyId ?? appearance.id;
+    const existingGroup = groupMap.get(groupId);
+    if (existingGroup) {
+      existingGroup.appearances.push(appearance);
+      return groupMap;
+    }
+
+    groupMap.set(groupId, {
+      id: groupId,
+      title: appearance.talkFamilyId
+        ? (talkFamilyLabels[appearance.talkFamilyId] ?? appearance.title)
+        : appearance.title,
+      appearances: [appearance],
+    });
+    return groupMap;
+  }, new Map<string, { id: string; title: string; appearances: Appearance[] }>()),
+).map(([, group]) => group);
+
 export const metadata: Metadata = {
   title: { absolute: `${title} | ${site.name}` },
   description,
@@ -77,13 +104,7 @@ export const metadata: Metadata = {
   },
 };
 
-function MediaSectionHeader({
-  title: sectionTitle,
-  count,
-}: {
-  title: string;
-  count: number;
-}) {
+function MediaSectionHeader({ title: sectionTitle, count }: { title: string; count: number }) {
   return (
     <div className="flex items-baseline justify-between gap-4 border-b-2 border-foreground pb-4">
       <h2 className="font-display text-3xl font-normal italic sm:text-4xl">{sectionTitle}</h2>
@@ -119,31 +140,77 @@ function ItemLinks({ links }: { links: readonly MediaLink[] }) {
   );
 }
 
+function getAppearanceLinks(appearance: Appearance): MediaLink[] {
+  const links: MediaLink[] = [{ label: "Source", href: appearance.href }];
+  if (appearance.recording) {
+    links.push({ label: "Recording", href: appearance.recording });
+  }
+  if (appearance.slides) {
+    links.push({ label: "Slides", href: appearance.slides });
+  }
+  if (appearance.research) {
+    links.push({ label: "Research", href: appearance.research });
+  }
+  return links;
+}
+
+function StageGrid() {
+  return (
+    <div className="columns-1 md:columns-2 md:gap-12 lg:gap-16">
+      {stageGroups.map((group) => (
+        <article key={group.id} className="break-inside-avoid border-t border-foreground/20 py-7">
+          <h3 className="font-display text-xl font-semibold leading-snug">{group.title}</h3>
+          <div className="mt-5 divide-y divide-foreground/15 border-y border-foreground/15">
+            {group.appearances.map((appearance) => (
+              <div key={appearance.id} className="py-4">
+                <div className="flex flex-col gap-2 font-mono text-xs uppercase tracking-wider sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <p className="text-accent">{appearance.event}</p>
+                    <p className="mt-1 text-foreground/45">
+                      {[appearance.role, appearance.location].filter(Boolean).join(" · ")}
+                    </p>
+                  </div>
+                  <time
+                    className="text-foreground/40 sm:shrink-0 sm:text-right"
+                    dateTime={appearance.date}
+                  >
+                    {appearance.status === "upcoming"
+                      ? `Upcoming · ${appearance.dateLabel ?? formatDate(appearance.date)}`
+                      : (appearance.dateLabel ?? formatDate(appearance.date))}
+                  </time>
+                </div>
+                {group.appearances.length > 1 && appearance.title !== group.title ? (
+                  <p className="mt-3 font-body text-sm leading-relaxed text-foreground/65">
+                    {appearance.title}
+                  </p>
+                ) : null}
+                <ItemLinks links={getAppearanceLinks(appearance)} />
+              </div>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
 function AppearanceGrid({ appearances: items }: { appearances: readonly Appearance[] }) {
   return (
     <div className="grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16">
       {items.map((appearance) => {
-        const links: MediaLink[] = [{ label: "Source", href: appearance.href }];
-        if (appearance.recording) {
-          links.push({ label: "Recording", href: appearance.recording });
-        }
-        if (appearance.slides) {
-          links.push({ label: "Slides", href: appearance.slides });
-        }
-        if (appearance.research) {
-          links.push({ label: "Research", href: appearance.research });
-        }
-
         return (
           <article key={appearance.id} className="border-t border-foreground/20 py-7">
-            <div className="flex items-start justify-between gap-5 font-mono text-xs uppercase tracking-wider">
+            <div className="flex flex-col gap-3 font-mono text-xs uppercase tracking-wider sm:flex-row sm:items-start sm:justify-between sm:gap-5">
               <div>
                 <p className="text-accent">{appearance.event}</p>
                 <p className="mt-1 text-foreground/45">
                   {[appearance.role, appearance.location].filter(Boolean).join(" · ")}
                 </p>
               </div>
-              <time className="shrink-0 text-right text-foreground/40" dateTime={appearance.date}>
+              <time
+                className="text-foreground/40 sm:shrink-0 sm:text-right"
+                dateTime={appearance.date}
+              >
                 {appearance.status === "upcoming"
                   ? `Upcoming · ${appearance.dateLabel ?? formatDate(appearance.date)}`
                   : (appearance.dateLabel ?? formatDate(appearance.date))}
@@ -157,7 +224,7 @@ function AppearanceGrid({ appearances: items }: { appearances: readonly Appearan
                 With {appearance.coSpeakers.join(", ")}
               </p>
             ) : null}
-            <ItemLinks links={links} />
+            <ItemLinks links={getAppearanceLinks(appearance)} />
           </article>
         );
       })}
@@ -239,16 +306,13 @@ export default function MediaPage() {
         <section id="stages" className="scroll-mt-20 border-t-2 border-foreground py-20 md:py-24">
           <div className="mx-auto max-w-7xl px-6">
             <MediaSectionHeader title="Stages" count={stageAppearances.length} />
-            <AppearanceGrid appearances={stageAppearances} />
+            <StageGrid />
           </div>
         </section>
 
         <section id="podcasts" className="scroll-mt-20 border-t-2 border-foreground py-20 md:py-24">
           <div className="mx-auto max-w-7xl px-6">
-            <MediaSectionHeader
-              title="Podcasts & interviews"
-              count={podcastAppearances.length}
-            />
+            <MediaSectionHeader title="Podcasts & interviews" count={podcastAppearances.length} />
             <AppearanceGrid appearances={podcastAppearances} />
           </div>
         </section>
@@ -262,7 +326,7 @@ export default function MediaPage() {
                   <div className="flex items-start justify-between gap-5 font-mono text-xs uppercase tracking-wider">
                     <p className="text-accent">{record.outlet}</p>
                     <time className="text-foreground/40" dateTime={record.date}>
-                      {formatDate(record.date)}
+                      {record.dateLabel ?? formatDate(record.date)}
                     </time>
                   </div>
                   <p className="mt-2 font-mono text-xs uppercase tracking-wider text-foreground/45">
@@ -272,10 +336,7 @@ export default function MediaPage() {
                     {record.title}
                   </h3>
                   <ItemLinks
-                    links={[
-                      { label: "Read", href: record.href },
-                      ...(record.alternateLinks ?? []),
-                    ]}
+                    links={[{ label: "Read", href: record.href }, ...(record.alternateLinks ?? [])]}
                   />
                 </article>
               ))}
@@ -305,10 +366,7 @@ export default function MediaPage() {
                     {work.summary}
                   </p>
                   <ItemLinks
-                    links={[
-                      { label: "Read", href: work.href },
-                      ...(work.editions ?? []),
-                    ]}
+                    links={[{ label: "Read", href: work.href }, ...(work.editions ?? [])]}
                   />
                 </article>
               ))}
@@ -322,10 +380,10 @@ export default function MediaPage() {
               title="Decks & recordings"
               count={decks.length + recordings.length}
             />
-            <div className="grid gap-12 pt-8 lg:grid-cols-2 lg:gap-16">
+            <div className="pt-8">
               <div>
                 <h3 className="font-display text-2xl font-medium">Decks</h3>
-                <div className="mt-4">
+                <div className="mt-4 grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16">
                   {decks.map((deck) => (
                     <a
                       key={deck.id}
@@ -346,9 +404,9 @@ export default function MediaPage() {
                 </div>
               </div>
 
-              <div>
+              <div className="mt-14">
                 <h3 className="font-display text-2xl font-medium">Recordings</h3>
-                <div className="mt-4">
+                <div className="mt-4 grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16">
                   {recordings.map((recording) => (
                     <a
                       key={recording.id}

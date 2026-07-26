@@ -69,6 +69,7 @@ export type PressKind = "quoted" | "research-cited";
 export type PressRecord = {
   id: string;
   date: string;
+  dateLabel?: string;
   title: string;
   outlet: string;
   domain: string;

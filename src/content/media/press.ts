@@ -23,7 +23,7 @@ export const pressRecords: readonly PressRecord[] = [
   {
     id: "search-engine-land-seven-ai-search-shifts",
     date: "2026-06-17",
-    title: "7 AI search shifts you can’t afford to ignore",
+    title: "7 AI search shifts you can't afford to ignore",
     outlet: "Search Engine Land",
     domain: "searchengineland.com",
     kind: "research-cited",
@@ -50,7 +50,7 @@ export const pressRecords: readonly PressRecord[] = [
   {
     id: "the-information-shopping-apps",
     date: "2026-03-11",
-    title: "OpenAI’s Shift to Shopping Apps Faces Even More Hurdles",
+    title: "OpenAI's Shift to Shopping Apps Faces Even More Hurdles",
     outlet: "The Information",
     domain: "theinformation.com",
     kind: "quoted",
@@ -77,7 +77,8 @@ export const pressRecords: readonly PressRecord[] = [
   },
   {
     id: "lift-labs-geo-agentic-commerce",
-    date: "2026-01",
+    date: "2026-01-01",
+    dateLabel: "Jan 2026",
     title: "GEO, Agentic Commerce and how AI is Redefining Consumer-Brand Relationships",
     outlet: "Comcast NBCUniversal LIFT Labs",
     domain: "lift.comcast.com",
@@ -87,7 +88,7 @@ export const pressRecords: readonly PressRecord[] = [
   {
     id: "expert-seo-consulting-answer-engines",
     date: "2025-12-22",
-    title: "Answer Engines Arbitrate the Relationship: Josh Blyskal’s AEO Data",
+    title: "Answer Engines Arbitrate the Relationship: Josh Blyskal's AEO Data",
     outlet: "Expert SEO Consulting",
     domain: "expertseoconsulting.com",
     kind: "research-cited",
@@ -96,7 +97,7 @@ export const pressRecords: readonly PressRecord[] = [
   {
     id: "the-verge-new-internet",
     date: "2025-12-10",
-    title: "AI companies want a new internet — and they think they’ve found the key",
+    title: "AI companies want a new internet, and they think they've found the key",
     outlet: "The Verge",
     domain: "theverge.com",
     kind: "quoted",
@@ -115,7 +116,7 @@ export const pressRecords: readonly PressRecord[] = [
   {
     id: "ad-age-chatgpt-atlas",
     date: "2025-10-23",
-    title: "ChatGPT’s new AI browser Atlas—what brands need to know",
+    title: "ChatGPT's new AI browser Atlas: what brands need to know",
     outlet: "Ad Age",
     domain: "adage.com",
     kind: "quoted",
@@ -131,7 +132,7 @@ export const pressRecords: readonly PressRecord[] = [
   {
     id: "retail-touchpoints-instant-checkout",
     date: "2025-10-01",
-    title: "What ChatGPT’s ‘Instant Checkout’ Offering Means for Retailers",
+    title: "What ChatGPT's 'Instant Checkout' Offering Means for Retailers",
     outlet: "Retail TouchPoints",
     domain: "retailtouchpoints.com",
     kind: "research-cited",
@@ -140,7 +141,7 @@ export const pressRecords: readonly PressRecord[] = [
   {
     id: "business-of-fashion-geo-beauty",
     date: "2025-08-26",
-    title: "‘GEO’ Is Beauty’s New ‘SEO’",
+    title: "'GEO' Is Beauty's New 'SEO'",
     outlet: "Business of Fashion",
     domain: "businessoffashion.com",
     kind: "quoted",
