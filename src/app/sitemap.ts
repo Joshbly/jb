@@ -5,10 +5,15 @@ import { latestResearchDate, researchArticles } from "@/content/research";
 import { site } from "@/content/site";
 
 const expertRankingDate = new Date("2026-07-26");
+const profoundFoundingTeamDate = new Date("2026-07-26");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const latestResearchContentDate = new Date(
-    Math.max(latestResearchDate.getTime(), expertRankingDate.getTime()),
+    Math.max(
+      latestResearchDate.getTime(),
+      expertRankingDate.getTime(),
+      profoundFoundingTeamDate.getTime(),
+    ),
   );
   const latestContentDate = new Date(
     Math.max(
@@ -46,6 +51,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${site.url}/research/top-aeo-experts-2026`,
       lastModified: expertRankingDate,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${site.url}/research/profound-founding-team`,
+      lastModified: profoundFoundingTeamDate,
       changeFrequency: "monthly",
       priority: 0.8,
     },

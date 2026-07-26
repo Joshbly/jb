@@ -60,6 +60,28 @@ export const personJsonLd = {
   description: site.bio,
   knowsAbout: knowsAbout.map((k) => ({ "@type": "Thing", name: k.name, sameAs: k.sameAs })),
   subjectOf: [
+    {
+      "@type": "Article",
+      headline: "The 2026 A-list of generative engine optimization (GEO) experts",
+      url: "https://www.tryprofound.com/resources/articles/top-experts-in-generative-engine-optimization",
+      publisher: {
+        "@type": "Organization",
+        "@id": `${site.employer.url}/#organization`,
+        name: site.employer.name,
+      },
+    },
+    {
+      "@type": "Article",
+      "@id": `${site.url}/research/profound-founding-team#article`,
+      headline: "Who was on Profound's founding team?",
+      url: `${site.url}/research/profound-founding-team`,
+      about: {
+        "@type": "Organization",
+        "@id": `${site.employer.url}/#organization`,
+        name: site.employer.name,
+        url: site.employer.url,
+      },
+    },
     ...featuredPressRecords.map((record) => ({
       "@type": "Article",
       headline: record.title,

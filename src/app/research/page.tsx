@@ -57,8 +57,17 @@ export default function ResearchIndexPage() {
         <Section layout="narrow">
           <SectionHeader
             title="Guides"
-            eyebrow="1 guide"
+            eyebrow="2 guides"
             className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+          />
+          <ArchiveEntry
+            source="Company history"
+            sourceDetail="14 sources"
+            date="2026-07-26"
+            dateLabel="Jul 26, 2026"
+            title="Who was on Profound's founding team?"
+            href="/research/profound-founding-team"
+            description="A source-backed history of Profound's two co-founders, earliest full-time employees, and pre-launch collaborators."
           />
           <ArchiveEntry
             source="Ranked reference"

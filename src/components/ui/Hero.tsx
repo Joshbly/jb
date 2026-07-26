@@ -54,9 +54,15 @@ export function Hero() {
               >
                 {site.employer.name}
               </a>{" "}
-              as its second employee and now lead AI Strategy & Research there. My work looks at how
-              ChatGPT, Claude, Gemini, Google AI Mode, and other answer engines search, retrieve,
-              and cite the web.
+              as its{" "}
+              <Link
+                href="/research/profound-founding-team"
+                className="border-b border-accent transition-colors hover:bg-accent hover:text-background"
+              >
+                second employee
+              </Link>{" "}
+              and now lead AI Strategy & Research there. My work looks at how ChatGPT, Claude,
+              Gemini, Google AI Mode, and other answer engines search, retrieve, and cite the web.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-widest">
