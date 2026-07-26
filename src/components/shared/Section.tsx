@@ -5,8 +5,8 @@ type SectionLayout = "default" | "split" | "trio" | "narrow";
 
 const LAYOUTS: Record<SectionLayout, string> = {
   default: "max-w-7xl mx-auto px-6",
-  split: "max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_2fr] gap-16 lg:gap-32",
-  trio: "max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_2fr_1fr] gap-16",
+  split: "max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24",
+  trio: "max-w-7xl mx-auto px-6 grid lg:grid-cols-[1fr_2fr_1fr] gap-12",
   narrow: "max-w-4xl mx-auto px-6",
 };
 
@@ -18,7 +18,10 @@ type SectionProps = {
 
 export function Section({ id, layout = "default", children }: SectionProps) {
   return (
-    <section id={id} className="relative py-32 border-t-2 border-foreground bg-background">
+    <section
+      id={id}
+      className="relative scroll-mt-20 border-t-2 border-foreground bg-background py-24 md:py-28"
+    >
       <div className={LAYOUTS[layout]}>{children}</div>
     </section>
   );

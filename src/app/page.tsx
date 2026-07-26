@@ -3,9 +3,9 @@ import { Header } from "@/components/layout/Header";
 import { RevealRunner } from "@/components/shared/RevealRunner";
 import { Hero } from "@/components/ui/Hero";
 import { Now } from "@/components/ui/Now";
-import { Press } from "@/components/ui/Press";
+import { Podcasts } from "@/components/ui/Podcasts";
+import { ResearchCredentials } from "@/components/ui/ResearchCredentials";
 import { Speaking } from "@/components/ui/Speaking";
-import { Thoughts } from "@/components/ui/Thoughts";
 import { Writing } from "@/components/ui/Writing";
 
 export default function Home() {
@@ -15,10 +15,10 @@ export default function Home() {
       <RevealRunner />
       <main>
         <Hero />
-        <Thoughts />
-        <Speaking />
+        <ResearchCredentials />
         <Writing />
-        <Press />
+        <Speaking />
+        <Podcasts />
         <Now />
       </main>
       <Footer />
