@@ -1,8 +1,10 @@
+import Link from "next/link";
 import { Reveal } from "@/components/shared/Reveal";
 import { DisplayH2, Section, SectionHeader } from "@/components/shared/Section";
 import { speakingTopics, talks } from "@/content/talks";
 
 const TALK_LINKS = [
+  { key: "research", label: "Read Research" },
   { key: "link", label: "View Slides" },
   { key: "video", label: "Watch Recording" },
 ] as const;
@@ -55,22 +57,24 @@ export function Speaking() {
                   {talk.description}
                 </p>
                 <div className="flex items-center gap-6 font-mono text-xs uppercase tracking-widest">
-                  {TALK_LINKS.map(({ key, label }) =>
-                    talk[key] ? (
-                      <a
+                  {TALK_LINKS.map(({ key, label }) => {
+                    const talkLink = talk[key];
+
+                    return talkLink ? (
+                      <Link
                         key={key}
-                        href={talk[key]}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href={talkLink}
+                        target={talkLink.startsWith("/") ? undefined : "_blank"}
+                        rel={talkLink.startsWith("/") ? undefined : "noopener noreferrer"}
                         className="group/link flex items-center gap-2 text-foreground/60 hover:text-accent transition-colors"
                       >
                         <span>{label}</span>
                         <span className="opacity-0 group-hover/link:opacity-100 transition-opacity -translate-x-1 group-hover/link:translate-x-0">
                           →
                         </span>
-                      </a>
-                    ) : null,
-                  )}
+                      </Link>
+                    ) : null;
+                  })}
                 </div>
               </div>
             </div>

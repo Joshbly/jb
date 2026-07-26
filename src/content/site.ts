@@ -27,9 +27,10 @@ export const site = {
     { label: "Speaker Deck", href: "https://speakerdeck.com/joshbly" },
   ],
   nav: [
+    { href: "/research", label: "Research" },
     { href: "#speaking", label: "Speaking" },
     { href: "#writing", label: "Writing" },
-    { href: "#now", label: "Bio" },
+    { href: "/about", label: "About" },
   ],
 } as const;
 
