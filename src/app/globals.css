@@ -21,7 +21,7 @@
   --duration-slow: 700ms;
 
   --text-hero-name: clamp(3rem, 8vw, 5rem);
-  --text-header-fluid: clamp(6px, 2.5vw, 12px);
+  --text-header-fluid: clamp(11px, 2.5vw, 12px);
 }
 
 html {
@@ -61,6 +61,16 @@ h6 {
 }
 .nav-bracket::after {
   content: " ]";
+}
+
+@media (max-width: 479px) {
+  .nav-bracket::before {
+    content: "[";
+  }
+
+  .nav-bracket::after {
+    content: "]";
+  }
 }
 
 /* Reveal-on-scroll. The .js gate on <html> ensures no-JS users see content immediately
