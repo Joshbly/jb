@@ -25,7 +25,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="text-right text-foreground/50 space-y-2">
+        <div className="space-y-2 text-foreground/50 md:text-right">
           <p>
             {site.role} at {site.employer.name}
           </p>
