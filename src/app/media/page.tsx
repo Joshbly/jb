@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { SubpageNav } from "@/components/layout/SubpageNav";
-import type { Appearance, MediaLink } from "@/content/media";
+import { MediaPhotoBreak } from "@/components/media/MediaPhotoBreak";
+import { ArchiveEntry, type ArchiveEntryLink } from "@/components/shared/ArchiveEntry";
+import { SectionHeader } from "@/components/shared/Section";
+import type { Appearance } from "@/content/media";
 import {
   decks,
   linkedinArchiveNote,
@@ -65,32 +69,17 @@ const archiveSections = [
   { href: "#linkedin", label: "LinkedIn", count: linkedinPosts.length },
 ] as const;
 
-const talkFamilyLabels: Record<string, string> = {
-  "large-scale-ai-search-research": "Large-scale AI search research",
-  "machine-customer-era": "The Machine Customer Era",
-  "marketing-engineering-2026": "The Marketing Engineer",
-  "state-of-aeo-2026": "The State of AEO in 2026",
-};
-
-const stageGroups = Array.from(
-  stageAppearances.reduce((groupMap, appearance) => {
-    const groupId = appearance.talkFamilyId ?? appearance.id;
-    const existingGroup = groupMap.get(groupId);
-    if (existingGroup) {
-      existingGroup.appearances.push(appearance);
-      return groupMap;
-    }
-
-    groupMap.set(groupId, {
-      id: groupId,
-      title: appearance.talkFamilyId
-        ? (talkFamilyLabels[appearance.talkFamilyId] ?? appearance.title)
-        : appearance.title,
-      appearances: [appearance],
-    });
-    return groupMap;
-  }, new Map<string, { id: string; title: string; appearances: Appearance[] }>()),
-).map(([, group]) => group);
+const mediaAssets = [
+  ...decks.map((deck) => ({
+    ...deck,
+    source: deck.event,
+    sourceDetail: "Deck",
+  })),
+  ...recordings.map((recording) => ({
+    ...recording,
+    sourceDetail: "Recording",
+  })),
+].sort((firstAsset, secondAsset) => secondAsset.date.localeCompare(firstAsset.date));
 
 export const metadata: Metadata = {
   title: { absolute: `${title} | ${site.name}` },
@@ -104,44 +93,35 @@ export const metadata: Metadata = {
   },
 };
 
-function MediaSectionHeader({ title: sectionTitle, count }: { title: string; count: number }) {
+function ArchiveSection({
+  id,
+  title: sectionTitle,
+  count,
+  children,
+}: {
+  id: string;
+  title: string;
+  count: number;
+  children: ReactNode;
+}) {
   return (
-    <div className="flex items-baseline justify-between gap-4 border-b-2 border-foreground pb-4">
-      <h2 className="font-display text-3xl font-normal italic sm:text-4xl">{sectionTitle}</h2>
-      <span className="shrink-0 font-mono text-xs uppercase tracking-widest text-foreground/45">
-        {count}
-      </span>
-    </div>
+    <section id={id} className="scroll-mt-20 border-t-2 border-foreground py-14 md:py-16">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="sticky top-0 z-20 bg-background py-2">
+          <SectionHeader
+            title={sectionTitle}
+            eyebrow={`${count} entries`}
+            className="[&>h2]:text-3xl sm:[&>h2]:text-4xl"
+          />
+        </div>
+        <div className="mt-2">{children}</div>
+      </div>
+    </section>
   );
 }
 
-function ItemLinks({ links }: { links: readonly MediaLink[] }) {
-  const uniqueLinks = links.filter(
-    (link, linkIndex) => links.findIndex((candidate) => candidate.href === link.href) === linkIndex,
-  );
-
-  return (
-    <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-wider text-foreground/55">
-      {uniqueLinks.map((link) => {
-        const external = !link.href.startsWith("/");
-        return (
-          <Link
-            key={`${link.label}-${link.href}`}
-            href={link.href}
-            target={external ? "_blank" : undefined}
-            rel={external ? "noopener noreferrer" : undefined}
-            className="transition-colors hover:text-accent"
-          >
-            {link.label} {external ? "↗" : "→"}
-          </Link>
-        );
-      })}
-    </div>
-  );
-}
-
-function getAppearanceLinks(appearance: Appearance): MediaLink[] {
-  const links: MediaLink[] = [{ label: "Source", href: appearance.href }];
+function linksFor(appearance: Appearance) {
+  const links: ArchiveEntryLink[] = [];
   if (appearance.recording) {
     links.push({ label: "Recording", href: appearance.recording });
   }
@@ -154,82 +134,9 @@ function getAppearanceLinks(appearance: Appearance): MediaLink[] {
   return links;
 }
 
-function StageGrid() {
-  return (
-    <div className="columns-1 md:columns-2 md:gap-12 lg:gap-16">
-      {stageGroups.map((group) => (
-        <article key={group.id} className="break-inside-avoid border-t border-foreground/20 py-7">
-          <h3 className="font-display text-xl font-semibold leading-snug">{group.title}</h3>
-          <div className="mt-5 divide-y divide-foreground/15 border-y border-foreground/15">
-            {group.appearances.map((appearance) => (
-              <div key={appearance.id} className="py-4">
-                <div className="flex flex-col gap-2 font-mono text-xs uppercase tracking-wider sm:flex-row sm:items-start sm:justify-between">
-                  <div>
-                    <p className="text-accent">{appearance.event}</p>
-                    <p className="mt-1 text-foreground/45">
-                      {[appearance.role, appearance.location].filter(Boolean).join(" · ")}
-                    </p>
-                  </div>
-                  <time
-                    className="text-foreground/40 sm:shrink-0 sm:text-right"
-                    dateTime={appearance.date}
-                  >
-                    {appearance.status === "upcoming"
-                      ? `Upcoming · ${appearance.dateLabel ?? formatDate(appearance.date)}`
-                      : (appearance.dateLabel ?? formatDate(appearance.date))}
-                  </time>
-                </div>
-                {group.appearances.length > 1 && appearance.title !== group.title ? (
-                  <p className="mt-3 font-body text-sm leading-relaxed text-foreground/65">
-                    {appearance.title}
-                  </p>
-                ) : null}
-                <ItemLinks links={getAppearanceLinks(appearance)} />
-              </div>
-            ))}
-          </div>
-        </article>
-      ))}
-    </div>
-  );
-}
-
-function AppearanceGrid({ appearances: items }: { appearances: readonly Appearance[] }) {
-  return (
-    <div className="grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16">
-      {items.map((appearance) => {
-        return (
-          <article key={appearance.id} className="border-t border-foreground/20 py-7">
-            <div className="flex flex-col gap-3 font-mono text-xs uppercase tracking-wider sm:flex-row sm:items-start sm:justify-between sm:gap-5">
-              <div>
-                <p className="text-accent">{appearance.event}</p>
-                <p className="mt-1 text-foreground/45">
-                  {[appearance.role, appearance.location].filter(Boolean).join(" · ")}
-                </p>
-              </div>
-              <time
-                className="text-foreground/40 sm:shrink-0 sm:text-right"
-                dateTime={appearance.date}
-              >
-                {appearance.status === "upcoming"
-                  ? `Upcoming · ${appearance.dateLabel ?? formatDate(appearance.date)}`
-                  : (appearance.dateLabel ?? formatDate(appearance.date))}
-              </time>
-            </div>
-            <h3 className="mt-4 max-w-xl font-display text-xl font-semibold leading-snug">
-              {appearance.title}
-            </h3>
-            {appearance.coSpeakers?.length ? (
-              <p className="mt-2 font-body text-sm leading-relaxed text-foreground/60">
-                With {appearance.coSpeakers.join(", ")}
-              </p>
-            ) : null}
-            <ItemLinks links={getAppearanceLinks(appearance)} />
-          </article>
-        );
-      })}
-    </div>
-  );
+function appearanceDate(appearance: Appearance) {
+  const date = appearance.dateLabel ?? formatDate(appearance.date);
+  return appearance.status === "upcoming" ? `Upcoming · ${date}` : date;
 }
 
 export default function MediaPage() {
@@ -252,14 +159,13 @@ export default function MediaPage() {
                 Speaking & media
               </h1>
               <p className="mt-8 max-w-2xl font-body text-lg leading-relaxed text-foreground/80 md:text-xl">
-                Talks, podcasts, interviews, press, writing, decks, recordings, and public research
-                notes.
+                Talks, podcasts, press, writing, decks, recordings, and research notes.
               </p>
             </div>
           </div>
         </header>
 
-        <section className="border-t-2 border-foreground py-20 md:py-24">
+        <section className="border-t-2 border-foreground py-14 md:py-16">
           <div className="mx-auto max-w-7xl px-6">
             <div className="grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-3 lg:grid-cols-6">
               {representativeMarks.map((mark) => (
@@ -291,9 +197,9 @@ export default function MediaPage() {
                 <Link
                   key={section.href}
                   href={section.href}
-                  className="group flex min-h-28 items-end justify-between gap-4 border-r border-b border-foreground/20 p-5 transition-colors hover:bg-foreground/5"
+                  className="group flex items-center justify-between gap-4 border-r border-b border-foreground/20 px-5 py-5 transition-colors hover:bg-foreground/5"
                 >
-                  <span className="font-display text-2xl font-medium group-hover:underline">
+                  <span className="font-display text-xl font-medium group-hover:underline">
                     {section.label}
                   </span>
                   <span className="font-mono text-xs text-foreground/40">{section.count}</span>
@@ -303,162 +209,150 @@ export default function MediaPage() {
           </div>
         </section>
 
-        <section id="stages" className="scroll-mt-20 border-t-2 border-foreground py-20 md:py-24">
-          <div className="mx-auto max-w-7xl px-6">
-            <MediaSectionHeader title="Stages" count={stageAppearances.length} />
-            <StageGrid />
-          </div>
-        </section>
+        <MediaPhotoBreak
+          src="/images/media/zero-click-nyc-2025.jpg"
+          alt="Josh Blyskal presenting a ChatGPT shopping example onstage at Zero Click New York"
+          kicker="Zero Click New York · Oct 2025"
+          caption="The Machine Customer Era, live at the inaugural Zero Click conference."
+          sourceHref="https://www.tryprofound.com/blog/zero-click-new-york-inagaural-ai-search-nyc-summit"
+          sourceLabel="Event archive"
+          layout="wide"
+          priority
+        />
 
-        <section id="podcasts" className="scroll-mt-20 border-t-2 border-foreground py-20 md:py-24">
-          <div className="mx-auto max-w-7xl px-6">
-            <MediaSectionHeader title="Podcasts & interviews" count={podcastAppearances.length} />
-            <AppearanceGrid appearances={podcastAppearances} />
+        <ArchiveSection id="stages" title="Stages" count={stageAppearances.length}>
+          <div className="grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16">
+            {stageAppearances.map((appearance) => (
+              <ArchiveEntry
+                key={appearance.id}
+                source={appearance.event}
+                sourceDetail={appearance.location}
+                date={appearance.date}
+                dateLabel={appearanceDate(appearance)}
+                title={appearance.title}
+                displayTitle={appearance.listTitle}
+                href={appearance.href}
+                links={linksFor(appearance)}
+              />
+            ))}
           </div>
-        </section>
+        </ArchiveSection>
 
-        <section id="press" className="scroll-mt-20 border-t-2 border-foreground py-20 md:py-24">
-          <div className="mx-auto max-w-7xl px-6">
-            <MediaSectionHeader title="Press & citations" count={pressRecords.length} />
-            <div className="grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16">
-              {pressRecords.map((record) => (
-                <article key={record.id} className="border-t border-foreground/20 py-7">
-                  <div className="flex items-start justify-between gap-5 font-mono text-xs uppercase tracking-wider">
-                    <p className="text-accent">{record.outlet}</p>
-                    <time className="text-foreground/40" dateTime={record.date}>
-                      {record.dateLabel ?? formatDate(record.date)}
-                    </time>
-                  </div>
-                  <p className="mt-2 font-mono text-xs uppercase tracking-wider text-foreground/45">
-                    {record.kind === "quoted" ? "Quoted" : "Research cited"}
-                  </p>
-                  <h3 className="mt-4 max-w-xl font-display text-xl font-semibold leading-snug">
-                    {record.title}
-                  </h3>
-                  <ItemLinks
-                    links={[{ label: "Read", href: record.href }, ...(record.alternateLinks ?? [])]}
-                  />
-                </article>
-              ))}
-            </div>
+        <MediaPhotoBreak
+          src="/images/media/techseo-connect-2025.jpg"
+          alt="TechSEO Connect title card for Josh Blyskal's 250 million AI response study"
+          kicker="TechSEO Connect · Raleigh · Dec 2025"
+          caption="Presenting research drawn from 250 million AI responses."
+          sourceHref="https://www.youtube.com/watch?v=ll_kZh5GVX0"
+          sourceLabel="Watch the recording"
+        />
+
+        <ArchiveSection
+          id="podcasts"
+          title="Podcasts & interviews"
+          count={podcastAppearances.length}
+        >
+          <div className="grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16">
+            {podcastAppearances.map((appearance) => (
+              <ArchiveEntry
+                key={appearance.id}
+                source={appearance.event}
+                sourceDetail={appearance.kind}
+                date={appearance.date}
+                dateLabel={appearanceDate(appearance)}
+                title={appearance.title}
+                displayTitle={appearance.listTitle}
+                href={appearance.href}
+                links={linksFor(appearance)}
+              />
+            ))}
           </div>
-        </section>
+        </ArchiveSection>
 
-        <section id="writing" className="scroll-mt-20 border-t-2 border-foreground py-20 md:py-24">
-          <div className="mx-auto max-w-7xl px-6">
-            <MediaSectionHeader title="Writing" count={writtenWorks.length} />
-            <div className="grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16">
-              {writtenWorks.map((work) => (
-                <article key={work.id} className="border-t border-foreground/20 py-7">
-                  <div className="flex items-start justify-between gap-5 font-mono text-xs uppercase tracking-wider">
-                    <div className="flex flex-wrap gap-x-3">
-                      <span className="text-accent">{work.outlet}</span>
-                      <span className="text-foreground/40">{work.kind}</span>
-                    </div>
-                    <time className="text-foreground/40" dateTime={work.date}>
-                      {formatDate(work.date)}
-                    </time>
-                  </div>
-                  <h3 className="mt-4 max-w-xl font-display text-xl font-semibold leading-snug">
-                    {work.title}
-                  </h3>
-                  <p className="mt-3 max-w-xl font-body text-sm leading-relaxed text-foreground/65">
-                    {work.summary}
-                  </p>
-                  <ItemLinks
-                    links={[{ label: "Read", href: work.href }, ...(work.editions ?? [])]}
-                  />
-                </article>
-              ))}
-            </div>
+        <ArchiveSection id="press" title="Press & citations" count={pressRecords.length}>
+          <div className="grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16">
+            {pressRecords.map((record) => (
+              <ArchiveEntry
+                key={record.id}
+                source={record.outlet}
+                sourceDetail={record.kind === "quoted" ? "Quoted" : "Research cited"}
+                date={record.date}
+                dateLabel={record.dateLabel ?? formatDate(record.date)}
+                title={record.title}
+                displayTitle={record.listTitle}
+                href={record.href}
+                links={record.alternateLinks}
+              />
+            ))}
           </div>
-        </section>
+        </ArchiveSection>
 
-        <section id="decks" className="scroll-mt-20 border-t-2 border-foreground py-20 md:py-24">
-          <div className="mx-auto max-w-7xl px-6">
-            <MediaSectionHeader
-              title="Decks & recordings"
-              count={decks.length + recordings.length}
-            />
-            <div className="pt-8">
-              <div>
-                <h3 className="font-display text-2xl font-medium">Decks</h3>
-                <div className="mt-4 grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16">
-                  {decks.map((deck) => (
-                    <a
-                      key={deck.id}
-                      href={deck.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group block border-t border-foreground/20 py-5"
-                    >
-                      <div className="flex justify-between gap-5 font-mono text-xs uppercase tracking-wider text-foreground/45">
-                        <span>{deck.event}</span>
-                        <time dateTime={deck.date}>{formatDate(deck.date)}</time>
-                      </div>
-                      <p className="mt-3 font-display text-lg font-semibold leading-snug group-hover:underline">
-                        {deck.title} ↗
-                      </p>
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-14">
-                <h3 className="font-display text-2xl font-medium">Recordings</h3>
-                <div className="mt-4 grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16">
-                  {recordings.map((recording) => (
-                    <a
-                      key={recording.id}
-                      href={recording.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group block border-t border-foreground/20 py-5"
-                    >
-                      <div className="flex justify-between gap-5 font-mono text-xs uppercase tracking-wider text-foreground/45">
-                        <span>{recording.source}</span>
-                        <time dateTime={recording.date}>{formatDate(recording.date)}</time>
-                      </div>
-                      <p className="mt-3 font-display text-lg font-semibold leading-snug group-hover:underline">
-                        {recording.title} ↗
-                      </p>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
+        <ArchiveSection id="writing" title="Writing" count={writtenWorks.length}>
+          <div className="grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16">
+            {writtenWorks.map((work) => (
+              <ArchiveEntry
+                key={work.id}
+                source={work.href.startsWith("/") ? work.kind : work.outlet}
+                sourceDetail={work.href.startsWith("/") ? undefined : work.kind}
+                date={work.date}
+                dateLabel={formatDate(work.date)}
+                title={work.title}
+                displayTitle={work.listTitle}
+                href={work.href}
+                links={work.editions}
+              />
+            ))}
           </div>
-        </section>
+        </ArchiveSection>
 
-        <section id="linkedin" className="scroll-mt-20 border-t-2 border-foreground py-20 md:py-24">
-          <div className="mx-auto max-w-7xl px-6">
-            <MediaSectionHeader title="LinkedIn" count={linkedinPosts.length} />
-            <p className="mt-5 max-w-2xl font-body text-sm leading-relaxed text-foreground/55">
-              {linkedinArchiveNote}
-            </p>
-            <div className="mt-8 grid md:grid-cols-2 md:gap-x-12 xl:grid-cols-3 xl:gap-x-10">
-              {linkedinPosts.map((post) => (
-                <a
-                  key={post.id}
-                  href={post.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block border-t border-foreground/20 py-6"
-                >
-                  <div className="flex justify-between gap-4 font-mono text-xs uppercase tracking-wider">
-                    <span className="text-accent">{post.kind}</span>
-                    <time className="text-foreground/40" dateTime={post.date}>
-                      {formatDate(post.date)}
-                    </time>
-                  </div>
-                  <h3 className="mt-3 font-display text-lg font-semibold leading-snug group-hover:underline">
-                    {post.title} ↗
-                  </h3>
-                </a>
-              ))}
-            </div>
+        <ArchiveSection
+          id="decks"
+          title="Decks & recordings"
+          count={decks.length + recordings.length}
+        >
+          <div className="grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16">
+            {mediaAssets.map((asset) => (
+              <ArchiveEntry
+                key={asset.id}
+                source={asset.source}
+                sourceDetail={asset.sourceDetail}
+                date={asset.date}
+                dateLabel={formatDate(asset.date)}
+                title={asset.title}
+                displayTitle={asset.listTitle}
+                href={asset.href}
+              />
+            ))}
           </div>
-        </section>
+        </ArchiveSection>
+
+        <MediaPhotoBreak
+          src="/images/media/brightonseo-san-diego-2025.jpg"
+          alt="Josh Blyskal presenting semantic URL citation research at brightonSEO San Diego"
+          kicker="brightonSEO · San Diego · Sep 2025"
+          caption="A field note on semantic URLs and AI citations."
+          sourceHref="https://www.linkedin.com/posts/joshua-blyskal_thats-a-wrap-on-brighton-seo-san-diego-2025-activity-7377089308924739584-VOVN"
+          sourceLabel="Original post"
+          layout="split-reverse"
+        />
+
+        <ArchiveSection id="linkedin" title="LinkedIn" count={linkedinPosts.length}>
+          <p className="mb-4 font-body text-sm text-foreground/55">{linkedinArchiveNote}</p>
+          <div className="grid md:grid-cols-2 md:gap-x-12 xl:grid-cols-3 xl:gap-x-10">
+            {linkedinPosts.map((post) => (
+              <ArchiveEntry
+                key={post.id}
+                source="LinkedIn"
+                sourceDetail={post.kind}
+                date={post.date}
+                dateLabel={formatDate(post.date)}
+                title={post.title}
+                displayTitle={post.listTitle}
+                href={post.href}
+              />
+            ))}
+          </div>
+        </ArchiveSection>
       </main>
       <Footer />
     </div>

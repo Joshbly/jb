@@ -10,12 +10,12 @@ export function SubpageNav({ activeHref }: SubpageNavProps) {
   return (
     <nav
       aria-label="Primary"
-      className="flex items-center justify-between gap-2 font-mono text-[11px] uppercase tracking-wider sm:text-xs sm:tracking-widest"
+      className="flex items-center justify-between gap-1 font-mono text-[11px] uppercase tracking-normal sm:gap-2 sm:text-xs sm:tracking-widest"
     >
       <Link href="/" className="shrink-0 transition-colors hover:text-accent">
         {site.name}
       </Link>
-      <div className="flex shrink-0 items-center gap-2 sm:gap-[clamp(8px,2.5vw,24px)]">
+      <div className="flex shrink-0 items-center gap-1 sm:gap-[clamp(8px,2.5vw,24px)]">
         {site.nav.map((link) => (
           <Link
             key={link.href}

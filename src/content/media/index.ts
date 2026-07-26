@@ -9,10 +9,8 @@ const podcastKinds = new Set(["podcast", "interview"]);
 const featuredPodcastIds = new Set([
   "2026-03-12-media-copilot",
   "2026-01-06-marketing-architects",
+  "2026-01-06-format-speed",
   "2026-01-05-voices-of-search",
-  "2025-09-24-long-game",
-  "2025-06-30-siege-media",
-  "2025-06-17-aive-got-questions",
 ]);
 
 export type {
@@ -66,6 +64,7 @@ export const decks: readonly DeckRecord[] = Array.from(
       id: `deck-${appearance.id}`,
       date: appearance.date,
       title: appearance.title,
+      listTitle: appearance.listTitle,
       event: appearance.event,
       href: appearance.slides,
       relatedAppearances: [appearance.id],
@@ -84,6 +83,7 @@ export const recordings: readonly RecordingRecord[] = Array.from(
       id: `recording-${appearance.id}`,
       date: appearance.date,
       title: appearance.title,
+      listTitle: appearance.listTitle,
       source: appearance.event,
       href: appearance.recording,
       appearanceId: appearance.id,

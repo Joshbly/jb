@@ -18,6 +18,7 @@ export type Appearance = {
   dateLabel?: string;
   status?: "completed" | "upcoming";
   title: string;
+  listTitle?: string;
   event: string;
   kind: AppearanceKind;
   role: string;
@@ -38,6 +39,7 @@ export type WrittenWork = {
   id: string;
   date: string;
   title: string;
+  listTitle?: string;
   outlet: string;
   kind: WrittenWorkKind;
   href: string;
@@ -59,6 +61,7 @@ export type LinkedInPost = {
   id: string;
   date: string;
   title: string;
+  listTitle?: string;
   kind: LinkedInPostKind;
   href: string;
   relatedWorkId?: string;
@@ -71,6 +74,7 @@ export type PressRecord = {
   date: string;
   dateLabel?: string;
   title: string;
+  listTitle?: string;
   outlet: string;
   domain: string;
   kind: PressKind;
@@ -83,6 +87,7 @@ export type DeckRecord = {
   id: string;
   date: string;
   title: string;
+  listTitle?: string;
   event: string;
   href: string;
   relatedAppearances: readonly string[];
@@ -92,6 +97,7 @@ export type RecordingRecord = {
   id: string;
   date: string;
   title: string;
+  listTitle?: string;
   source: string;
   href: string;
   appearanceId: string;

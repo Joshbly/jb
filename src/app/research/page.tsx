@@ -2,14 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/layout/Footer";
 import { SubpageNav } from "@/components/layout/SubpageNav";
+import { ArchiveEntry } from "@/components/shared/ArchiveEntry";
 import { Section, SectionHeader } from "@/components/shared/Section";
+import { sageLessonUrl } from "@/content/methodology";
 import { researchArticles } from "@/content/research";
 import { site } from "@/content/site";
 import { formatDate } from "@/lib/time";
 
-const title = "AI search research";
+const title = "Research blog";
 const description =
-  "Original studies by Josh Blyskal and collaborators on answer-engine citations, ChatGPT intent, Reddit, Claude, and AI search behavior.";
+  "Selected studies, guides, and methods by Josh Blyskal on answer-engine citations, retrieval, user intent, and AI search behavior.";
 
 export const metadata: Metadata = {
   title,
@@ -35,11 +37,18 @@ export default function ResearchIndexPage() {
                 AI strategy & research
               </p>
               <h1 className="mt-4 max-w-4xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
-                AI search research
+                Research blog
               </h1>
               <p className="mt-8 max-w-xl font-body text-lg leading-relaxed text-foreground/80 md:text-xl">
-                Studies on what people ask AI, which sources the systems choose, and how retrieval
-                differs across ChatGPT, Claude, Perplexity, and Google.
+                The studies, guides, and methods I have published on this site. The full archive of
+                talks, decks, external writing, and research notes lives in{" "}
+                <Link
+                  href="/media"
+                  className="border-b border-accent transition-colors hover:text-accent"
+                >
+                  Media
+                </Link>
+                .
               </p>
             </div>
           </div>
@@ -48,80 +57,54 @@ export default function ResearchIndexPage() {
         <Section layout="narrow">
           <SectionHeader
             title="Guides"
-            eyebrow="Field reference"
+            eyebrow="1 guide"
             className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
-          <article>
-            <Link
-              href="/research/top-aeo-experts-2026"
-              className="group grid gap-4 border-y border-foreground/20 py-8 md:grid-cols-[100px_1fr] md:gap-8"
-            >
-              <div className="hidden text-right font-mono text-xs uppercase tracking-wider text-foreground/50 md:block">
-                <time className="block" dateTime="2026-07-26">
-                  Jul 26, 2026
-                </time>
-                <span className="mt-1 block text-xs">12 profiles</span>
-              </div>
-              <div className="space-y-2">
-                <span className="font-mono text-xs uppercase tracking-wider text-accent">
-                  Ranked reference
-                </span>
-                <h2 className="font-display text-2xl font-bold leading-snug decoration-1 underline-offset-4 group-hover:underline">
-                  The 12 best AEO and GEO experts in 2026
-                </h2>
-                <p className="max-w-xl font-body text-sm leading-relaxed text-foreground/70">
-                  A source-backed comparison of researchers, technical practitioners, and
-                  strategists publishing work that can be inspected.
-                </p>
-                <div className="flex gap-3 font-mono text-xs uppercase tracking-wider text-foreground/50 md:hidden">
-                  <time dateTime="2026-07-26">Jul 26, 2026</time>
-                  <span aria-hidden="true">·</span>
-                  <span>12 profiles</span>
-                </div>
-              </div>
-            </Link>
-          </article>
+          <ArchiveEntry
+            source="Ranked reference"
+            sourceDetail="12 profiles"
+            date="2026-07-26"
+            dateLabel="Jul 26, 2026"
+            title="The 12 best AEO and GEO experts in 2026"
+            href="/research/top-aeo-experts-2026"
+            description="A source-backed comparison of researchers, technical practitioners, and strategists publishing work that can be inspected."
+          />
 
           <SectionHeader
-            title="Published studies"
-            eyebrow="Ref. List 03"
-            className="mt-24 mb-16 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+            title="Selected studies"
+            eyebrow={`${researchArticles.length} studies`}
+            className="mt-20 mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
-          <div className="space-y-8">
-            {researchArticles.map((study, studyIndex) => (
-              <article key={study.slug}>
-                <Link
-                  href={`/research/${study.slug}`}
-                  className="group grid gap-4 rounded-sm p-4 transition-colors hover:bg-foreground/5 md:-mx-4 md:grid-cols-[100px_1fr] md:gap-8"
-                >
-                  <div className="hidden text-right font-mono text-xs uppercase tracking-wider text-foreground/50 md:block">
-                    <time className="block" dateTime={study.date}>
-                      {formatDate(study.date)}
-                    </time>
-                    <span className="mt-1 block text-xs">{study.readTime}</span>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex flex-wrap items-baseline gap-2">
-                      <span className="font-mono text-xs uppercase tracking-wider text-accent">
-                        Study 0{studyIndex + 1}
-                      </span>
-                      <h2 className="font-display text-xl font-bold leading-snug decoration-1 underline-offset-4 group-hover:underline">
-                        {study.title}
-                      </h2>
-                    </div>
-                    <p className="max-w-xl font-body text-sm leading-relaxed text-foreground/70">
-                      {study.finding}
-                    </p>
-                    <div className="flex gap-3 font-mono text-xs uppercase tracking-wider text-foreground/50 md:hidden">
-                      <time dateTime={study.date}>{formatDate(study.date)}</time>
-                      <span aria-hidden="true">·</span>
-                      <span>{study.readTime}</span>
-                    </div>
-                  </div>
-                </Link>
-              </article>
+          <div>
+            {researchArticles.map((study) => (
+              <ArchiveEntry
+                key={study.slug}
+                source="Research"
+                sourceDetail={study.readTime}
+                date={study.date}
+                dateLabel={formatDate(study.date)}
+                title={study.title}
+                href={`/research/${study.slug}`}
+                description={study.finding}
+              />
             ))}
           </div>
+
+          <SectionHeader
+            title="Methodology"
+            eyebrow="1 method"
+            className="mt-20 mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+          />
+          <ArchiveEntry
+            source="Methodology"
+            sourceDetail="SAGE"
+            date="2026-07-26"
+            dateLabel="Jul 26, 2026"
+            title="The SAGE Method"
+            href="/methodology"
+            description="Setup, Analyze, Generate, Engineer: the operating loop I use to run answer engine optimization programs."
+            links={[{ label: "Profound University lesson", href: sageLessonUrl }]}
+          />
         </Section>
       </main>
       <Footer />

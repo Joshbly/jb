@@ -8,6 +8,12 @@ const enterpriseWork = [
   { name: "Kaplan", href: "https://kaplan.com", domain: "kaplan.com" },
   { name: "Reddit", href: "https://www.redditinc.com", domain: "reddit.com" },
   { name: "G2", href: "https://www.g2.com", domain: "g2.com" },
+  { name: "MongoDB", href: "https://www.mongodb.com", domain: "mongodb.com" },
+  { name: "Kalshi", href: "https://kalshi.com", domain: "kalshi.com" },
+  { name: "Figma", href: "https://www.figma.com", domain: "figma.com" },
+  { name: "Hatch", href: "https://www.hatch.co", domain: "hatch.co" },
+  { name: "Eight Sleep", href: "https://www.eightsleep.com", domain: "eightsleep.com" },
+  { name: "Golin", href: "https://golin.com", domain: "golin.com" },
 ] as const;
 
 const quotedOutletOrder = ["Adweek", "The Verge", "Ad Age"];
@@ -51,18 +57,14 @@ export function AuthorityStrip() {
     >
       <div>
         <p className="font-mono text-xs uppercase leading-relaxed tracking-wider text-foreground/50">
-          Researched and strategized with
-          <span className="mt-1 block text-foreground/35">Through Profound</span>
+          Created AEO/GEO strategies for these leading brands at Profound
         </p>
         <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
-          {enterpriseWork.slice(0, 5).map((organization) => (
+          {enterpriseWork.map((organization) => (
             <OrganizationMark key={organization.name} {...organization} />
           ))}
-          <span className="inline-flex items-center gap-4">
-            <OrganizationMark {...enterpriseWork[5]} />
-            <span className="font-mono text-xs uppercase tracking-wider text-foreground/40">
-              + more
-            </span>
+          <span className="font-mono text-xs uppercase tracking-wider text-foreground/40">
+            + more
           </span>
         </div>
       </div>

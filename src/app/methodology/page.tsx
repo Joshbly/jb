@@ -290,7 +290,7 @@ export default function MethodologyPage() {
               changed what I track and what I tell teams to do next.
             </p>
             <Link
-              href="/research"
+              href="/media"
               className="inline-block font-mono text-xs uppercase tracking-widest transition-colors hover:text-accent hover:underline"
             >
               Browse all research →
@@ -411,7 +411,7 @@ export default function MethodologyPage() {
             {[
               {
                 href: "/research",
-                label: "Research hub",
+                label: "Research blog",
                 description: "The studies behind the numbers on this page.",
               },
               {
