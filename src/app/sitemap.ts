@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { latestMediaDate } from "@/content/media";
 import { latestPostDate, posts } from "@/content/posts";
 import { latestResearchDate, researchArticles } from "@/content/research";
 import { site } from "@/content/site";
@@ -10,7 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     Math.max(latestResearchDate.getTime(), expertRankingDate.getTime()),
   );
   const latestContentDate = new Date(
-    Math.max(latestPostDate.getTime(), latestResearchContentDate.getTime()),
+    Math.max(
+      latestPostDate.getTime(),
+      latestResearchContentDate.getTime(),
+      latestMediaDate.getTime(),
+    ),
   );
 
   return [
@@ -33,6 +38,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${site.url}/media`,
+      lastModified: latestMediaDate,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${site.url}/research/top-aeo-experts-2026`,
       lastModified: expertRankingDate,
       changeFrequency: "monthly",
@@ -40,7 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${site.url}/about`,
-      lastModified: latestResearchDate,
+      lastModified: latestContentDate,
       changeFrequency: "yearly",
       priority: 0.7,
     },

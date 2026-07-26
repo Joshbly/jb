@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Reveal } from "@/components/shared/Reveal";
 import { Section, SectionHeader } from "@/components/shared/Section";
-import { articles } from "@/content/articles";
+import { featuredWrittenWorks } from "@/content/media";
+import { formatDate } from "@/lib/time";
 
 export function Writing() {
   return (
@@ -14,13 +15,13 @@ export function Writing() {
         />
       </Reveal>
       <div className="grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16">
-        {articles.map((post, index) => {
-          const isExternal = !post.link.startsWith("/");
+        {featuredWrittenWorks.map((post, index) => {
+          const isExternal = !post.href.startsWith("/");
 
           return (
-            <Reveal key={post.link} index={index} className="h-full">
+            <Reveal key={post.id} index={index} className="h-full">
               <Link
-                href={post.link}
+                href={post.href}
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
                 className="group block h-full border-t border-foreground/20 py-8"
@@ -39,20 +40,27 @@ export function Writing() {
                     </span>
                   </div>
                   <span className="font-mono text-xs uppercase tracking-wider text-foreground/40">
-                    {post.year}
+                    {formatDate(post.date)}
                   </span>
                 </div>
                 <h3 className="mt-4 max-w-xl font-display text-2xl font-semibold leading-snug decoration-1 underline-offset-4 group-hover:underline">
                   {post.title}
                 </h3>
                 <p className="mt-3 max-w-xl font-body text-sm leading-relaxed text-foreground/70">
-                  {post.description}
+                  {post.summary}
                 </p>
               </Link>
             </Reveal>
           );
         })}
       </div>
+
+      <Link
+        href="/media#writing"
+        className="mt-8 inline-block font-mono text-xs uppercase tracking-widest transition-colors hover:text-accent"
+      >
+        All writing →
+      </Link>
     </Section>
   );
 }

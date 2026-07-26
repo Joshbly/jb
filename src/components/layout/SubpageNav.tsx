@@ -3,7 +3,7 @@ import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 
 type SubpageNavProps = {
-  activeHref: (typeof site.nav)[number]["href"];
+  activeHref?: string;
 };
 
 export function SubpageNav({ activeHref }: SubpageNavProps) {

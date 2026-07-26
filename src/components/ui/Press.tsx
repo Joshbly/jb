@@ -1,30 +1,25 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Reveal } from "@/components/shared/Reveal";
 import { Section, SectionHeader } from "@/components/shared/Section";
-import { press } from "@/content/press";
-
-const homepagePress = press.filter((mention) =>
-  [
-    "Adweek",
-    "The Verge",
-    "Search Engine Land",
-    "AdAge",
-    "Boston Consulting Group",
-    "Business of Fashion",
-  ].includes(mention.outlet),
-);
+import { featuredPressRecords } from "@/content/media";
+import { formatDate } from "@/lib/time";
 
 export function Press() {
   return (
     <Section id="press">
       <Reveal>
-        <SectionHeader title="Press & Citations" eyebrow="Media Log" className="mb-16" />
+        <SectionHeader
+          title="Press & citations"
+          eyebrow="Media log"
+          className="mb-16 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+        />
       </Reveal>
       <div className="grid grid-cols-1 gap-px border border-foreground/20 bg-foreground/20 md:grid-cols-2 lg:grid-cols-3">
-        {homepagePress.map((mention, index) => (
-          <Reveal key={mention.link} index={index}>
+        {featuredPressRecords.map((mention, index) => (
+          <Reveal key={mention.id} index={index}>
             <a
-              href={mention.link}
+              href={mention.href}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative flex h-full flex-col bg-background p-8 transition-colors hover:bg-foreground/5"
@@ -49,12 +44,18 @@ export function Press() {
                 {mention.title}
               </h3>
               <span className="mt-auto pt-6 font-mono text-xs uppercase tracking-widest text-foreground/40">
-                {mention.year}
+                {formatDate(mention.date)}
               </span>
             </a>
           </Reveal>
         ))}
       </div>
+      <Link
+        href="/media#press"
+        className="mt-8 inline-block font-mono text-xs uppercase tracking-widest transition-colors hover:text-accent"
+      >
+        All press & citations →
+      </Link>
     </Section>
   );
 }

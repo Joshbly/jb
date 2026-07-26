@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { SubpageNav } from "@/components/layout/SubpageNav";
 import { DisplayH2, Section, SectionHeader } from "@/components/shared/Section";
 import { aboutFaqs } from "@/content/about";
-import { press } from "@/content/press";
+import { featuredPressRecords } from "@/content/media";
 import { researchArticles } from "@/content/research";
 import { site } from "@/content/site";
 import { aboutFaqJsonLd, profilePageJsonLd } from "@/lib/seo";
@@ -22,16 +22,14 @@ const researchScope = [
   { value: "8+", label: "Answer engines measured" },
 ] as const;
 
-const profilePress = press.filter((mention) =>
-  [
-    "The Verge",
-    "Adweek",
-    "AdAge",
-    "Boston Consulting Group",
-    "Business of Fashion",
-    "Search Engine Land",
-  ].includes(mention.outlet),
-);
+const mediaIndex = [
+  { label: "Stages", href: "/media#stages" },
+  { label: "Podcasts & interviews", href: "/media#podcasts" },
+  { label: "Press & citations", href: "/media#press" },
+  { label: "Writing", href: "/media#writing" },
+  { label: "Decks & recordings", href: "/media#decks" },
+  { label: "LinkedIn", href: "/media#linkedin" },
+] as const;
 
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -82,6 +80,12 @@ export default function AboutPage() {
                     className="transition-colors hover:text-accent hover:underline"
                   >
                     Research hub →
+                  </Link>
+                  <Link
+                    href="/media"
+                    className="transition-colors hover:text-accent hover:underline"
+                  >
+                    Speaking & media →
                   </Link>
                   <a
                     href={`mailto:${site.email}`}
@@ -197,10 +201,10 @@ export default function AboutPage() {
                 Quoted & cited
               </dt>
               <dd className="mt-4 flex max-w-2xl flex-wrap gap-x-6 gap-y-3">
-                {profilePress.map((mention) => (
+                {featuredPressRecords.map((mention) => (
                   <a
-                    key={mention.link}
-                    href={mention.link}
+                    key={mention.id}
+                    href={mention.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-display text-xl font-medium underline decoration-1 underline-offset-4 transition-colors hover:text-accent md:text-2xl"
@@ -223,6 +227,27 @@ export default function AboutPage() {
               </p>
             </div>
           </dl>
+        </Section>
+
+        <Section>
+          <SectionHeader
+            title="Speaking & media"
+            eyebrow="Canonical index"
+            className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+          />
+          <div className="grid border-t border-l border-foreground/20 sm:grid-cols-2 lg:grid-cols-3">
+            {mediaIndex.map((entry) => (
+              <Link
+                key={entry.href}
+                href={entry.href}
+                className="group flex min-h-28 items-end border-r border-b border-foreground/20 p-5 transition-colors hover:bg-foreground/5"
+              >
+                <span className="font-display text-2xl font-medium group-hover:underline">
+                  {entry.label}
+                </span>
+              </Link>
+            ))}
+          </div>
         </Section>
 
         <Section layout="split">

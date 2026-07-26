@@ -28,7 +28,7 @@ export const site = {
   ],
   nav: [
     { href: "/research", label: "Research" },
-    { href: "/methodology", label: "Method" },
+    { href: "/media", label: "Media" },
     { href: "/about", label: "About" },
   ],
 } as const;
