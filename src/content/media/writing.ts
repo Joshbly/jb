@@ -91,7 +91,6 @@ export const writtenWorks: readonly WrittenWork[] = [
     summary:
       "After ChatGPT's October 18 entity update, average brand mentions fell from six or seven to three or four, and more than 85% of tracked brands lost visibility.",
     coauthors: ["Ralfi Berk", "Sartaj Rajpal"],
-    featuredOnHome: true,
   },
   {
     id: "the-click-had-a-good-run",
@@ -234,6 +233,5 @@ export const writtenWorks: readonly WrittenWork[] = [
     href: "https://blog.hubspot.com/marketing/ai-insights-for-new-year",
     summary:
       "Seven practical recommendations for marketers adopting AI, drawn from a HubSpot email workflow that lifted click-through rate by 38%.",
-    featuredOnHome: true,
   },
 ];

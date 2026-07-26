@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/layout/Footer";
 import { SubpageNav } from "@/components/layout/SubpageNav";
+import { ArchiveEntry } from "@/components/shared/ArchiveEntry";
+import { ResearchScopeGrid } from "@/components/shared/ResearchScopeGrid";
 import { DisplayH2, Section, SectionHeader } from "@/components/shared/Section";
 import { aboutFaqs } from "@/content/about";
 import { featuredPressRecords } from "@/content/media";
@@ -13,14 +15,7 @@ import { formatDate } from "@/lib/time";
 
 const title = `${site.name}, AEO & GEO researcher`;
 const description =
-  "Josh Blyskal is an AEO expert and GEO expert leading AI Strategy & Research at Profound. His research spans 10B+ citations across 8+ answer engines.";
-
-const researchScope = [
-  { value: "10B+", label: "Citations across major answer engines" },
-  { value: "1B+", label: "Real user prompts" },
-  { value: "100M+", label: "AI fanouts and web research results" },
-  { value: "8+", label: "Answer engines measured" },
-] as const;
+  "Josh Blyskal is an AEO expert and GEO expert leading AI Strategy & Research at Profound. His research spans 10B+ citations, 1.5B real user prompts, and 8 answer engines.";
 
 const mediaIndex = [
   { label: "Stages", href: "/media#stages" },
@@ -67,19 +62,19 @@ export default function AboutPage() {
                   {site.role} · {site.employer.name}
                 </p>
                 <h1 className="mt-5 max-w-4xl font-display text-hero-name font-normal leading-[0.92] tracking-tight">
-                  Research across 10B+ citations and 8+ answer engines.
+                  Research across 10B+ citations and 8 answer engines.
                 </h1>
                 <p className="mt-8 max-w-xl font-body text-lg leading-relaxed text-foreground/80 md:text-xl">
-                  Josh Blyskal is an AEO and GEO researcher studying how ChatGPT, Claude,
-                  Perplexity, Google AI Mode, and other answer engines search, retrieve, cite, and
-                  recommend information.
+                  Josh Blyskal is an AEO and GEO researcher studying how ChatGPT, Claude, Gemini,
+                  Google AI Mode, and other answer engines search, retrieve, cite, and recommend
+                  information.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-widest">
                   <Link
                     href="/research"
                     className="transition-colors hover:text-accent hover:underline"
                   >
-                    Research hub →
+                    Research blog →
                   </Link>
                   <Link
                     href="/media"
@@ -131,7 +126,7 @@ export default function AboutPage() {
               </a>
               , where I study how answer engines search the web, select sources, and construct
               answers. The work compares retrieval and citation behavior across ChatGPT, Claude,
-              Perplexity, Google AI products, and other major platforms.
+              Gemini, Google AI products, and other major platforms.
             </p>
             <p>
               Before Profound, I worked at HubSpot, where I co-founded its Marketing AI practice and
@@ -142,20 +137,10 @@ export default function AboutPage() {
 
         <Section>
           <SectionHeader
-            title="Research corpus"
-            eyebrow="Measured scope"
-            className="mb-16 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+            title="Research scope by the numbers"
+            className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
-          <div className="grid grid-cols-2 gap-px border border-foreground/20 bg-foreground/20 md:grid-cols-4">
-            {researchScope.map((metric) => (
-              <div key={metric.label} className="bg-background p-6">
-                <p className="font-display text-4xl font-medium">{metric.value}</p>
-                <p className="mt-2 font-body text-sm leading-relaxed text-foreground/70">
-                  {metric.label}
-                </p>
-              </div>
-            ))}
-          </div>
+          <ResearchScopeGrid />
         </Section>
 
         <Section layout="split">
@@ -185,14 +170,14 @@ export default function AboutPage() {
 
             <div className="py-8">
               <dt className="font-mono text-xs uppercase tracking-widest text-foreground/50">
-                Strategy guidance through Profound
+                AEO strategies created at Profound
               </dt>
               <dd className="mt-3 font-display text-2xl font-medium leading-snug md:text-3xl">
-                Ramp · Indeed · U.S. Bank · Kaplan · Reddit · G2
+                Ramp · Indeed · U.S. Bank · Kaplan · Reddit · G2 · MongoDB · Kalshi · Mintlify ·
+                Figma · Hatch · Eight Sleep · Golin
               </dd>
               <p className="mt-3 max-w-2xl font-body text-sm leading-relaxed text-foreground/60">
-                Guided while these teams evaluated or worked with Profound, not as an independent
-                paid consultant.
+                Created for these leading brands to make them visible in AI search.
               </p>
             </div>
 
@@ -240,9 +225,9 @@ export default function AboutPage() {
               <Link
                 key={entry.href}
                 href={entry.href}
-                className="group flex min-h-20 items-end border-r border-b border-foreground/20 p-5 transition-colors hover:bg-foreground/5 sm:min-h-28"
+                className="group flex items-center border-r border-b border-foreground/20 px-5 py-5 transition-colors hover:bg-foreground/5"
               >
-                <span className="font-display text-2xl font-medium group-hover:underline">
+                <span className="font-display text-xl font-medium group-hover:underline">
                   {entry.label}
                 </span>
               </Link>
@@ -258,7 +243,7 @@ export default function AboutPage() {
               engines choose.
             </p>
             <div className="flex flex-col items-start gap-4 font-mono text-xs uppercase tracking-widest">
-              <Link href="/research" className="transition-colors hover:text-accent">
+              <Link href="/media" className="transition-colors hover:text-accent">
                 All research →
               </Link>
               <Link href="/methodology" className="transition-colors hover:text-accent">
@@ -269,26 +254,20 @@ export default function AboutPage() {
           <div>
             <SectionHeader
               title="Published studies"
-              eyebrow="Ref. List 03"
+              eyebrow={`${researchArticles.length} studies`}
               className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
             />
-            <div>
+            <div className="grid">
               {researchArticles.map((study) => (
-                <Link
+                <ArchiveEntry
                   key={study.slug}
+                  source="Research"
+                  sourceDetail={study.readTime}
+                  date={study.date}
+                  dateLabel={formatDate(study.date)}
+                  title={study.title}
                   href={`/research/${study.slug}`}
-                  className="group block border-b border-foreground/20 px-4 py-8 transition-colors hover:bg-foreground/5"
-                >
-                  <p className="font-mono text-xs uppercase tracking-wider text-accent">
-                    {formatDate(study.date)}
-                  </p>
-                  <h3 className="mt-2 font-display text-xl font-bold leading-snug group-hover:underline">
-                    {study.title}
-                  </h3>
-                  <p className="mt-3 max-w-xl font-body text-sm leading-relaxed text-foreground/70">
-                    {study.finding}
-                  </p>
-                </Link>
+                />
               ))}
             </div>
           </div>

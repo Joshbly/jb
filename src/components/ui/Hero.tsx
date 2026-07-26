@@ -21,7 +21,7 @@ export function Hero() {
             alt={hero.alt}
             fill
             sizes="(max-width: 1024px) 100vw, 42vw"
-            className="object-cover grayscale brightness-90 contrast-[1.2] transition-all duration-slow group-hover:contrast-[1.3]"
+            className="object-cover grayscale brightness-90 contrast-[1.2] transition-all duration-slow group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-[1.15]"
             priority
           />
           <div
@@ -45,8 +45,8 @@ export function Hero() {
               Research across 10B+ AI citations.
             </h1>
             <p className="mt-7 max-w-xl font-body text-lg leading-relaxed text-foreground/80 lg:text-xl">
-              I study how ChatGPT, Claude, Perplexity, Google AI Mode, and other answer engines
-              search, retrieve, and cite the web. I lead AI Strategy & Research at{" "}
+              I study how ChatGPT, Claude, Gemini, Google AI Mode, and other answer engines search,
+              retrieve, and cite the web. I lead AI Strategy & Research at{" "}
               <a
                 href={site.employer.url}
                 target="_blank"
