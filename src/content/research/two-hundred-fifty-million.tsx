@@ -1,9 +1,4 @@
-import {
-  KeyFindings,
-  PullQuote,
-  ResearchNote,
-  ResearchSection,
-} from "@/components/research/ResearchArticleElements";
+import { PullQuote, ResearchSection } from "@/components/research/ResearchArticleElements";
 import {
   BarChart,
   ProportionChart,
@@ -16,9 +11,8 @@ import type { ResearchMeta } from "@/content/research";
 export const meta = {
   slug: "250-million-ai-search-results",
   title: "What 250 million AI search results say gets cited",
-  question: "What makes a page more likely to earn a citation in AI search?",
   finding:
-    "Fresh, direct content and retrieval-ready page signals explain far more than traditional SEO authority metrics alone.",
+    "Traditional SEO metrics explained only 4% to 7% of citation variance across 1,311 pages.",
   date: "2025-12-08",
   readTime: "12 min",
   description:
@@ -29,7 +23,7 @@ export const meta = {
   authors: [
     {
       name: "Josh Blyskal",
-      role: "Research lead and presenter",
+      role: "Author",
       profile: "/about",
     },
   ],
@@ -45,18 +39,6 @@ export const meta = {
       url: "https://www.youtube.com/watch?v=ll_kZh5GVX0",
     },
   ],
-  methodology: {
-    dataSource:
-      "Profound's frontend monitoring of answer-engine responses and their cited URLs, supplemented by focused page, URL, SERP, query-fanout, and product-page analyses.",
-    sampleSize:
-      "More than 250 million responses and 3 billion citations across eight answer engines. Sub-studies used 1,311 pages, 100,000 URLs, 8,500 citations, 1,000 SERP analyses paired with 1,000 ChatGPT executions, and 16,000 product detail pages.",
-    period:
-      "Presented December 8, 2025. The product-page analysis ran October 2 through November 2, 2025; Reddit and YouTube rankings used the prior 90 days. The full corpus window was not published.",
-    approach:
-      "The work combined regression analysis of SEO metrics, top-versus-bottom cited URL comparisons, content classification, engine-level source shares, Google result overlap, observed query fanout, and product-page feature comparisons.",
-    limitations:
-      "The public deck did not name all eight engines or publish the full corpus window. Each chart below keeps its original sub-study denominator so that unlike samples are not blended.",
-  },
 } satisfies ResearchMeta;
 
 const contentCategories = [
@@ -86,22 +68,7 @@ const productPageFactors = [
 
 export default function TwoHundredFiftyMillionStudy() {
   return (
-    <div className="space-y-8">
-      <p className="max-w-[44rem] font-body text-xl leading-8 text-foreground/90 md:text-[1.375rem] md:leading-9">
-        I started this analysis with a question SEO teams ask constantly: if a page already performs
-        well in search, how much of that advantage carries into an AI answer? Across 1,311 pages,
-        the honest answer was less than I expected.
-      </p>
-
-      <KeyFindings
-        findings={[
-          "Traditional SEO metrics explained only 4 to 7 percent of citation variance across the 1,311-page analysis.",
-          "Blogs and comparative pages accounted for 61.5 percent of 8,500 classified citations.",
-          "Half of top-cited content was less than 13 weeks old.",
-          "Natural-language URL slugs appeared 11.4 percent more often among highly cited pages.",
-        ]}
-      />
-
+    <div className="space-y-20">
       <ResearchSection title="The 4 to 7 percent problem">
         <p>
           Traditional SEO metrics still moved citations in the expected direction. Doubling those
@@ -113,7 +80,7 @@ export default function TwoHundredFiftyMillionStudy() {
         <ResearchFigure
           number={1}
           title="Traditional SEO metrics leave at least 93% unexplained"
-          description="The uncertain boundary shows the full reported range rather than flattening it to one point."
+          description="Share of citation variance explained across 1,311 pages."
           source="Profound analysis of 1,311 pages"
         >
           <RangeShareChart
@@ -161,31 +128,28 @@ export default function TwoHundredFiftyMillionStudy() {
         </p>
         <p>
           Freshness mattered too. Fifty percent of top-cited pages were less than 13 weeks old. That
-          finding should not be read as an instruction to change a date and call an old article new.
-          It is a reason to rerun the work, replace stale examples, and make the current answer easy
-          to locate.
+          gives teams a practical job: rerun the work, replace stale examples, and make the current
+          answer easy to locate.
         </p>
       </ResearchSection>
 
       <ResearchSection title="Retrieval happens before a model reads the page">
         <p>
           During retrieval, an answer engine may decide between candidates from a title,
-          description, URL, and a short snippet. In the tests shown in the deck, that snippet was
-          around 100 characters. The full article cannot rescue a candidate that looks irrelevant at
-          this stage.
+          description, URL, and a short snippet. In our tests, that snippet was around 100
+          characters. The full article cannot rescue a candidate that looks irrelevant at this
+          stage.
         </p>
         <p>
           We compared 50,000 highly cited URLs with 50,000 low-cited URLs. Slugs written as four to
           seven natural-language words were 11.4 percent more common in the highly cited group. URLs
           that were semantically closer to the query received up to 5 percent more citations.
         </p>
-        <ResearchNote label="Practical reading">
-          <p>
-            The URL is a small retrieval document. So are the title and description. Each one should
-            say what the page answers without making the retriever decode an internal ID or a vague
-            brand phrase.
-          </p>
-        </ResearchNote>
+        <p>
+          The URL is a small retrieval document. So are the title and description. Each one should
+          say what the page answers without making the retriever decode an internal ID or a vague
+          brand phrase.
+        </p>
 
         <p>
           The same retrieval behavior helps explain the amount of user-generated content in AI
@@ -213,14 +177,13 @@ export default function TwoHundredFiftyMillionStudy() {
         <p>
           A ChatGPT prompt is not a keyword with extra words. The system turns it into query fanout,
           then searches those branches. In the observed sample, 36.4 percent of prompts produced two
-          searches and 52.9 percent produced three. Rounded in the original deck, 89 percent
-          produced two or three.
+          searches and 52.9 percent produced three. Nearly nine in ten produced two or three.
         </p>
 
         <ResearchFigure
           number={4}
           title="Most prompts generated two or three searches"
-          description="The remaining 10.7% is derived from the two published category values."
+          description="Share of prompts by number of generated searches."
           source="Profound ChatGPT query-fanout analysis"
         >
           <ProportionChart
@@ -238,21 +201,18 @@ export default function TwoHundredFiftyMillionStudy() {
               {
                 label: "One, four, or five queries",
                 value: 10.7,
-                displayValue: "10.7% derived",
+                displayValue: "10.7%",
                 tone: "pale",
               },
             ]}
-            ariaLabel="36.4 percent of prompts generated two queries, 52.9 percent generated three, and the derived remainder of 10.7 percent generated one, four, or five"
+            ariaLabel="36.4 percent of prompts generated two queries, 52.9 percent generated three, and 10.7 percent generated one, four, or five"
           />
         </ResearchFigure>
 
-        <ResearchNote label="Separate overlap result">
-          <p>
-            In a different sub-study, ChatGPT query fanouts overlapped 39 percent with Google
-            results across 1,000 SERP analyses and 1,000 ChatGPT executions. That result uses a
-            different denominator, so it does not belong on the query-count chart.
-          </p>
-        </ResearchNote>
+        <p>
+          Across 1,000 SERP analyses and 1,000 ChatGPT executions, ChatGPT query fanouts overlapped
+          39 percent with Google results.
+        </p>
 
         <p>
           This is why optimizing only for the exact wording of a prompt misses the retrieval path.
@@ -308,9 +268,9 @@ export default function TwoHundredFiftyMillionStudy() {
           an agent needs to compare options without guessing.
         </p>
         <p>
-          The 4 to 7 percent result is not a reason to abandon SEO. It is a reason to stop
-          pretending that authority alone can carry a page into an answer. Ninety-three percent is
-          still sitting on the other side of that assumption.
+          Traditional SEO remains the foundation. The 4 to 7 percent result shows how much work
+          begins after that foundation. Traditional SEO metrics left at least 93 percent of citation
+          variance unexplained.
         </p>
       </ResearchSection>
     </div>

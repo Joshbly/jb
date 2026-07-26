@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/layout/Footer";
+import { DisplayH2, Section, SectionHeader } from "@/components/shared/Section";
 import { researchArticles } from "@/content/research";
 import { site } from "@/content/site";
 import { profilePageJsonLd } from "@/lib/seo";
+import { formatDate } from "@/lib/time";
 
 const title = `About ${site.name}`;
 const description =
@@ -31,36 +33,31 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageJsonLd) }}
       />
       <main>
-        <header className="border-b-2 border-foreground px-6 pb-20 pt-10 md:pb-28">
-          <div className="mx-auto max-w-6xl">
-            <nav className="flex flex-wrap items-center justify-between gap-5 font-mono text-[10px] uppercase tracking-widest">
-              <Link href="/" className="hover:text-accent">
-                ← Home
+        <header className="px-6 pt-6">
+          <div className="mx-auto max-w-7xl">
+            <nav className="flex items-center justify-between font-mono text-xs uppercase tracking-widest">
+              <Link href="/" className="transition-colors hover:text-accent">
+                {site.name}
               </Link>
-              <div className="flex gap-6">
-                <Link href="/research" className="hover:text-accent">
-                  Research
-                </Link>
-                <Link href="/research/methodology" className="hover:text-accent">
-                  Methodology
-                </Link>
-              </div>
+              <Link href="/research" className="nav-bracket transition-colors hover:text-accent">
+                Research
+              </Link>
             </nav>
 
-            <div className="mt-20 grid gap-12 md:grid-cols-[minmax(0,1fr)_20rem] md:items-end">
+            <div className="grid gap-12 py-24 md:grid-cols-[minmax(0,1fr)_20rem] md:items-center md:py-32">
               <div>
-                <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
+                <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
                   {site.role} · {site.location}
                 </p>
-                <h1 className="mt-6 text-6xl font-display font-normal italic leading-none md:text-8xl">
+                <h1 className="mt-4 font-display text-hero-name font-normal leading-[0.9] tracking-tight">
                   Josh Blyskal
                 </h1>
-                <p className="mt-8 max-w-3xl font-body text-2xl leading-relaxed text-foreground/80">
+                <p className="mt-8 max-w-lg font-body text-lg leading-relaxed text-foreground/80 md:text-xl">
                   I study how AI answer engines find sources, decide what to cite, and turn those
                   sources into recommendations.
                 </p>
               </div>
-              <div className="relative aspect-4/5 overflow-hidden border-2 border-foreground">
+              <div className="relative aspect-4/5 w-full max-w-sm overflow-hidden border border-foreground">
                 <Image
                   src={site.headshot}
                   alt={site.name}
@@ -74,9 +71,11 @@ export default function AboutPage() {
           </div>
         </header>
 
-        <section className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[12rem_1fr] md:gap-20 md:py-28">
-          <h2 className="font-mono text-xs uppercase tracking-widest text-accent">Current work</h2>
-          <div className="max-w-3xl space-y-7 font-body text-xl leading-relaxed text-foreground/85">
+        <Section layout="split">
+          <div className="sticky top-32">
+            <DisplayH2>Current work</DisplayH2>
+          </div>
+          <div className="max-w-2xl space-y-6 font-body text-lg leading-relaxed text-foreground/90">
             <p>
               I lead AI strategy and research at{" "}
               <a
@@ -90,10 +89,10 @@ export default function AboutPage() {
               cite.
             </p>
             <p>
-              The research on this site covers more than 300 million answer-engine responses, 4
-              billion citations, and 50 million ChatGPT prompts across separate studies. Those
-              figures should not be added into one master sample. They come from different questions
-              and windows, which is why every article carries its own denominator and limits.
+              My data spans tens of billions of citations, billions of real user prompts, and
+              hundreds of millions of AI fanouts, searches, and browsing results across eight-plus
+              major answer engines. I use it to understand where AI systems search, what they cite,
+              and how brands show up in the answer.
             </p>
             <p>
               Before Profound, I worked at HubSpot, where I co-founded its Marketing AI practice and
@@ -101,88 +100,71 @@ export default function AboutPage() {
               comparing citation sets, and explaining what the differences mean for marketers.
             </p>
           </div>
-        </section>
+        </Section>
 
-        <section className="border-y-2 border-foreground bg-foreground text-background">
-          <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
-            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-background/55">
-              Research record
-            </p>
-            <div className="mt-10 grid gap-px bg-background/20 md:grid-cols-4">
-              {[
-                { value: "300M+", label: "Responses in the Reddit study" },
-                { value: "4B+", label: "Citations in the Reddit study" },
-                { value: "250M+", label: "Responses in the TechSEO study" },
-                { value: "50M+", label: "Prompts in the intent corpus" },
-              ].map((metric) => (
-                <div key={metric.label} className="bg-foreground p-6">
-                  <p className="font-display text-4xl font-semibold">{metric.value}</p>
-                  <p className="mt-2 font-body text-sm leading-relaxed text-background/65">
-                    {metric.label}
-                  </p>
-                </div>
-              ))}
-            </div>
+        <Section>
+          <SectionHeader
+            title="By the numbers"
+            eyebrow="Fig. 2"
+            className="mb-16 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+          />
+          <div className="grid grid-cols-2 gap-px border border-foreground/20 bg-foreground/20 md:grid-cols-4">
+            {[
+              { value: "10B+", label: "Citations across major answer engines" },
+              { value: "1B+", label: "Real user prompts" },
+              { value: "100M+", label: "AI fanouts and web research results" },
+              { value: "8+", label: "Major answer engines" },
+            ].map((metric) => (
+              <div key={metric.label} className="bg-background p-6">
+                <p className="font-display text-4xl font-medium">{metric.value}</p>
+                <p className="mt-2 font-body text-sm leading-relaxed text-foreground/70">
+                  {metric.label}
+                </p>
+              </div>
+            ))}
           </div>
-        </section>
+        </Section>
 
-        <section className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <div className="grid gap-12 md:grid-cols-[12rem_1fr] md:gap-20">
+        <Section layout="split">
+          <div className="sticky top-32 space-y-6">
+            <DisplayH2>Research</DisplayH2>
+            <p className="max-w-sm font-body text-lg leading-relaxed text-foreground/80">
+              Original studies on how answer engines search, cite, and recommend.
+            </p>
+            <Link
+              href="/research"
+              className="inline-block font-mono text-xs uppercase tracking-widest transition-colors hover:text-accent"
+            >
+              All research →
+            </Link>
+          </div>
+          <div>
+            <SectionHeader
+              title="Published studies"
+              eyebrow="Ref. List 03"
+              className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+            />
             <div>
-              <h2 className="font-mono text-xs uppercase tracking-widest text-accent">
-                Published studies
-              </h2>
-              <Link
-                href="/research/methodology"
-                className="mt-5 block font-mono text-[10px] uppercase tracking-widest hover:text-accent"
-              >
-                Methods and limits →
-              </Link>
-            </div>
-            <div className="divide-y divide-foreground/20 border-y border-foreground/20">
               {researchArticles.map((study) => (
                 <Link
                   key={study.slug}
                   href={`/research/${study.slug}`}
-                  className="group block py-7"
+                  className="group block border-b border-foreground/20 px-4 py-8 transition-colors hover:bg-foreground/5"
                 >
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-foreground/45">
-                    {study.date}
+                  <p className="font-mono text-xs uppercase tracking-wider text-accent">
+                    {formatDate(study.date)}
                   </p>
-                  <h3 className="mt-2 text-2xl font-display font-semibold group-hover:text-accent">
+                  <h3 className="mt-2 font-display text-xl font-bold leading-snug group-hover:underline">
                     {study.title}
                   </h3>
-                  <p className="mt-3 max-w-2xl font-body leading-relaxed text-foreground/70">
+                  <p className="mt-3 max-w-xl font-body text-sm leading-relaxed text-foreground/70">
                     {study.finding}
                   </p>
                 </Link>
               ))}
             </div>
           </div>
-        </section>
-
-        <section className="border-t-2 border-foreground">
-          <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-[12rem_1fr] md:gap-20">
-            <h2 className="font-mono text-xs uppercase tracking-widest text-accent">
-              Contact and profiles
-            </h2>
-            <div className="flex flex-wrap gap-x-8 gap-y-4 font-mono text-xs uppercase tracking-widest">
-              <a href={`mailto:${site.email}`} className="border-b hover:text-accent">
-                {site.email}
-              </a>
-              {site.socials.map((profile) => (
-                <a
-                  key={profile.href}
-                  href={profile.href}
-                  rel="me"
-                  className="border-b hover:text-accent"
-                >
-                  {profile.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
+        </Section>
       </main>
       <Footer />
     </div>

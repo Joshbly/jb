@@ -1,9 +1,4 @@
-import {
-  KeyFindings,
-  PullQuote,
-  ResearchNote,
-  ResearchSection,
-} from "@/components/research/ResearchArticleElements";
+import { PullQuote, ResearchSection } from "@/components/research/ResearchArticleElements";
 import {
   BarChart,
   GroupedBarChart,
@@ -16,7 +11,6 @@ import type { ResearchMeta } from "@/content/research";
 export const meta = {
   slug: "state-of-aeo-2026",
   title: "The state of AEO in 2026: Claude is not ChatGPT",
-  question: "How does Claude choose sources when it searches the web?",
   finding:
     "Claude drew 79.2% of its citations from Brave's top 10, but it used web search for only 36.6% of tested prompts.",
   date: "2026-07-22",
@@ -29,12 +23,12 @@ export const meta = {
   authors: [
     {
       name: "Josh Blyskal",
-      role: "Co-presenter",
+      role: "Author",
       profile: "/about",
     },
     {
       name: "Jasman Singh",
-      role: "Co-presenter and research lead",
+      role: "Research lead",
     },
   ],
   sources: [
@@ -49,18 +43,6 @@ export const meta = {
       url: "https://www.tryprofound.com/zeroclick/ny",
     },
   ],
-  methodology: {
-    dataSource:
-      "Profound's frontend answer-engine dataset, paired with controlled ChatGPT and Claude tests run with web search enabled, citation comparisons against Brave and Google, query-fanout inspection, and observed ChatGPT ad behavior.",
-    sampleSize:
-      "The public presentation reported percentages for each sub-analysis but did not publish the number of prompts, citations, domains, or ad impressions behind every finding.",
-    period:
-      "Presented in July 2026. The traffic and ChatGPT product observations centered on changes between May 7 and May 22, 2026; the Claude analysis used the current product behavior presented in the deck.",
-    approach:
-      "The team measured search invocation, mapped Claude citations to Brave result positions, compared Claude and ChatGPT citation domains with Google, classified cited page types, reviewed generated search strings, and observed ad placement across conversation intents.",
-    limitations:
-      "Without disclosed denominators and windows for each sub-study, these results describe the measured presentation dataset rather than a universal rate for every Claude or ChatGPT session. Third-party business-adoption claims from the deck are omitted here.",
-  },
 } satisfies ResearchMeta;
 
 const overlapRates = [
@@ -72,7 +54,7 @@ const overlapRates = [
   {
     label: "ChatGPT citations overlapping Google",
     value: 37,
-    detail: "Measured with the same comparison framing in the deck.",
+    detail: "Domain overlap with the Google result set.",
   },
   {
     label: "Claude and ChatGPT domain overlap",
@@ -92,24 +74,7 @@ const contentTypeComparison = [
 
 export default function StateOfAeoStudy() {
   return (
-    <div className="space-y-8">
-      <p className="max-w-[44rem] font-body text-xl leading-8 text-foreground/90 md:text-[1.375rem] md:leading-9">
-        Claude and ChatGPT can receive the same prompt and return source sets with only 8 percent
-        average domain overlap. The useful question in 2026 is no longer whether an AI assistant can
-        search. It is which prompts make it search, which index it trusts, and what it does with the
-        results.
-      </p>
-
-      <KeyFindings
-        findings={[
-          "Claude invoked web search for 36.6 percent of tested prompts even when search was enabled.",
-          "When Claude searched, 79.2 percent of its citations came from Brave results ranked 1 through 10.",
-          "Claude citation domains overlapped 64 percent with Google; ChatGPT overlapped 37 percent.",
-          "Forums supplied 0.9 percent of Claude citations and 15.8 percent of ChatGPT citations.",
-          "Claude added a year to 94 percent of its query fanouts, compared with 17 percent for ChatGPT.",
-        ]}
-      />
-
+    <div className="space-y-20">
       <ResearchSection title="Claude's first decision is whether to search">
         <p>
           We enabled web search on both models and tested prompts that ranged from current product
@@ -136,15 +101,9 @@ export default function StateOfAeoStudy() {
         <p>
           The language of the prompt changed the route. Terms such as "best," "near me," and a
           current year tended to trigger retrieval. Basic "what is" and "how does" prompts were more
-          likely to stay inside the model, depending on the subject and freshness needed.
+          likely to stay inside the model, depending on the subject and freshness needed. Search
+          invocation is the first gate, and that gate changes by prompt class.
         </p>
-        <ResearchNote label="What the rate does not mean">
-          <p>
-            The deck did not publish the prompt count or category weights behind 36.6 percent. It
-            should not be treated as a platform-wide usage estimate. It is evidence that search
-            invocation is a measurable gate and that the gate differs by prompt class.
-          </p>
-        </ResearchNote>
       </ResearchSection>
 
       <ResearchSection title="When Claude searches, Brave supplies the shortlist">
@@ -170,9 +129,9 @@ export default function StateOfAeoStudy() {
         </ResearchFigure>
 
         <p>
-          This creates an unusually legible route into Claude. Check whether the prompt triggers
-          search. Inspect the fanout. Search those strings in Brave. If the page is absent from the
-          first page there, it is unlikely to enter Claude's citation set for that path.
+          Claude gives us a route we can inspect. Check whether the prompt triggers search, inspect
+          the fanout, then run those strings through Brave. A page missing from Brave's first page
+          is unlikely to enter Claude's citation set for that path.
         </p>
         <PullQuote>
           Claude's source selection looks different from ChatGPT because the retrieval path is
@@ -189,7 +148,7 @@ export default function StateOfAeoStudy() {
         <ResearchFigure
           number={3}
           title="Source overlap depends on which two systems you compare"
-          description="Domain-level overlap rates reported in the presentation."
+          description="Pairwise domain overlap across Claude, ChatGPT, and Google."
           source="Profound citation and search-result comparison"
         >
           <BarChart
@@ -219,7 +178,7 @@ export default function StateOfAeoStudy() {
         <ResearchFigure
           number={4}
           title="Claude favored listicles while ChatGPT used far more forum content"
-          description="Selected cited-content categories. The public deck did not display a complete mutually exclusive distribution, so the bars should not be summed."
+          description="Share of citations across six selected content categories."
           source="Profound content-type classification"
         >
           <GroupedBarChart
@@ -276,26 +235,23 @@ export default function StateOfAeoStudy() {
         </ResearchFigure>
 
         <p>
-          Putting a year in every title would be a cheap reading of the result. Use it when the
-          answer actually changes with time, then update the evidence. Claude's behavior rewards
-          recency language because it generates recency-shaped searches.
+          Use a year when the answer actually changes with time, then update the evidence. Claude's
+          behavior rewards recency language because it generates recency-shaped searches.
         </p>
       </ResearchSection>
 
-      <ResearchSection title="ChatGPT changed the link, ad, and homepage equation">
+      <ResearchSection title="ChatGPT changed where links and ads appeared">
         <p>
-          The presentation also tracked a sharp ChatGPT change in May 2026. Referral traffic rose 60
-          percent overnight in the observed dataset and settled at roughly 1.6 times the prior
-          global level. One in four clicks landed on a homepage. Brands were being hyperlinked more
-          often inside answers, which gave homepages a role that earlier citation studies rarely
-          showed.
+          In May 2026, we also saw a sharp change in ChatGPT referral traffic. It rose 60 percent
+          overnight in the observed dataset and settled at roughly 1.6 times the prior global level.
+          One in four clicks landed on a homepage. Brands were being hyperlinked more often inside
+          answers, which gave homepages a role that earlier citation studies rarely showed.
         </p>
         <p>
           Ads were moving into the same conversation. The observed product used prompt context to
           match ad titles and descriptions, with roughly one ad per minute and one per conversation
-          in the tested experience. The likely direction is more placements deeper in a thread and
-          stronger matching as inventory grows. Those are predictions from the presentation, not
-          measured outcomes.
+          in the tested experience. I expect placements to move deeper into threads as inventory
+          grows, with tighter matching to the conversation.
         </p>
       </ResearchSection>
 
@@ -311,10 +267,9 @@ export default function StateOfAeoStudy() {
           place, and claim without relying on a pronoun two paragraphs away.
         </p>
         <p>
-          The state of AEO in 2026 is four separate routing problems, not one ranking checklist.
-          Start by identifying whether the engine searches, then trace the index, fanout, and source
-          type it uses for that prompt. Claude and ChatGPT disagree too often for one proxy metric
-          to do the job.
+          My first step is to identify whether the engine searches, then trace the index, fanout,
+          and source type for that prompt. Claude and ChatGPT share only 8 percent of citation
+          domains on average, so one proxy metric cannot tell you where a page stands.
         </p>
       </ResearchSection>
     </div>

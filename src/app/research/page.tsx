@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/layout/Footer";
+import { Section, SectionHeader } from "@/components/shared/Section";
 import { researchArticles } from "@/content/research";
 import { site } from "@/content/site";
 import { formatDate } from "@/lib/time";
@@ -25,77 +26,73 @@ export default function ResearchIndexPage() {
   return (
     <div className="min-h-screen bg-background">
       <main>
-        <header className="border-b-2 border-foreground px-6 pb-16 pt-8 md:pb-20 md:pt-10">
-          <div className="mx-auto max-w-6xl">
-            <nav className="flex flex-wrap items-center justify-between gap-5 font-mono text-[10px] uppercase tracking-widest">
-              <Link href="/" className="hover:text-accent">
-                ← {site.name}
+        <header className="px-6 pt-6">
+          <div className="mx-auto max-w-7xl">
+            <nav className="flex items-center justify-between font-mono text-xs uppercase tracking-widest">
+              <Link href="/" className="transition-colors hover:text-accent">
+                {site.name}
               </Link>
-              <div className="flex gap-6">
-                <Link href="/research/methodology" className="hover:text-accent">
-                  Methodology
-                </Link>
-                <Link href="/about" className="hover:text-accent">
-                  About
-                </Link>
-              </div>
+              <Link href="/about" className="nav-bracket transition-colors hover:text-accent">
+                About
+              </Link>
             </nav>
-            <p className="mt-16 font-mono text-[10px] uppercase tracking-[0.22em] text-accent md:mt-20">
-              Research archive · 2025–2026
-            </p>
-            <h1 className="mt-4 max-w-4xl font-display text-[clamp(2.75rem,7vw,5rem)] font-normal italic leading-[0.98]">
-              AI search research
-            </h1>
-            <p className="mt-6 max-w-160 font-body text-lg leading-8 text-foreground/70 md:text-xl">
-              Studies on what people ask AI, which sources the systems choose, and how retrieval
-              differs across ChatGPT, Claude, Perplexity, and Google.
-            </p>
+            <div className="py-24 md:py-32">
+              <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
+                AI strategy & research
+              </p>
+              <h1 className="mt-4 max-w-4xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
+                AI search research
+              </h1>
+              <p className="mt-8 max-w-xl font-body text-lg leading-relaxed text-foreground/80 md:text-xl">
+                Studies on what people ask AI, which sources the systems choose, and how retrieval
+                differs across ChatGPT, Claude, Perplexity, and Google.
+              </p>
+            </div>
           </div>
         </header>
 
-        <section className="mx-auto max-w-6xl px-6 py-14 md:py-20">
-          <div className="divide-y-2 divide-foreground border-y-2 border-foreground">
+        <Section layout="narrow">
+          <SectionHeader
+            title="Published studies"
+            eyebrow="Ref. List 03"
+            className="mb-16 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+          />
+          <div className="space-y-8">
             {researchArticles.map((study, studyIndex) => (
-              <article
-                key={study.slug}
-                className="grid gap-5 py-8 sm:grid-cols-[6.5rem_minmax(0,1fr)] sm:gap-8 md:grid-cols-[7.5rem_minmax(0,1fr)] md:gap-12 md:py-11"
-              >
-                <div className="flex flex-wrap items-center gap-x-3 font-mono text-[10px] uppercase leading-5 tracking-[0.16em] text-foreground/50 sm:block">
-                  <span className="block text-accent">Study 0{studyIndex + 1}</span>
-                  <span className="text-foreground/25 sm:hidden">/</span>
-                  <time className="sm:mt-2 sm:block" dateTime={study.date}>
-                    {formatDate(study.date)}
-                  </time>
-                  <span className="text-foreground/25 sm:hidden">/</span>
-                  <span className="sm:mt-1 sm:block">{study.readTime}</span>
-                </div>
-                <div>
-                  <p className="max-w-2xl font-body text-[0.9375rem] italic leading-6 text-foreground/60">
-                    {study.question}
-                  </p>
-                  <h2 className="mt-2 max-w-3xl font-display text-[clamp(1.75rem,3.25vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.015em]">
-                    <Link
-                      href={`/research/${study.slug}`}
-                      className="transition-colors hover:text-accent"
-                    >
-                      {study.title}
-                    </Link>
-                  </h2>
-                  <p className="mt-4 max-w-2xl font-body text-base leading-7 text-foreground/75 md:text-[1.0625rem]">
-                    {study.finding}
-                  </p>
-                  <Link
-                    href={`/research/${study.slug}`}
-                    aria-label={`Read ${study.title}`}
-                    className="mt-5 inline-block font-mono text-[10px] uppercase tracking-[0.16em] text-accent hover:underline"
-                  >
-                    Read the study →
-                  </Link>
-                </div>
+              <article key={study.slug}>
+                <Link
+                  href={`/research/${study.slug}`}
+                  className="group grid gap-4 rounded-sm p-4 transition-colors hover:bg-foreground/5 md:-mx-4 md:grid-cols-[100px_1fr] md:gap-8"
+                >
+                  <div className="hidden text-right font-mono text-xs uppercase tracking-wider text-foreground/50 md:block">
+                    <time className="block" dateTime={study.date}>
+                      {formatDate(study.date)}
+                    </time>
+                    <span className="mt-1 block text-[10px]">{study.readTime}</span>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex flex-wrap items-baseline gap-2">
+                      <span className="font-mono text-xs uppercase tracking-wider text-accent">
+                        Study 0{studyIndex + 1}
+                      </span>
+                      <h2 className="font-display text-xl font-bold leading-snug decoration-1 underline-offset-4 group-hover:underline">
+                        {study.title}
+                      </h2>
+                    </div>
+                    <p className="max-w-xl font-body text-sm leading-relaxed text-foreground/70">
+                      {study.finding}
+                    </p>
+                    <div className="flex gap-3 font-mono text-xs uppercase tracking-wider text-foreground/50 md:hidden">
+                      <time dateTime={study.date}>{formatDate(study.date)}</time>
+                      <span aria-hidden="true">·</span>
+                      <span>{study.readTime}</span>
+                    </div>
+                  </div>
+                </Link>
               </article>
             ))}
           </div>
-        </section>
+        </Section>
       </main>
       <Footer />
     </div>

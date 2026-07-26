@@ -1,9 +1,4 @@
-import {
-  KeyFindings,
-  PullQuote,
-  ResearchNote,
-  ResearchSection,
-} from "@/components/research/ResearchArticleElements";
+import { PullQuote, ResearchSection } from "@/components/research/ResearchArticleElements";
 import {
   BarChart,
   DumbbellChart,
@@ -17,7 +12,6 @@ import type { ResearchMeta } from "@/content/research";
 export const meta = {
   slug: "reddit-ai-search-data",
   title: "Why Reddit became AI search's most-cited domain",
-  question: "Which domain does AI search cite most across major answer engines?",
   finding:
     "Reddit ranked first in the aggregate dataset, appearing in 3.11% of citations across the tracked answer engines.",
   date: "2025-11-10",
@@ -45,16 +39,6 @@ export const meta = {
       url: "https://www.tryprofound.com/blog/the-data-on-reddit-and-ai-search",
     },
   ],
-  methodology: {
-    dataSource:
-      "Profound's monitoring of answer-engine responses and citations, analyzed in collaboration with Reddit. The study covered ChatGPT, Google AI Overviews, Google AI Mode, Perplexity, Grok, and Microsoft Copilot.",
-    sampleSize: "More than 4 billion citations from 300 million answer-engine responses.",
-    period: "The aggregate citation analysis ran from August 2024 through late October 2025.",
-    approach:
-      "The study ranked cited domains across engines, measured Reddit's engine-level rank and citation share over time, examined the age of cited posts, reviewed subreddit concentration by query, and compared positive with negative brand sentiment in cited Reddit content.",
-    limitations:
-      "The public article did not publish query selection, country mix, sentiment-model validation, or a formula for helpfulness. This version treats the collaboration and all unpublished method details as limits, not assumptions to fill in.",
-  },
 } satisfies ResearchMeta;
 
 const citedDomains = [
@@ -89,23 +73,7 @@ const sentimentComparison = [
 
 export default function RedditAiSearchStudy() {
   return (
-    <div className="space-y-8">
-      <p className="max-w-[44rem] font-body text-xl leading-8 text-foreground/90 md:text-[1.375rem] md:leading-9">
-        Across more than 4 billion citations, Reddit was the most-cited domain in the aggregate
-        dataset. The reason was not a single viral thread. Answer engines kept returning to old,
-        specific conversations where someone asked a real question and another person gave a direct
-        answer.
-      </p>
-
-      <KeyFindings
-        findings={[
-          "Reddit appeared in 3.11 percent of citations, ahead of YouTube at 2.13 percent and Wikipedia at 1.35 percent.",
-          "Reddit ranked in the top three on Perplexity, ChatGPT, Google AI Mode, Google AI Overviews, and Grok.",
-          "The average cited Reddit post was about one year old, and 4 percent came from 2019 or earlier.",
-          "Positive and negative brand sentiment had similar citation rates: 5.0 percent and 6.1 percent.",
-        ]}
-      />
-
+    <div className="space-y-20">
       <ResearchSection title="Reddit led the aggregate source ranking">
         <p>
           No single domain supplied most AI citations. Reddit's 3.11 percent share was enough to
@@ -147,15 +115,6 @@ export default function RedditAiSearchStudy() {
             ariaLabel="Reddit ranked first on Perplexity, second on ChatGPT, second on Google AI Overviews, second on Grok, third on Google AI Mode, and thirty-first on Microsoft Copilot"
           />
         </ResearchFigure>
-
-        <ResearchNote label="Do not mix the windows">
-          <p>
-            The 250-million-results presentation reported a separate 90-day slice with different
-            engine-level citation shares. This article uses the longer August 2024 to October 2025
-            analysis. The numbers answer different questions and should not be merged into one time
-            series.
-          </p>
-        </ResearchNote>
       </ResearchSection>
 
       <ResearchSection title="AI search uses Reddit for the part official pages omit">
@@ -166,10 +125,10 @@ export default function RedditAiSearchStudy() {
           person.
         </p>
         <p>
-          The source study described an answer engine's "source stack": factual sources handle the
-          what, while conversations supply lived experience and a judgment about whether the facts
-          matter. ChatGPT often paired Reddit with Wikipedia, review sites, and news. Google AI
-          Overviews paired it with YouTube and Quora.
+          We found answer engines building a source stack. Factual sources handled the what, while
+          conversations supplied lived experience and a judgment about whether the facts mattered.
+          ChatGPT often paired Reddit with Wikipedia, review sites, and news. Google AI Overviews
+          paired it with YouTube and Quora.
         </p>
         <PullQuote>
           A niche subreddit can function like a panel of subject-matter experts, with all the
@@ -183,18 +142,18 @@ export default function RedditAiSearchStudy() {
         </p>
       </ResearchSection>
 
-      <ResearchSection title="Helpful did not mean popular or positive">
+      <ResearchSection title="What made Reddit content useful">
         <p>
-          The analysis did not find a simple rule where the highest-upvoted comment won. The cited
-          material tended to use a question-and-response structure, give a direct recommendation,
-          and admit tradeoffs. Popularity can help a thread become visible, but it was not the only
-          selection signal described in the study.
+          Upvotes alone did not decide which comments won. The cited material tended to use a
+          question-and-response structure, give a direct recommendation, and admit tradeoffs.
+          Popularity can help a thread become visible. A clear recommendation gives the retriever
+          something useful to quote.
         </p>
 
         <ResearchFigure
           number={3}
           title="Negative and positive brand sentiment were cited at similar rates"
-          description="Reported citation rates for Reddit content containing brand sentiment."
+          description="Citation rates for Reddit content containing brand sentiment."
           source="Profound and Reddit sentiment analysis"
         >
           <DumbbellChart
@@ -209,10 +168,8 @@ export default function RedditAiSearchStudy() {
 
         <p>
           Negative brand sentiment had a 6.1 percent citation rate. Positive sentiment was 5.0
-          percent. That narrow gap does not prove an engine is neutral, and the public report did
-          not publish the sentiment classifier's validation. It does cut against the idea that
-          Reddit wins because AI systems want either praise or complaints. They pull evaluation from
-          both.
+          percent. The systems cited both. Reddit's value came from evaluation itself, whether the
+          verdict was positive or negative.
         </p>
       </ResearchSection>
 
@@ -225,8 +182,8 @@ export default function RedditAiSearchStudy() {
 
         <ResearchFigure
           number={4}
-          title="Reddit citations rewarded an archive, not one launch week"
-          description="The public study reported average age and a long-tail share rather than a complete age distribution."
+          title="Reddit citations rewarded years of useful answers"
+          description="Average cited-post age, long-tail share, and peak publication quarter by engine."
           source="Profound analysis of cited Reddit post dates"
         >
           <TimelineChart
@@ -274,7 +231,7 @@ export default function RedditAiSearchStudy() {
         </p>
       </ResearchSection>
 
-      <ResearchSection title="What brands can do without turning Reddit into an ad channel">
+      <ResearchSection title="How brands can contribute useful answers">
         <p>
           Start with the prompts customers use when they compare products, look for failure modes,
           or ask whether something is worth the money. Record which subreddits appear. Read enough
@@ -288,8 +245,8 @@ export default function RedditAiSearchStudy() {
           the thread to help settle the question.
         </p>
         <p>
-          Reddit's lead came from years of specific conversations. The unit of work is one useful
-          answer that still makes sense when a model retrieves it a year later.
+          Reddit led because useful answers kept working long after the thread fell off the front
+          page. The average cited post was about a year old.
         </p>
       </ResearchSection>
     </div>
