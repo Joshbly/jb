@@ -12,6 +12,15 @@ export type Talk = {
 export const talks: readonly Talk[] = [
   {
     year: "July 2026",
+    conference: "MozCon",
+    location: "New York, NY, USA",
+    title: "The State of AEO in 2026",
+    description: "Research on Claude, ChatGPT ads, Google AI Mode, and Google AI Overviews.",
+    research: "/research/state-of-aeo-2026",
+    link: "https://speakerdeck.com/joshbly/the-state-of-aeo-2026",
+  },
+  {
+    year: "July 2026",
     conference: "Zero Click",
     location: "NYC, NY, USA",
     title: "The State of AEO in 2026",
@@ -20,6 +29,14 @@ export const talks: readonly Talk[] = [
     research: "/research/state-of-aeo-2026",
     link: "https://speakerdeck.com/joshbly/the-state-of-aeo-2026",
     video: "https://www.tryprofound.com/zeroclick/ny",
+  },
+  {
+    year: "April 2026",
+    conference: "Zero Click",
+    location: "San Francisco, CA, USA",
+    title: "The Marketing Engineer",
+    description: "Applying marketing engineering to answer engine optimization.",
+    video: "https://www.tryprofound.com/zeroclick/sf",
   },
   {
     year: "December 2025",
@@ -31,6 +48,15 @@ export const talks: readonly Talk[] = [
     research: "/research/250-million-ai-search-results",
     link: "https://speakerdeck.com/joshbly/we-analyzed-250-million-ai-search-results-heres-what-i-found",
     video: "https://www.youtube.com/watch?v=ll_kZh5GVX0",
+  },
+  {
+    year: "November 2025",
+    conference: "Zero Click",
+    location: "London, UK",
+    title: "The Machine Customer Era",
+    description:
+      "How machine customers are reshaping commerce and brand visibility. Co-presented with Julia Moseyko.",
+    video: "https://www.tryprofound.com/resources/webinars/The-Machine-Customer-Era",
   },
   {
     year: "October 2025",

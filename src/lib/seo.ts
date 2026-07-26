@@ -1,4 +1,6 @@
+import { aboutFaqs } from "@/content/about";
 import { articles } from "@/content/articles";
+import { methodologyFaqs, sageLessonUrl, sagePhases } from "@/content/methodology";
 import { press } from "@/content/press";
 import { type ResearchArticle, researchArticles } from "@/content/research";
 import { site } from "@/content/site";
@@ -51,12 +53,21 @@ export const personJsonLd = {
   subjectOf: [
     ...[...press, ...articles]
       .filter((item) => !item.link.startsWith("/research/"))
-      .map((item) => ({
-        "@type": "Article",
-        headline: item.title,
-        url: item.link.startsWith("/") ? `${site.url}${item.link}` : item.link,
-        publisher: { "@type": "Organization", name: item.outlet },
-      })),
+      .map((item) =>
+        item.link === "/methodology"
+          ? {
+              "@type": "HowTo",
+              "@id": `${site.url}/methodology#method`,
+              name: item.title,
+              url: `${site.url}${item.link}`,
+            }
+          : {
+              "@type": "Article",
+              headline: item.title,
+              url: item.link.startsWith("/") ? `${site.url}${item.link}` : item.link,
+              publisher: { "@type": "Organization", name: item.outlet },
+            },
+      ),
     ...researchArticles.map((study) => ({
       "@type": "Article",
       "@id": `${site.url}/research/${study.slug}#article`,
@@ -118,8 +129,134 @@ export const profilePageJsonLd = {
   "@id": `${site.url}/about#profile`,
   url: `${site.url}/about`,
   name: `About ${site.name}`,
+  description: site.bio,
   mainEntity: {
     "@type": "Person",
     "@id": `${site.url}/#identity`,
   },
+};
+
+export const aboutFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${site.url}/about#faq`,
+  url: `${site.url}/about`,
+  mainEntity: aboutFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
+const methodologyUrl = `${site.url}/methodology`;
+const profoundId = `${site.employer.url}/#organization`;
+
+export const methodologyPageJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${methodologyUrl}#webpage`,
+      url: methodologyUrl,
+      name: "The SAGE Method",
+      description:
+        "Josh Blyskal's four-stage AEO operating method: Setup, Analyze, Generate, and Engineer.",
+      inLanguage: "en-US",
+      author: { "@id": `${site.url}/#identity` },
+      breadcrumb: { "@id": `${methodologyUrl}#breadcrumb` },
+      mainEntity: { "@id": `${methodologyUrl}#method` },
+      significantLink: [
+        sageLessonUrl,
+        `${site.url}/research`,
+        `${site.url}/#speaking`,
+        `${site.url}/#writing`,
+      ],
+    },
+    {
+      "@type": "HowTo",
+      "@id": `${methodologyUrl}#method`,
+      name: "The SAGE Method",
+      alternateName: ["The SAGE Framework", "The SAGE Method by Profound"],
+      description:
+        "A four-stage operating loop for answer engine optimization. Setup creates a trusted baseline, Analyze produces a credible gap list, Generate ships work that addresses the gap, and Engineer makes proved work repeatable.",
+      author: { "@id": `${site.url}/#identity` },
+      creator: { "@id": `${site.url}/#identity` },
+      sameAs: sageLessonUrl,
+      citation: [
+        sageLessonUrl,
+        `${site.url}/research/chatgpt-intent-study`,
+        `${site.url}/research/250-million-ai-search-results`,
+        `${site.url}/research/state-of-aeo-2026`,
+      ],
+      step: sagePhases.map((phase, phaseIndex) => ({
+        "@type": "HowToStep",
+        position: phaseIndex + 1,
+        name: phase.name,
+        text: `${phase.question} ${phase.summary} Required output: ${phase.output}`,
+        url: `${methodologyUrl}#${phase.name.toLowerCase()}`,
+      })),
+    },
+    {
+      "@type": "Person",
+      "@id": `${site.url}/#identity`,
+      name: site.name,
+      url: site.url,
+      image: `${site.url}${site.headshot}`,
+      jobTitle: site.role,
+      description: site.bio,
+      worksFor: { "@id": profoundId },
+      knowsAbout: knowsAbout
+        .map((subject) => ({
+          "@type": "Thing",
+          name: subject.name,
+          sameAs: subject.sameAs,
+        }))
+        .concat({
+          "@type": "Thing",
+          name: "The SAGE Method",
+          sameAs: sageLessonUrl,
+        }),
+    },
+    {
+      "@type": "Organization",
+      "@id": profoundId,
+      name: site.employer.name,
+      url: site.employer.url,
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${methodologyUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: site.url,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "The SAGE Method",
+          item: methodologyUrl,
+        },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${methodologyUrl}#faq`,
+      url: methodologyUrl,
+      isPartOf: { "@id": `${methodologyUrl}#webpage` },
+      mainEntity: methodologyFaqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    },
+  ],
 };

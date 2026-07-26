@@ -4,26 +4,28 @@ export function Bio() {
   return (
     <div className="space-y-6 text-lg font-body leading-relaxed text-foreground/90">
       <p>
-        {site.name} is a leading expert at the intersection of AI and search marketing. Currently{" "}
-        <strong className="font-semibold text-accent">Leading {site.tagline}</strong> at{" "}
+        {site.name} leads{" "}
+        <strong className="font-semibold text-accent">AI Strategy & Research</strong> at{" "}
         <a
           href={site.employer.url}
           className="hover:text-accent hover:underline decoration-1 underline-offset-4 transition-colors"
         >
           {site.employer.name}
         </a>
-        , he guides Fortune 500 companies like Ramp, Indeed, and US Bank on securing visibility in
-        AI Answer Engines.
+        , where he studies how answer engines search, retrieve, and cite information. His data spans
+        tens of billions of citations, billions of real user prompts, and hundreds of millions of AI
+        fanouts and web research results across eight-plus engines.
       </p>
       <p>
-        Previously at <strong className="font-semibold">HubSpot</strong>, Josh co-founded the
-        Marketing AI practice and built the AI Search Grader tool. His background blends technology,
-        marketing, and entrepreneurship—from founding a streetwear brand in college to engineering
-        AI automations that reached millions.
+        At Profound, he has guided AI-search strategy for teams at Ramp, Indeed, U.S. Bank, Kaplan,
+        Reddit, and G2 as they evaluated or used the platform, not as an independent consultant. His
+        research and commentary have appeared in The Verge, Adweek, AdAge, Search Engine Land, BCG,
+        and Business of Fashion.
       </p>
       <p>
-        Based in {site.location}, he is a recognized thought leader frequently sharing data-driven
-        insights on how AI is rewriting the rules of SEO and digital discovery.
+        Before Profound, he co-founded <strong className="font-semibold">HubSpot</strong>&apos;s
+        Marketing AI practice and built the AI Search Grader, used by more than 100,000 marketers.
+        He is based in {site.location}.
       </p>
     </div>
   );
