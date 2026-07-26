@@ -10,10 +10,15 @@ const enterpriseWork = [
   { name: "G2", href: "https://www.g2.com", domain: "g2.com" },
 ] as const;
 
-const quotedBy = ["Adweek", "The Verge", "Ad Age"].map((outlet) => {
-  const record = pressRecords.find((pressRecord) => pressRecord.outlet === outlet)!;
-  return { name: outlet, href: record.href, domain: record.domain };
-});
+const quotedOutletOrder = ["Adweek", "The Verge", "Ad Age"];
+const quotedBy = pressRecords
+  .filter((record) => quotedOutletOrder.includes(record.outlet))
+  .sort(
+    (firstRecord, secondRecord) =>
+      quotedOutletOrder.indexOf(firstRecord.outlet) -
+      quotedOutletOrder.indexOf(secondRecord.outlet),
+  )
+  .map((record) => ({ name: record.outlet, href: record.href, domain: record.domain }));
 
 function OrganizationMark({ name, href, domain }: { name: string; href: string; domain: string }) {
   return (

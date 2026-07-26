@@ -240,7 +240,7 @@ export default function AboutPage() {
               <Link
                 key={entry.href}
                 href={entry.href}
-                className="group flex min-h-28 items-end border-r border-b border-foreground/20 p-5 transition-colors hover:bg-foreground/5"
+                className="group flex min-h-20 items-end border-r border-b border-foreground/20 p-5 transition-colors hover:bg-foreground/5 sm:min-h-28"
               >
                 <span className="font-display text-2xl font-medium group-hover:underline">
                   {entry.label}

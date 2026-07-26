@@ -15,7 +15,6 @@ const featuredPodcastIds = new Set([
   "2025-06-17-aive-got-questions",
 ]);
 
-export { appearances, linkedinArchiveNote, linkedinPosts, pressRecords, writtenWorks };
 export type {
   Appearance,
   AppearanceKind,
@@ -29,6 +28,7 @@ export type {
   WrittenWork,
   WrittenWorkKind,
 } from "./types";
+export { appearances, linkedinArchiveNote, linkedinPosts, pressRecords, writtenWorks };
 
 export const stageAppearances = appearances.filter(
   (appearance) => !podcastKinds.has(appearance.kind),

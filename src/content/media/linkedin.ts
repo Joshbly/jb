@@ -19,7 +19,7 @@ export const linkedinPosts: readonly LinkedInPost[] = [
   {
     id: "claude-brave-top-ten",
     date: "2026-06-15",
-    title: "79.2% of Claude citations come from Brave’s top 10",
+    title: "79.2% of Claude citations come from Brave's top 10",
     kind: "research",
     href: "https://www.linkedin.com/posts/joshua-blyskal_792-of-claudes-citations-come-from-braves-activity-7472323829604995073-35e-",
     relatedWorkId: "state-of-aeo-2026",
@@ -83,7 +83,7 @@ export const linkedinPosts: readonly LinkedInPost[] = [
   {
     id: "serp-influence-fanout-sequence",
     date: "2025-11-11",
-    title: "SERP influence decays through ChatGPT’s fanout sequence",
+    title: "SERP influence decays through ChatGPT's fanout sequence",
     kind: "research",
     href: "https://www.linkedin.com/posts/joshua-blyskal_we-just-completed-one-of-the-worlds-most-activity-7394014625547067393-z2Fc",
   },
@@ -104,7 +104,7 @@ export const linkedinPosts: readonly LinkedInPost[] = [
   {
     id: "reddit-citation-collapse-recovery",
     date: "2025-10-21",
-    title: "Reddit’s ChatGPT citation collapse and recovery",
+    title: "Reddit's ChatGPT citation collapse and recovery",
     kind: "analysis",
     href: "https://www.linkedin.com/posts/joshua-blyskal_theres-been-a-lot-of-chatting-lately-about-activity-7386410380018860032-QMAr",
   },
@@ -125,7 +125,7 @@ export const linkedinPosts: readonly LinkedInPost[] = [
   {
     id: "instant-checkout-product-feed",
     date: "2025-09-29",
-    title: "OpenAI Instant Checkout’s product-feed opportunity",
+    title: "OpenAI Instant Checkout's product-feed opportunity",
     kind: "analysis",
     href: "https://www.linkedin.com/posts/joshua-blyskal_openai-just-launched-instant-checkout-i-activity-7378508559774351361-ocfl",
   },
@@ -195,7 +195,7 @@ export const linkedinPosts: readonly LinkedInPost[] = [
   {
     id: "wikipedia-ai-citations",
     date: "2025-05-15",
-    title: "Wikipedia’s share across 534 million AI citations",
+    title: "Wikipedia's share across 534 million AI citations",
     kind: "research",
     href: "https://www.linkedin.com/posts/joshua-blyskal_i-pulled-534-million-citations-from-chatgpt-activity-7328834362446090241-FXtf",
   },
@@ -236,5 +236,4 @@ export const linkedinPosts: readonly LinkedInPost[] = [
   },
 ];
 
-export const linkedinArchiveNote =
-  "This is the publicly indexed set through July 26, 2026; an authenticated LinkedIn export may contain additional posts.";
+export const linkedinArchiveNote = "Publicly indexed posts through July 26, 2026.";

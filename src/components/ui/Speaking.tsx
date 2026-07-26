@@ -70,7 +70,7 @@ export function Speaking() {
                   Read research →
                 </Link>
               ) : null}
-              {appearance.slides ? (
+              {appearance.slides && appearance.slides !== appearance.href ? (
                 <a
                   href={appearance.slides}
                   target="_blank"
@@ -80,7 +80,7 @@ export function Speaking() {
                   View slides ↗
                 </a>
               ) : null}
-              {appearance.recording ? (
+              {appearance.recording && appearance.recording !== appearance.href ? (
                 <a
                   href={appearance.recording}
                   target="_blank"

@@ -7,6 +7,7 @@ import {
   latestMediaDate,
   linkedinPosts,
   pressRecords,
+  recordings,
   writtenWorks,
 } from "@/content/media";
 import { methodologyFaqs, sageLessonUrl, sagePhases } from "@/content/methodology";
@@ -176,6 +177,7 @@ const mediaIndexRecords = [
     href: work.href.startsWith("/") ? `${site.url}${work.href}` : work.href,
   })),
   ...decks.map((deck) => ({ name: deck.title, href: deck.href })),
+  ...recordings.map((recording) => ({ name: recording.title, href: recording.href })),
   ...linkedinPosts.map((post) => ({ name: post.title, href: post.href })),
 ];
 
@@ -243,11 +245,7 @@ export const methodologyPageJsonLd = {
       author: { "@id": `${site.url}/#identity` },
       breadcrumb: { "@id": `${methodologyUrl}#breadcrumb` },
       mainEntity: { "@id": `${methodologyUrl}#method` },
-      significantLink: [
-        sageLessonUrl,
-        `${site.url}/research`,
-        `${site.url}/media`,
-      ],
+      significantLink: [sageLessonUrl, `${site.url}/research`, `${site.url}/media`],
     },
     {
       "@type": "HowTo",
