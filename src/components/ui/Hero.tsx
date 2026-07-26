@@ -45,8 +45,7 @@ export function Hero() {
               Research across 10B+ AI citations.
             </h1>
             <p className="mt-7 max-w-xl font-body text-lg leading-relaxed text-foreground/80 lg:text-xl">
-              I study how ChatGPT, Claude, Gemini, Google AI Mode, and other answer engines search,
-              retrieve, and cite the web. I lead AI Strategy & Research at{" "}
+              I joined{" "}
               <a
                 href={site.employer.url}
                 target="_blank"
@@ -54,8 +53,10 @@ export function Hero() {
                 className="border-b border-accent transition-colors hover:bg-accent hover:text-background"
               >
                 {site.employer.name}
-              </a>
-              .
+              </a>{" "}
+              as its second employee and now lead AI Strategy & Research there. My work looks at how
+              ChatGPT, Claude, Gemini, Google AI Mode, and other answer engines search, retrieve,
+              and cite the web.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-widest">
