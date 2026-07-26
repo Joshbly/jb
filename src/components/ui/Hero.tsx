@@ -6,7 +6,7 @@ import { site } from "@/content/site";
 
 const HERO_LINKS = [
   { href: "/research", label: "Read the research" },
-  { href: "#writing", label: "Selected writing" },
+  { href: "/media", label: "Speaking & media" },
 ] as const;
 
 export function Hero() {

@@ -194,41 +194,43 @@ export default function MethodologyPage() {
                       </div>
                     ) : null}
 
-                    <div className="mt-10 grid gap-10 sm:grid-cols-2">
-                      <div>
-                        <h4 className="font-mono text-xs uppercase tracking-widest text-foreground/50">
-                          What I look at
-                        </h4>
-                        <ul className="mt-4 space-y-3 font-body text-base leading-relaxed text-foreground/80">
-                          {phase.inputs.map((phaseInput) => (
-                            <li key={phaseInput} className="flex gap-3">
-                              <span
-                                aria-hidden="true"
-                                className="mt-2 size-1.5 shrink-0 bg-accent"
-                              />
-                              <span>{phaseInput}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                    {phase.name === "Setup" ? null : (
+                      <div className="mt-10 grid gap-10 sm:grid-cols-2">
+                        <div>
+                          <h4 className="font-mono text-xs uppercase tracking-widest text-foreground/50">
+                            What I look at
+                          </h4>
+                          <ul className="mt-4 space-y-3 font-body text-base leading-relaxed text-foreground/80">
+                            {phase.inputs.map((phaseInput) => (
+                              <li key={phaseInput} className="flex gap-3">
+                                <span
+                                  aria-hidden="true"
+                                  className="mt-2 size-1.5 shrink-0 bg-accent"
+                                />
+                                <span>{phaseInput}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
 
-                      <div>
-                        <h4 className="font-mono text-xs uppercase tracking-widest text-foreground/50">
-                          What I do
-                        </h4>
-                        <ul className="mt-4 space-y-3 font-body text-base leading-relaxed text-foreground/80">
-                          {phase.actions.map((phaseAction) => (
-                            <li key={phaseAction} className="flex gap-3">
-                              <span
-                                aria-hidden="true"
-                                className="mt-2 size-1.5 shrink-0 bg-foreground/35"
-                              />
-                              <span>{phaseAction}</span>
-                            </li>
-                          ))}
-                        </ul>
+                        <div>
+                          <h4 className="font-mono text-xs uppercase tracking-widest text-foreground/50">
+                            What I do
+                          </h4>
+                          <ul className="mt-4 space-y-3 font-body text-base leading-relaxed text-foreground/80">
+                            {phase.actions.map((phaseAction) => (
+                              <li key={phaseAction} className="flex gap-3">
+                                <span
+                                  aria-hidden="true"
+                                  className="mt-2 size-1.5 shrink-0 bg-foreground/35"
+                                />
+                                <span>{phaseAction}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                    </div>
+                    )}
 
                     <div className="mt-10 grid gap-px border border-foreground/20 bg-foreground/20 sm:grid-cols-[0.7fr_1.3fr]">
                       <div className="bg-background p-6">
@@ -413,14 +415,14 @@ export default function MethodologyPage() {
                 description: "The studies behind the numbers on this page.",
               },
               {
-                href: "/#speaking",
-                label: "Speaking",
-                description: "Talks, slides, and recordings from the research.",
+                href: "/media#stages",
+                label: "Speaking & media",
+                description: "Talks, podcasts, press, decks, and recordings.",
               },
               {
-                href: "/#writing",
-                label: "Selected writing",
-                description: "Research published here and work hosted elsewhere.",
+                href: "/media#writing",
+                label: "Writing archive",
+                description: "Published work here and elsewhere.",
               },
             ].map((relatedPage) => (
               <Link

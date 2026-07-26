@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { pressRecords } from "@/content/media";
 
 const enterpriseWork = [
   { name: "Ramp", href: "https://ramp.com", domain: "ramp.com" },
@@ -9,23 +10,10 @@ const enterpriseWork = [
   { name: "G2", href: "https://www.g2.com", domain: "g2.com" },
 ] as const;
 
-const quotedBy = [
-  {
-    name: "Adweek",
-    href: "https://www.adweek.com/media/profound-launches-an-ai-agent-to-manage-end-to-end-marketing/",
-    domain: "adweek.com",
-  },
-  {
-    name: "The Verge",
-    href: "https://www.theverge.com/ai-artificial-intelligence/841156/ai-companies-aaif-anthropic-mcp-model-context-protocol",
-    domain: "theverge.com",
-  },
-  {
-    name: "Ad Age",
-    href: "https://adage.com/technology/ai/aa-chatgpt-browser-atlas-brands/",
-    domain: "adage.com",
-  },
-] as const;
+const quotedBy = ["Adweek", "The Verge", "Ad Age"].map((outlet) => {
+  const record = pressRecords.find((pressRecord) => pressRecord.outlet === outlet)!;
+  return { name: outlet, href: record.href, domain: record.domain };
+});
 
 function OrganizationMark({ name, href, domain }: { name: string; href: string; domain: string }) {
   return (

@@ -242,6 +242,11 @@ export const methodologyFaqs = [
       "It tells me which output is missing. If I cannot defend the prompt set, it is Setup time. If a number moved and nobody knows why, it is Analyze time. If we know the gap and nothing is live, it is Generate time. If the work is useful but painfully manual, it is Engineer time.",
   },
   {
+    question: "What is a head term in SAGE Setup?",
+    answer:
+      'A head term is a short category phrase used to check demand, usually one or two words. "AI search" is a head term. "What are the best AI search platforms for enterprise marketing teams?" is a tracked prompt. I check the head term in Prompt Volumes, read the real prompt examples around it, then write the questions I want to monitor.',
+  },
+  {
     question: "Is SAGE a one-time checklist?",
     answer:
       "No. Most weeks begin in Analyze once the setup is stable. A new market, product, or shift in buyer language can send the team back to Setup. I use the stage that produces the missing output instead of forcing all four stages into every Monday.",

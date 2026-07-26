@@ -1,7 +1,15 @@
 import { aboutFaqs } from "@/content/about";
-import { articles } from "@/content/articles";
+import {
+  appearances,
+  decks,
+  featuredPressRecords,
+  featuredWrittenWorks,
+  latestMediaDate,
+  linkedinPosts,
+  pressRecords,
+  writtenWorks,
+} from "@/content/media";
 import { methodologyFaqs, sageLessonUrl, sagePhases } from "@/content/methodology";
-import { press } from "@/content/press";
 import { type ResearchArticle, researchArticles } from "@/content/research";
 import { site } from "@/content/site";
 
@@ -51,23 +59,27 @@ export const personJsonLd = {
   description: site.bio,
   knowsAbout: knowsAbout.map((k) => ({ "@type": "Thing", name: k.name, sameAs: k.sameAs })),
   subjectOf: [
-    ...[...press, ...articles]
-      .filter((item) => !item.link.startsWith("/research/"))
-      .map((item) =>
-        item.link === "/methodology"
-          ? {
-              "@type": "HowTo",
-              "@id": `${site.url}/methodology#method`,
-              name: item.title,
-              url: `${site.url}${item.link}`,
-            }
-          : {
-              "@type": "Article",
-              headline: item.title,
-              url: item.link.startsWith("/") ? `${site.url}${item.link}` : item.link,
-              publisher: { "@type": "Organization", name: item.outlet },
-            },
-      ),
+    ...featuredPressRecords.map((record) => ({
+      "@type": "Article",
+      headline: record.title,
+      url: record.href,
+      publisher: { "@type": "Organization", name: record.outlet },
+    })),
+    ...featuredWrittenWorks.map((work) =>
+      work.href === "/methodology"
+        ? {
+            "@type": "HowTo",
+            "@id": `${site.url}/methodology#method`,
+            name: work.title,
+            url: `${site.url}${work.href}`,
+          }
+        : {
+            "@type": "Article",
+            headline: work.title,
+            url: work.href.startsWith("/") ? `${site.url}${work.href}` : work.href,
+            publisher: { "@type": "Organization", name: work.outlet },
+          },
+    ),
     ...researchArticles.map((study) => ({
       "@type": "Article",
       "@id": `${site.url}/research/${study.slug}#article`,
@@ -130,6 +142,7 @@ export const profilePageJsonLd = {
   url: `${site.url}/about`,
   name: `About ${site.name}`,
   description: site.bio,
+  significantLink: [`${site.url}/research`, `${site.url}/media`, `${site.url}/methodology`],
   mainEntity: {
     "@type": "Person",
     "@id": `${site.url}/#identity`,
@@ -151,6 +164,68 @@ export const aboutFaqJsonLd = {
   })),
 };
 
+const mediaUrl = `${site.url}/media`;
+const mediaIndexRecords = [
+  ...appearances.map((appearance) => ({
+    name: appearance.title,
+    href: appearance.href,
+  })),
+  ...pressRecords.map((record) => ({ name: record.title, href: record.href })),
+  ...writtenWorks.map((work) => ({
+    name: work.title,
+    href: work.href.startsWith("/") ? `${site.url}${work.href}` : work.href,
+  })),
+  ...decks.map((deck) => ({ name: deck.title, href: deck.href })),
+  ...linkedinPosts.map((post) => ({ name: post.title, href: post.href })),
+];
+
+export const mediaPageJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${mediaUrl}#collection`,
+      url: mediaUrl,
+      name: "Speaking & media",
+      description:
+        "Josh Blyskal's public archive of talks, podcasts, interviews, press, writing, decks, recordings, and LinkedIn research.",
+      dateModified: latestMediaDate.toISOString(),
+      author: { "@id": `${site.url}/#identity` },
+      breadcrumb: { "@id": `${mediaUrl}#breadcrumb` },
+      mainEntity: { "@id": `${mediaUrl}#list` },
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${mediaUrl}#list`,
+      numberOfItems: mediaIndexRecords.length,
+      itemListElement: mediaIndexRecords.map((record, recordIndex) => ({
+        "@type": "ListItem",
+        position: recordIndex + 1,
+        name: record.name,
+        url: record.href,
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${mediaUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: site.url,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Speaking & media",
+          item: mediaUrl,
+        },
+      ],
+    },
+  ],
+};
+
 const methodologyUrl = `${site.url}/methodology`;
 const profoundId = `${site.employer.url}/#organization`;
 
@@ -163,7 +238,7 @@ export const methodologyPageJsonLd = {
       url: methodologyUrl,
       name: "The SAGE Method",
       description:
-        "Josh Blyskal's four-stage AEO operating method: Setup, Analyze, Generate, and Engineer.",
+        "Josh Blyskal's practical AEO method for building a baseline, diagnosing visibility gaps, shipping fixes, and automating work that has already proved useful.",
       inLanguage: "en-US",
       author: { "@id": `${site.url}/#identity` },
       breadcrumb: { "@id": `${methodologyUrl}#breadcrumb` },
@@ -171,8 +246,7 @@ export const methodologyPageJsonLd = {
       significantLink: [
         sageLessonUrl,
         `${site.url}/research`,
-        `${site.url}/#speaking`,
-        `${site.url}/#writing`,
+        `${site.url}/media`,
       ],
     },
     {
@@ -181,7 +255,7 @@ export const methodologyPageJsonLd = {
       name: "The SAGE Method",
       alternateName: ["The SAGE Framework", "The SAGE Method by Profound"],
       description:
-        "A four-stage operating loop for answer engine optimization. Setup creates a trusted baseline, Analyze produces a credible gap list, Generate ships work that addresses the gap, and Engineer makes proved work repeatable.",
+        "A weekly AEO workflow created by Josh Blyskal. Setup builds a trusted baseline, Analyze explains the gap, Generate ships a fix, and Engineer makes useful work repeatable.",
       author: { "@id": `${site.url}/#identity` },
       creator: { "@id": `${site.url}/#identity` },
       sameAs: sageLessonUrl,
@@ -195,7 +269,7 @@ export const methodologyPageJsonLd = {
         "@type": "HowToStep",
         position: phaseIndex + 1,
         name: phase.name,
-        text: `${phase.question} ${phase.summary} Required output: ${phase.output}`,
+        text: `${phase.question} ${phase.summary} Leave with: ${phase.output}`,
         url: `${methodologyUrl}#${phase.name.toLowerCase()}`,
       })),
     },

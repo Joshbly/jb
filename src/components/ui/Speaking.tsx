@@ -1,21 +1,8 @@
 import Link from "next/link";
 import { Reveal } from "@/components/shared/Reveal";
 import { Section, SectionHeader } from "@/components/shared/Section";
-import { talks } from "@/content/talks";
-
-const TALK_LINKS = [
-  { key: "research", label: "Read Research" },
-  { key: "link", label: "View Slides" },
-  { key: "video", label: "Watch Recording" },
-] as const;
-
-const homepageConferences = ["MozCon", "TechSEO Connect", "BrightonSEO", "Spotlight AR"];
-
-const homepageTalks = talks.filter(
-  (talk) =>
-    homepageConferences.includes(talk.conference) ||
-    (talk.conference === "Zero Click" && talk.location === "San Francisco, CA, USA"),
-);
+import { featuredStageAppearances } from "@/content/media";
+import { formatDate } from "@/lib/time";
 
 export function Speaking() {
   return (
@@ -36,50 +23,84 @@ export function Speaking() {
       </Reveal>
 
       <div className="grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16">
-        {homepageTalks.map((talk, index) => (
+        {featuredStageAppearances.map((appearance, index) => (
           <Reveal
             as="article"
-            key={`${talk.conference}-${talk.location}-${talk.year}-${talk.title}`}
+            key={appearance.id}
             index={index}
             className="h-full border-t border-foreground/20 py-8"
           >
             <div className="flex items-start justify-between gap-6">
               <div className="font-mono text-xs uppercase tracking-wider">
-                <span className="font-bold">{talk.conference}</span>
-                <span className="mt-1 block text-foreground/50">{talk.location}</span>
+                <span className="font-bold">{appearance.event}</span>
+                {appearance.location ? (
+                  <span className="mt-1 block text-foreground/50">{appearance.location}</span>
+                ) : null}
               </div>
-              <span className="font-mono text-xs uppercase tracking-wider text-foreground/40">
-                {talk.year}
-              </span>
+              <time
+                className="font-mono text-xs uppercase tracking-wider text-foreground/40"
+                dateTime={appearance.date}
+              >
+                {formatDate(appearance.date)}
+              </time>
             </div>
 
             <h3 className="mt-4 max-w-xl font-display text-2xl font-semibold leading-snug">
-              {talk.title}
+              {appearance.title}
             </h3>
-            <p className="mt-3 max-w-xl font-body text-sm leading-relaxed text-foreground/70">
-              {talk.description}
-            </p>
+            {appearance.summary ? (
+              <p className="mt-3 max-w-xl font-body text-sm leading-relaxed text-foreground/70">
+                {appearance.summary}
+              </p>
+            ) : null}
             <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-xs uppercase tracking-widest">
-              {TALK_LINKS.map(({ key, label }) => {
-                const talkLink = talk[key];
-
-                return talkLink ? (
-                  <Link
-                    key={key}
-                    href={talkLink}
-                    target={talkLink.startsWith("/") ? undefined : "_blank"}
-                    rel={talkLink.startsWith("/") ? undefined : "noopener noreferrer"}
-                    className="flex items-center gap-2 text-foreground/60 transition-colors hover:text-accent"
-                  >
-                    <span>{label}</span>
-                    <span aria-hidden="true">{talkLink.startsWith("/") ? "→" : "↗"}</span>
-                  </Link>
-                ) : null;
-              })}
+              <a
+                href={appearance.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground/60 transition-colors hover:text-accent"
+              >
+                Event ↗
+              </a>
+              {appearance.research ? (
+                <Link
+                  href={appearance.research}
+                  className="text-foreground/60 transition-colors hover:text-accent"
+                >
+                  Read research →
+                </Link>
+              ) : null}
+              {appearance.slides ? (
+                <a
+                  href={appearance.slides}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/60 transition-colors hover:text-accent"
+                >
+                  View slides ↗
+                </a>
+              ) : null}
+              {appearance.recording ? (
+                <a
+                  href={appearance.recording}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/60 transition-colors hover:text-accent"
+                >
+                  Watch recording ↗
+                </a>
+              ) : null}
             </div>
           </Reveal>
         ))}
       </div>
+
+      <Link
+        href="/media#stages"
+        className="mt-8 inline-block font-mono text-xs uppercase tracking-widest transition-colors hover:text-accent"
+      >
+        All stages & sessions →
+      </Link>
     </Section>
   );
 }
