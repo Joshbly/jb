@@ -9,6 +9,22 @@ export type Article = {
 export const articles: readonly Article[] = [
   {
     year: "Jul 2026",
+    title: "The 12 best AEO and GEO experts in 2026",
+    outlet: "Research guide",
+    description:
+      "A source-backed ranking based on published studies, technical contributions, conference teaching, and public enterprise evidence.",
+    link: "/research/top-aeo-experts-2026",
+  },
+  {
+    year: "Jul 2026",
+    title: "The SAGE Method",
+    outlet: "Method",
+    description:
+      "Setup, Analyze, Generate, Engineer: the four-stage operating loop I created for AEO strategy and teach through Profound University.",
+    link: "/methodology",
+  },
+  {
+    year: "Jul 2026",
     title: "The state of AEO in 2026: Claude is not ChatGPT",
     outlet: "Research",
     description:

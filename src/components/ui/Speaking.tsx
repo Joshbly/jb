@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Reveal } from "@/components/shared/Reveal";
-import { DisplayH2, Section, SectionHeader } from "@/components/shared/Section";
-import { speakingTopics, talks } from "@/content/talks";
+import { Section, SectionHeader } from "@/components/shared/Section";
+import { talks } from "@/content/talks";
 
 const TALK_LINKS = [
   { key: "research", label: "Read Research" },
@@ -9,74 +9,73 @@ const TALK_LINKS = [
   { key: "video", label: "Watch Recording" },
 ] as const;
 
+const homepageConferences = ["MozCon", "TechSEO Connect", "BrightonSEO", "Spotlight AR"];
+
+const homepageTalks = talks.filter(
+  (talk) =>
+    homepageConferences.includes(talk.conference) ||
+    (talk.conference === "Zero Click" && talk.location === "San Francisco, CA, USA"),
+);
+
 export function Speaking() {
   return (
-    <Section id="speaking" layout="split">
-      <Reveal className="space-y-8">
-        <div className="sticky top-32">
-          <DisplayH2 className="mb-6">Speaking</DisplayH2>
-          <p className="text-lg font-body leading-relaxed text-foreground/80 mb-8">
-            Translating complex AI and search concepts into actionable insights. From keynote stages
-            to webinars, sharing data-backed strategies on AEO and the future of discovery.
-          </p>
-          <div className="pt-8 border-t border-foreground/20">
-            <h3 className="font-mono text-xs uppercase tracking-widest mb-4 opacity-60">
-              Core Topics
-            </h3>
-            <ul className="space-y-2 font-mono text-xs">
-              {speakingTopics.map((topic) => (
-                <li key={topic} className="flex items-center gap-2">
-                  <span className="w-1 h-1 bg-accent" />
-                  {topic}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+    <Section id="speaking">
+      <Reveal>
+        <SectionHeader
+          title="Selected talks"
+          eyebrow="Ref. List 01"
+          className="mb-8 gap-2 [&>h2]:text-3xl sm:gap-4 sm:[&>h2]:text-4xl"
+        />
       </Reveal>
 
-      <div>
-        <Reveal>
-          <SectionHeader title="Speaking Engagements" eyebrow="Ref. List 01" className="mb-8" />
-        </Reveal>
-        {talks.map((talk, i) => (
-          <Reveal
-            key={talk.title}
-            index={i}
-            className="group block py-8 border-b border-foreground/20 px-4 -mx-4"
-          >
-            <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-12 mb-2">
-              <div className="flex flex-col gap-1 font-mono text-xs text-accent w-32 shrink-0 uppercase tracking-wider">
-                <span className="font-bold">{talk.conference}</span>
-                <span className="text-foreground/60">{talk.location}</span>
-                <span className="text-[10px] opacity-50 mt-1">{talk.year}</span>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-display font-bold mb-3">{talk.title}</h3>
-                <p className="font-body text-sm text-foreground/70 leading-relaxed max-w-xl mb-4">
-                  {talk.description}
-                </p>
-                <div className="flex items-center gap-6 font-mono text-xs uppercase tracking-widest">
-                  {TALK_LINKS.map(({ key, label }) => {
-                    const talkLink = talk[key];
+      <Reveal>
+        <p className="mb-8 max-w-2xl font-body text-lg leading-relaxed text-foreground/80">
+          I present original research on AI retrieval, citation behavior, and user intent. Slides
+          and recordings are published wherever possible.
+        </p>
+      </Reveal>
 
-                    return talkLink ? (
-                      <Link
-                        key={key}
-                        href={talkLink}
-                        target={talkLink.startsWith("/") ? undefined : "_blank"}
-                        rel={talkLink.startsWith("/") ? undefined : "noopener noreferrer"}
-                        className="group/link flex items-center gap-2 text-foreground/60 hover:text-accent transition-colors"
-                      >
-                        <span>{label}</span>
-                        <span className="opacity-0 group-hover/link:opacity-100 transition-opacity -translate-x-1 group-hover/link:translate-x-0">
-                          →
-                        </span>
-                      </Link>
-                    ) : null;
-                  })}
-                </div>
+      <div className="grid md:grid-cols-2 md:gap-x-12 lg:gap-x-16">
+        {homepageTalks.map((talk, index) => (
+          <Reveal
+            as="article"
+            key={`${talk.conference}-${talk.location}-${talk.year}-${talk.title}`}
+            index={index}
+            className="h-full border-t border-foreground/20 py-8"
+          >
+            <div className="flex items-start justify-between gap-6">
+              <div className="font-mono text-xs uppercase tracking-wider">
+                <span className="font-bold">{talk.conference}</span>
+                <span className="mt-1 block text-foreground/50">{talk.location}</span>
               </div>
+              <span className="font-mono text-xs uppercase tracking-wider text-foreground/40">
+                {talk.year}
+              </span>
+            </div>
+
+            <h3 className="mt-4 max-w-xl font-display text-2xl font-semibold leading-snug">
+              {talk.title}
+            </h3>
+            <p className="mt-3 max-w-xl font-body text-sm leading-relaxed text-foreground/70">
+              {talk.description}
+            </p>
+            <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-xs uppercase tracking-widest">
+              {TALK_LINKS.map(({ key, label }) => {
+                const talkLink = talk[key];
+
+                return talkLink ? (
+                  <Link
+                    key={key}
+                    href={talkLink}
+                    target={talkLink.startsWith("/") ? undefined : "_blank"}
+                    rel={talkLink.startsWith("/") ? undefined : "noopener noreferrer"}
+                    className="flex items-center gap-2 text-foreground/60 transition-colors hover:text-accent"
+                  >
+                    <span>{label}</span>
+                    <span aria-hidden="true">{talkLink.startsWith("/") ? "→" : "↗"}</span>
+                  </Link>
+                ) : null;
+              })}
             </div>
           </Reveal>
         ))}

@@ -1,5 +1,5 @@
 const NAME = "Josh Blyskal";
-const TAGLINE = "AI Strategy & Research";
+const TAGLINE = "AEO & GEO Research";
 const EMPLOYER = { name: "Profound", url: "https://tryprofound.com" } as const;
 const HERO_SRC = "/images/header2.png";
 
@@ -7,12 +7,12 @@ export const site = {
   url: "https://www.joshblyskal.com",
   name: NAME,
   email: "josh@tryprofound.com",
-  role: "Head of AI Strategy & Research",
+  role: "AI Strategy & Research",
   tagline: TAGLINE,
   location: "New York City",
   locale: "en_US",
-  description: `Personal site of ${NAME}. Leading ${TAGLINE} at ${EMPLOYER.name}.`,
-  bio: `${NAME} is a leading expert at the intersection of AI and search marketing. Currently Leading ${TAGLINE} at ${EMPLOYER.name}.`,
+  description: `${NAME} is an AEO expert and GEO expert leading AI Strategy & Research at ${EMPLOYER.name}. His research spans 10B+ citations and 1B+ real user prompts across major answer engines.`,
+  bio: `${NAME} leads AI Strategy & Research at ${EMPLOYER.name} and studies how answer engines search, retrieve, and cite the web.`,
   ogImage: HERO_SRC,
   headshot: "/images/headshot.png",
   heroImage: {
@@ -28,8 +28,7 @@ export const site = {
   ],
   nav: [
     { href: "/research", label: "Research" },
-    { href: "#speaking", label: "Speaking" },
-    { href: "#writing", label: "Writing" },
+    { href: "/methodology", label: "Method" },
     { href: "/about", label: "About" },
   ],
 } as const;

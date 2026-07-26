@@ -15,20 +15,20 @@ const BG = cn(
 
 const INNER = cn(
   "max-w-7xl mx-auto px-6 flex items-center justify-between w-full",
-  "font-mono uppercase tracking-widest",
+  "font-mono uppercase tracking-wider sm:tracking-widest",
   "py-6 transition-[padding] duration-medium ease-strong",
   "group-data-[scrolled=true]/header:py-3",
 );
 
 const TITLE = cn(
-  "shrink-0 text-header-fluid pr-4 md:pr-0",
+  "shrink-0 pr-2 text-header-fluid md:pr-0",
   "text-white md:mix-blend-difference transition-colors duration-medium",
   "group-data-[scrolled=true]/header:text-foreground",
   "group-data-[scrolled=true]/header:mix-blend-normal",
 );
 
 const LINKS = cn(
-  "flex gap-[clamp(4px,3vw,32px)] text-header-fluid",
+  "flex gap-1.5 text-header-fluid sm:gap-[clamp(4px,2.5vw,24px)]",
   "text-white md:text-foreground transition-colors duration-medium",
   "group-data-[scrolled=true]/header:text-foreground",
 );
@@ -72,7 +72,10 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="nav-bracket hover:text-accent transition-colors whitespace-nowrap"
+                  className={cn(
+                    "nav-bracket whitespace-nowrap transition-colors hover:text-accent",
+                    link.href === "/research" && "text-accent",
+                  )}
                 >
                   {link.label}
                 </Link>

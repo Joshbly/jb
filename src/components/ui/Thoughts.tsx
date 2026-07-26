@@ -18,7 +18,7 @@ export function Thoughts() {
       />
       <div className="grid md:grid-cols-[1fr_2fr] gap-12">
         <Reveal className="md:text-right md:pr-12 pt-2">
-          <h2 className="text-xl font-mono font-bold uppercase tracking-widest sticky top-32">
+          <h2 className="text-xl font-mono font-bold uppercase tracking-widest md:sticky md:top-32">
             Thoughts <br />
             <span className="opacity-40 font-normal text-xs normal-case mt-2 block">
               / updated regularly

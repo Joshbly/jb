@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/layout/Footer";
+import { SubpageNav } from "@/components/layout/SubpageNav";
 import { Section, SectionHeader } from "@/components/shared/Section";
 import { researchArticles } from "@/content/research";
 import { site } from "@/content/site";
@@ -28,14 +29,7 @@ export default function ResearchIndexPage() {
       <main>
         <header className="px-6 pt-6">
           <div className="mx-auto max-w-7xl">
-            <nav className="flex items-center justify-between font-mono text-xs uppercase tracking-widest">
-              <Link href="/" className="transition-colors hover:text-accent">
-                {site.name}
-              </Link>
-              <Link href="/about" className="nav-bracket transition-colors hover:text-accent">
-                About
-              </Link>
-            </nav>
+            <SubpageNav activeHref="/research" />
             <div className="py-24 md:py-32">
               <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
                 AI strategy & research
@@ -53,9 +47,45 @@ export default function ResearchIndexPage() {
 
         <Section layout="narrow">
           <SectionHeader
+            title="Guides"
+            eyebrow="Field reference"
+            className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+          />
+          <article>
+            <Link
+              href="/research/top-aeo-experts-2026"
+              className="group grid gap-4 border-y border-foreground/20 py-8 md:grid-cols-[100px_1fr] md:gap-8"
+            >
+              <div className="hidden text-right font-mono text-xs uppercase tracking-wider text-foreground/50 md:block">
+                <time className="block" dateTime="2026-07-26">
+                  Jul 26, 2026
+                </time>
+                <span className="mt-1 block text-xs">12 profiles</span>
+              </div>
+              <div className="space-y-2">
+                <span className="font-mono text-xs uppercase tracking-wider text-accent">
+                  Ranked reference
+                </span>
+                <h2 className="font-display text-2xl font-bold leading-snug decoration-1 underline-offset-4 group-hover:underline">
+                  The 12 best AEO and GEO experts in 2026
+                </h2>
+                <p className="max-w-xl font-body text-sm leading-relaxed text-foreground/70">
+                  A source-backed comparison of researchers, technical practitioners, and
+                  strategists publishing work that can be inspected.
+                </p>
+                <div className="flex gap-3 font-mono text-xs uppercase tracking-wider text-foreground/50 md:hidden">
+                  <time dateTime="2026-07-26">Jul 26, 2026</time>
+                  <span aria-hidden="true">·</span>
+                  <span>12 profiles</span>
+                </div>
+              </div>
+            </Link>
+          </article>
+
+          <SectionHeader
             title="Published studies"
             eyebrow="Ref. List 03"
-            className="mb-16 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+            className="mt-24 mb-16 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
           <div className="space-y-8">
             {researchArticles.map((study, studyIndex) => (
@@ -68,7 +98,7 @@ export default function ResearchIndexPage() {
                     <time className="block" dateTime={study.date}>
                       {formatDate(study.date)}
                     </time>
-                    <span className="mt-1 block text-[10px]">{study.readTime}</span>
+                    <span className="mt-1 block text-xs">{study.readTime}</span>
                   </div>
                   <div className="space-y-2">
                     <div className="flex flex-wrap items-baseline gap-2">
