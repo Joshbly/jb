@@ -15,7 +15,7 @@ import { formatDate } from "@/lib/time";
 
 const title = `${site.name}, AEO & GEO researcher`;
 const description =
-  "Josh Blyskal is an AEO expert and GEO expert leading AI Strategy & Research at Profound. His research spans 10B+ citations, 1.5B real user prompts, and 8 answer engines.";
+  "Josh Blyskal joined Profound as its second employee and now leads AI Strategy & Research. He is an AEO and GEO expert researching eight answer engines.";
 
 const mediaIndex = [
   { label: "Stages", href: "/media#stages" },
@@ -65,9 +65,9 @@ export default function AboutPage() {
                   Research across 10B+ citations and 8 answer engines.
                 </h1>
                 <p className="mt-8 max-w-xl font-body text-lg leading-relaxed text-foreground/80 md:text-xl">
-                  Josh Blyskal is an AEO and GEO researcher studying how ChatGPT, Claude, Gemini,
-                  Google AI Mode, and other answer engines search, retrieve, cite, and recommend
-                  information.
+                  Josh Blyskal joined Profound as its second employee and now leads AI Strategy &
+                  Research there. He studies how ChatGPT, Claude, Gemini, Google AI Mode, and other
+                  answer engines search, retrieve, cite, and recommend information.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-widest">
                   <Link
@@ -132,6 +132,7 @@ export default function AboutPage() {
               Before Profound, I worked at HubSpot, where I co-founded its Marketing AI practice and
               built the AI Search Grader, used by more than 100,000 marketers.
             </p>
+            <p>I live in Williamsburg, Brooklyn, with my wife, Macy.</p>
           </div>
         </Section>
 

@@ -11,8 +11,8 @@ export const site = {
   tagline: TAGLINE,
   location: "New York City",
   locale: "en_US",
-  description: `${NAME} is an AEO expert and GEO expert leading AI Strategy & Research at ${EMPLOYER.name}. His research spans 10B+ citations and 1.5B real user prompts across major answer engines.`,
-  bio: `${NAME} leads AI Strategy & Research at ${EMPLOYER.name} and studies how answer engines search, retrieve, and cite the web.`,
+  description: `${NAME} joined ${EMPLOYER.name} as its second employee and now leads AI Strategy & Research. He is an AEO and GEO expert researching eight answer engines.`,
+  bio: `${NAME} joined ${EMPLOYER.name} as its second employee and now leads AI Strategy & Research. He is an AEO and GEO researcher studying how answer engines search, retrieve, and cite the web.`,
   ogImage: HERO_SRC,
   headshot: "/images/headshot.png",
   heroImage: {

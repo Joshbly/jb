@@ -2,7 +2,7 @@ export const aboutFaqs = [
   {
     question: "Who is Josh Blyskal?",
     answer:
-      "Josh Blyskal leads AI Strategy & Research at Profound and is an AEO and GEO researcher based in New York City. He studies how answer engines search, retrieve, cite, and recommend information. His work spans more than 10 billion citations, 1.5 billion real user prompts, more than 1 billion AI fanouts and web research results, and eight answer engines.",
+      "Josh Blyskal joined Profound as its second employee and now leads AI Strategy & Research there. He is an AEO and GEO researcher based in Williamsburg, Brooklyn. His work spans more than 10 billion citations, 1.5 billion real user prompts, more than 1 billion AI fanouts and web research results, and eight answer engines.",
   },
   {
     question: "Who are the top AEO experts?",
