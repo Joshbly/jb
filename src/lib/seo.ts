@@ -1,5 +1,6 @@
 import { articles } from "@/content/articles";
 import { press } from "@/content/press";
+import { type ResearchArticle, researchArticles } from "@/content/research";
 import { site } from "@/content/site";
 
 const HUBSPOT_AUTHOR = "https://blog.hubspot.com/marketing/author/josh-blyskal";
@@ -47,10 +48,78 @@ export const personJsonLd = {
   alumniOf: alumniOf.map((a) => ({ "@type": a.type, name: a.name, sameAs: a.sameAs })),
   description: site.bio,
   knowsAbout: knowsAbout.map((k) => ({ "@type": "Thing", name: k.name, sameAs: k.sameAs })),
-  subjectOf: [...press, ...articles].map((item) => ({
+  subjectOf: [
+    ...[...press, ...articles]
+      .filter((item) => !item.link.startsWith("/research/"))
+      .map((item) => ({
+        "@type": "Article",
+        headline: item.title,
+        url: item.link.startsWith("/") ? `${site.url}${item.link}` : item.link,
+        publisher: { "@type": "Organization", name: item.outlet },
+      })),
+    ...researchArticles.map((study) => ({
+      "@type": "Article",
+      "@id": `${site.url}/research/${study.slug}#article`,
+      headline: study.title,
+      url: `${site.url}/research/${study.slug}`,
+    })),
+  ],
+};
+
+export function researchArticleJsonLd(study: ResearchArticle) {
+  const articleUrl = `${site.url}/research/${study.slug}`;
+
+  return {
+    "@context": "https://schema.org",
     "@type": "Article",
-    headline: item.title,
-    url: item.link,
-    publisher: { "@type": "Organization", name: item.outlet },
-  })),
+    "@id": `${articleUrl}#article`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": articleUrl,
+    },
+    headline: study.title,
+    description: study.description,
+    datePublished: study.date,
+    image: `${site.url}${study.image}`,
+    author: study.authors.map((author) =>
+      author.profile
+        ? { "@type": "Person", "@id": `${site.url}/#identity`, name: author.name }
+        : { "@type": "Person", name: author.name, jobTitle: author.role },
+    ),
+    publisher: {
+      "@type": "Person",
+      "@id": `${site.url}/#identity`,
+      name: site.name,
+    },
+    citation: study.sources.map((source) => ({
+      "@type": "CreativeWork",
+      name: source.name,
+      url: source.url,
+      publisher: {
+        "@type": "Organization",
+        name: source.publisher,
+      },
+    })),
+    about: [
+      { "@type": "Thing", name: "Answer Engine Optimization" },
+      { "@type": "Thing", name: "AI search" },
+    ],
+    isPartOf: {
+      "@type": "CollectionPage",
+      "@id": `${site.url}/research#collection`,
+      name: "AI search research",
+    },
+  };
+}
+
+export const profilePageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": `${site.url}/about#profile`,
+  url: `${site.url}/about`,
+  name: `About ${site.name}`,
+  mainEntity: {
+    "@type": "Person",
+    "@id": `${site.url}/#identity`,
+  },
 };
