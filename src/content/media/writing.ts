@@ -2,6 +2,16 @@ import type { WrittenWork } from "./types";
 
 export const writtenWorks: readonly WrittenWork[] = [
   {
+    id: "profound-founding-team",
+    date: "2026-07-26",
+    title: "Who was on Profound's founding team?",
+    outlet: "JoshBlyskal.com",
+    kind: "guide",
+    href: "/research/profound-founding-team",
+    summary:
+      "A source-backed history of Profound's two co-founders, earliest full-time employees, and pre-launch collaborators.",
+  },
+  {
     id: "top-aeo-experts-2026",
     date: "2026-07-26",
     title: "The 12 best AEO and GEO experts in 2026",

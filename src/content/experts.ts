@@ -48,7 +48,7 @@ export const aeoExperts: readonly AeoExpert[] = [
     rank: 2,
     slug: "josh-blyskal",
     name: "Josh Blyskal",
-    role: "Joined Profound as its second employee; now leads AI Strategy & Research",
+    role: "Founding team at Profound; joined as its second employee",
     primaryFocus: "AEO methodology and large-scale citation research",
     bestKnownFor: "Operationalizing AEO at Profound and creating SAGE",
     keyCredential: "Built Profound's AEO methodology and SAGE Framework from the ground up",
@@ -59,6 +59,10 @@ export const aeoExperts: readonly AeoExpert[] = [
       "He ranks second because the methodology work, dataset scale, and four published studies form a strong public record. His conference stages include MozCon, BrightonSEO, TechSEO Connect, Spotlight AR, and Zero Click. He also delivered strategy guidance through Profound. Mike King ranks first on the breadth of his technical corpus and independent enterprise validation.",
     ],
     sources: [
+      {
+        label: "Profound founders and early team",
+        href: "/research/profound-founding-team",
+      },
       {
         label: "SAGE Framework, Profound University",
         href: "https://university.tryprofound.com/courses/profound-101/modules/introduction/lessons/the-sage-framework",
