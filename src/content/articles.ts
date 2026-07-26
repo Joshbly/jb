@@ -10,10 +10,11 @@ export type Article = {
 export const articles: readonly Article[] = [
   {
     year: "June 2025",
-    title: "ChatGPT Intent: A Landmark Study",
-    outlet: "Profound",
-    description: "A deep dive into user intent classification within Large Language Models.",
-    link: "https://www.tryprofound.com/blog/chatgpt-intent-landmark-study",
+    title: "What 50 Million ChatGPT Prompts Reveal About User Intent",
+    outlet: "Research",
+    description:
+      "Generative requests are ChatGPT's largest intent category, while navigational intent nearly disappears.",
+    link: "/research/chatgpt-intent-study",
     tag: "Research",
   },
   {
@@ -26,10 +27,11 @@ export const articles: readonly Article[] = [
   },
   {
     year: "Nov 2025",
-    title: "The Data on Reddit and AI Search",
-    outlet: "Profound",
-    description: "Why Reddit is winning the war for AI visibility and what brands can do about it.",
-    link: "https://www.tryprofound.com/blog/the-data-on-reddit-and-ai-search",
+    title: "Why Reddit Became AI Search's Most-Cited Domain",
+    outlet: "Research",
+    description:
+      "Across 4 billion citations, Reddit ranked first in aggregate and top three on five major engines.",
+    link: "/research/reddit-ai-search-data",
     tag: "Research",
   },
   {

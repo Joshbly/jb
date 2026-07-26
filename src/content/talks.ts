@@ -4,6 +4,7 @@ export type Talk = {
   location: string;
   title: string;
   description: string;
+  research?: string;
   link?: string;
   video?: string;
 };
@@ -16,6 +17,7 @@ export const talks: readonly Talk[] = [
     title: "The State of AEO in 2026",
     description:
       "Data and insights on ChatGPT and Claude search visibility, with an AI Search advertising update. Co-presented with Jasman Singh.",
+    research: "/research/state-of-aeo-2026",
     link: "https://speakerdeck.com/joshbly/the-state-of-aeo-2026",
     video: "https://www.tryprofound.com/zeroclick/ny",
   },
@@ -26,6 +28,7 @@ export const talks: readonly Talk[] = [
     title: "We analyzed 250 million AI search results: here's what we found",
     description:
       "Deep dive into Profound's largest research study analyzing AI search patterns across 8 answer engines.",
+    research: "/research/250-million-ai-search-results",
     link: "https://speakerdeck.com/joshbly/we-analyzed-250-million-ai-search-results-heres-what-i-found",
     video: "https://www.youtube.com/watch?v=ll_kZh5GVX0",
   },
