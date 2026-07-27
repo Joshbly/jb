@@ -10,8 +10,8 @@ export function SageFeature() {
         <div className="lg:sticky lg:top-32">
           <DisplayH2 className="mb-6">SAGE for AEO</DisplayH2>
           <p className="mb-8 max-w-md font-body text-lg leading-relaxed text-foreground/80">
-            I invented SAGE to create a system for AEO so teams always know what the next constraint is—and what the next highest-leverage action should be.
-       
+            I invented SAGE to create a system for AEO so teams always know what the next constraint
+            is—and what the next highest-leverage action should be.
           </p>
           <Link
             href="/research/sage-aeo-method"
@@ -41,7 +41,8 @@ export function SageFeature() {
               Imagine the team tracks 20 prompts every week and the brand suddenly stops appearing
               in ChatGPT for five of them. Instead of immediately writing a new page, open those
               five responses and see what changed: which competitors now appear, which websites
-              ChatGPT used, or maybe whether it searched for a different fanout phrase. SAGE exists as a system to orient the best marketing teams in the world.
+              ChatGPT used, or maybe whether it searched for a different fanout phrase. SAGE exists
+              as a system to orient the best marketing teams in the world.
             </p>
           </div>
         </div>
