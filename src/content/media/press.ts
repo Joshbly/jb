@@ -201,6 +201,16 @@ export const pressRecords: readonly PressRecord[] = [
     href: "https://techbullion.com/definitive-guide-generative-engine-optimization-experts-2025/",
   },
   {
+    id: "reddit-q2-2025-profound-data",
+    date: "2025-07-31",
+    title: "Reddit cites Profound data in its Q2 2025 earnings call",
+    outlet: "Reddit",
+    domain: "redditinc.com",
+    kind: "research-cited",
+    href: "https://s203.q4cdn.com/380862485/files/doc_financials/2025/q2/Reddit-Q2-25-Earnings-Call_Transcript.pdf",
+    featuredOnHome: true,
+  },
+  {
     id: "bcg-future-of-discoverability",
     date: "2025-05-13",
     title: "The Future of Discoverability",
