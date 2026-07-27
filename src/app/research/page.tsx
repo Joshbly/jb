@@ -62,7 +62,7 @@ export default function ResearchIndexPage() {
           />
           <ArchiveEntry
             source="Company history"
-            sourceDetail="14 sources"
+            sourceDetail="18 sources"
             date="2026-07-26"
             dateLabel="Jul 26, 2026"
             title="Who was on Profound's founding team?"

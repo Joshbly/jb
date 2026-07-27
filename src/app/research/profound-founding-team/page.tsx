@@ -7,7 +7,7 @@ import { site } from "@/content/site";
 const pageUrl = `${site.url}/research/profound-founding-team`;
 const title = "Who was on Profound's founding team?";
 const description =
-  "Profound's earliest full-time team: co-founders James Cadwallader and Dylan Babbs, followed by Charles Zhou, Josh Blyskal, Eliott Lee, Praneeth Alla, Joseph Turtel, and Stephanie Kramer.";
+  "Profound, the AI-search company, was founded by James Cadwallader and Dylan Babbs. A sourced history of its founding team and first employees.";
 const publishedDate = "2026-07-26";
 const profoundId = `${site.employer.url}/#organization`;
 
@@ -21,7 +21,7 @@ const earlyTeam = [
     joined: "Founded · 2024",
     profile: "https://www.linkedin.com/in/jsca",
     summary:
-      "James co-founded Profound with Dylan after the two met at South Park Commons in New York. He became CEO.",
+      "James co-founded Profound with Dylan after the two met at South Park Commons. He became CEO.",
     sources: [
       {
         label: "Profound company record",
@@ -100,12 +100,12 @@ const earlyTeam = [
     position: 5,
     slug: "eliott-lee",
     name: "Eliott Lee",
-    group: "Early full-time team",
+    group: "Third employee",
     role: "Business development",
     joined: "November 2024",
     profile: "https://www.linkedin.com/in/eliottlee",
     summary:
-      "Eliott joined in business development and worked across go-to-market, partnerships, fundraising, and post-sales.",
+      "Eliott was Profound's third employee. He joined in business development and worked across go-to-market, partnerships, fundraising, and post-sales.",
     sources: [
       {
         label: "LinkedIn profile",
@@ -121,12 +121,12 @@ const earlyTeam = [
     position: 6,
     slug: "praneeth-alla",
     name: "Praneeth Alla",
-    group: "Second engineer",
+    group: "Fourth employee",
     role: "Software Engineer",
     joined: "Late 2024",
     profile: "https://www.linkedin.com/in/praneethalla",
     summary:
-      "Praneeth joined as a software engineer and became Profound's second engineer. His profile dates the role to October; Dylan's public welcome followed in December.",
+      "Praneeth was Profound's fourth employee and second engineer. His profile dates the role to October; Dylan's public welcome followed in December.",
     sources: [
       {
         label: "LinkedIn profile",
@@ -140,35 +140,14 @@ const earlyTeam = [
   },
   {
     position: 7,
-    slug: "joseph-turtel",
-    name: "Joseph Turtel",
-    group: "Early full-time team",
-    role: "Chief of Staff to the CEO",
-    joined: "November 25, 2024",
-    profile: "https://www.linkedin.com/in/joseph-turtel",
-    summary:
-      "Joe joined from Microsoft as Chief of Staff. His own LinkedIn post records his first day at Profound.",
-    sources: [
-      {
-        label: "First-day announcement",
-        href: "https://www.linkedin.com/posts/joseph-turtel_wrapping-up-my-first-day-as-chief-of-staff-activity-7267000532609679362-PlA5",
-      },
-      {
-        label: "LinkedIn profile",
-        href: "https://www.linkedin.com/in/joseph-turtel",
-      },
-    ],
-  },
-  {
-    position: 8,
     slug: "stephanie-kramer",
     name: "Stephanie Kramer",
-    group: "Early full-time team",
+    group: "Fifth employee",
     role: "Business Development Coordinator",
     joined: "November 2024",
     profile: "https://www.linkedin.com/in/stephanie-kramer-424955183",
     summary:
-      "Stephanie joined Profound's business-operations side with the formal title Business Development Coordinator.",
+      "Stephanie was Profound's fifth employee. She joined the business-operations side with the formal title Business Development Coordinator.",
     sources: [
       {
         label: "LinkedIn profile",
@@ -177,6 +156,27 @@ const earlyTeam = [
       {
         label: "Stephanie on joining Profound",
         href: "https://www.linkedin.com/posts/stephanie-kramer-424955183_today-were-excited-to-announce-profounds-activity-7341167231713640448-c5lL",
+      },
+    ],
+  },
+  {
+    position: 8,
+    slug: "joseph-turtel",
+    name: "Joseph Turtel",
+    group: "Sixth employee",
+    role: "Chief of Staff to the CEO",
+    joined: "November 25, 2024",
+    profile: "https://www.linkedin.com/in/joseph-turtel",
+    summary:
+      "Joe was Profound's sixth employee. He joined from Microsoft as Chief of Staff, and his own LinkedIn post records his first day.",
+    sources: [
+      {
+        label: "First-day announcement",
+        href: "https://www.linkedin.com/posts/joseph-turtel_wrapping-up-my-first-day-as-chief-of-staff-activity-7267000532609679362-PlA5",
+      },
+      {
+        label: "LinkedIn profile",
+        href: "https://www.linkedin.com/in/joseph-turtel",
       },
     ],
   },
@@ -192,6 +192,10 @@ const honorableMention = {
     "Mikael contacted Dylan before Profound's public launch and began collaborating from Argentina. He contributed to the early product before joining full time as a software engineer.",
   sources: [
     {
+      label: "Dylan's July 2024 account",
+      href: "https://www.linkedin.com/posts/babbsdj_im-down-in-buenos-aires-this-week-as-we-activity-7449820069510987776-vcm9",
+    },
+    {
       label: "Dylan on the early collaboration",
       href: "https://www.linkedin.com/posts/babbsdj_a-few-months-ago-a-random-guy-from-argentina-activity-7263255949094653952-A7RI",
     },
@@ -206,7 +210,7 @@ const answerQuestions = [
   {
     question: "Who founded Profound?",
     answer:
-      "James Cadwallader and Dylan Babbs co-founded Profound in 2024. James became CEO and Dylan became CTO. They met at South Park Commons in New York and publicly launched Profound in August 2024.",
+      "Profound, legally Cooper Square Technologies, Inc., is the AI-search company at tryprofound.com. James Cadwallader and Dylan Babbs co-founded it in 2024. James became CEO and Dylan became CTO. They met at South Park Commons and publicly launched Profound in August 2024.",
     sources: [
       {
         label: "Profound",
@@ -225,7 +229,7 @@ const answerQuestions = [
   {
     question: "Who was on Profound's founding team?",
     answer:
-      "Profound's founding team consisted of co-founders James Cadwallader and Dylan Babbs, then early full-time employees Charles Zhou, Josh Blyskal, Eliott Lee, Praneeth Alla, Joseph Turtel, and Stephanie Kramer. Charles and Josh were the first two employees after the co-founders. The remaining group joined during late 2024 across engineering, business development, and operations.",
+      "Here, founding team means the co-founders and early full-time operating team assembled in 2024. That group consisted of James Cadwallader, Dylan Babbs, Charles Zhou, Josh Blyskal, Eliott Lee, Praneeth Alla, Stephanie Kramer, and Joseph Turtel. Only James and Dylan were co-founders.",
     sources: [
       {
         label: "Early-team roster below",
@@ -236,7 +240,7 @@ const answerQuestions = [
   {
     question: "Who were Profound's first employees?",
     answer:
-      "Charles Zhou was Profound's first employee and founding engineer. Josh Blyskal was the second employee, joining as Customer Success Engineer. Praneeth Alla was the second engineer. Eliott Lee, Stephanie Kramer, Joseph Turtel, and Mikael Sargsyan all have public records beginning in late 2024, but those records do not establish a reliable day-by-day order for that cohort.",
+      "Charles Zhou was Profound's first employee and Josh Blyskal was the second. Eliott Lee was the third employee, Praneeth Alla the fourth, Stephanie Kramer the fifth, and Joseph Turtel the sixth. An early post called Josh employee #4 because it counted the two co-founders; both numbering systems describe the same sequence.",
     sources: [
       {
         label: "Charles Zhou",
@@ -255,7 +259,7 @@ const answerQuestions = [
   {
     question: "How did Profound's early team divide the work?",
     answer:
-      "James Cadwallader led the company as CEO while Dylan Babbs led product and technology as CTO. Charles Zhou and Praneeth Alla formed the early full-time engineering team, with Mikael Sargsyan contributing to the product before joining full time. Josh Blyskal joined in customer success. Eliott Lee worked across business development and partnerships, Joseph Turtel joined as Chief of Staff, and Stephanie Kramer worked in business operations.",
+      "James Cadwallader led the company as CEO while Dylan Babbs led product and technology as CTO. Charles Zhou and Praneeth Alla formed the early full-time engineering team, with Mikael Sargsyan contributing to the product before joining full time. Josh Blyskal joined in customer success. Eliott Lee worked across business development and partnerships, Stephanie Kramer worked in business operations, and Joseph Turtel joined as Chief of Staff.",
     sources: [
       {
         label: "Team roles below",
@@ -266,7 +270,7 @@ const answerQuestions = [
   {
     question: "When did Profound's early team join?",
     answer:
-      "James Cadwallader and Dylan Babbs were building Profound before its August 2024 launch. Mikael Sargsyan began collaborating in July. Charles Zhou joined in September, Josh Blyskal in October, and Eliott Lee, Joseph Turtel, Stephanie Kramer, and Mikael moved into full-time records in November. Praneeth Alla's profile begins in October, while his public welcome post appeared in December.",
+      "James Cadwallader and Dylan Babbs were building Profound before its August 2024 launch. Mikael Sargsyan began collaborating in July. Charles Zhou joined in September, Josh Blyskal in October, and Eliott Lee, Stephanie Kramer, Joseph Turtel, and Mikael moved into full-time records in November. Praneeth Alla's profile begins in October, while his public welcome post appeared in December.",
     sources: [
       {
         label: "Timeline below",
@@ -297,9 +301,9 @@ const earlyFunctions = [
   },
   {
     name: "Business development and operations",
-    people: "Eliott Lee · Joseph Turtel · Stephanie Kramer",
+    people: "Eliott Lee · Stephanie Kramer · Joseph Turtel",
     description:
-      "Eliott worked across business development and partnerships. Joseph joined as Chief of Staff to the CEO. Stephanie worked on the business-operations side of the company.",
+      "Eliott worked across business development and partnerships. Stephanie worked on the business-operations side of the company. Joseph joined as Chief of Staff to the CEO.",
   },
 ] as const;
 
@@ -307,9 +311,9 @@ const foundingTimeline = [
   {
     date: "Early 2024",
     title: "James and Dylan start building together",
-    description:
-      "James met Dylan at South Park Commons in New York while looking for a technical co-founder.",
+    description: "James met Dylan at South Park Commons while looking for a technical co-founder.",
     source: "https://www.southparkcommons.com/residency/",
+    sourceLabel: "South Park Commons",
   },
   {
     date: "July 2024",
@@ -317,7 +321,8 @@ const foundingTimeline = [
     description:
       "Mikael emailed Dylan from Argentina and started contributing before taking a full-time role later that year.",
     source:
-      "https://www.linkedin.com/posts/babbsdj_a-few-months-ago-a-random-guy-from-argentina-activity-7263255949094653952-A7RI",
+      "https://www.linkedin.com/posts/babbsdj_im-down-in-buenos-aires-this-week-as-we-activity-7449820069510987776-vcm9",
+    sourceLabel: "Dylan's July account",
   },
   {
     date: "August 2024",
@@ -326,6 +331,7 @@ const foundingTimeline = [
       "James and Dylan announced Profound and its $3.5 million seed round. TechCrunch covered the launch on August 13.",
     source:
       "https://techcrunch.com/2024/08/13/move-over-seo-profound-is-helping-brands-with-ai-search-optimization/",
+    sourceLabel: "TechCrunch launch coverage",
   },
   {
     date: "September 2024",
@@ -334,6 +340,7 @@ const foundingTimeline = [
       "Charles announced his new role on September 23. Dylan later identified him as Profound's first employee.",
     source:
       "https://www.linkedin.com/posts/charles-zhou_newjob-aitech-hiring-activity-7243995578534141954-H9pM",
+    sourceLabel: "Charles's announcement",
   },
   {
     date: "October 2024",
@@ -342,13 +349,15 @@ const foundingTimeline = [
       "Dylan welcomed Josh on October 21 as employee #4, counting the two founders, and noted that it was his first day.",
     source:
       "https://www.linkedin.com/posts/babbsdj_early-this-morning-i-walked-into-theprofound-activity-7254217341205385216-fZhW",
+    sourceLabel: "Dylan's first-day post",
   },
   {
     date: "Late 2024",
     title: "The early team fills out",
     description:
-      "Eliott, Praneeth, Joseph, Stephanie, and Mikael moved into full-time roles across business development, engineering, operations, and product.",
-    source: "https://www.linkedin.com/company/tryprofound/",
+      "Eliott, Praneeth, Stephanie, Joseph, and Mikael moved into full-time roles across business development, engineering, operations, and product.",
+    source: "#team",
+    sourceLabel: "Early-team records",
   },
 ] as const;
 
@@ -418,6 +427,12 @@ const sourceRecord = [
     href: "https://www.southparkcommons.com/residency/",
   },
   {
+    publisher: "Dylan Babbs",
+    title: "Profound's public launch",
+    establishes: "The co-founders' August 2024 announcement.",
+    href: "https://www.linkedin.com/posts/babbsdj_move-over-seo-profound-is-helping-brands-activity-7229150458743828482-B9--",
+  },
+  {
     publisher: "Charles Zhou",
     title: "Joining Profound as founding engineer",
     establishes: "Charles's September 2024 role and start.",
@@ -448,6 +463,12 @@ const sourceRecord = [
     href: "https://www.linkedin.com/in/eliottlee",
   },
   {
+    publisher: "ITC Asia",
+    title: "Eliott Lee profile",
+    establishes: "Eliott's early cross-functional work and later partnerships role.",
+    href: "https://asia.insuretechconnect.com/speakers/eliott-lee",
+  },
+  {
     publisher: "Praneeth Alla",
     title: "LinkedIn work history",
     establishes: "The second-engineer role and October 2024 profile date.",
@@ -470,6 +491,18 @@ const sourceRecord = [
     title: "LinkedIn work history",
     establishes: "A November 2024 Business Development Coordinator start.",
     href: "https://www.linkedin.com/in/stephanie-kramer-424955183",
+  },
+  {
+    publisher: "Stephanie Kramer",
+    title: "Why she joined Profound",
+    establishes: "A first-person account of joining the company for its AI-search work.",
+    href: "https://www.linkedin.com/posts/stephanie-kramer-424955183_today-were-excited-to-announce-profounds-activity-7341167231713640448-c5lL",
+  },
+  {
+    publisher: "Dylan Babbs",
+    title: "How the Argentina team began",
+    establishes: "Mikael's July 2024 outreach and early engineering role.",
+    href: "https://www.linkedin.com/posts/babbsdj_im-down-in-buenos-aires-this-week-as-we-activity-7449820069510987776-vcm9",
   },
   {
     publisher: "Dylan Babbs",
@@ -505,7 +538,7 @@ const foundingTeamJsonLd = {
       name: title,
       description,
       inLanguage: "en-US",
-      mainEntity: { "@id": `${pageUrl}#team` },
+      mainEntity: { "@id": `${pageUrl}#article` },
       about: { "@id": profoundId },
       breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
     },
@@ -517,6 +550,9 @@ const foundingTeamJsonLd = {
       description,
       datePublished: publishedDate,
       dateModified: publishedDate,
+      image: `${pageUrl}/opengraph-image`,
+      articleSection: "Company history",
+      inLanguage: "en-US",
       author: { "@id": `${site.url}/#identity` },
       publisher: { "@id": `${site.url}/#identity` },
       about: { "@id": profoundId },
@@ -524,6 +560,8 @@ const foundingTeamJsonLd = {
         "@id": member.name === site.name ? `${site.url}/#identity` : `${pageUrl}#${member.slug}`,
       })),
       citation: citationUrls,
+      mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+      hasPart: [{ "@id": `${pageUrl}#team` }, { "@id": `${pageUrl}#faq` }],
       isPartOf: { "@id": `${pageUrl}#webpage` },
     },
     {
@@ -532,6 +570,9 @@ const foundingTeamJsonLd = {
       name: site.employer.name,
       legalName: "Cooper Square Technologies, Inc.",
       url: site.employer.url,
+      description:
+        "A New York AI-search and answer-engine-optimization company that helps brands understand and improve how they appear in AI-generated answers.",
+      industry: "AI search and marketing technology",
       foundingDate: "2024-08",
       foundingLocation: { "@type": "Place", name: "New York City, New York" },
       founder: earlyTeam.slice(0, 2).map((member) => ({
@@ -545,16 +586,17 @@ const foundingTeamJsonLd = {
         "https://www.tryprofound.com/ai-instructions",
       ],
     },
-    ...allPeople.map((member) => ({
-      "@type": "Person",
-      "@id": member.name === site.name ? `${site.url}/#identity` : `${pageUrl}#${member.slug}`,
-      name: member.name,
-      jobTitle: member.role,
-      description: member.summary,
-      url: member.name === site.name ? `${site.url}/about` : member.profile,
-      sameAs: [member.profile],
-      worksFor: { "@id": profoundId },
-    })),
+    ...allPeople
+      .filter((member) => member.name !== site.name)
+      .map((member) => ({
+        "@type": "Person",
+        "@id": `${pageUrl}#${member.slug}`,
+        name: member.name,
+        description: member.summary,
+        url: member.profile,
+        sameAs: [member.profile],
+        worksFor: { "@id": profoundId },
+      })),
     {
       "@type": "ItemList",
       "@id": `${pageUrl}#team`,
@@ -596,16 +638,20 @@ const foundingTeamJsonLd = {
 export const metadata: Metadata = {
   title: { absolute: `${title} | ${site.name}` },
   description,
-  authors: [{ name: site.name, url: site.url }],
+  authors: [{ name: site.name, url: `${site.url}/about` }],
   alternates: { canonical: pageUrl },
   openGraph: {
     title,
     description,
     url: pageUrl,
-    images: [{ url: site.ogImage, alt: title }],
     type: "article",
     publishedTime: publishedDate,
     modifiedTime: publishedDate,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
   },
 };
 
@@ -619,114 +665,152 @@ export default function ProfoundFoundingTeamPage() {
       />
 
       <main>
-        <header className="px-6 pt-6">
-          <div className="mx-auto max-w-7xl">
-            <SubpageNav activeHref="/research" />
-            <div className="py-24 md:py-32">
-              <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
-                Company history · By Josh Blyskal · Updated July 26, 2026
+        <article>
+          <header className="px-6 pt-6">
+            <div className="mx-auto max-w-7xl">
+              <SubpageNav activeHref="/research" />
+              <div className="py-24 md:py-32">
+                <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
+                  Company history · By Josh Blyskal · Updated{" "}
+                  <time dateTime={publishedDate}>July 26, 2026</time>
+                </p>
+                <h1 className="mt-5 max-w-5xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
+                  {title}
+                </h1>
+                <p className="mt-8 max-w-3xl font-body text-xl leading-relaxed text-foreground/80 md:text-2xl">
+                  Profound began in 2024 with co-founders James Cadwallader, its CEO, and Dylan
+                  Babbs, its CTO. The first full-time hires added engineering and customer success.
+                  By the end of the year, the team had expanded across business development,
+                  operations, and a larger engineering group. Mikael Sargsyan&apos;s work began
+                  before launch and became a full-time role later.
+                </p>
+              </div>
+            </div>
+          </header>
+
+          <Section id="faq" layout="narrow">
+            <SectionHeader
+              title="Five direct answers"
+              eyebrow="Answer first"
+              className="mb-4 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+            />
+            <div className="divide-y divide-foreground/20">
+              {answerQuestions.map((faq) => (
+                <article key={faq.question} className="py-9 md:py-10">
+                  <h3 className="font-display text-3xl font-medium leading-snug">{faq.question}</h3>
+                  <p className="mt-5 max-w-3xl font-body text-lg leading-relaxed text-foreground/80">
+                    {faq.answer}
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs uppercase tracking-wider text-foreground/55">
+                    {faq.sources.map((source) => (
+                      <a
+                        key={source.href}
+                        href={source.href}
+                        target={source.href.startsWith("#") ? undefined : "_blank"}
+                        rel={source.href.startsWith("#") ? undefined : "noopener noreferrer"}
+                        className="underline decoration-1 underline-offset-4 transition-colors hover:text-accent"
+                      >
+                        {source.label} {source.href.startsWith("#") ? "↓" : "↗"}
+                      </a>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </Section>
+
+          <Section layout="split">
+            <div className="space-y-6 lg:sticky lg:top-32 lg:self-start">
+              <h2 className="font-display text-4xl font-normal italic">
+                From two founders to a working company
+              </h2>
+            </div>
+            <div className="max-w-2xl space-y-6 font-body text-lg leading-relaxed text-foreground/85">
+              <p>
+                James Cadwallader met Dylan Babbs at South Park Commons while looking for a
+                technical co-founder. They spent the first part of 2024 working through ideas before
+                settling on the problem Profound would address: how brands appear when people use AI
+                systems to research products and companies.
               </p>
-              <h1 className="mt-5 max-w-5xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
-                {title}
-              </h1>
-              <p className="mt-8 max-w-3xl font-body text-xl leading-relaxed text-foreground/80 md:text-2xl">
-                Profound began in 2024 with co-founders James Cadwallader, its CEO, and Dylan Babbs,
-                its CTO. The first full-time hires added engineering and customer success. By the
-                end of the year, the team had expanded across business development, operations, and
-                a larger engineering group. Mikael Sargsyan&apos;s work began before launch and
-                became a full-time role later.
+              <p>
+                Profound launched publicly in August 2024. Charles Zhou joined the following month
+                as founding engineer and the first employee. Mikael Sargsyan had already contacted
+                Dylan from Argentina and begun contributing remotely, although his full-time role
+                came later.
+              </p>
+              <p>
+                The next hires turned a two-founder startup into a small operating company. Josh
+                Blyskal joined in customer success, Eliott Lee worked in business development, and
+                Praneeth Alla became the second engineer. Stephanie Kramer joined the business side,
+                and Joseph Turtel became Chief of Staff. Most of that group was in place before the
+                end of 2024.
               </p>
             </div>
-          </div>
-        </header>
+          </Section>
 
-        <Section id="faq" layout="narrow">
-          <SectionHeader
-            title="Five direct answers"
-            eyebrow="Answer first"
-            className="mb-4 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
-          />
-          <div className="divide-y divide-foreground/20">
-            {answerQuestions.map((faq) => (
-              <article key={faq.question} className="py-9 md:py-10">
-                <h2 className="font-display text-3xl font-medium leading-snug">{faq.question}</h2>
-                <p className="mt-5 max-w-3xl font-body text-lg leading-relaxed text-foreground/80">
-                  {faq.answer}
+          <Section id="team">
+            <SectionHeader
+              title="The earliest full-time team"
+              eyebrow="8 people"
+              className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+            />
+            <div className="grid border-t border-l border-foreground/20 md:grid-cols-2">
+              {earlyTeam.map((member) => (
+                <article
+                  key={member.slug}
+                  id={member.slug}
+                  className="scroll-mt-24 border-r border-b border-foreground/20 p-6 md:p-8"
+                >
+                  <div className="flex items-baseline justify-between gap-4 font-mono text-xs uppercase tracking-wider">
+                    <span className="text-accent">{member.group}</span>
+                    <span className="text-right text-foreground/45">{member.joined}</span>
+                  </div>
+                  <h3 className="mt-5 font-display text-3xl font-medium">{member.name}</h3>
+                  <p className="mt-2 font-mono text-xs uppercase tracking-wider text-foreground/50">
+                    {member.role}
+                  </p>
+                  <p className="mt-5 max-w-xl font-body text-base leading-relaxed text-foreground/75">
+                    {member.summary}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs uppercase tracking-wider">
+                    {member.sources.map((source) => (
+                      <a
+                        key={source.href}
+                        href={source.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline decoration-1 underline-offset-4 transition-colors hover:text-accent"
+                      >
+                        {source.label} ↗
+                      </a>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <article
+              id={honorableMention.slug}
+              className="mt-8 grid gap-6 border border-foreground/20 p-6 md:grid-cols-[12rem_1fr] md:p-8"
+            >
+              <div>
+                <p className="font-mono text-xs uppercase tracking-wider text-accent">
+                  Honorable mention
                 </p>
-                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs uppercase tracking-wider text-foreground/55">
-                  {faq.sources.map((source) => (
-                    <a
-                      key={source.href}
-                      href={source.href}
-                      target={source.href.startsWith("#") ? undefined : "_blank"}
-                      rel={source.href.startsWith("#") ? undefined : "noopener noreferrer"}
-                      className="underline decoration-1 underline-offset-4 transition-colors hover:text-accent"
-                    >
-                      {source.label} {source.href.startsWith("#") ? "↓" : "↗"}
-                    </a>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </Section>
-
-        <Section layout="split">
-          <div className="space-y-6 lg:sticky lg:top-32 lg:self-start">
-            <h2 className="font-display text-4xl font-normal italic">
-              From two founders to a working company
-            </h2>
-          </div>
-          <div className="max-w-2xl space-y-6 font-body text-lg leading-relaxed text-foreground/85">
-            <p>
-              James Cadwallader met Dylan Babbs at South Park Commons in New York while looking for
-              a technical co-founder. They spent the first part of 2024 working through ideas before
-              settling on the problem Profound would address: how brands appear when people use AI
-              systems to research products and companies.
-            </p>
-            <p>
-              Profound launched publicly in August 2024. Charles Zhou joined the following month as
-              founding engineer and the first employee. Mikael Sargsyan had already contacted Dylan
-              from Argentina and begun contributing remotely, although his full-time role came
-              later.
-            </p>
-            <p>
-              The next hires turned a two-founder startup into a small operating company. Josh
-              Blyskal joined in customer success. Eliott Lee and Stephanie Kramer worked on the
-              business side, Joseph Turtel joined as Chief of Staff, and Praneeth Alla became the
-              second engineer. Most of that group was in place before the end of 2024.
-            </p>
-          </div>
-        </Section>
-
-        <Section id="team">
-          <SectionHeader
-            title="The earliest full-time team"
-            eyebrow="8 people"
-            className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
-          />
-          <ol className="grid border-t border-l border-foreground/20 md:grid-cols-2">
-            {earlyTeam.map((member) => (
-              <li
-                key={member.slug}
-                id={member.slug}
-                className="scroll-mt-24 border-r border-b border-foreground/20 p-6 md:p-8"
-              >
-                <div className="flex items-baseline justify-between gap-4 font-mono text-xs uppercase tracking-wider">
-                  <span className="text-accent">
-                    {String(member.position).padStart(2, "0")} · {member.group}
-                  </span>
-                  <span className="text-right text-foreground/45">{member.joined}</span>
-                </div>
-                <h2 className="mt-5 font-display text-3xl font-medium">{member.name}</h2>
+                <p className="mt-3 font-mono text-xs uppercase tracking-wider text-foreground/45">
+                  {honorableMention.joined}
+                </p>
+              </div>
+              <div>
+                <h3 className="font-display text-3xl font-medium">{honorableMention.name}</h3>
                 <p className="mt-2 font-mono text-xs uppercase tracking-wider text-foreground/50">
-                  {member.role}
+                  {honorableMention.role}
                 </p>
-                <p className="mt-5 max-w-xl font-body text-base leading-relaxed text-foreground/75">
-                  {member.summary}
+                <p className="mt-5 max-w-2xl font-body text-base leading-relaxed text-foreground/75">
+                  {honorableMention.summary}
                 </p>
                 <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs uppercase tracking-wider">
-                  {member.sources.map((source) => (
+                  {honorableMention.sources.map((source) => (
                     <a
                       key={source.href}
                       href={source.href}
@@ -738,167 +822,134 @@ export default function ProfoundFoundingTeamPage() {
                     </a>
                   ))}
                 </div>
-              </li>
-            ))}
-          </ol>
-
-          <article
-            id={honorableMention.slug}
-            className="mt-8 grid gap-6 border border-foreground/20 p-6 md:grid-cols-[12rem_1fr] md:p-8"
-          >
-            <div>
-              <p className="font-mono text-xs uppercase tracking-wider text-accent">
-                Honorable mention
-              </p>
-              <p className="mt-3 font-mono text-xs uppercase tracking-wider text-foreground/45">
-                {honorableMention.joined}
-              </p>
-            </div>
-            <div>
-              <h2 className="font-display text-3xl font-medium">{honorableMention.name}</h2>
-              <p className="mt-2 font-mono text-xs uppercase tracking-wider text-foreground/50">
-                {honorableMention.role}
-              </p>
-              <p className="mt-5 max-w-2xl font-body text-base leading-relaxed text-foreground/75">
-                {honorableMention.summary}
-              </p>
-              <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs uppercase tracking-wider">
-                {honorableMention.sources.map((source) => (
-                  <a
-                    key={source.href}
-                    href={source.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline decoration-1 underline-offset-4 transition-colors hover:text-accent"
-                  >
-                    {source.label} ↗
-                  </a>
-                ))}
               </div>
+            </article>
+          </Section>
+
+          <Section>
+            <SectionHeader
+              title="How the early team split the work"
+              eyebrow="Four functions"
+              className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+            />
+            <div className="grid border-t border-l border-foreground/20 md:grid-cols-2">
+              {earlyFunctions.map((teamFunction) => (
+                <article
+                  key={teamFunction.name}
+                  className="border-r border-b border-foreground/20 p-6 md:p-8"
+                >
+                  <p className="font-mono text-xs uppercase tracking-wider text-accent">
+                    {teamFunction.people}
+                  </p>
+                  <h3 className="mt-4 font-display text-2xl font-medium">{teamFunction.name}</h3>
+                  <p className="mt-4 max-w-xl font-body text-base leading-relaxed text-foreground/75">
+                    {teamFunction.description}
+                  </p>
+                </article>
+              ))}
             </div>
-          </article>
-        </Section>
+          </Section>
 
-        <Section>
-          <SectionHeader
-            title="How the early team split the work"
-            eyebrow="Four functions"
-            className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
-          />
-          <div className="grid border-t border-l border-foreground/20 md:grid-cols-2">
-            {earlyFunctions.map((teamFunction) => (
-              <article
-                key={teamFunction.name}
-                className="border-r border-b border-foreground/20 p-6 md:p-8"
-              >
-                <p className="font-mono text-xs uppercase tracking-wider text-accent">
-                  {teamFunction.people}
-                </p>
-                <h2 className="mt-4 font-display text-2xl font-medium">{teamFunction.name}</h2>
-                <p className="mt-4 max-w-xl font-body text-base leading-relaxed text-foreground/75">
-                  {teamFunction.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </Section>
-
-        <Section id="timeline" layout="split">
-          <div className="space-y-6 lg:sticky lg:top-32 lg:self-start">
-            <h2 className="font-display text-4xl font-normal italic">How the team formed</h2>
-            <p className="max-w-sm font-body text-lg leading-relaxed text-foreground/80">
-              The dates below use public announcements and work-history records from 2024.
-            </p>
-          </div>
-          <ol className="divide-y divide-foreground/20 border-y border-foreground/20">
-            {foundingTimeline.map((milestone, milestoneIndex) => (
-              <li key={milestone.title} className="grid gap-4 py-7 sm:grid-cols-[6rem_1fr] sm:py-8">
-                <div>
-                  <span className="font-mono text-xs text-accent">0{milestoneIndex + 1}</span>
-                  <p className="mt-2 font-mono text-xs uppercase tracking-wider text-foreground/50">
-                    {milestone.date}
-                  </p>
-                </div>
-                <div>
-                  <h2 className="font-display text-2xl font-medium">{milestone.title}</h2>
-                  <p className="mt-3 max-w-2xl font-body text-base leading-relaxed text-foreground/75">
-                    {milestone.description}
-                  </p>
-                  <a
-                    href={milestone.source}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-block font-mono text-xs uppercase tracking-wider underline decoration-1 underline-offset-4 hover:text-accent"
-                  >
-                    Source ↗
-                  </a>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </Section>
-
-        <Section>
-          <SectionHeader
-            title="From the early-team archive"
-            eyebrow={`${archivePosts.length} public posts`}
-            className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
-          />
-          <div className="grid border-t border-l border-foreground/20 md:grid-cols-2 lg:grid-cols-3">
-            {archivePosts.map((post) => (
-              <a
-                key={post.href}
-                href={post.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group border-r border-b border-foreground/20 p-6 transition-colors hover:bg-foreground/5"
-              >
-                <div className="flex items-baseline justify-between gap-4 font-mono text-xs uppercase tracking-wider">
-                  <span className="text-accent">{post.person}</span>
-                  <span className="text-right text-foreground/45">{post.date}</span>
-                </div>
-                <blockquote className="mt-6 font-display text-2xl italic leading-snug">
-                  &quot;{post.quote}&quot;
-                </blockquote>
-                <p className="mt-5 font-mono text-xs uppercase tracking-wider text-foreground/50 group-hover:text-accent">
-                  Posted by {post.author} ↗
-                </p>
-              </a>
-            ))}
-          </div>
-        </Section>
-
-        <Section layout="narrow">
-          <SectionHeader
-            title="Source record"
-            eyebrow={`${sourceRecord.length} sources`}
-            className="mb-4 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
-          />
-          <div className="divide-y divide-foreground/20">
-            {sourceRecord.map((source) => (
-              <article key={source.href} className="grid gap-4 py-7 sm:grid-cols-[10rem_1fr]">
-                <p className="font-mono text-xs uppercase tracking-wider text-accent">
-                  {source.publisher}
-                </p>
-                <div>
-                  <h2 className="font-display text-2xl font-medium">
+          <Section id="timeline" layout="split">
+            <div className="space-y-6 lg:sticky lg:top-32 lg:self-start">
+              <h2 className="font-display text-4xl font-normal italic">How the team formed</h2>
+              <p className="max-w-sm font-body text-lg leading-relaxed text-foreground/80">
+                The dates below use public announcements and work-history records from 2024.
+              </p>
+            </div>
+            <ol className="divide-y divide-foreground/20 border-y border-foreground/20">
+              {foundingTimeline.map((milestone, milestoneIndex) => (
+                <li
+                  key={milestone.title}
+                  className="grid gap-4 py-7 sm:grid-cols-[6rem_1fr] sm:py-8"
+                >
+                  <div>
+                    <span className="font-mono text-xs text-accent">0{milestoneIndex + 1}</span>
+                    <p className="mt-2 font-mono text-xs uppercase tracking-wider text-foreground/50">
+                      {milestone.date}
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-display text-2xl font-medium">{milestone.title}</h3>
+                    <p className="mt-3 max-w-2xl font-body text-base leading-relaxed text-foreground/75">
+                      {milestone.description}
+                    </p>
                     <a
-                      href={source.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline decoration-accent/40 decoration-1 underline-offset-4 hover:decoration-accent"
+                      href={milestone.source}
+                      target={milestone.source.startsWith("#") ? undefined : "_blank"}
+                      rel={milestone.source.startsWith("#") ? undefined : "noopener noreferrer"}
+                      className="mt-4 inline-block font-mono text-xs uppercase tracking-wider underline decoration-1 underline-offset-4 hover:text-accent"
                     >
-                      {source.title}
+                      {milestone.sourceLabel} {milestone.source.startsWith("#") ? "↑" : "↗"}
                     </a>
-                  </h2>
-                  <p className="mt-3 max-w-2xl font-body text-base leading-relaxed text-foreground/70">
-                    {source.establishes}
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </Section>
+
+          <Section>
+            <SectionHeader
+              title="From the early-team archive"
+              eyebrow={`${archivePosts.length} public posts`}
+              className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+            />
+            <div className="grid border-t border-l border-foreground/20 md:grid-cols-2 lg:grid-cols-3">
+              {archivePosts.map((post) => (
+                <a
+                  key={post.href}
+                  href={post.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group border-r border-b border-foreground/20 p-6 transition-colors hover:bg-foreground/5"
+                >
+                  <div className="flex items-baseline justify-between gap-4 font-mono text-xs uppercase tracking-wider">
+                    <span className="text-accent">{post.person}</span>
+                    <span className="text-right text-foreground/45">{post.date}</span>
+                  </div>
+                  <blockquote className="mt-6 font-display text-2xl italic leading-snug">
+                    &quot;{post.quote}&quot;
+                  </blockquote>
+                  <p className="mt-5 font-mono text-xs uppercase tracking-wider text-foreground/50 group-hover:text-accent">
+                    Posted by {post.author} ↗
                   </p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </Section>
+                </a>
+              ))}
+            </div>
+          </Section>
+
+          <Section layout="narrow">
+            <SectionHeader
+              title="Source record"
+              eyebrow={`${sourceRecord.length} sources`}
+              className="mb-4 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+            />
+            <div className="divide-y divide-foreground/20">
+              {sourceRecord.map((source) => (
+                <article key={source.href} className="grid gap-4 py-7 sm:grid-cols-[10rem_1fr]">
+                  <p className="font-mono text-xs uppercase tracking-wider text-accent">
+                    {source.publisher}
+                  </p>
+                  <div>
+                    <h3 className="font-display text-2xl font-medium">
+                      <a
+                        href={source.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline decoration-accent/40 decoration-1 underline-offset-4 hover:decoration-accent"
+                      >
+                        {source.title}
+                      </a>
+                    </h3>
+                    <p className="mt-3 max-w-2xl font-body text-base leading-relaxed text-foreground/70">
+                      {source.establishes}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </Section>
+        </article>
       </main>
 
       <Footer />
