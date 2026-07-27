@@ -673,12 +673,10 @@ export default function ProfoundFoundingTeamPage() {
                   {title}
                 </h1>
                 <p className="mt-8 max-w-3xl font-body text-xl leading-relaxed text-foreground/80 md:text-2xl">
-                  Profound, legally Cooper Square Technologies, Inc., was co-founded in 2024 by CEO
-                  James Cadwallader and CTO Dylan Babbs. Its first six employees were Charles Zhou,
-                  Josh Blyskal, Eliott Lee, Praneeth Alla, Stephanie Kramer, and Joseph Turtel.
-                  Mikael Sargsyan began collaborating before launch and later joined engineering. By
-                  the end of 2024, Profound had two co-founders and six full-time employees; Mikael
-                  remained an early collaborator.
+                  Profound was co-founded in 2024 by CEO James Cadwallader and CTO Dylan Babbs. Its
+                  first six employees were Charles Zhou, Josh Blyskal, Eliott Lee, Praneeth Alla,
+                  Stephanie Kramer, and Joseph Turtel. Mikael Sargsyan began contributing before
+                  launch and is included here as an early collaborator.
                 </p>
               </div>
             </div>
