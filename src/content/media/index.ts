@@ -101,6 +101,6 @@ const archiveDates = [
   ...pressRecords.map((record) => record.date),
 ];
 
-export const latestMediaDate = new Date(
+export const latestArchiveDate = new Date(
   Math.max(...archiveDates.map((date) => new Date(date).getTime())),
 );

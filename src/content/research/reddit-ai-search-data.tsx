@@ -9,6 +9,14 @@ import {
 import { ResearchFigure } from "@/components/research/ResearchFigures";
 import type { ResearchMeta } from "@/content/research";
 
+const sources = [
+  {
+    name: "The Data on Reddit and AI Search",
+    publisher: "Profound",
+    url: "https://www.tryprofound.com/blog/the-data-on-reddit-and-ai-search",
+  },
+] as const;
+
 export const meta = {
   slug: "reddit-ai-search-data",
   title: "Why Reddit became AI search's most-cited domain",
@@ -32,13 +40,42 @@ export const meta = {
       role: "Co-author and researcher",
     },
   ],
-  sources: [
-    {
-      name: "The Data on Reddit and AI Search",
-      publisher: "Profound",
-      url: "https://www.tryprofound.com/blog/the-data-on-reddit-and-ai-search",
-    },
-  ],
+  sources,
+  studyNotes: {
+    dataset: [
+      "More than 4 billion citations and 300 million answer-engine responses analyzed by Profound in collaboration with Reddit.",
+      "Published slices include per-engine Reddit ranks, citations containing positive or negative brand sentiment, subreddit concentration by query class, and cited-post publication dates.",
+    ],
+    collectionWindow:
+      "Aggregate citation ranking: August 2024 through late October 2025; post-age findings describe citations observed in 2025.",
+    products: [
+      "Perplexity",
+      "ChatGPT",
+      "Google AI Mode",
+      "Google AI Overviews",
+      "Grok",
+      "Microsoft Copilot",
+    ],
+    sample: [
+      "The aggregate ranking pools citation share across tracked answer engines; the platform view ranks Reddit separately within each engine.",
+      "The sentiment comparison covers Reddit content containing positive or negative brand sentiment.",
+    ],
+    analysis: [
+      "Aggregate and engine-level domain ranking, source-pairing review, brand-sentiment citation-rate comparison, subreddit concentration by query class, and cited-post age analysis.",
+    ],
+    contributors: [
+      "Josh Blyskal, co-author",
+      "Sartaj Rajpal, co-author and researcher",
+      "Profound, in collaboration with Reddit",
+    ],
+    access: sources,
+    limitations: [
+      "The aggregate ranking pools engines with materially different behavior; Microsoft Copilot ranked Reddit 31st while five others placed it in the top three.",
+      "Citation share measures sourcing visibility, not whether users saw, trusted, or acted on the answer.",
+    ],
+    detailsNotPublished:
+      "Exact engine-level counts, subgroup sizes, labeling procedures, and raw-data access are not provided in the available article.",
+  },
 } satisfies ResearchMeta;
 
 const citedDomains = [

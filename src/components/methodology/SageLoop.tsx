@@ -4,12 +4,11 @@ export function SageLoop() {
   return (
     <figure aria-labelledby="sage-loop-title" className="border-y border-foreground/20 py-8">
       <figcaption id="sage-loop-title" className="mb-8">
-        <span className="block font-mono text-xs uppercase tracking-widest text-foreground/50">
-          Fig. 1
-        </span>
-        <span className="mt-2 block font-display text-2xl font-medium">
-          Four stages. Four outputs.
-        </span>
+        <span className="block font-display text-2xl font-medium">How the stages fit together</span>
+        <p className="mt-3 max-w-2xl font-body text-sm leading-relaxed text-foreground/65">
+          Each stage produces a practical output. The diagnostic beneath it describes the situation
+          in which that stage becomes useful.
+        </p>
       </figcaption>
 
       <ol className="grid border-t border-l border-foreground/20 sm:grid-cols-2 lg:grid-cols-4">
@@ -39,8 +38,8 @@ export function SageLoop() {
       </ol>
 
       <p className="mt-5 max-w-2xl font-body text-sm leading-relaxed text-foreground/65">
-        SAGE is a weekly workflow. Ask what time it is, produce the missing output, then run the
-        loop again.
+        Teams usually return to SAGE each week. They identify the output that is missing or
+        unreliable, work in that stage, and move again when the situation changes.
       </p>
     </figure>
   );

@@ -26,4 +26,4 @@ export const postBySlug: Record<string, Post> = Object.fromEntries(posts.map((p)
 export const latestPostDate =
   posts.length > 0
     ? new Date(Math.max(...posts.map((p) => new Date(p.date).getTime())))
-    : new Date();
+    : new Date(0);

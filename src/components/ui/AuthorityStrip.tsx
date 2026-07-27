@@ -51,13 +51,10 @@ function OrganizationMark({ name, href, domain }: { name: string; href: string; 
 
 export function AuthorityStrip() {
   return (
-    <aside
-      aria-label="Selected strategy work through Profound and press"
-      className="mt-10 border-t border-foreground/20 pt-6"
-    >
+    <aside aria-label="Selected work through Profound and press">
       <div>
         <p className="font-mono text-xs uppercase leading-relaxed tracking-wider text-foreground/50">
-          I've collaborated with these leading brands
+          Contributed to AEO programs for teams at Profound
         </p>
         <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
           {enterpriseWork.map((organization) => (

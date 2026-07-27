@@ -8,6 +8,19 @@ import {
 import { ResearchFigure } from "@/components/research/ResearchFigures";
 import type { ResearchMeta } from "@/content/research";
 
+const sources = [
+  {
+    name: "The State of AEO 2026",
+    publisher: "Speaker Deck",
+    url: "https://speakerdeck.com/joshbly/the-state-of-aeo-2026",
+  },
+  {
+    name: "Zero Click New York presentation",
+    publisher: "Profound",
+    url: "https://www.tryprofound.com/zeroclick/ny",
+  },
+] as const;
+
 export const meta = {
   slug: "state-of-aeo-2026",
   title: "The state of AEO in 2026: Claude is not ChatGPT",
@@ -31,18 +44,30 @@ export const meta = {
       role: "Research lead",
     },
   ],
-  sources: [
-    {
-      name: "The State of AEO 2026",
-      publisher: "Speaker Deck",
-      url: "https://speakerdeck.com/joshbly/the-state-of-aeo-2026",
-    },
-    {
-      name: "Zero Click New York presentation",
-      publisher: "Profound",
-      url: "https://www.tryprofound.com/zeroclick/ny",
-    },
-  ],
+  sources,
+  studyNotes: {
+    dataset: [
+      "Published analyses cover prompt routing, citation and search-result overlap, citation content types, repeated query fanouts, ChatGPT referral traffic, and observed ads.",
+    ],
+    collectionWindow: "ChatGPT referral-traffic slides compare May 7 and May 22, 2026.",
+    products: ["Claude", "ChatGPT", "Brave Search", "Google Search", "Google AI Mode"],
+    sample: [
+      "The prompt set ranged from current product recommendations to basic explainers, with web search enabled for Claude and ChatGPT.",
+      "Source-overlap figures are domain-level; content-type figures come from a classified citation set.",
+    ],
+    analysis: [
+      "Observed search invocation; matched Claude citations to Brave positions 1–10; compared pairwise domain overlap, citation content types, repeated fanout strings, and year usage.",
+      "Separately observed ChatGPT referral traffic and ad placement.",
+    ],
+    contributors: ["Josh Blyskal, author and presenter", "Jasman Singh, research lead"],
+    access: sources,
+    limitations: [
+      "The prompt-routing, citation, referral, and ad analyses use different units; the deck does not present them as one common sample.",
+      "Claude's 36.6% search rate reflects the tested mix of recommendations and basic explainers.",
+    ],
+    detailsNotPublished:
+      "Exact prompt and citation counts, retrieval-analysis collection dates, sampling and labeling procedures, and raw-data access are not provided in the available deck or event page.",
+  },
 } satisfies ResearchMeta;
 
 const overlapRates = [

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/layout/Footer";
 import { SubpageNav } from "@/components/layout/SubpageNav";
 import { ResearchArticleFooter } from "@/components/research/ResearchArticleFooter";
+import { StudyNotes } from "@/components/research/StudyNotes";
 import { researchArticles, researchBySlug } from "@/content/research";
 import { site } from "@/content/site";
 import { researchArticleJsonLd } from "@/lib/seo";
@@ -106,6 +107,7 @@ export default async function ResearchArticlePage({ params }: PageProps) {
             </header>
             <div className="space-y-24">
               <Body />
+              {study.studyNotes ? <StudyNotes notes={study.studyNotes} /> : null}
               <ResearchArticleFooter study={study} relatedStudies={relatedStudies} />
             </div>
           </div>

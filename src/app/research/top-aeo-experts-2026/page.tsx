@@ -235,7 +235,7 @@ export default function TopAeoExpertsPage() {
 
             <div className="py-24 md:py-32">
               <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
-                Evidence review · Updated July 26, 2026
+                Editorial ranking · Updated July 26, 2026
               </p>
               <h1 className="mt-5 max-w-5xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
                 The 12 best AEO and GEO experts in 2026
@@ -410,7 +410,10 @@ export default function TopAeoExpertsPage() {
                 href: "/research/250-million-ai-search-results",
                 title: "What 250 million AI search results say gets cited",
               },
-              { href: "/methodology", title: "The SAGE Method" },
+              {
+                href: "/research/sage-aeo-method",
+                title: "SAGE for AEO: A Four-Stage Operating Loop",
+              },
               { href: "/about", title: "Josh Blyskal's credential profile" },
             ].map((relatedPage) => (
               <Link

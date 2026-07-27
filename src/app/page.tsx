@@ -2,11 +2,12 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { RevealRunner } from "@/components/shared/RevealRunner";
 import { Hero } from "@/components/ui/Hero";
-import { Now } from "@/components/ui/Now";
-import { Podcasts } from "@/components/ui/Podcasts";
+import { Inquiry } from "@/components/ui/Inquiry";
+import { Proof } from "@/components/ui/Proof";
 import { ResearchCredentials } from "@/components/ui/ResearchCredentials";
-import { Speaking } from "@/components/ui/Speaking";
-import { Writing } from "@/components/ui/Writing";
+import { SageFeature } from "@/components/ui/SageFeature";
+import { SpeakingFeature } from "@/components/ui/SpeakingFeature";
+import { Thesis } from "@/components/ui/Thesis";
 
 export default function Home() {
   return (
@@ -15,11 +16,12 @@ export default function Home() {
       <RevealRunner />
       <main>
         <Hero />
+        <Thesis />
         <ResearchCredentials />
-        <Writing />
-        <Speaking />
-        <Podcasts />
-        <Now />
+        <SageFeature />
+        <Proof />
+        <SpeakingFeature />
+        <Inquiry />
       </main>
       <Footer />
     </div>

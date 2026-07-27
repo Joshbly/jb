@@ -12,13 +12,11 @@ export function Bio() {
         >
           {site.employer.name}
         </a>
-        , where he studies how answer engines search, retrieve, and cite information. His research
-        includes more than 10 billion citations, 1.5 billion real user prompts, and more than 1
-        billion AI fanouts and web research results across eight answer engines.
+        , where he works on making brands visible in AI search and to the agents that use it.
       </p>
       <p>
-        At Profound, he created AEO strategies for leading brands including Ramp, Indeed, U.S. Bank,
-        Kaplan, Reddit, G2, MongoDB, Kalshi, Figma, Hatch, Eight Sleep, and Golin. His research and
+        At Profound, he contributed to AEO programs for teams at Ramp, Indeed, U.S. Bank, Kaplan,
+        Reddit, G2, MongoDB, Kalshi, Figma, Hatch, Eight Sleep, and Golin. His research and
         commentary have appeared in The Verge, Adweek, AdAge, Search Engine Land, BCG, and Business
         of Fashion.
       </p>

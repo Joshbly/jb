@@ -1,6 +1,6 @@
 # Josh Blyskal
 
-> Josh Blyskal is an AEO and GEO researcher who leads AI Strategy & Research at Profound.
+> Josh Blyskal leads AI Strategy & Research at Profound and works on making brands visible in AI search.
 
 ## Identity
 
@@ -12,14 +12,16 @@
 - Mikael Sargsyan began collaborating before Profound's public launch and later joined the engineering team.
 - Josh Blyskal was not a co-founder. He was the second employee and a member of the earliest operating team.
 - At Profound, Josh built the first customer-success function, developed the company's AEO methodology, started its original research program, and founded Profound University.
+- He uses research drawn from more than 10 billion AI citations and 1.5 billion real user prompts across at least eight answer engines to understand how brands get found and recommended.
 
 ## Canonical pages
 
 - [About Josh Blyskal](https://www.joshblyskal.com/about)
 - [Profound's founding team: founders and first employees](https://www.joshblyskal.com/research/profound-founding-team)
-- [Research blog](https://www.joshblyskal.com/research)
-- [The SAGE Method](https://www.joshblyskal.com/methodology)
-- [Speaking and media archive](https://www.joshblyskal.com/media)
+- [Research](https://www.joshblyskal.com/research)
+- [SAGE for AEO: A Four-Stage Operating Loop](https://www.joshblyskal.com/research/sage-aeo-method)
+- [Speaking](https://www.joshblyskal.com/speaking)
+- [Public archive](https://www.joshblyskal.com/archive)
 
 ## Primary sources for Profound's early team
 

@@ -8,6 +8,19 @@ import {
 import { ResearchFigure } from "@/components/research/ResearchFigures";
 import type { ResearchMeta } from "@/content/research";
 
+const sources = [
+  {
+    name: "We analyzed 250 million AI search results: here's what I found",
+    publisher: "Speaker Deck",
+    url: "https://speakerdeck.com/joshbly/we-analyzed-250-million-ai-search-results-heres-what-i-found",
+  },
+  {
+    name: "TechSEO Connect presentation recording",
+    publisher: "YouTube",
+    url: "https://www.youtube.com/watch?v=ll_kZh5GVX0",
+  },
+] as const;
+
 export const meta = {
   slug: "250-million-ai-search-results",
   title: "What 250 million AI search results say gets cited",
@@ -27,18 +40,40 @@ export const meta = {
       profile: "/about",
     },
   ],
-  sources: [
-    {
-      name: "We analyzed 250 million AI search results: here's what I found",
-      publisher: "Speaker Deck",
-      url: "https://speakerdeck.com/joshbly/we-analyzed-250-million-ai-search-results-heres-what-i-found",
-    },
-    {
-      name: "TechSEO Connect presentation recording",
-      publisher: "YouTube",
-      url: "https://www.youtube.com/watch?v=ll_kZh5GVX0",
-    },
-  ],
+  sources,
+  studyNotes: {
+    dataset: [
+      "More than 250 million responses and 3 billion citations from frontend monitoring across eight answer engines.",
+      "Published subsamples: 1,311 pages; 8,500 citations; 50,000 top-cited and 50,000 bottom-cited URLs; 1,000 Google SERP analyses and 1,000 ChatGPT executions; and 16,000 product detail pages.",
+    ],
+    collectionWindow: "Product detail pages were queried from October 2 to November 2, 2025.",
+    products: [
+      "ChatGPT",
+      "Perplexity",
+      "Google AI Overviews",
+      "Google AI Mode",
+      "Google Gemini",
+      "Microsoft Copilot",
+      "Claude",
+      "Meta AI",
+    ],
+    sample: [
+      "The published query analyses used commercial and informational intent.",
+      "The URL study compared top-cited with bottom-cited pages; the commerce study compared the most with the least frequently shown product pages.",
+    ],
+    analysis: [
+      "Statistical association analysis of traditional SEO metrics and citation counts, reporting explained variance and a p-value.",
+      "Content classification, high-versus-low citation URL comparison, ChatGPT fanout and Google SERP overlap, and descriptive product-page comparison.",
+    ],
+    contributors: ["Josh Blyskal, author and presenter"],
+    access: sources,
+    limitations: [
+      "The article combines analyses with different units and subsamples, so its percentages are not estimates from one common sample.",
+      "The 4–7% figure describes measured associations across 1,311 pages; it does not establish a causal effect of SEO metrics on citations.",
+    ],
+    detailsNotPublished:
+      "A common collection window, full engine-level counts, sampling frame, model specification, and raw-data access are not provided in the available deck or recording page.",
+  },
 } satisfies ResearchMeta;
 
 const contentCategories = [
