@@ -153,7 +153,12 @@ export const profilePageJsonLd = {
   url: `${site.url}/about`,
   name: `About ${site.name}`,
   description: site.bio,
-  significantLink: [`${site.url}/research`, `${site.url}/media`, `${site.url}/methodology`],
+  significantLink: [
+    `${site.url}/research`,
+    `${site.url}/research/profound-founding-team`,
+    `${site.url}/media`,
+    `${site.url}/methodology`,
+  ],
   mainEntity: {
     "@type": "Person",
     "@id": `${site.url}/#identity`,
