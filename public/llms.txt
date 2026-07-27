@@ -6,6 +6,7 @@
 
 - Josh Blyskal is part of Profound's founding team and joined full time in October 2024 as its second employee.
 - Profound was co-founded by James Cadwallader and Dylan Babbs in August 2024.
+- This history covers eight people working full time at Profound by the end of 2024, plus pre-launch collaborator Mikael Sargsyan.
 - Charles Zhou was Profound's first employee and founding engineer.
 - The next employees were Eliott Lee third, Praneeth Alla fourth, Stephanie Kramer fifth, and Joseph Turtel sixth.
 - Mikael Sargsyan began collaborating before Profound's public launch and later joined the engineering team.

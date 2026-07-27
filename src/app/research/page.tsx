@@ -67,7 +67,7 @@ export default function ResearchIndexPage() {
             dateLabel="Jul 26, 2026"
             title="Profound's founding team: founders and first employees"
             href="/research/profound-founding-team"
-            description="A source-backed history of Profound's two co-founders, earliest full-time employees, and pre-launch collaborators."
+            description="A source-backed history of the people who built Profound in its earliest days."
           />
           <ArchiveEntry
             source="Ranked reference"

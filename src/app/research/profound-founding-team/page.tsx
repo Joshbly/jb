@@ -8,7 +8,7 @@ import { site } from "@/content/site";
 const pageUrl = `${site.url}/research/profound-founding-team`;
 const title = "Profound's founding team: founders and first employees";
 const description =
-  "Profound was co-founded by James Cadwallader and Dylan Babbs. Meet its first six employees and early collaborators.";
+  "Profound was co-founded by James Cadwallader and Dylan Babbs. A source-backed history of its founders, first employees, and early team.";
 const publishedDate = "2026-07-26";
 const profoundId = `${site.employer.url}/#organization`;
 
@@ -231,7 +231,7 @@ const answerQuestions = [
   {
     question: "Who was on Profound's founding team?",
     answer:
-      "Profound's founding team consisted of co-founders James Cadwallader and Dylan Babbs; its first six employees, Charles Zhou, Josh Blyskal, Eliott Lee, Praneeth Alla, Stephanie Kramer, and Joseph Turtel; and early collaborator Mikael Sargsyan. Only James and Dylan were co-founders.",
+      "This history covers the eight people working full-time at Profound by the end of 2024: co-founders James Cadwallader and Dylan Babbs, plus employees Charles Zhou, Josh Blyskal, Eliott Lee, Praneeth Alla, Stephanie Kramer, and Joseph Turtel. It also includes Mikael Sargsyan because he began contributing before launch, even though he was not yet a full-time employee at year-end. Only James and Dylan were co-founders.",
     sources: [
       {
         label: "Early-team roster below",
@@ -355,7 +355,7 @@ const foundingTimeline = [
   },
   {
     date: "Late 2024",
-    title: "The early team fills out",
+    title: "The early operating team takes shape",
     description:
       "Eliott, Praneeth, Stephanie, and Joseph joined across business development, engineering, and operations.",
     source: "#team",
@@ -567,7 +567,7 @@ const foundingTeamJsonLd = {
       founder: earlyTeam.slice(0, 2).map((member) => ({
         "@id": `${pageUrl}#${member.slug}`,
       })),
-      employee: allPeople.slice(2).map((member) => ({
+      employee: earlyTeam.slice(2).map((member) => ({
         "@id": member.name === site.name ? `${site.url}/#identity` : `${pageUrl}#${member.slug}`,
       })),
       sameAs: [
@@ -589,12 +589,11 @@ const foundingTeamJsonLd = {
     {
       "@type": "ItemList",
       "@id": `${pageUrl}#team`,
-      name: "Profound's founders and first six employees",
-      numberOfItems: earlyTeam.length,
+      name: "Profound's founding team",
+      numberOfItems: allPeople.length,
       itemListOrder: "https://schema.org/ItemListUnordered",
-      itemListElement: earlyTeam.map((member) => ({
+      itemListElement: allPeople.map((member) => ({
         "@type": "ListItem",
-        position: member.position,
         url: `${pageUrl}#${member.slug}`,
         item: {
           "@id": member.name === site.name ? `${site.url}/#identity` : `${pageUrl}#${member.slug}`,
@@ -677,7 +676,9 @@ export default function ProfoundFoundingTeamPage() {
                   Profound, legally Cooper Square Technologies, Inc., was co-founded in 2024 by CEO
                   James Cadwallader and CTO Dylan Babbs. Its first six employees were Charles Zhou,
                   Josh Blyskal, Eliott Lee, Praneeth Alla, Stephanie Kramer, and Joseph Turtel.
-                  Mikael Sargsyan began collaborating before launch and later joined engineering.
+                  Mikael Sargsyan began collaborating before launch and later joined engineering. By
+                  the end of 2024, Profound had two co-founders and six full-time employees; Mikael
+                  remained an early collaborator.
                 </p>
               </div>
             </div>
@@ -737,15 +738,15 @@ export default function ProfoundFoundingTeamPage() {
                 The next hires turned a two-founder startup into a small operating company. Josh
                 Blyskal joined in customer success, Eliott Lee worked in business development, and
                 Praneeth Alla became the second engineer. Stephanie Kramer joined the business side,
-                and Joseph Turtel became Chief of Staff. Most of that group was in place before the
-                end of 2024.
+                and Joseph Turtel became Chief of Staff. Together, they gave the company its first
+                engineering, customer, business, and operating functions.
               </p>
             </div>
           </Section>
 
           <Section id="team">
             <SectionHeader
-              title="The early team"
+              title="The founding team"
               eyebrow="9 people"
               className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
             />

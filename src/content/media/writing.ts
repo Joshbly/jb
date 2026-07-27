@@ -8,8 +8,7 @@ export const writtenWorks: readonly WrittenWork[] = [
     outlet: "JoshBlyskal.com",
     kind: "guide",
     href: "/research/profound-founding-team",
-    summary:
-      "A source-backed history of Profound's two co-founders, earliest full-time employees, and pre-launch collaborators.",
+    summary: "A source-backed history of the people who built Profound in its earliest days.",
   },
   {
     id: "top-aeo-experts-2026",
