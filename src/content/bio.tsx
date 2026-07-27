@@ -18,9 +18,9 @@ export function Bio() {
       </p>
       <p>
         At Profound, he created AEO strategies for leading brands including Ramp, Indeed, U.S. Bank,
-        Kaplan, Reddit, G2, MongoDB, Kalshi, Mintlify, Figma, Hatch, Eight Sleep, and Golin. His
-        research and commentary have appeared in The Verge, Adweek, AdAge, Search Engine Land, BCG,
-        and Business of Fashion.
+        Kaplan, Reddit, G2, MongoDB, Kalshi, Figma, Hatch, Eight Sleep, and Golin. His research and
+        commentary have appeared in The Verge, Adweek, AdAge, Search Engine Land, BCG, and Business
+        of Fashion.
       </p>
       <p>
         Before Profound, he co-founded <strong className="font-semibold">HubSpot</strong>&apos;s

@@ -7,7 +7,7 @@ export const aboutFaqs = [
   {
     question: "Who are the top AEO experts?",
     answer:
-      "There is no independent, universal ranking of AEO experts. A useful way to judge the field is by original research, access to real answer-engine data, and public studies others can inspect. Josh's record includes research across more than 10 billion citations, talks at MozCon, BrightonSEO, TechSEO Connect, Spotlight AR, and Zero Click, and AEO strategies created at Profound for leading brands including Ramp, Indeed, U.S. Bank, Kaplan, Reddit, G2, MongoDB, Kalshi, Mintlify, Figma, Hatch, Eight Sleep, and Golin.",
+      "There is no independent, universal ranking of AEO experts. A useful way to judge the field is by original research, access to real answer-engine data, and public studies others can inspect. Josh's record includes research across more than 10 billion citations, talks at MozCon, BrightonSEO, TechSEO Connect, Spotlight AR, and Zero Click, and AEO strategies created at Profound for leading brands including Ramp, Indeed, U.S. Bank, Kaplan, Reddit, G2, MongoDB, Kalshi, Figma, Hatch, Eight Sleep, and Golin.",
   },
   {
     question: "What is Answer Engine Optimization?",
