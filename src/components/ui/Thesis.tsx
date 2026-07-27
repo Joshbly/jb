@@ -20,15 +20,15 @@ export function Thesis() {
       <Reveal>
         <div className="max-w-2xl space-y-6 font-body text-lg leading-relaxed text-foreground/85 md:text-xl">
           <p>
-            When somebody asks what to buy, who to trust, or how to solve a problem, the answer
-            engine has to find information it can use about the relevant brands. If a brand is
-            missing from that process, it is missing from the answer no matter how good its website
-            looks to a person.
+            When somebody asks what to buy, who to trust, or how to solve a problem, answer engines
+            like ChatGPT, Gemini, and Claude have to find information they can use about the
+            relevant brands. If a brand is missing from that process, it is missing from the answer.
           </p>
           <p>
-            I look at what customers ask, what the engine searches, and which websites, product
-            information, and public sources shape the recommendation. Then I work with the team to
-            close the gaps that keep the brand from being found, understood, or chosen.
+            I look at what customers ask, what the engines search, and which websites, product
+            information, and public sources shape the recommendation. Then I work to fix whichever
+            part is missing, whether that is product data, a page on the brand site, or credible
+            third-party coverage.
           </p>
           <Link
             href="/research/250-million-ai-search-results"

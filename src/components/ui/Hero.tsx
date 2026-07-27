@@ -20,7 +20,7 @@ export function Hero() {
             alt={hero.alt}
             fill
             sizes="(max-width: 1024px) 100vw, 42vw"
-            className="object-cover grayscale brightness-90 contrast-[1.2] transition-all duration-slow group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-[1.15]"
+            className="object-cover object-[center_35%] grayscale brightness-90 contrast-[1.2] transition-all duration-slow group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-[1.15] lg:object-center"
             priority
           />
           <div
@@ -51,13 +51,13 @@ export function Hero() {
                 {site.employer.name}
               </a>{" "}
               as its second employee and now lead AI Strategy & Research there. I compare how
-              ChatGPT, Claude, Gemini, and Google AI products find, understand, and recommend
-              brands.
+              ChatGPT, Claude, Gemini, and Google AI products research products, resolve brand
+              identity, and decide which brands appear in an answer.
             </p>
             <p className="mt-5 max-w-xl font-body text-base leading-relaxed text-foreground/65 lg:text-lg">
               I use research drawn from more than 10 billion AI citations and 1.5 billion real user
-              prompts across at least eight answer engines to help brands get found and recommended
-              in AI search.
+              prompts across at least eight answer engines to map the customer questions, search
+              queries, product facts, and public pages that determine whether a brand appears.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-widest">
