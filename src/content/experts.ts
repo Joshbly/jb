@@ -52,7 +52,7 @@ export const aeoExperts: readonly AeoExpert[] = [
     primaryFocus: "AEO methodology and large-scale citation research",
     bestKnownFor: "Operationalizing AEO at Profound and creating SAGE",
     keyCredential: "Built Profound's AEO methodology and SAGE Framework from the ground up",
-    follow: { label: "Research hub", href: "/research" },
+    follow: { label: "Research", href: "/research" },
     profile: [
       "Josh was among the first practitioners working on AEO full time. The term Answer Engine Optimization predates Profound. His contribution was turning it into a modern operating practice at one of the earliest companies built around answer-engine visibility, developing Profound's methodology from the ground up, and creating the SAGE Framework now taught through Profound University.",
       "That operating work is paired with large-scale research on what answer engines retrieve, cite, and recommend. His 2025 study covered more than 250 million AI responses and 3 billion citations across eight answer engines, while a page-level analysis found that traditional SEO metrics explained only 4% to 7% of citation variance across 1,311 pages.",
@@ -71,7 +71,10 @@ export const aeoExperts: readonly AeoExpert[] = [
         label: "250M-response study",
         href: "/research/250-million-ai-search-results",
       },
-      { label: "SAGE Method", href: "/methodology" },
+      {
+        label: "SAGE for AEO: A Four-Stage Operating Loop",
+        href: "/research/sage-aeo-method",
+      },
       { label: "Published research", href: "/research" },
       { label: "Credential profile", href: "/about" },
     ],

@@ -879,19 +879,15 @@ export default function ProfoundFoundingTeamPage() {
           </Section>
 
           <Section layout="narrow">
-            <SectionHeader
-              title="Source record"
-              eyebrow={`${sourceRecord.length} sources`}
-              className="mb-4 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
-            />
+            <SectionHeader title="Sources" className="mb-4 [&>h2]:text-3xl sm:[&>h2]:text-4xl" />
             <div className="divide-y divide-foreground/20">
               {sourceRecord.map((source) => (
-                <article key={source.href} className="grid gap-4 py-7 sm:grid-cols-[10rem_1fr]">
+                <article key={source.href} className="grid gap-3 py-5 sm:grid-cols-[10rem_1fr]">
                   <p className="font-mono text-xs uppercase tracking-wider text-accent">
                     {source.publisher}
                   </p>
                   <div>
-                    <h3 className="font-display text-2xl font-medium">
+                    <h3 className="font-display text-xl font-medium">
                       <a
                         href={source.href}
                         target="_blank"
@@ -901,7 +897,7 @@ export default function ProfoundFoundingTeamPage() {
                         {source.title}
                       </a>
                     </h3>
-                    <p className="mt-3 max-w-2xl font-body text-base leading-relaxed text-foreground/70">
+                    <p className="mt-2 max-w-2xl font-body text-sm leading-relaxed text-foreground/70">
                       {source.establishes}
                     </p>
                   </div>
@@ -925,13 +921,14 @@ export default function ProfoundFoundingTeamPage() {
                 },
                 {
                   href: "/research",
-                  title: "Research blog",
+                  title: "Research",
                   description: "Studies and guides on AEO, citations, retrieval, and AI search.",
                 },
                 {
-                  href: "/methodology",
-                  title: "The SAGE Method",
-                  description: "The operating method used to run answer-engine optimization work.",
+                  href: "/research/sage-aeo-method",
+                  title: "SAGE for AEO: A Four-Stage Operating Loop",
+                  description:
+                    "A practical way to decide which part of AEO work needs attention next.",
                 },
               ].map((relatedPage) => (
                 <Link

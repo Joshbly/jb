@@ -36,7 +36,7 @@ export function Podcasts() {
       </div>
 
       <Link
-        href="/media#podcasts"
+        href="/archive#podcasts"
         className="mt-8 inline-block font-mono text-xs uppercase tracking-widest transition-colors hover:text-accent"
       >
         All podcasts & interviews →

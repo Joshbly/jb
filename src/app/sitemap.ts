@@ -1,11 +1,13 @@
 import type { MetadataRoute } from "next";
-import { latestMediaDate } from "@/content/media";
+import { latestArchiveDate } from "@/content/media";
 import { latestPostDate, posts } from "@/content/posts";
 import { latestResearchDate, researchArticles } from "@/content/research";
 import { site } from "@/content/site";
 
 const expertRankingDate = new Date("2026-07-26");
 const profoundFoundingTeamDate = new Date("2026-07-26");
+const sageMethodDate = new Date("2026-07-26");
+const siteRefreshDate = new Date("2026-07-26");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const latestResearchContentDate = new Date(
@@ -19,7 +21,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     Math.max(
       latestPostDate.getTime(),
       latestResearchContentDate.getTime(),
-      latestMediaDate.getTime(),
+      latestArchiveDate.getTime(),
+      siteRefreshDate.getTime(),
     ),
   );
 
@@ -37,14 +40,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${site.url}/methodology`,
-      lastModified: latestContentDate,
+      url: `${site.url}/research/sage-aeo-method`,
+      lastModified: sageMethodDate,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${site.url}/media`,
-      lastModified: latestMediaDate,
+      url: `${site.url}/speaking`,
+      lastModified: latestArchiveDate,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${site.url}/archive`,
+      lastModified: latestArchiveDate,
       changeFrequency: "monthly",
       priority: 0.8,
     },
@@ -62,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${site.url}/about`,
-      lastModified: latestContentDate,
+      lastModified: siteRefreshDate,
       changeFrequency: "yearly",
       priority: 0.7,
     },

@@ -9,9 +9,9 @@ import { researchArticles } from "@/content/research";
 import { site } from "@/content/site";
 import { formatDate } from "@/lib/time";
 
-const title = "Research blog";
+const title = "Research";
 const description =
-  "Selected studies, guides, and methods by Josh Blyskal on answer-engine citations, retrieval, user intent, and AI search behavior.";
+  "Original studies, operating methods, and source-backed reference work by Josh Blyskal on retrieval, citations, user intent, and AI search.";
 
 export const metadata: Metadata = {
   title,
@@ -26,6 +26,9 @@ export const metadata: Metadata = {
 };
 
 export default function ResearchIndexPage() {
+  const latestStudy = researchArticles[0];
+  const majorStudies = researchArticles.slice(1);
+
   return (
     <div className="min-h-screen bg-background">
       <main>
@@ -34,19 +37,22 @@ export default function ResearchIndexPage() {
             <SubpageNav activeHref="/research" />
             <div className="py-24 md:py-32">
               <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
-                AI strategy & research
+                AEO and GEO research
               </p>
               <h1 className="mt-4 max-w-4xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
-                Research blog
+                Research
               </h1>
               <p className="mt-8 max-w-xl font-body text-lg leading-relaxed text-foreground/80 md:text-xl">
-                The studies, guides, and methods I have published on this site. The full archive of
-                talks, decks, external writing, and research notes lives in{" "}
+                Original studies, operating methods, and reference work on how answer engines
+                search, retrieve, cite, and recommend information.
+              </p>
+              <p className="mt-5 max-w-xl font-body text-base leading-relaxed text-foreground/65">
+                Talks, decks, external writing, and research notes live in the{" "}
                 <Link
-                  href="/media"
+                  href="/archive"
                   className="border-b border-accent transition-colors hover:text-accent"
                 >
-                  Media
+                  Archive
                 </Link>
                 .
               </p>
@@ -56,36 +62,27 @@ export default function ResearchIndexPage() {
 
         <Section layout="narrow">
           <SectionHeader
-            title="Guides"
-            eyebrow="2 guides"
+            title="Latest research"
+            eyebrow="1 study"
             className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
           <ArchiveEntry
-            source="Company history"
-            sourceDetail="17 sources"
-            date="2026-07-26"
-            dateLabel="Jul 26, 2026"
-            title="Profound's founding team: founders and first employees"
-            href="/research/profound-founding-team"
-            description="A source-backed history of the people who built Profound in its earliest days."
-          />
-          <ArchiveEntry
-            source="Ranked reference"
-            sourceDetail="12 profiles"
-            date="2026-07-26"
-            dateLabel="Jul 26, 2026"
-            title="The 12 best AEO and GEO experts in 2026"
-            href="/research/top-aeo-experts-2026"
-            description="A source-backed comparison of researchers, technical practitioners, and strategists publishing work that can be inspected."
+            source="Research"
+            sourceDetail={latestStudy.readTime}
+            date={latestStudy.date}
+            dateLabel={formatDate(latestStudy.date)}
+            title={latestStudy.title}
+            href={`/research/${latestStudy.slug}`}
+            description={latestStudy.finding}
           />
 
           <SectionHeader
-            title="Selected studies"
-            eyebrow={`${researchArticles.length} studies`}
+            title="Major studies"
+            eyebrow={`${majorStudies.length} studies`}
             className="mt-20 mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
           <div>
-            {researchArticles.map((study) => (
+            {majorStudies.map((study) => (
               <ArchiveEntry
                 key={study.slug}
                 source="Research"
@@ -100,19 +97,41 @@ export default function ResearchIndexPage() {
           </div>
 
           <SectionHeader
-            title="Methodology"
-            eyebrow="1 method"
+            title="Methods"
+            eyebrow="1 operating method"
             className="mt-20 mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
           <ArchiveEntry
-            source="Methodology"
+            source="Operating method"
             sourceDetail="SAGE"
             date="2026-07-26"
             dateLabel="Jul 26, 2026"
-            title="The SAGE Method"
-            href="/methodology"
-            description="Setup, Analyze, Generate, Engineer: the operating loop I use to run answer engine optimization programs."
-            links={[{ label: "Profound University lesson", href: sageLessonUrl }]}
+            title="SAGE for AEO: A Four-Stage Operating Loop"
+            href="/research/sage-aeo-method"
+            description="SAGE helps a team work out which part of its AEO process needs attention next."
+            links={[{ label: "Profound 101 lesson", href: sageLessonUrl }]}
+          />
+
+          <SectionHeader
+            title="Reference"
+            eyebrow="2 pages"
+            className="mt-20 mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+          />
+          <ArchiveEntry
+            source="Company history"
+            date="2026-07-26"
+            dateLabel="Jul 26, 2026"
+            title="Profound's founding team: founders and first employees"
+            href="/research/profound-founding-team"
+            description="A sourced history of the people who built Profound in its earliest days."
+          />
+          <ArchiveEntry
+            source="Editorial reference"
+            date="2026-07-26"
+            dateLabel="Jul 26, 2026"
+            title="The 12 best AEO and GEO experts in 2026"
+            href="/research/top-aeo-experts-2026"
+            description="An opinionated, source-backed comparison of researchers, technical practitioners, and strategists."
           />
         </Section>
       </main>

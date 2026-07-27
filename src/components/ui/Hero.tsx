@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/shared/Reveal";
-import { AuthorityStrip } from "@/components/ui/AuthorityStrip";
 import { site } from "@/content/site";
 
 const HERO_LINKS = [
-  { href: "/research", label: "Read the research" },
-  { href: "/media", label: "Speaking & media" },
+  { href: "/research", label: "Research" },
+  { href: "/speaking", label: "Speaking" },
 ] as const;
 
 export function Hero() {
@@ -31,9 +30,6 @@ export function Hero() {
               backgroundSize: "4px 4px",
             }}
           />
-          <div className="absolute bottom-5 left-5 z-10 border border-foreground bg-background px-3 py-1">
-            <p className="font-mono text-xs uppercase tracking-tight">{hero.caption}</p>
-          </div>
         </div>
 
         <div className="relative z-20 flex min-h-[64svh] w-full flex-1 items-center bg-background px-6 py-14 md:px-10 lg:min-h-screen lg:w-[58%] lg:px-12 lg:py-24 xl:px-20">
@@ -42,7 +38,7 @@ export function Hero() {
               {site.name} · AEO & GEO researcher
             </p>
             <h1 className="max-w-2xl font-display text-hero-name font-normal leading-[0.92] tracking-tight">
-              Research across 10B+ AI citations.
+              I study how to make brands visible in AI search.
             </h1>
             <p className="mt-7 max-w-xl font-body text-lg leading-relaxed text-foreground/80 lg:text-xl">
               I joined{" "}
@@ -54,15 +50,14 @@ export function Hero() {
               >
                 {site.employer.name}
               </a>{" "}
-              as its{" "}
-              <Link
-                href="/research/profound-founding-team"
-                className="border-b border-accent transition-colors hover:bg-accent hover:text-background"
-              >
-                second employee
-              </Link>{" "}
-              and now lead AI Strategy & Research there. My work looks at how ChatGPT, Claude,
-              Gemini, Google AI Mode, and other answer engines search, retrieve, and cite the web.
+              as its second employee and now lead AI Strategy & Research there. I compare how
+              ChatGPT, Claude, Gemini, and Google AI products find, understand, and recommend
+              brands.
+            </p>
+            <p className="mt-5 max-w-xl font-body text-base leading-relaxed text-foreground/65 lg:text-lg">
+              I use research drawn from more than 10 billion AI citations and 1.5 billion real user
+              prompts across at least eight answer engines to help brands get found and recommended
+              in AI search.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-widest">
@@ -77,8 +72,6 @@ export function Hero() {
                 </Link>
               ))}
             </div>
-
-            <AuthorityStrip />
           </Reveal>
         </div>
       </div>

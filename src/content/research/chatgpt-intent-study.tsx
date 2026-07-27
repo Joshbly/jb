@@ -7,6 +7,14 @@ import {
 import { ResearchFigure } from "@/components/research/ResearchFigures";
 import type { ResearchMeta } from "@/content/research";
 
+const sources = [
+  {
+    name: "AI search intent study: What 50M+ ChatGPT prompts reveal",
+    publisher: "Profound",
+    url: "https://www.tryprofound.com/blog/chatgpt-intent-landmark-study",
+  },
+] as const;
+
 export const meta = {
   slug: "chatgpt-intent-study",
   title: "What 50 million ChatGPT prompts reveal about user intent",
@@ -30,13 +38,29 @@ export const meta = {
       role: "Co-author and researcher",
     },
   ],
-  sources: [
-    {
-      name: "AI search intent study: What 50M+ ChatGPT prompts reveal",
-      publisher: "Profound",
-      url: "https://www.tryprofound.com/blog/chatgpt-intent-landmark-study",
-    },
-  ],
+  sources,
+  studyNotes: {
+    dataset: [
+      "More than 50 million real ChatGPT prompts surfaced through Profound Prompt Volumes; the published analysis classified a sample from those conversations.",
+    ],
+    products: ["ChatGPT", "Profound Prompt Volumes"],
+    sample: [
+      "Intent categories: generative, informational, commercial, transactional, navigational, and no intent.",
+      "Generative prompts ask for an output; no-intent prompts include connective turns such as thanks, please, and revision requests.",
+      "Four shared categories were compared with published traditional-search baseline shares.",
+    ],
+    analysis: [
+      "Prompt intent classification, category-share calculation, and percentage-point comparison with the traditional-search baseline.",
+    ],
+    contributors: ["Josh Blyskal, co-author", "Sartaj Rajpal, co-author and researcher"],
+    access: sources,
+    limitations: [
+      "The reported unit is prompts, not unique users or completed outcomes.",
+      "Conversational follow-up turns are included, so the category shares are not equivalent to first-turn search demand.",
+    ],
+    detailsNotPublished:
+      "The collection window, classified-sample size, traditional-search baseline source, classification procedure, and raw-data access are not provided in the available article.",
+  },
 } satisfies ResearchMeta;
 
 const chatgptIntent = [

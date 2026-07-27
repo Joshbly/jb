@@ -19,17 +19,16 @@ export const writtenWorks: readonly WrittenWork[] = [
     href: "/research/top-aeo-experts-2026",
     summary:
       "A source-backed ranking based on published studies, technical contributions, conference teaching, and public enterprise evidence.",
-    featuredOnHome: true,
   },
   {
     id: "sage-method",
     date: "2026-07-26",
-    title: "The SAGE Method",
+    title: "SAGE for AEO: A Four-Stage Operating Loop",
     outlet: "JoshBlyskal.com",
     kind: "method",
-    href: "/methodology",
+    href: "/research/sage-aeo-method",
     summary:
-      "Setup, Analyze, Generate, Engineer: a four-stage operating loop for building, diagnosing, shipping, and automating AEO work.",
+      "SAGE organizes recurring AEO work into Setup, Analyze, Generate, and Engineer based on the output a team is missing.",
     featuredOnHome: true,
   },
   {

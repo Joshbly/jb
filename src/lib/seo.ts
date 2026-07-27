@@ -1,10 +1,10 @@
-import { aboutFaqs } from "@/content/about";
 import {
+  type Appearance,
   appearances,
   decks,
   featuredPressRecords,
   featuredWrittenWorks,
-  latestMediaDate,
+  latestArchiveDate,
   linkedinPosts,
   pressRecords,
   recordings,
@@ -77,11 +77,11 @@ export const personJsonLd = {
       publisher: { "@type": "Organization", name: record.outlet },
     })),
     ...featuredWrittenWorks.map((work) =>
-      work.href === "/methodology"
+      work.href === "/research/sage-aeo-method"
         ? {
-            "@type": "HowTo",
-            "@id": `${site.url}/methodology#method`,
-            name: work.title,
+            "@type": "TechArticle",
+            "@id": `${site.url}/research/sage-aeo-method#article`,
+            headline: work.title,
             url: `${site.url}${work.href}`,
           }
         : {
@@ -156,8 +156,9 @@ export const profilePageJsonLd = {
   significantLink: [
     `${site.url}/research`,
     `${site.url}/research/profound-founding-team`,
-    `${site.url}/media`,
-    `${site.url}/methodology`,
+    `${site.url}/research/sage-aeo-method`,
+    `${site.url}/speaking`,
+    `${site.url}/archive`,
   ],
   mainEntity: {
     "@type": "Person",
@@ -165,23 +166,8 @@ export const profilePageJsonLd = {
   },
 };
 
-export const aboutFaqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "@id": `${site.url}/about#faq`,
-  url: `${site.url}/about`,
-  mainEntity: aboutFaqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: faq.answer,
-    },
-  })),
-};
-
-const mediaUrl = `${site.url}/media`;
-const mediaIndexRecords = [
+const archiveUrl = `${site.url}/archive`;
+const archiveIndexRecords = [
   ...appearances.map((appearance) => ({
     name: appearance.title,
     href: appearance.href,
@@ -196,26 +182,26 @@ const mediaIndexRecords = [
   ...linkedinPosts.map((post) => ({ name: post.title, href: post.href })),
 ];
 
-export const mediaPageJsonLd = {
+export const archivePageJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "CollectionPage",
-      "@id": `${mediaUrl}#collection`,
-      url: mediaUrl,
-      name: "Speaking & media",
+      "@id": `${archiveUrl}#collection`,
+      url: archiveUrl,
+      name: "Archive",
       description:
         "Josh Blyskal's public archive of talks, podcasts, interviews, press, writing, decks, recordings, and LinkedIn research.",
-      dateModified: latestMediaDate.toISOString(),
+      dateModified: latestArchiveDate.toISOString(),
       author: { "@id": `${site.url}/#identity` },
-      breadcrumb: { "@id": `${mediaUrl}#breadcrumb` },
-      mainEntity: { "@id": `${mediaUrl}#list` },
+      breadcrumb: { "@id": `${archiveUrl}#breadcrumb` },
+      mainEntity: { "@id": `${archiveUrl}#list` },
     },
     {
       "@type": "ItemList",
-      "@id": `${mediaUrl}#list`,
-      numberOfItems: mediaIndexRecords.length,
-      itemListElement: mediaIndexRecords.map((record, recordIndex) => ({
+      "@id": `${archiveUrl}#list`,
+      numberOfItems: archiveIndexRecords.length,
+      itemListElement: archiveIndexRecords.map((record, recordIndex) => ({
         "@type": "ListItem",
         position: recordIndex + 1,
         name: record.name,
@@ -224,7 +210,7 @@ export const mediaPageJsonLd = {
     },
     {
       "@type": "BreadcrumbList",
-      "@id": `${mediaUrl}#breadcrumb`,
+      "@id": `${archiveUrl}#breadcrumb`,
       itemListElement: [
         {
           "@type": "ListItem",
@@ -235,56 +221,78 @@ export const mediaPageJsonLd = {
         {
           "@type": "ListItem",
           position: 2,
-          name: "Speaking & media",
-          item: mediaUrl,
+          name: "Archive",
+          item: archiveUrl,
         },
       ],
     },
   ],
 };
 
-const methodologyUrl = `${site.url}/methodology`;
-const profoundId = `${site.employer.url}/#organization`;
+type RecordedAppearance = Appearance & { recording: string };
 
-export const methodologyPageJsonLd = {
+const speakingUrl = `${site.url}/speaking`;
+const techSeoRecording = appearances.find(
+  (appearance) => appearance.id === "2025-12-05-techseo-connect",
+) as RecordedAppearance;
+const brightonRecording = appearances.find(
+  (appearance) => appearance.id === "2025-04-11-brightonseo-uk",
+) as RecordedAppearance;
+
+const speakingVideos = [
+  {
+    appearance: brightonRecording,
+    name: "We Analyzed 10,000,000 AI Prompts: Here's what we found",
+    uploadDate: "2025-05-23T12:57:51-07:00",
+    duration: "PT19M39S",
+  },
+  {
+    appearance: techSeoRecording,
+    name: "We Analyzed 250,000,000 AI Search Responses: Here's What We Found",
+    uploadDate: "2025-12-05T09:42:41-08:00",
+    duration: "PT28M28S",
+  },
+].map(({ appearance, name, uploadDate, duration }) => {
+  const videoId = new URL(appearance.recording).searchParams.get("v") as string;
+
+  return {
+    "@type": "VideoObject",
+    "@id": `${speakingUrl}#video-${appearance.id}`,
+    name,
+    description: appearance.summary,
+    thumbnailUrl: `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+    uploadDate,
+    duration,
+    contentUrl: appearance.recording,
+    embedUrl: `https://www.youtube.com/embed/${videoId}`,
+    inLanguage: "en",
+    creator: { "@id": `${site.url}/#identity` },
+    recordedAt: {
+      "@type": "Event",
+      name: appearance.event,
+      startDate: appearance.date,
+      location: {
+        "@type": "Place",
+        name: appearance.location,
+      },
+    },
+    isPartOf: { "@id": `${speakingUrl}#webpage` },
+  };
+});
+
+export const speakingPageJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": `${methodologyUrl}#webpage`,
-      url: methodologyUrl,
-      name: "The SAGE Method",
+      "@id": `${speakingUrl}#webpage`,
+      url: speakingUrl,
+      name: `Speaking | ${site.name}`,
       description:
-        "Josh Blyskal's practical AEO method for building a baseline, diagnosing visibility gaps, shipping fixes, and automating work that has already proved useful.",
-      inLanguage: "en-US",
-      author: { "@id": `${site.url}/#identity` },
-      breadcrumb: { "@id": `${methodologyUrl}#breadcrumb` },
-      mainEntity: { "@id": `${methodologyUrl}#method` },
-      significantLink: [sageLessonUrl, `${site.url}/research`, `${site.url}/media`],
-    },
-    {
-      "@type": "HowTo",
-      "@id": `${methodologyUrl}#method`,
-      name: "The SAGE Method",
-      alternateName: ["The SAGE Framework", "The SAGE Method by Profound"],
-      description:
-        "A weekly AEO workflow created by Josh Blyskal. Setup builds a trusted baseline, Analyze explains the gap, Generate ships a fix, and Engineer makes useful work repeatable.",
-      author: { "@id": `${site.url}/#identity` },
-      creator: { "@id": `${site.url}/#identity` },
-      sameAs: sageLessonUrl,
-      citation: [
-        sageLessonUrl,
-        `${site.url}/research/chatgpt-intent-study`,
-        `${site.url}/research/250-million-ai-search-results`,
-        `${site.url}/research/state-of-aeo-2026`,
-      ],
-      step: sagePhases.map((phase, phaseIndex) => ({
-        "@type": "HowToStep",
-        position: phaseIndex + 1,
-        name: phase.name,
-        text: `${phase.question} ${phase.summary} Leave with: ${phase.output}`,
-        url: `${methodologyUrl}#${phase.name.toLowerCase()}`,
-      })),
+        "Talks and booking information for Josh Blyskal, an AI search researcher and speaker.",
+      about: { "@id": `${site.url}/#identity` },
+      mainEntity: { "@id": `${site.url}/#identity` },
+      hasPart: speakingVideos.map((video) => ({ "@id": video["@id"] })),
     },
     {
       "@type": "Person",
@@ -292,20 +300,80 @@ export const methodologyPageJsonLd = {
       name: site.name,
       url: site.url,
       image: `${site.url}${site.headshot}`,
-      jobTitle: site.role,
-      description: site.bio,
-      worksFor: { "@id": profoundId },
-      knowsAbout: knowsAbout
-        .map((subject) => ({
+    },
+    ...speakingVideos,
+  ],
+};
+
+const sageMethodUrl = `${site.url}/research/sage-aeo-method`;
+const sageMethodTitle = "SAGE for AEO: A Four-Stage Operating Loop";
+const sageMethodDescription =
+  "SAGE is Josh Blyskal's four-stage way of organizing AEO work, from choosing what to track through diagnosis, execution, and repeatable workflows.";
+const sageLessonId = `${sageLessonUrl}#learning-resource`;
+const profoundId = `${site.employer.url}/#organization`;
+
+export const methodologyPageJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${sageMethodUrl}#webpage`,
+      url: sageMethodUrl,
+      name: sageMethodTitle,
+      description: sageMethodDescription,
+      inLanguage: "en-US",
+      breadcrumb: { "@id": `${sageMethodUrl}#breadcrumb` },
+      mainEntity: { "@id": `${sageMethodUrl}#article` },
+      isPartOf: {
+        "@type": "CollectionPage",
+        "@id": `${site.url}/research#collection`,
+        name: "AI search research",
+      },
+      relatedLink: [sageLessonUrl],
+    },
+    {
+      "@type": "TechArticle",
+      "@id": `${sageMethodUrl}#article`,
+      url: sageMethodUrl,
+      headline: sageMethodTitle,
+      description: sageMethodDescription,
+      mainEntityOfPage: { "@id": `${sageMethodUrl}#webpage` },
+      datePublished: "2026-07-26",
+      dateModified: "2026-07-26",
+      inLanguage: "en-US",
+      image: `${site.url}${site.ogImage}`,
+      author: {
+        "@type": "Person",
+        "@id": `${site.url}/#identity`,
+        name: site.name,
+        url: site.url,
+      },
+      about: [
+        { "@type": "Thing", name: "Answer Engine Optimization" },
+        {
           "@type": "Thing",
-          name: subject.name,
-          sameAs: subject.sameAs,
-        }))
-        .concat({
-          "@type": "Thing",
-          name: "The SAGE Method",
-          sameAs: sageLessonUrl,
-        }),
+          name: "SAGE",
+          alternateName: "The SAGE Framework",
+        },
+      ],
+      articleSection: sagePhases.map((phase) => phase.name),
+      citation: [
+        { "@id": sageLessonId },
+        `${site.url}/research/chatgpt-intent-study`,
+        `${site.url}/research/250-million-ai-search-results`,
+        `${site.url}/research/state-of-aeo-2026`,
+      ],
+    },
+    {
+      "@type": "LearningResource",
+      "@id": sageLessonId,
+      url: sageLessonUrl,
+      name: "The SAGE Framework",
+      description: "A six-minute Profound 101 lesson introducing the SAGE operating loop.",
+      learningResourceType: "Lesson",
+      provider: { "@id": profoundId },
+      about: { "@type": "Thing", name: "Answer Engine Optimization" },
+      teaches: sagePhases.map((phase) => `${phase.name}: ${phase.output}`),
     },
     {
       "@type": "Organization",
@@ -315,7 +383,7 @@ export const methodologyPageJsonLd = {
     },
     {
       "@type": "BreadcrumbList",
-      "@id": `${methodologyUrl}#breadcrumb`,
+      "@id": `${sageMethodUrl}#breadcrumb`,
       itemListElement: [
         {
           "@type": "ListItem",
@@ -326,16 +394,22 @@ export const methodologyPageJsonLd = {
         {
           "@type": "ListItem",
           position: 2,
-          name: "The SAGE Method",
-          item: methodologyUrl,
+          name: "Research",
+          item: `${site.url}/research`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: sageMethodTitle,
+          item: sageMethodUrl,
         },
       ],
     },
     {
       "@type": "FAQPage",
-      "@id": `${methodologyUrl}#faq`,
-      url: methodologyUrl,
-      isPartOf: { "@id": `${methodologyUrl}#webpage` },
+      "@id": `${sageMethodUrl}#faq`,
+      url: `${sageMethodUrl}#methodology-faq`,
+      isPartOf: { "@id": `${sageMethodUrl}#webpage` },
       mainEntity: methodologyFaqs.map((faq) => ({
         "@type": "Question",
         name: faq.question,

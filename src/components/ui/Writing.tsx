@@ -32,7 +32,7 @@ export function Writing() {
       </div>
 
       <Link
-        href="/media#writing"
+        href="/archive#writing"
         className="mt-8 inline-block font-mono text-xs uppercase tracking-widest transition-colors hover:text-accent"
       >
         All writing →

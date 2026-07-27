@@ -51,7 +51,7 @@ export function Press() {
         ))}
       </div>
       <Link
-        href="/media#press"
+        href="/archive#press"
         className="mt-8 inline-block font-mono text-xs uppercase tracking-widest transition-colors hover:text-accent"
       >
         All press & citations →

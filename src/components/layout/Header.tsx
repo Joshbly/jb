@@ -21,14 +21,14 @@ const INNER = cn(
 );
 
 const TITLE = cn(
-  "shrink-0 pr-1 text-header-fluid md:pr-0",
+  "shrink-0 pr-1 text-[9px] min-[360px]:text-[10px] sm:text-header-fluid md:pr-0",
   "text-white md:mix-blend-difference transition-colors duration-medium",
   "group-data-[scrolled=true]/header:text-foreground",
   "group-data-[scrolled=true]/header:mix-blend-normal",
 );
 
 const LINKS = cn(
-  "flex gap-0.5 text-header-fluid sm:gap-[clamp(4px,2.5vw,24px)]",
+  "flex gap-0 text-[9px] min-[360px]:gap-0.5 min-[360px]:text-[10px] sm:gap-[clamp(4px,2.5vw,24px)] sm:text-header-fluid",
   "text-white md:text-foreground transition-colors duration-medium",
   "group-data-[scrolled=true]/header:text-foreground",
 );
@@ -63,7 +63,8 @@ export function Header() {
         <div className={INNER}>
           <div className={TITLE}>
             <Link href="/" className="hover:opacity-70 transition-opacity">
-              {site.name}
+              <span className="sm:hidden">JB</span>
+              <span className="hidden sm:inline">{site.name}</span>
             </Link>
           </div>
           <nav className="flex items-center justify-end shrink-0">
@@ -72,10 +73,7 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={cn(
-                    "nav-bracket whitespace-nowrap transition-colors hover:text-accent",
-                    link.href === "/research" && "text-accent",
-                  )}
+                  className="nav-bracket whitespace-nowrap transition-colors hover:text-accent"
                 >
                   {link.label}
                 </Link>

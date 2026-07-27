@@ -16,6 +16,18 @@ export type ResearchSource = {
   url: string;
 };
 
+export type ResearchStudyNotes = {
+  dataset?: readonly string[];
+  collectionWindow?: string;
+  products?: readonly string[];
+  sample?: readonly string[];
+  analysis?: readonly string[];
+  contributors?: readonly string[];
+  access?: readonly ResearchSource[];
+  limitations?: readonly string[];
+  detailsNotPublished?: string;
+};
+
 export type ResearchMeta = {
   slug: string;
   title: string;
@@ -27,6 +39,7 @@ export type ResearchMeta = {
   image: string;
   authors: readonly ResearchAuthor[];
   sources: readonly ResearchSource[];
+  studyNotes?: ResearchStudyNotes;
 };
 
 export type ResearchArticle = ResearchMeta & {

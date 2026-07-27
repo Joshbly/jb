@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site } from "@/content/site";
 
 export function Footer() {
@@ -11,7 +12,16 @@ export function Footer() {
           >
             {site.email}
           </a>
-          <div className="flex gap-8">
+          <div className="flex flex-wrap gap-x-8 gap-y-4">
+            {site.footerNav.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="border-b border-foreground/30 pb-0.5 transition-colors hover:border-accent hover:text-accent"
+              >
+                {link.label}
+              </Link>
+            ))}
             {site.socials.map((s) => (
               <a
                 key={s.href}

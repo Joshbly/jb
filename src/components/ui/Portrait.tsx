@@ -10,7 +10,7 @@ export function Portrait({ src, alt }: PortraitProps) {
   return (
     <>
       <div className="hidden lg:block">
-        <SectionHeader title="Portrait" eyebrow="Fig. 2" className="mb-8" />
+        <SectionHeader title="Portrait" className="mb-8" />
         <PortraitImage src={src} alt={alt} sizes="(max-width: 768px) 100vw, 33vw" />
       </div>
 
