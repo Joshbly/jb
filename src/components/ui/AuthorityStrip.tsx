@@ -57,7 +57,7 @@ export function AuthorityStrip() {
     >
       <div>
         <p className="font-mono text-xs uppercase leading-relaxed tracking-wider text-foreground/50">
-          Created AEO/GEO strategies for these leading brands at Profound
+          I've collaborated with these leading brands
         </p>
         <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
           {enterpriseWork.map((organization) => (

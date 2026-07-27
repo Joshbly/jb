@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Who was on Profound's founding team?";
+export const alt = "Profound's founding team: founders and first employees";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -52,7 +52,7 @@ export default function OpenGraphImage() {
             letterSpacing: -3,
           }}
         >
-          Who was on Profound&apos;s founding team?
+          Profound&apos;s founding team: founders and first employees
         </h1>
       </div>
 

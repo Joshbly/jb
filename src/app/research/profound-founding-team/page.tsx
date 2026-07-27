@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Footer } from "@/components/layout/Footer";
 import { SubpageNav } from "@/components/layout/SubpageNav";
 import { Section, SectionHeader } from "@/components/shared/Section";
 import { site } from "@/content/site";
 
 const pageUrl = `${site.url}/research/profound-founding-team`;
-const title = "Who was on Profound's founding team?";
+const title = "Profound's founding team: founders and first employees";
 const description =
-  "Profound, the AI-search company, was founded by James Cadwallader and Dylan Babbs. A sourced history of its founding team and first employees.";
+  "Profound was co-founded by James Cadwallader and Dylan Babbs. Meet its first six employees and early collaborators.";
 const publishedDate = "2026-07-26";
 const profoundId = `${site.employer.url}/#organization`;
 
@@ -624,7 +625,7 @@ const foundingTeamJsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: { absolute: `${title} | ${site.name}` },
+  title: { absolute: title },
   description,
   authors: [{ name: site.name, url: `${site.url}/about` }],
   alternates: { canonical: pageUrl },
@@ -659,18 +660,24 @@ export default function ProfoundFoundingTeamPage() {
               <SubpageNav activeHref="/research" />
               <div className="py-24 md:py-32">
                 <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
-                  Company history · By Josh Blyskal · Updated{" "}
-                  <time dateTime={publishedDate}>July 26, 2026</time>
+                  Company history · By{" "}
+                  <Link
+                    href="/about"
+                    rel="author"
+                    className="underline decoration-1 underline-offset-4 hover:text-accent"
+                  >
+                    Josh Blyskal
+                  </Link>{" "}
+                  · Updated <time dateTime={publishedDate}>July 26, 2026</time>
                 </p>
                 <h1 className="mt-5 max-w-5xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
                   {title}
                 </h1>
                 <p className="mt-8 max-w-3xl font-body text-xl leading-relaxed text-foreground/80 md:text-2xl">
-                  Profound began in 2024 with co-founders James Cadwallader, its CEO, and Dylan
-                  Babbs, its CTO. The first full-time hires added engineering and customer success.
-                  By the end of the year, the team had expanded across business development,
-                  operations, and a larger engineering group. Mikael Sargsyan&apos;s work began
-                  before launch, and he later joined the engineering team.
+                  Profound, legally Cooper Square Technologies, Inc., was co-founded in 2024 by CEO
+                  James Cadwallader and CTO Dylan Babbs. Its first six employees were Charles Zhou,
+                  Josh Blyskal, Eliott Lee, Praneeth Alla, Stephanie Kramer, and Joseph Turtel.
+                  Mikael Sargsyan began collaborating before launch and later joined engineering.
                 </p>
               </div>
             </div>
@@ -900,6 +907,49 @@ export default function ProfoundFoundingTeamPage() {
                     </p>
                   </div>
                 </article>
+              ))}
+            </div>
+          </Section>
+
+          <Section>
+            <SectionHeader
+              title="Related reading"
+              eyebrow="On this site"
+              className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+            />
+            <div className="grid gap-px border border-foreground/20 bg-foreground/20 md:grid-cols-3">
+              {[
+                {
+                  href: "/about",
+                  title: "About Josh Blyskal",
+                  description: "Research, work, speaking, and professional background.",
+                },
+                {
+                  href: "/research",
+                  title: "Research blog",
+                  description: "Studies and guides on AEO, citations, retrieval, and AI search.",
+                },
+                {
+                  href: "/methodology",
+                  title: "The SAGE Method",
+                  description: "The operating method used to run answer-engine optimization work.",
+                },
+              ].map((relatedPage) => (
+                <Link
+                  key={relatedPage.href}
+                  href={relatedPage.href}
+                  className="group bg-background p-7 transition-colors hover:bg-foreground/5"
+                >
+                  <h3 className="font-display text-2xl font-medium leading-snug decoration-1 underline-offset-4 group-hover:underline">
+                    {relatedPage.title}
+                  </h3>
+                  <p className="mt-3 max-w-sm font-body text-sm leading-relaxed text-foreground/65">
+                    {relatedPage.description}
+                  </p>
+                  <span className="mt-5 block font-mono text-xs uppercase tracking-widest text-accent">
+                    Read →
+                  </span>
+                </Link>
               ))}
             </div>
           </Section>

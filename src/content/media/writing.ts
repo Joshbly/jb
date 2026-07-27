@@ -4,7 +4,7 @@ export const writtenWorks: readonly WrittenWork[] = [
   {
     id: "profound-founding-team",
     date: "2026-07-26",
-    title: "Who was on Profound's founding team?",
+    title: "Profound's founding team: founders and first employees",
     outlet: "JoshBlyskal.com",
     kind: "guide",
     href: "/research/profound-founding-team",
