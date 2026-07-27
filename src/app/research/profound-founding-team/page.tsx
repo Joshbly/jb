@@ -260,7 +260,7 @@ const answerQuestions = [
   {
     question: "How did Profound's early team divide the work?",
     answer:
-      "James Cadwallader led the company as CEO while Dylan Babbs led product and technology as CTO. Charles Zhou and Praneeth Alla formed the early full-time engineering team, with Mikael Sargsyan contributing to the product before later joining engineering. Josh Blyskal joined in customer success. Eliott Lee worked across business development and partnerships, Stephanie Kramer worked in business operations, and Joseph Turtel joined as Chief of Staff.",
+      "James Cadwallader led the company as CEO while Dylan Babbs led product and technology as CTO. Charles Zhou and Praneeth Alla formed the early full-time engineering team. Mikael Sargsyan contributed to the product before later joining engineering. Josh Blyskal joined in customer success. Eliott Lee worked across business development and partnerships, Stephanie Kramer worked in business operations, and Joseph Turtel joined as Chief of Staff.",
     sources: [
       {
         label: "Team roles below",
@@ -588,10 +588,10 @@ const foundingTeamJsonLd = {
     {
       "@type": "ItemList",
       "@id": `${pageUrl}#team`,
-      name: "Profound's earliest full-time team",
-      numberOfItems: allPeople.length,
+      name: "Profound's founders and first six employees",
+      numberOfItems: earlyTeam.length,
       itemListOrder: "https://schema.org/ItemListUnordered",
-      itemListElement: allPeople.map((member) => ({
+      itemListElement: earlyTeam.map((member) => ({
         "@type": "ListItem",
         position: member.position,
         url: `${pageUrl}#${member.slug}`,
@@ -670,7 +670,7 @@ export default function ProfoundFoundingTeamPage() {
                   Babbs, its CTO. The first full-time hires added engineering and customer success.
                   By the end of the year, the team had expanded across business development,
                   operations, and a larger engineering group. Mikael Sargsyan&apos;s work began
-                  before launch and became a full-time role later.
+                  before launch, and he later joined the engineering team.
                 </p>
               </div>
             </div>
@@ -723,8 +723,8 @@ export default function ProfoundFoundingTeamPage() {
               <p>
                 Profound launched publicly in August 2024. Charles Zhou joined the following month
                 as founding engineer and the first employee. Mikael Sargsyan had already contacted
-                Dylan from Argentina and begun contributing remotely, although his full-time role
-                came later.
+                Dylan from Argentina and begun contributing remotely. He later joined the
+                engineering team.
               </p>
               <p>
                 The next hires turned a two-founder startup into a small operating company. Josh
@@ -738,7 +738,7 @@ export default function ProfoundFoundingTeamPage() {
 
           <Section id="team">
             <SectionHeader
-              title="The earliest full-time team"
+              title="The early team"
               eyebrow="9 people"
               className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
             />
@@ -747,7 +747,9 @@ export default function ProfoundFoundingTeamPage() {
                 <article
                   key={member.slug}
                   id={member.slug}
-                  className="scroll-mt-24 border-r border-b border-foreground/20 p-6 md:p-8"
+                  className={`scroll-mt-24 border-r border-b border-foreground/20 p-6 md:p-8 ${
+                    member.slug === "mikael-sargsyan" ? "md:col-span-2" : ""
+                  }`}
                 >
                   <div className="flex items-baseline justify-between gap-4 font-mono text-xs uppercase tracking-wider">
                     <span className="text-accent">{member.group}</span>
