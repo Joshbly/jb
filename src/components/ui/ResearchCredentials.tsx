@@ -19,8 +19,8 @@ export function ResearchCredentials() {
             I study what makes a brand appear in an AI-generated answer.
           </DisplayH2>
           <p className="mb-8 max-w-md font-body text-lg leading-relaxed text-foreground/80">
-            That includes the questions people ask, the searches an engine runs, and the websites,
-            product data, and public information it uses to understand a brand.
+            That includes the prompts people ask, the fanouts an agent/answer engine runs, and the websites,
+            product data, and public information it uses to understand and recommend a brand to a user.
           </p>
           <Link
             href="/research"
