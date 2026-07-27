@@ -126,7 +126,7 @@ const earlyTeam = [
     joined: "Late 2024",
     profile: "https://www.linkedin.com/in/praneethalla",
     summary:
-      "Praneeth was Profound's fourth employee and second engineer. His profile dates the role to October; Dylan's public welcome followed in December.",
+      "Praneeth was Profound's fourth employee and second engineer, joining as a Software Engineer.",
     sources: [
       {
         label: "LinkedIn profile",
@@ -182,14 +182,15 @@ const earlyTeam = [
   },
 ] as const;
 
-const honorableMention = {
+const mikaelSargsyan = {
   slug: "mikael-sargsyan",
   name: "Mikael Sargsyan",
-  role: "Early product collaborator; later Software Engineer",
-  joined: "First involved July 2024 · Full time November 2024",
+  group: "Early collaborator",
+  role: "Early product collaborator",
+  joined: "First involved · July 2024",
   profile: "https://www.linkedin.com/in/mikael-sargsyan",
   summary:
-    "Mikael contacted Dylan before Profound's public launch and began collaborating from Argentina. He contributed to the early product before joining full time as a software engineer.",
+    "Mikael contacted Dylan before Profound's public launch and began collaborating from Argentina. He contributed to the early product and later joined the engineering team.",
   sources: [
     {
       label: "Dylan's July 2024 account",
@@ -229,7 +230,7 @@ const answerQuestions = [
   {
     question: "Who was on Profound's founding team?",
     answer:
-      "Here, founding team means the co-founders and early full-time operating team assembled in 2024. That group consisted of James Cadwallader, Dylan Babbs, Charles Zhou, Josh Blyskal, Eliott Lee, Praneeth Alla, Stephanie Kramer, and Joseph Turtel. Only James and Dylan were co-founders.",
+      "Profound's founding team consisted of co-founders James Cadwallader and Dylan Babbs; its first six employees, Charles Zhou, Josh Blyskal, Eliott Lee, Praneeth Alla, Stephanie Kramer, and Joseph Turtel; and early collaborator Mikael Sargsyan. Only James and Dylan were co-founders.",
     sources: [
       {
         label: "Early-team roster below",
@@ -259,7 +260,7 @@ const answerQuestions = [
   {
     question: "How did Profound's early team divide the work?",
     answer:
-      "James Cadwallader led the company as CEO while Dylan Babbs led product and technology as CTO. Charles Zhou and Praneeth Alla formed the early full-time engineering team, with Mikael Sargsyan contributing to the product before joining full time. Josh Blyskal joined in customer success. Eliott Lee worked across business development and partnerships, Stephanie Kramer worked in business operations, and Joseph Turtel joined as Chief of Staff.",
+      "James Cadwallader led the company as CEO while Dylan Babbs led product and technology as CTO. Charles Zhou and Praneeth Alla formed the early full-time engineering team, with Mikael Sargsyan contributing to the product before later joining engineering. Josh Blyskal joined in customer success. Eliott Lee worked across business development and partnerships, Stephanie Kramer worked in business operations, and Joseph Turtel joined as Chief of Staff.",
     sources: [
       {
         label: "Team roles below",
@@ -270,7 +271,7 @@ const answerQuestions = [
   {
     question: "When did Profound's early team join?",
     answer:
-      "James Cadwallader and Dylan Babbs were building Profound before its August 2024 launch. Mikael Sargsyan began collaborating in July. Charles Zhou joined in September, Josh Blyskal in October, and Eliott Lee, Stephanie Kramer, Joseph Turtel, and Mikael moved into full-time records in November. Praneeth Alla's profile begins in October, while his public welcome post appeared in December.",
+      "James Cadwallader and Dylan Babbs were building Profound before its August 2024 launch. Mikael Sargsyan began collaborating in July. Charles Zhou joined in September, Josh Blyskal in October, and Eliott Lee, Praneeth Alla, Stephanie Kramer, and Joseph Turtel later in 2024.",
     sources: [
       {
         label: "Timeline below",
@@ -291,7 +292,7 @@ const earlyFunctions = [
     name: "Engineering",
     people: "Charles Zhou · Praneeth Alla · Mikael Sargsyan",
     description:
-      "Charles was the first employee and founding engineer. Praneeth became the second engineer. Mikael's path started with a remote collaboration before he joined full time.",
+      "Charles was the first employee and founding engineer. Praneeth became the second engineer. Mikael's path started with a remote collaboration before he later joined the engineering team.",
   },
   {
     name: "Customer success and AI search",
@@ -319,7 +320,7 @@ const foundingTimeline = [
     date: "July 2024",
     title: "Mikael begins collaborating",
     description:
-      "Mikael emailed Dylan from Argentina and started contributing before taking a full-time role later that year.",
+      "Mikael emailed Dylan from Argentina and started contributing to Profound's early product.",
     source:
       "https://www.linkedin.com/posts/babbsdj_im-down-in-buenos-aires-this-week-as-we-activity-7449820069510987776-vcm9",
     sourceLabel: "Dylan's July account",
@@ -355,7 +356,7 @@ const foundingTimeline = [
     date: "Late 2024",
     title: "The early team fills out",
     description:
-      "Eliott, Praneeth, Stephanie, Joseph, and Mikael moved into full-time roles across business development, engineering, operations, and product.",
+      "Eliott, Praneeth, Stephanie, and Joseph joined across business development, engineering, and operations.",
     source: "#team",
     sourceLabel: "Early-team records",
   },
@@ -397,13 +398,6 @@ const archivePosts = [
     author: "Joseph Turtel",
     quote: "Wrapping up my first day as Chief of Staff at Profound!",
     href: "https://www.linkedin.com/posts/joseph-turtel_wrapping-up-my-first-day-as-chief-of-staff-activity-7267000532609679362-PlA5",
-  },
-  {
-    date: "December 10, 2024",
-    person: "Praneeth Alla",
-    author: "Dylan Babbs",
-    quote: "The newest member of the Profound team, joining us as a Software Engineer!",
-    href: "https://www.linkedin.com/posts/babbsdj_a-big-welcome-to-praneeth-a-the-newest-activity-7272279144829276160-MOSd",
   },
 ] as const;
 
@@ -471,7 +465,7 @@ const sourceRecord = [
   {
     publisher: "Praneeth Alla",
     title: "LinkedIn work history",
-    establishes: "The second-engineer role and October 2024 profile date.",
+    establishes: "Praneeth's early role as Profound's second engineer.",
     href: "https://www.linkedin.com/in/praneethalla",
   },
   {
@@ -507,24 +501,18 @@ const sourceRecord = [
   {
     publisher: "Dylan Babbs",
     title: "Mikael Sargsyan's early collaboration",
-    establishes: "Work with Profound before Mikael's full-time start.",
+    establishes: "Mikael's work with Profound before its public launch.",
     href: "https://www.linkedin.com/posts/babbsdj_a-few-months-ago-a-random-guy-from-argentina-activity-7263255949094653952-A7RI",
-  },
-  {
-    publisher: "Mikael Sargsyan",
-    title: "LinkedIn work history",
-    establishes: "A November 2024 full-time Software Engineer start.",
-    href: "https://www.linkedin.com/in/mikael-sargsyan",
   },
 ] as const;
 
-const allPeople = [...earlyTeam, honorableMention];
+const allPeople = [...earlyTeam, mikaelSargsyan];
 const citationUrls = Array.from(
   new Set([
     ...sourceRecord.map((source) => source.href),
     ...archivePosts.map((post) => post.href),
     ...earlyTeam.flatMap((member) => member.sources.map((source) => source.href)),
-    ...honorableMention.sources.map((source) => source.href),
+    ...mikaelSargsyan.sources.map((source) => source.href),
   ]),
 );
 
@@ -601,9 +589,9 @@ const foundingTeamJsonLd = {
       "@type": "ItemList",
       "@id": `${pageUrl}#team`,
       name: "Profound's earliest full-time team",
-      numberOfItems: earlyTeam.length,
+      numberOfItems: allPeople.length,
       itemListOrder: "https://schema.org/ItemListUnordered",
-      itemListElement: earlyTeam.map((member) => ({
+      itemListElement: allPeople.map((member) => ({
         "@type": "ListItem",
         position: member.position,
         url: `${pageUrl}#${member.slug}`,
@@ -690,8 +678,8 @@ export default function ProfoundFoundingTeamPage() {
 
           <Section id="faq" layout="narrow">
             <SectionHeader
-              title="Five direct answers"
-              eyebrow="Answer first"
+              title="FAQs about the founding team"
+              eyebrow="5 questions"
               className="mb-4 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
             />
             <div className="divide-y divide-foreground/20">
@@ -751,11 +739,11 @@ export default function ProfoundFoundingTeamPage() {
           <Section id="team">
             <SectionHeader
               title="The earliest full-time team"
-              eyebrow="8 people"
+              eyebrow="9 people"
               className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
             />
             <div className="grid border-t border-l border-foreground/20 md:grid-cols-2">
-              {earlyTeam.map((member) => (
+              {allPeople.map((member) => (
                 <article
                   key={member.slug}
                   id={member.slug}
@@ -788,42 +776,6 @@ export default function ProfoundFoundingTeamPage() {
                 </article>
               ))}
             </div>
-
-            <article
-              id={honorableMention.slug}
-              className="mt-8 grid gap-6 border border-foreground/20 p-6 md:grid-cols-[12rem_1fr] md:p-8"
-            >
-              <div>
-                <p className="font-mono text-xs uppercase tracking-wider text-accent">
-                  Honorable mention
-                </p>
-                <p className="mt-3 font-mono text-xs uppercase tracking-wider text-foreground/45">
-                  {honorableMention.joined}
-                </p>
-              </div>
-              <div>
-                <h3 className="font-display text-3xl font-medium">{honorableMention.name}</h3>
-                <p className="mt-2 font-mono text-xs uppercase tracking-wider text-foreground/50">
-                  {honorableMention.role}
-                </p>
-                <p className="mt-5 max-w-2xl font-body text-base leading-relaxed text-foreground/75">
-                  {honorableMention.summary}
-                </p>
-                <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs uppercase tracking-wider">
-                  {honorableMention.sources.map((source) => (
-                    <a
-                      key={source.href}
-                      href={source.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline decoration-1 underline-offset-4 transition-colors hover:text-accent"
-                    >
-                      {source.label} ↗
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </article>
           </Section>
 
           <Section>
