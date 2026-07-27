@@ -181,8 +181,8 @@ export default function AboutPage() {
                 AEO strategies created at Profound
               </dt>
               <dd className="mt-3 font-display text-2xl font-medium leading-snug md:text-3xl">
-                Ramp · Indeed · U.S. Bank · Kaplan · Reddit · G2 · MongoDB · Kalshi · Mintlify ·
-                Figma · Hatch · Eight Sleep · Golin
+                Ramp · Indeed · U.S. Bank · Kaplan · Reddit · G2 · MongoDB · Kalshi · Figma · Hatch
+                · Eight Sleep · Golin
               </dd>
               <p className="mt-3 max-w-2xl font-body text-sm leading-relaxed text-foreground/60">
                 Created for these leading brands to make them visible in AI search.
