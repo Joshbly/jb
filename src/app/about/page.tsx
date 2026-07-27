@@ -65,16 +65,16 @@ export default function AboutPage() {
                   Research across 10B+ citations and 8 answer engines.
                 </h1>
                 <p className="mt-8 max-w-xl font-body text-lg leading-relaxed text-foreground/80 md:text-xl">
-                  Josh Blyskal joined Profound as its{" "}
+                  Josh Blyskal joined Profound as its second employee and is part of its{" "}
                   <Link
                     href="/research/profound-founding-team"
                     className="border-b border-accent transition-colors hover:text-accent"
                   >
-                    second employee
-                  </Link>{" "}
-                  and is part of its founding team. He now leads AI Strategy & Research there and
-                  studies how ChatGPT, Claude, Gemini, Google AI Mode, and other answer engines
-                  search, retrieve, cite, and recommend information.
+                    founding team
+                  </Link>
+                  . He now leads AI Strategy & Research there and studies how ChatGPT, Claude,
+                  Gemini, Google AI Mode, and other answer engines search, retrieve, cite, and
+                  recommend information.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-widest">
                   <Link

@@ -1,6 +1,6 @@
 const NAME = "Josh Blyskal";
 const TAGLINE = "AEO & GEO Research";
-const EMPLOYER = { name: "Profound", url: "https://tryprofound.com" } as const;
+const EMPLOYER = { name: "Profound", url: "https://www.tryprofound.com" } as const;
 const HERO_SRC = "/images/header3.png";
 
 export const site = {

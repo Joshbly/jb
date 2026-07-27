@@ -70,18 +70,6 @@ export const personJsonLd = {
         name: site.employer.name,
       },
     },
-    {
-      "@type": "Article",
-      "@id": `${site.url}/research/profound-founding-team#article`,
-      headline: "Who was on Profound's founding team?",
-      url: `${site.url}/research/profound-founding-team`,
-      about: {
-        "@type": "Organization",
-        "@id": `${site.employer.url}/#organization`,
-        name: site.employer.name,
-        url: site.employer.url,
-      },
-    },
     ...featuredPressRecords.map((record) => ({
       "@type": "Article",
       headline: record.title,
