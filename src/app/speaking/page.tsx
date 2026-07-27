@@ -108,7 +108,7 @@ const stageCredits = [
 const commentaryTopics = [
   "How brands become visible in ChatGPT, Claude, Gemini, and Google AI products",
   "Answer engine optimization and what replaces the traditional ranking playbook",
-  "How AI agents find, compare, and recommend brands",
+  "How AI agents research products, resolve brand identity, and build comparisons",
   "What real user prompts reveal about how people discover products in AI search",
 ];
 
@@ -152,9 +152,8 @@ export default function SpeakingPage() {
                   Speaking
                 </h1>
                 <p className="mt-8 max-w-2xl font-body text-lg leading-relaxed text-foreground/80 md:text-xl">
-                  Josh gives research-led talks on how brands get found and recommended in AI
-                  search, how agents shape buying decisions, and what marketing teams can do about
-                  it.
+                  Josh gives research-led talks on how brands appear in AI search, how agents shape
+                  buying decisions, and what marketing teams can do about it.
                 </p>
                 <div className="mt-9 flex flex-wrap gap-x-7 gap-y-4 font-mono text-xs uppercase tracking-widest">
                   <a
@@ -331,8 +330,8 @@ export default function SpeakingPage() {
               <h2 className="mt-5 font-display text-4xl font-normal italic">About Josh</h2>
               <div className="mt-7 space-y-5 font-body text-lg leading-relaxed text-foreground/80">
                 <p>
-                  Josh Blyskal leads AI Strategy & Research at Profound, where he works on making
-                  brands visible in answer engines and to the agents that use them.
+                  Josh Blyskal leads AI Strategy & Research at Profound, where he works on brand
+                  visibility in answer engines and agent-led discovery.
                 </p>
                 <p>
                   Before Profound, he co-founded HubSpot&apos;s Marketing AI practice and built the

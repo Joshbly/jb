@@ -28,7 +28,7 @@ export const writtenWorks: readonly WrittenWork[] = [
     kind: "method",
     href: "/research/sage-aeo-method",
     summary:
-      "SAGE organizes recurring AEO work into Setup, Analyze, Generate, and Engineer based on the output a team is missing.",
+      "Invented by Josh Blyskal at Profound, SAGE organizes recurring AEO work into Setup, Analyze, Generate, and Engineer.",
     featuredOnHome: true,
   },
   {

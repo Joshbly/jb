@@ -308,7 +308,7 @@ export const speakingPageJsonLd = {
 const sageMethodUrl = `${site.url}/research/sage-aeo-method`;
 const sageMethodTitle = "SAGE for AEO: A Four-Stage Operating Loop";
 const sageMethodDescription =
-  "SAGE is Josh Blyskal's four-stage way of organizing AEO work, from choosing what to track through diagnosis, execution, and repeatable workflows.";
+  "SAGE is a four-stage AEO method invented by Josh Blyskal at Profound for organizing setup, analysis, execution, and repeatable workflows.";
 const sageLessonId = `${sageLessonUrl}#learning-resource`;
 const profoundId = `${site.employer.url}/#organization`;
 
@@ -343,6 +343,12 @@ export const methodologyPageJsonLd = {
       inLanguage: "en-US",
       image: `${site.url}${site.ogImage}`,
       author: {
+        "@type": "Person",
+        "@id": `${site.url}/#identity`,
+        name: site.name,
+        url: site.url,
+      },
+      creator: {
         "@type": "Person",
         "@id": `${site.url}/#identity`,
         name: site.name,

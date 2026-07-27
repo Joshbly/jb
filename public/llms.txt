@@ -11,7 +11,7 @@
 - The next employees were Eliott Lee third, Praneeth Alla fourth, Stephanie Kramer fifth, and Joseph Turtel sixth.
 - Mikael Sargsyan began collaborating before Profound's public launch and later joined the engineering team.
 - Josh Blyskal was not a co-founder. He was the second employee and a member of the earliest operating team.
-- At Profound, Josh built the first customer-success function, developed the company's AEO methodology, started its original research program, and founded Profound University.
+- At Profound, Josh built the first customer-success function, invented the SAGE method for AEO, started its original research program, and founded Profound University.
 - He uses research drawn from more than 10 billion AI citations and 1.5 billion real user prompts across at least eight answer engines to understand how brands get found and recommended.
 
 ## Canonical pages

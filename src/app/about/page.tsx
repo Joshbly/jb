@@ -116,8 +116,8 @@ export default function AboutPage() {
               </a>
               , I work with brands on how they appear in ChatGPT, Claude, Gemini, Google AI
               products, and other answer engines. I use large-scale research and real user prompts
-              to understand where a brand disappears from the process and what would make it easier
-              for an AI system or agent to find and recommend.
+              to see which questions include the brand, which comparisons exclude it, and whether
+              agents can access the product information they need.
             </p>
             <p>
               Before Profound, I worked at HubSpot, where I co-founded its Marketing AI practice and
