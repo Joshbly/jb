@@ -140,8 +140,7 @@ export default function AboutPage() {
                 AEO programs at Profound
               </dt>
               <dd className="mt-3 font-display text-2xl font-medium leading-snug md:text-3xl">
-                Ramp · Indeed · U.S. Bank · Kaplan · Reddit · G2 · MongoDB · Kalshi · Figma · Hatch
-                · Eight Sleep · Golin
+                Ramp · Indeed · U.S. Bank · G2 · MongoDB · Golin
               </dd>
               <p className="mt-3 max-w-2xl font-body text-sm leading-relaxed text-foreground/60">
                 Contributed to AEO programs for teams at these brands through Profound.

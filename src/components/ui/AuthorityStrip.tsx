@@ -5,18 +5,12 @@ const enterpriseWork = [
   { name: "Ramp", href: "https://ramp.com", domain: "ramp.com" },
   { name: "Indeed", href: "https://www.indeed.com", domain: "indeed.com" },
   { name: "U.S. Bank", href: "https://www.usbank.com", domain: "usbank.com" },
-  { name: "Kaplan", href: "https://kaplan.com", domain: "kaplan.com" },
-  { name: "Reddit", href: "https://www.redditinc.com", domain: "reddit.com" },
   { name: "G2", href: "https://www.g2.com", domain: "g2.com" },
   { name: "MongoDB", href: "https://www.mongodb.com", domain: "mongodb.com" },
-  { name: "Kalshi", href: "https://kalshi.com", domain: "kalshi.com" },
-  { name: "Figma", href: "https://www.figma.com", domain: "figma.com" },
-  { name: "Hatch", href: "https://www.hatch.co", domain: "hatch.co" },
-  { name: "Eight Sleep", href: "https://www.eightsleep.com", domain: "eightsleep.com" },
   { name: "Golin", href: "https://golin.com", domain: "golin.com" },
 ] as const;
 
-const quotedOutletOrder = ["Adweek", "The Verge", "Ad Age"];
+const quotedOutletOrder = ["Reddit", "Adweek", "The Verge", "Ad Age"];
 const quotedBy = pressRecords
   .filter((record) => quotedOutletOrder.includes(record.outlet))
   .sort(
@@ -25,6 +19,9 @@ const quotedBy = pressRecords
       quotedOutletOrder.indexOf(secondRecord.outlet),
   )
   .map((record) => ({ name: record.outlet, href: record.href, domain: record.domain }));
+const redditEarningsCall = pressRecords.find(
+  (record) => record.id === "reddit-q2-2025-profound-data",
+);
 
 function OrganizationMark({ name, href, domain }: { name: string; href: string; domain: string }) {
   return (
@@ -69,14 +66,11 @@ export function AuthorityStrip() {
       <div className="mt-5 border-t border-foreground/15 pt-5">
         <p className="font-mono text-xs uppercase tracking-wider text-foreground/50">Quoted by</p>
         <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
-          {quotedBy.slice(0, 2).map((publication) => (
+          {quotedBy.map((publication) => (
             <OrganizationMark key={publication.name} {...publication} />
           ))}
-          <span className="inline-flex items-center gap-4">
-            <OrganizationMark {...quotedBy[2]} />
-            <span className="font-mono text-xs uppercase tracking-wider text-foreground/40">
-              + more
-            </span>
+          <span className="font-mono text-xs uppercase tracking-wider text-foreground/40">
+            + more
           </span>
         </div>
       </div>
