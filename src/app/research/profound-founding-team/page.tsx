@@ -84,7 +84,7 @@ const earlyTeam = [
     joined: "October 21, 2024",
     profile: "https://www.linkedin.com/in/joshua-blyskal",
     summary:
-      "Josh joined from HubSpot as a Customer Success Engineer. Dylan's first-day post called him employee #4, counting the two co-founders.",
+      "Josh was Profound's second employee. He joined from HubSpot as a Customer Success Engineer.",
     sources: [
       {
         label: "First-day announcement",
@@ -240,7 +240,7 @@ const answerQuestions = [
   {
     question: "Who were Profound's first employees?",
     answer:
-      "Charles Zhou was Profound's first employee and Josh Blyskal was the second. Eliott Lee was the third employee, Praneeth Alla the fourth, Stephanie Kramer the fifth, and Joseph Turtel the sixth. An early post called Josh employee #4 because it counted the two co-founders; both numbering systems describe the same sequence.",
+      "Charles Zhou was Profound's first employee and Josh Blyskal was the second. Eliott Lee was the third employee, Praneeth Alla the fourth, Stephanie Kramer the fifth, and Joseph Turtel the sixth.",
     sources: [
       {
         label: "Charles Zhou",
@@ -346,7 +346,7 @@ const foundingTimeline = [
     date: "October 2024",
     title: "Josh joins in customer success",
     description:
-      "Dylan welcomed Josh on October 21 as employee #4, counting the two founders, and noted that it was his first day.",
+      "Dylan welcomed Josh on October 21 and noted that it was his first day at Profound.",
     source:
       "https://www.linkedin.com/posts/babbsdj_early-this-morning-i-walked-into-theprofound-activity-7254217341205385216-fZhW",
     sourceLabel: "Dylan's first-day post",
@@ -380,7 +380,7 @@ const archivePosts = [
     date: "October 21, 2024",
     person: "Josh Blyskal",
     author: "Dylan Babbs",
-    quote: "I'm super excited to welcome Joshua Blyskal as employee #4 to Profound!",
+    quote: "Josh packed a suitcase and moved from Boston to NYC to be with us in person.",
     href: "https://www.linkedin.com/posts/babbsdj_early-this-morning-i-walked-into-theprofound-activity-7254217341205385216-fZhW",
   },
   {
