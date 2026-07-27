@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { SubpageNav } from "@/components/layout/SubpageNav";
+import { MediaHashNavigation } from "@/components/media/MediaHashNavigation";
 import { MediaPhotoBreak } from "@/components/media/MediaPhotoBreak";
 import { ArchiveEntry, type ArchiveEntryLink } from "@/components/shared/ArchiveEntry";
 import { SectionHeader } from "@/components/shared/Section";
@@ -105,7 +106,11 @@ function ArchiveSection({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-20 border-t-2 border-foreground py-14 md:py-16">
+    <section
+      id={id}
+      tabIndex={-1}
+      className="scroll-mt-20 border-t-2 border-foreground py-14 md:py-16"
+    >
       <div className="mx-auto max-w-7xl px-6">
         <div className="sticky top-0 z-20 bg-background py-2">
           <SectionHeader
@@ -142,6 +147,7 @@ function appearanceDate(appearance: Appearance) {
 export default function MediaPage() {
   return (
     <div className="min-h-screen bg-background">
+      <MediaHashNavigation />
       <script
         type="application/ld+json"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD is generated from the static media archive rendered below
