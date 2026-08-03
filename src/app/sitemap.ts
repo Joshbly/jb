@@ -7,6 +7,7 @@ import { site } from "@/content/site";
 const expertRankingDate = new Date("2026-07-26");
 const profoundFoundingTeamDate = new Date("2026-07-26");
 const sageMethodDate = new Date("2026-07-26");
+const aeoReferenceDate = new Date("2026-08-03");
 const siteRefreshDate = new Date("2026-07-26");
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -15,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       latestResearchDate.getTime(),
       expertRankingDate.getTime(),
       profoundFoundingTeamDate.getTime(),
+      aeoReferenceDate.getTime(),
     ),
   );
   const latestContentDate = new Date(
@@ -42,6 +44,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${site.url}/research/sage-aeo-method`,
       lastModified: sageMethodDate,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${site.url}/research/what-is-answer-engine-optimization`,
+      lastModified: aeoReferenceDate,
       changeFrequency: "monthly",
       priority: 0.9,
     },
