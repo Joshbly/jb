@@ -114,8 +114,16 @@ export default function ResearchIndexPage() {
 
           <SectionHeader
             title="Reference"
-            eyebrow="2 pages"
+            eyebrow="3 pages"
             className="mt-20 mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+          />
+          <ArchiveEntry
+            source="Practitioner reference"
+            date="2026-08-03"
+            dateLabel="Aug 3, 2026"
+            title="What is answer engine optimization (AEO)?"
+            href="/research/what-is-answer-engine-optimization"
+            description="A definitive guide to how AEO works, how it differs from SEO, and why AEO and GEO are two names for the same discipline."
           />
           <ArchiveEntry
             source="Company history"

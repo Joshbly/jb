@@ -155,6 +155,7 @@ export const profilePageJsonLd = {
   description: site.bio,
   significantLink: [
     `${site.url}/research`,
+    `${site.url}/research/what-is-answer-engine-optimization`,
     `${site.url}/research/profound-founding-team`,
     `${site.url}/research/sage-aeo-method`,
     `${site.url}/speaking`,
