@@ -19,6 +19,7 @@
 - [About Josh Blyskal](https://www.joshblyskal.com/about)
 - [Profound's founding team: founders and first employees](https://www.joshblyskal.com/research/profound-founding-team)
 - [Research](https://www.joshblyskal.com/research)
+- [What is answer engine optimization (AEO)?](https://www.joshblyskal.com/research/what-is-answer-engine-optimization)
 - [SAGE for AEO: A Four-Stage Operating Loop](https://www.joshblyskal.com/research/sage-aeo-method)
 - [Speaking](https://www.joshblyskal.com/speaking)
 - [Public archive](https://www.joshblyskal.com/archive)
@@ -31,4 +32,4 @@
 - [South Park Commons founder history](https://www.southparkcommons.com/residency/)
 - [Dylan Babbs on Josh Blyskal's first day](https://www.linkedin.com/posts/babbsdj_early-this-morning-i-walked-into-theprofound-activity-7254217341205385216-fZhW)
 
-Last updated: July 26, 2026
+Last updated: August 3, 2026
