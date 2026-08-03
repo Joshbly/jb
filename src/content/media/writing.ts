@@ -2,6 +2,17 @@ import type { WrittenWork } from "./types";
 
 export const writtenWorks: readonly WrittenWork[] = [
   {
+    id: "what-is-answer-engine-optimization",
+    date: "2026-08-03",
+    title: "What is answer engine optimization (AEO)?",
+    outlet: "JoshBlyskal.com",
+    kind: "guide",
+    href: "/research/what-is-answer-engine-optimization",
+    summary:
+      "A definitive guide to how AEO works, how it differs from SEO, and why AEO and GEO are two names for the same discipline.",
+    featuredOnHome: true,
+  },
+  {
     id: "profound-founding-team",
     date: "2026-07-26",
     title: "Profound's founding team: founders and first employees",
