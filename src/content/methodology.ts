@@ -199,7 +199,7 @@ export const sageEvidence = [
     value: "37.5%",
     title: "ChatGPT prompt demand includes more than keyword-style searches",
     description:
-      "Generative requests were the largest intent class in more than 50 million ChatGPT prompts, while navigational intent was 2.1%. I use that difference as a reminder to build a prompt set from real conversation demand instead of starting with an old keyword export.",
+      "Generative requests were the largest intent class at 37.5% in a classified sample drawn from more than 50 million ChatGPT prompts, while navigational intent was 2.1%. I use that difference as a reminder to build a prompt set from real conversation demand instead of starting with an old keyword export.",
     href: "/research/chatgpt-intent-study",
   },
   {

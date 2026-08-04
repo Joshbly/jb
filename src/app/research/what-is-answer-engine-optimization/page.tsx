@@ -871,6 +871,12 @@ export default function WhatIsAnswerEngineOptimizationPage() {
                 <div className="mt-6 grid gap-5 sm:grid-cols-2">
                   {[
                     {
+                      href: "/research/findings",
+                      title: "AI search research findings",
+                      description:
+                        "Citable statistics with samples, dates, methods, and limitations.",
+                    },
+                    {
                       href: "/research/sage-aeo-method",
                       title: "SAGE for AEO",
                       description: "The Setup, Analyze, Generate, Engineer operating loop.",

@@ -114,8 +114,16 @@ export default function ResearchIndexPage() {
 
           <SectionHeader
             title="Reference"
-            eyebrow="3 pages"
+            eyebrow="4 pages"
             className="mt-20 mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+          />
+          <ArchiveEntry
+            source="Data reference"
+            date="2026-08-03"
+            dateLabel="Aug 3, 2026"
+            title="AI search statistics and research findings"
+            href="/research/findings"
+            description="A citable compendium of Josh Blyskal's AI search findings with samples, dates, methods, limitations, and citation formats."
           />
           <ArchiveEntry
             source="Practitioner reference"
