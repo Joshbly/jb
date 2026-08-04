@@ -37,6 +37,12 @@ export function ResearchArticleFooter({ study, relatedStudies }: ResearchArticle
                 </li>
               ))}
             </ol>
+            <Link
+              href="/research/findings"
+              className="mt-7 inline-block font-mono text-xs uppercase tracking-widest underline decoration-accent/60 underline-offset-4 transition-colors hover:text-accent"
+            >
+              Browse the citable findings compendium →
+            </Link>
             <p className="mt-7 font-body text-sm text-foreground/65">
               Questions about the research?{" "}
               <a
