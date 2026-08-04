@@ -2,6 +2,17 @@ import type { WrittenWork } from "./types";
 
 export const writtenWorks: readonly WrittenWork[] = [
   {
+    id: "ai-search-research-findings",
+    date: "2026-08-03",
+    title: "AI search statistics and research findings",
+    outlet: "JoshBlyskal.com",
+    kind: "research",
+    href: "/research/findings",
+    summary:
+      "A citable compendium of AI search findings with samples, dates, methods, limitations, and citation formats.",
+    featuredOnHome: true,
+  },
+  {
     id: "what-is-answer-engine-optimization",
     date: "2026-08-03",
     title: "What is answer engine optimization (AEO)?",

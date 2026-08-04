@@ -19,19 +19,29 @@ const sources = [
     publisher: "Profound",
     url: "https://www.tryprofound.com/zeroclick/ny",
   },
+  {
+    name: "Claude and Brave citation comparison",
+    publisher: "LinkedIn",
+    url: "https://www.linkedin.com/posts/joshua-blyskal_792-of-claudes-citations-come-from-braves-activity-7472323829604995073-35e-",
+  },
+  {
+    name: "Claude and ChatGPT source overlap",
+    publisher: "LinkedIn",
+    url: "https://www.linkedin.com/posts/joshua-blyskal_claude-and-chatgpt-only-cite-the-same-domains-activity-7479957866943193088-XB_D",
+  },
 ] as const;
 
 export const meta = {
   slug: "state-of-aeo-2026",
   title: "The state of AEO in 2026: Claude is not ChatGPT",
   finding:
-    "Claude drew 79.2% of its citations from Brave's top 10, but it used web search for only 36.6% of tested prompts.",
+    "Across roughly 35,000 URLs associated with 400 queries, 79.2% of Claude's cited URLs also appeared in Brave's top 10.",
   date: "2026-07-22",
   readTime: "11 min",
   description:
     "Research on Claude, ChatGPT, Brave, AI search ads, and Google AI Mode finds that each answer engine follows a distinct retrieval system.",
   excerpt:
-    "Claude searched only 36.6 percent of the time, but 79.2 percent of its citations came from Brave's top 10 results.",
+    "Claude searched only 36.6 percent of the time; in a separate comparison, 79.2 percent of its cited URLs also appeared in Brave's top 10.",
   image: "/images/header2.png",
   authors: [
     {
@@ -54,6 +64,8 @@ export const meta = {
     sample: [
       "The prompt set ranged from current product recommendations to basic explainers, with web search enabled for Claude and ChatGPT.",
       "Source-overlap figures are domain-level; content-type figures come from a classified citation set.",
+      "The Brave comparison covered roughly 35,000 URLs associated with 400 tested queries.",
+      "The Claude-versus-ChatGPT domain-overlap comparison covered more than 600 queries.",
     ],
     analysis: [
       "Observed search invocation; matched Claude citations to Brave positions 1–10; compared pairwise domain overlap, citation content types, repeated fanout strings, and year usage.",
@@ -64,22 +76,23 @@ export const meta = {
     limitations: [
       "The prompt-routing, citation, referral, and ad analyses use different units; the deck does not present them as one common sample.",
       "Claude's 36.6% search rate reflects the tested mix of recommendations and basic explainers.",
+      "Search-result overlap is observational and does not by itself establish a direct causal retrieval dependency.",
     ],
     detailsNotPublished:
-      "Exact prompt and citation counts, retrieval-analysis collection dates, sampling and labeling procedures, and raw-data access are not provided in the available deck or event page.",
+      "The exact routing denominator, per-engine citation counts, overlap formula, retrieval-analysis dates, full sampling and labeling procedures, and raw-data access are not public.",
   },
 } satisfies ResearchMeta;
 
 const overlapRates = [
   {
-    label: "Claude citations overlapping Google",
+    label: "Claude citation domains overlapping Google's top 50",
     value: 64,
-    detail: "Domain overlap with the Google result set.",
+    detail: "Domain overlap with Google's first 50 results.",
   },
   {
-    label: "ChatGPT citations overlapping Google",
+    label: "ChatGPT citation domains overlapping Google's top 50",
     value: 37,
-    detail: "Domain overlap with the Google result set.",
+    detail: "Domain overlap with Google's first 50 results.",
   },
   {
     label: "Claude and ChatGPT domain overlap",
@@ -131,32 +144,32 @@ export default function StateOfAeoStudy() {
         </p>
       </ResearchSection>
 
-      <ResearchSection title="When Claude searches, Brave supplies the shortlist">
+      <ResearchSection title="When Claude searches, its citations closely match Brave">
         <p>
-          Claude's citations followed Brave closely. We found 79.2 percent of cited URLs within
-          Brave positions one through ten. The ordering was largely preserved rather than rebuilt
-          through a separate visible ranking layer.
+          Across roughly 35,000 URLs associated with 400 tested queries, 79.2 percent of Claude's
+          cited URLs also appeared within Brave positions one through ten. This is a strong observed
+          match, not proof that Brave directly caused Claude's source selection.
         </p>
 
         <ResearchFigure
           number={2}
-          title="Nearly four in five Claude citations came from Brave's top 10"
+          title="Nearly four in five Claude citations also appeared in Brave's top 10"
           description="Share of Claude citations by whether the source ranked in Brave positions 1 through 10."
           source="Profound comparison of Claude citations with Brave results"
         >
           <ProportionChart
             segments={[
-              { label: "Brave positions 1–10", value: 79.2, tone: "accent" },
+              { label: "Also in Brave positions 1–10", value: 79.2, tone: "accent" },
               { label: "Outside Brave's top 10", value: 20.8, tone: "pale" },
             ]}
-            ariaLabel="79.2 percent of Claude citations came from Brave positions one through ten and 20.8 percent came from outside the top ten"
+            ariaLabel="79.2 percent of Claude citations also appeared in Brave positions one through ten and 20.8 percent appeared outside the top ten"
           />
         </ResearchFigure>
 
         <p>
           Claude gives us a route we can inspect. Check whether the prompt triggers search, inspect
-          the fanout, then run those strings through Brave. A page missing from Brave's first page
-          is unlikely to enter Claude's citation set for that path.
+          the fanout, then run those strings through Brave. The observed overlap makes Brave useful
+          for diagnosis, while the missing retrieval logs keep the causal path unresolved.
         </p>
         <PullQuote>
           Claude's source selection looks different from ChatGPT because the retrieval path is
@@ -166,21 +179,23 @@ export default function StateOfAeoStudy() {
 
       <ResearchSection title="Claude looked more like Google, but the engines barely looked alike">
         <p>
-          Claude's cited domains overlapped 64 percent with Google results. ChatGPT's overlap was 37
-          percent. Yet Claude and ChatGPT shared only 8 percent of citation domains on average.
+          Claude's cited domains overlapped 64 percent with Google's top 50 results. ChatGPT's
+          overlap was 37 percent. Against Google's top 10, the reported figures were 34 percent and
+          21 percent. In a separate comparison covering more than 600 queries, Claude and ChatGPT
+          shared only 8 percent of citation domains on average.
         </p>
 
         <ResearchFigure
           number={3}
           title="Source overlap depends on which two systems you compare"
-          description="Pairwise domain overlap across Claude, ChatGPT, and Google."
+          description="Pairwise domain overlap across Claude, ChatGPT, and Google's top 50."
           source="Profound citation and search-result comparison"
         >
           <BarChart
             series={overlapRates}
             domain={[0, 70]}
             ticks={[0, 20, 40, 60]}
-            ariaLabel="Pairwise domain overlap: Claude with Google 64 percent, ChatGPT with Google 37 percent, and Claude with ChatGPT 8 percent"
+            ariaLabel="Pairwise domain overlap: Claude with Google's top 50 at 64 percent, ChatGPT with Google's top 50 at 37 percent, and Claude with ChatGPT at 8 percent"
             mark="lollipop"
             labelColumns="wide"
           />
