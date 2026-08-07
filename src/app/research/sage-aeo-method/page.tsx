@@ -118,7 +118,7 @@ export default function SageAeoMethodPage() {
 
         <Section>
           <SectionHeader
-            title="The four stages"
+            title="Stage by stage"
             eyebrow="S · A · G · E"
             className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />

@@ -50,7 +50,7 @@ const headlineFindings = [
     id: "generative-intent",
     question: "What is the largest category of ChatGPT prompt intent?",
     answer:
-      "Generative requests were the largest intent category at 37.5% of the classified sample drawn from a corpus of more than 50 million real ChatGPT prompts. The published source does not report the classified-sample size or collection window.",
+      "Generative requests were the largest intent category at 37.5% of the classified sample drawn from a corpus of more than 50 million real ChatGPT prompts. The source kept the classified-sample size and collection window unpublished.",
     value: "37.5%",
     finding: "of classified prompts asked ChatGPT to create, draft, or complete something.",
     study: "50M+ ChatGPT prompt study",
@@ -61,7 +61,7 @@ const headlineFindings = [
     id: "seo-variance",
     question: "How much AI citation variance did traditional SEO metrics explain?",
     answer:
-      "Across 1,311 pages, the tested traditional SEO metrics explained 4% to 7% of citation variance. The association was statistically reliable at p<0.001, but the observational analysis does not establish causation.",
+      "Across 1,311 pages, the tested traditional SEO metrics explained 4% to 7% of citation variance. The association was statistically reliable at p<0.001. The analysis was observational, so the result is an association rather than a causal effect.",
     value: "4–7%",
     finding: "of citation variance was explained by the tested traditional SEO metrics.",
     study: "250M-response analysis",
@@ -72,7 +72,7 @@ const headlineFindings = [
     id: "citation-formats",
     question: "Which page formats supplied most classified AI citations?",
     answer:
-      "Blogs and opinion pages supplied 34.2% of 8,500 classified citations, while comparison pages and listicles supplied 27.3%. Together, the two formats accounted for 61.5% of the classified set.",
+      "Blogs and opinion pages supplied 34.2% of 8,500 classified citations, while comparison pages and listicles supplied 27.3%. Together they accounted for 61.5% of the classified set.",
     value: "61.5%",
     finding: "of classified citations came from blogs, opinion, comparisons, or listicles.",
     study: "250M-response analysis",
@@ -83,7 +83,7 @@ const headlineFindings = [
     id: "product-page-detail",
     question: "How did frequently shown product pages differ from the least shown group?",
     answer:
-      "Among 16,000 product-detail pages observed from October 2 through November 2, 2025, the most frequently shown pages had 848% more FAQs and 103% more videos than the least shown group. The comparison is descriptive and does not establish that either feature caused visibility.",
+      "Among 16,000 product-detail pages observed from October 2 through November 2, 2025, the most frequently shown pages had 848% more FAQs and 103% more videos than the least shown group. The comparison is descriptive; no one tested whether adding either feature causes the visibility.",
     value: "+848% FAQs",
     finding: "on frequently shown product pages than on the least shown group.",
     study: "250M-response analysis",
@@ -94,7 +94,7 @@ const headlineFindings = [
     id: "claude-brave",
     question: "What share of Claude citations also appeared in Brave's top 10?",
     answer:
-      "Across roughly 35,000 URLs associated with 400 tested queries, 79.2% of Claude's cited URLs also appeared in Brave positions one through ten. The observed match does not by itself prove that Brave directly caused Claude's source selection.",
+      "Across roughly 35,000 URLs associated with 400 tested queries, 79.2% of Claude's cited URLs also appeared in Brave positions one through ten. The match is observational — both systems could simply favor the same pages.",
     value: "79.2%",
     finding: "of Claude's cited URLs appeared in Brave's first ten results.",
     study: "State of AEO 2026",
@@ -105,7 +105,7 @@ const headlineFindings = [
     id: "cross-engine-overlap",
     question: "How much did Claude and ChatGPT citation domains overlap?",
     answer:
-      "Across more than 600 tested queries, Claude and ChatGPT shared 8% of citation domains on average. The public materials do not report the overlap formula, collection window, or per-engine citation counts.",
+      "Across more than 600 tested queries, Claude and ChatGPT shared 8% of citation domains on average. The overlap formula and per-engine citation counts stayed unpublished.",
     value: "8%",
     finding: "average citation-domain overlap between Claude and ChatGPT.",
     study: "State of AEO 2026",
@@ -127,7 +127,7 @@ const headlineFindings = [
     id: "natural-language-urls",
     question: "Were natural-language URL slugs more common among highly cited pages?",
     answer:
-      "In a comparison of 50,000 highly cited and 50,000 low-cited URLs, four-to-seven-word natural-language slugs were 11.4% more common in the highly cited group. This is observational enrichment, not evidence that changing a URL causes citation growth.",
+      "In a comparison of 50,000 highly cited and 50,000 low-cited URLs, four-to-seven-word natural-language slugs were 11.4% more common in the highly cited group. This is enrichment in a group comparison; rewriting a slug was never tested directly.",
     value: "+11.4%",
     finding: "more common among highly cited URLs for four-to-seven-word slugs.",
     study: "250M-response analysis",
@@ -142,11 +142,11 @@ const chatgptIntentStudy: EmpiricalStudy = {
   shortTitle: "50M+ ChatGPT prompt study",
   published: "June 25, 2025",
   description:
-    "A prompt-intent study separating generative, informational, commercial, transactional, navigational, and connective conversational turns.",
+    "A study of what people actually ask ChatGPT to do — create something, learn something, buy something, navigate somewhere, or just keep the conversation going.",
   scope:
     "More than 50 million real ChatGPT prompts surfaced through Profound Prompt Volumes. The published percentages describe a classified sample drawn from that corpus.",
   method:
-    "Prompt-intent classification, category-share calculation, and comparison of four shared categories with a published traditional-search baseline.",
+    "Prompt-intent classification and category shares, benchmarked against a published traditional-search baseline where the categories lined up.",
   authors: ["Josh Blyskal", "Sartaj Rajpal"],
   contributors: [],
   fullWriteup: "/research/chatgpt-intent-study",
@@ -157,8 +157,8 @@ const chatgptIntentStudy: EmpiricalStudy = {
     },
   ],
   limitations: [
-    "The classified-sample size, collection window, labeling procedure, traditional-search baseline source, and raw data are not public.",
-    "The unit is prompts, not unique users. Follow-up turns are included, so the shares are not equivalent to first-turn search demand.",
+    "The classified n, the collection window, and the labeling procedure stayed internal at Profound.",
+    "Prompts are the unit, follow-up turns included. One chatty user can tilt a category.",
   ],
   findings: [
     {
@@ -170,7 +170,7 @@ const chatgptIntentStudy: EmpiricalStudy = {
       sample: "Classified sample from a 50M+ prompt corpus; classified n unpublished",
       period: "Collection window unpublished; report published June 25, 2025",
       caveat:
-        "A generative prompt asks the model to produce an output, not simply retrieve information.",
+        "Generative means the user asked for something to be made: a draft, a plan, a block of code.",
       source: { label: "Full study", href: "/research/chatgpt-intent-study" },
     },
     {
@@ -191,8 +191,7 @@ const chatgptIntentStudy: EmpiricalStudy = {
         "Navigational prompts were 30.1 percentage points below the 32.2% traditional-search baseline.",
       sample: "Same classified sample; n unpublished",
       period: "Collection window unpublished",
-      caveat:
-        "The baseline source and its sampling method are not identified in the public report.",
+      caveat: "The public report never names the traditional-search baseline it compares against.",
       source: { label: "Full study", href: "/research/chatgpt-intent-study" },
     },
     {
@@ -226,11 +225,11 @@ const citationStudy: EmpiricalStudy = {
   shortTitle: "250M-response analysis",
   published: "December 8, 2025",
   description:
-    "A collection of analyses on SEO metrics, page formats, retrieval snippets, query fanout, freshness, URLs, and product-detail pages.",
+    "A hunt for what predicts getting cited, from SEO metrics and page formats to freshness, URLs, and product pages.",
   scope:
     "More than 250 million responses and 3 billion citations observed across ChatGPT, Perplexity, Google AI Overviews, Google AI Mode, Gemini, Copilot, Claude, and Meta AI.",
   method:
-    "Several published subsamples were analyzed separately: association modeling, content classification, high-versus-low citation URL comparison, query-fanout comparison, and descriptive product-page analysis.",
+    "Each subsample got its own analysis: association modeling for the SEO question, classification for formats, matched-group comparisons for URLs and fanout, and a straight census of product pages.",
   authors: ["Josh Blyskal"],
   contributors: [],
   fullWriteup: "/research/250-million-ai-search-results",
@@ -249,9 +248,9 @@ const citationStudy: EmpiricalStudy = {
     },
   ],
   limitations: [
-    "The findings come from different units and subsamples; they must not be treated as one pooled sample.",
-    "The 4–7% result is an observational association, not a causal estimate.",
-    "A common collection window, full engine-level counts, model specification, and raw data are not public.",
+    "Each finding has its own subsample. The 250M headline is the umbrella, never the denominator.",
+    "The 4–7% result is an association. Nobody ran an experiment.",
+    "The model specification and raw data stayed internal, and the subsamples were collected on different clocks.",
   ],
   findings: [
     {
@@ -262,7 +261,7 @@ const citationStudy: EmpiricalStudy = {
         "The tested traditional SEO metrics explained a small share of variation in citation counts.",
       sample: "1,311 pages",
       period: "Published December 8, 2025; analysis window unpublished",
-      caveat: "p<0.001, but association does not establish causation.",
+      caveat: "Statistically solid at p<0.001, and still just an association.",
       source: { label: "Full study", href: "/research/250-million-ai-search-results" },
     },
     {
@@ -285,7 +284,7 @@ const citationStudy: EmpiricalStudy = {
       sample: "8,500 classified citations",
       period: "Collection window unpublished",
       caveat:
-        "This is citation composition, not the probability that a page of each type will be cited.",
+        "Composition can't separate preference from supply — blogs may simply outnumber everything else.",
       source: { label: "Full study", href: "/research/250-million-ai-search-results" },
     },
     {
@@ -295,7 +294,7 @@ const citationStudy: EmpiricalStudy = {
       finding: "Homepages were the smallest named page-type category in the classified set.",
       sample: "8,500 classified citations",
       period: "Collection window unpublished",
-      caveat: "The result does not include later changes in hyperlinking or referral behavior.",
+      caveat: "Later changes to hyperlinking and referral behavior are invisible to this number.",
       source: { label: "Full study", href: "/research/250-million-ai-search-results" },
     },
     {
@@ -305,7 +304,7 @@ const citationStudy: EmpiricalStudy = {
       finding: "Half of the top-cited pages were less than thirteen weeks old.",
       sample: "Top-cited-page slice; subgroup denominator unpublished",
       period: "Collection window unpublished",
-      caveat: "Page age is descriptive and may reflect query freshness or publication mix.",
+      caveat: "Fresh pages may simply match fresh queries.",
       source: { label: "Full study", href: "/research/250-million-ai-search-results" },
     },
     {
@@ -316,7 +315,7 @@ const citationStudy: EmpiricalStudy = {
         "Natural-language slugs of four to seven words were more common in the highly cited group.",
       sample: "50,000 highly cited URLs vs. 50,000 low-cited URLs",
       period: "Collection window unpublished",
-      caveat: "Group prevalence does not prove that changing a URL causes citation growth.",
+      caveat: "Rewriting your slugs tomorrow won't automatically buy you 11.4% more citations.",
       source: { label: "Full study", href: "/research/250-million-ai-search-results" },
     },
     {
@@ -326,7 +325,7 @@ const citationStudy: EmpiricalStudy = {
       finding: "URLs semantically closer to the query received up to 5% more citations.",
       sample: "100,000-URL high-versus-low comparison",
       period: "Collection window unpublished",
-      caveat: "The public materials do not publish the similarity model or confidence interval.",
+      caveat: "Which similarity model produced \u201cup to 5%\u201d? The deck doesn't say.",
       source: { label: "Full study", href: "/research/250-million-ai-search-results" },
     },
     {
@@ -336,7 +335,7 @@ const citationStudy: EmpiricalStudy = {
       finding: "36.4% generated two searches and 52.9% generated three.",
       sample: "Published ChatGPT fanout sample; n unpublished",
       period: "Collection window unpublished",
-      caveat: "The result describes the measured prompt mix, not every ChatGPT mode or query.",
+      caveat: "A different prompt mix would fan out differently.",
       source: { label: "Full study", href: "/research/250-million-ai-search-results" },
     },
     {
@@ -346,7 +345,7 @@ const citationStudy: EmpiricalStudy = {
       finding: "Generated ChatGPT search strings overlapped 39% with Google result sets.",
       sample: "1,000 Google SERP analyses and 1,000 ChatGPT executions",
       period: "Collection window unpublished",
-      caveat: "The overlap unit and matching method should be read from the full study context.",
+      caveat: "The matching method matters here; read the full study before quoting this one.",
       source: { label: "Full study", href: "/research/250-million-ai-search-results" },
     },
     {
@@ -357,7 +356,7 @@ const citationStudy: EmpiricalStudy = {
         "The most frequently shown product pages had 848% more FAQs and 103% more videos than the least shown group.",
       sample: "16,000 product-detail pages",
       period: "October 2–November 2, 2025",
-      caveat: "The comparison is descriptive; it does not isolate the effect of FAQs or videos.",
+      caveat: "Teams that add FAQs tend to do many other things well; nothing here isolates cause.",
       source: { label: "Full study", href: "/research/250-million-ai-search-results" },
     },
   ],
@@ -369,11 +368,11 @@ const stateOfAeoStudy: EmpiricalStudy = {
   shortTitle: "State of AEO 2026",
   published: "July 22, 2026",
   description:
-    "A set of engine-level analyses covering search invocation, source overlap, citation formats, query fanout, referral traffic, and AI search advertising.",
+    "Engine-level work showing how differently Claude and ChatGPT retrieve: when they search, where their sources overlap, and what they cite — plus referral traffic and the first AI search ads.",
   scope:
     "Published analyses span Claude, ChatGPT, Brave Search, Google Search, and Google AI Mode. Each slice uses a different unit.",
   method:
-    "Observed search invocation, matched Claude citations to Brave positions, compared domain overlap and content types, tracked repeated fanout strings, and separately observed referrals and ads.",
+    "Watched when each engine chose to search, matched Claude's citations against Brave's rankings, compared source mixes, and tracked how fanout strings repeated. Referrals and ads were observed separately.",
   authors: ["Josh Blyskal"],
   contributors: ["Jasman Singh, research lead"],
   fullWriteup: "/research/state-of-aeo-2026",
@@ -388,9 +387,9 @@ const stateOfAeoStudy: EmpiricalStudy = {
     },
   ],
   limitations: [
-    "Several slices still omit exact prompt or citation counts, retrieval-analysis dates, sampling procedures, and raw data.",
+    "Several slices never published their counts or collection dates; the rows flag which.",
     "The 36.6% search rate reflects the tested mix of current recommendations and basic explainers.",
-    "Prompt routing, citation overlap, content classification, referral traffic, and ad observations are separate analyses.",
+    "Each slice was a separate analysis. Chaining them into one story is the mistake this table exists to prevent.",
   ],
   findings: [
     {
@@ -400,8 +399,7 @@ const stateOfAeoStudy: EmpiricalStudy = {
       finding: "Claude searched for a little over one-third of tested prompts with search enabled.",
       sample: "Mixed recommendation and explainer prompt set; n unpublished",
       period: "Collection date unpublished; report published July 22, 2026",
-      caveat:
-        "The search rate depends on the tested prompt mix and should not be generalized universally.",
+      caveat: "Ask different questions and you get a different rate.",
       source: { label: "Full study", href: "/research/state-of-aeo-2026" },
     },
     {
@@ -411,7 +409,7 @@ const stateOfAeoStudy: EmpiricalStudy = {
       finding: "Nearly four in five cited URLs appeared on Brave's first results page.",
       sample: "Approximately 35,000 URLs across 400 queries",
       period: "Collection date unpublished",
-      caveat: "The match does not by itself prove that Brave directly caused source selection.",
+      caveat: "Claude and Brave could simply favor the same pages; the match is observational.",
       source: { label: "Full study", href: "/research/state-of-aeo-2026" },
     },
     {
@@ -433,8 +431,7 @@ const stateOfAeoStudy: EmpiricalStudy = {
       finding: "The two answer engines shared very few cited domains on average.",
       sample: "More than 600 queries; pairwise domain comparison",
       period: "Collection date unpublished",
-      caveat:
-        "The overlap formula, distribution around the average, and per-engine citation counts are unpublished.",
+      caveat: "8% is an average; the deck never shows the spread around it.",
       source: { label: "Full study", href: "/research/state-of-aeo-2026" },
     },
     {
@@ -444,7 +441,7 @@ const stateOfAeoStudy: EmpiricalStudy = {
       finding: "Claude used more listicles than ChatGPT in the classified citation set.",
       sample: "Classified citations; n unpublished",
       period: "Collection date unpublished",
-      caveat: "Source-type labels describe composition, not page-level citation probability.",
+      caveat: "Composition again: listicles may just be plentiful in search results.",
       source: { label: "Full study", href: "/research/state-of-aeo-2026" },
     },
     {
@@ -464,7 +461,7 @@ const stateOfAeoStudy: EmpiricalStudy = {
       finding: "Claude added 2025 or 2026 to far more fanouts than ChatGPT.",
       sample: "Query-fanout sample; n unpublished",
       period: "Collection date unpublished",
-      caveat: "The measured years and prompt mix make this a time-bound result.",
+      caveat: "Tied to 2025 and 2026 by definition; it will age.",
       source: { label: "Full study", href: "/research/state-of-aeo-2026" },
     },
     {
@@ -474,7 +471,7 @@ const stateOfAeoStudy: EmpiricalStudy = {
       finding: "The same query strings recurred in roughly two-thirds of repeated Claude fanouts.",
       sample: "Repeated fanout executions; n unpublished",
       period: "Collection date unpublished",
-      caveat: "The number of repetitions and matching rule are not public.",
+      caveat: "The deck never says how many repeat runs there were, or how strings were matched.",
       source: { label: "Full study", href: "/research/state-of-aeo-2026" },
     },
     {
@@ -497,11 +494,11 @@ const redditStudy: EmpiricalStudy = {
   shortTitle: "Reddit citation study",
   published: "Nov 2025 · May 2026 update",
   description:
-    "An aggregate and engine-level analysis of Reddit citation share, source pairing, sentiment, community concentration, and cited-post age.",
+    "Why one domain tops the citation charts: Reddit's share in aggregate and per engine, and how sentiment, community, and post age play into it.",
   scope:
     "More than 4 billion citations and 300 million answer-engine responses in the main study, plus a separate follow-up using approximately 7 million recent ChatGPT citations and fanouts.",
   method:
-    "Aggregate and engine-level domain ranking, source-pair review, sentiment-rate comparison, subreddit concentration, post-age analysis, and a later fanout trend comparison.",
+    "Domain rankings in aggregate and per engine, with closer reads of sentiment, subreddit concentration, and cited-post age. A separate 2026 follow-up tracked fanout trends.",
   authors: ["Josh Blyskal", "Sartaj Rajpal"],
   contributors: ["Profound, in collaboration with Reddit"],
   fullWriteup: "/research/reddit-ai-search-data",
@@ -516,10 +513,10 @@ const redditStudy: EmpiricalStudy = {
     },
   ],
   limitations: [
-    "The aggregate result pools answer engines with materially different behavior.",
-    "Exact engine-level counts, subgroup sizes, labels, and raw data are not public.",
-    "Citation share measures sourcing visibility, not whether a user saw, trusted, clicked, or acted on an answer.",
-    "The May 2026 fanout finding is a separate ChatGPT-only follow-up and should not be pooled with the 2025 six-engine analysis.",
+    "The aggregate pools engines that behave nothing alike — Perplexity ranked Reddit first while Copilot ranked it 31st.",
+    "Engine-level counts and subgroup sizes stayed internal.",
+    "Citation share tells you what the engines read. What users did with the answers is beyond this data.",
+    "The May 2026 follow-up covers ChatGPT alone; keep it apart from the 2025 aggregate.",
   ],
   findings: [
     {
@@ -529,7 +526,7 @@ const redditStudy: EmpiricalStudy = {
       finding: "Reddit ranked first among cited domains in the pooled engine dataset.",
       sample: "4B+ citations and 300M answer-engine responses",
       period: "August 2024–late October 2025",
-      caveat: "No single domain supplied most citations; 3.11% led a fragmented source market.",
+      caveat: "First place took just 3.11% — that is how fragmented the source market is.",
       source: { label: "Full study", href: "/research/reddit-ai-search-data" },
     },
     {
@@ -550,8 +547,7 @@ const redditStudy: EmpiricalStudy = {
       finding: "Negative and positive brand commentary was cited at similar rates.",
       sample: "Reddit content containing brand sentiment; subgroup n unpublished",
       period: "Observed in the 2025 study",
-      caveat:
-        "The result does not measure the sentiment of all Reddit content or resulting answers.",
+      caveat: "Measured only on posts that contained brand sentiment.",
       source: { label: "Full study", href: "/research/reddit-ai-search-data" },
     },
     {
@@ -582,7 +578,7 @@ const redditStudy: EmpiricalStudy = {
       finding: "The share rose approximately twenty-fourfold between January and late May.",
       sample: "ChatGPT fanout trend plus ~7M recent citations",
       period: "January–late May 2026",
-      caveat: "Country, language, industry, and prompt composition were not published.",
+      caveat: "The post gives no geographic or industry breakdown.",
       source: {
         label: "LinkedIn",
         href: "https://www.linkedin.com/posts/joshua-blyskal_chatgpt-is-explicitly-searching-for-reddit-activity-7467567489535700993-oM4W",
@@ -595,7 +591,8 @@ const redditStudy: EmpiricalStudy = {
       finding: "Reddit returned to the number-one cited domain in the separate follow-up.",
       sample: "Approximately 7M recent ChatGPT citations",
       period: "Published June 2, 2026",
-      caveat: "This is a later ChatGPT-only slice, not the 3.11% six-engine aggregate.",
+      caveat:
+        "A later ChatGPT-only slice with its own denominator — it can't be lined up against the 3.11%.",
       source: {
         label: "LinkedIn",
         href: "https://www.linkedin.com/posts/joshua-blyskal_chatgpt-is-explicitly-searching-for-reddit-activity-7467567489535700993-oM4W",
@@ -615,8 +612,7 @@ const fieldStudyFindings: readonly FindingRow[] = [
       "In Profound economist Jennifer Zou's study, citation share differed by 0.25 percentage points despite ten times as many daily executions.",
     sample: "753 prompts, seven platforms, ~989,000 runs, and 6.66M citation slots",
     period: "United States, June 1–14, 2026",
-    caveat:
-      "The pooled portfolio result does not establish that one daily run is sufficient for an individual prompt.",
+    caveat: "A portfolio average; any single prompt can still swing day to day.",
     source: {
       label: "Profound study",
       href: "https://www.tryprofound.com/blog/is-once-a-day-enough",
@@ -631,7 +627,7 @@ const fieldStudyFindings: readonly FindingRow[] = [
     sample: "Same 753-prompt, seven-platform, fourteen-day portfolio",
     period: "United States, June 1–14, 2026",
     caveat:
-      "Portfolio averages can hide prompt-level and between-engine instability. The study also resampled 2,000 synthetic portfolios.",
+      "Averages smooth over prompt-level and between-engine instability. The study also resampled 2,000 synthetic portfolios.",
     source: {
       label: "Profound study",
       href: "https://www.tryprofound.com/blog/is-once-a-day-enough",
@@ -645,7 +641,7 @@ const fieldStudyFindings: readonly FindingRow[] = [
     sample: "Approximately 900 newly published marketing pages",
     period: "Published May 11, 2026; observation window unpublished",
     caveat:
-      "The public post does not explain uncited-page handling, prompt exposure, engine splits, page selection, indexing lag, or collection method.",
+      "The big unknown is what happened to pages that were never cited at all — the post doesn't say.",
     source: {
       label: "LinkedIn",
       href: "https://www.linkedin.com/posts/joshua-blyskal_how-long-does-it-take-to-get-cited-in-chatgpt-activity-7459597424102223873-Ywuj",
@@ -659,8 +655,7 @@ const fieldStudyFindings: readonly FindingRow[] = [
       "Commercial prompts searched at 53.5%, informational prompts at 18.7%, and generative prompts at 8.9%.",
     sample: "667,000 ChatGPT conversations",
     period: "Published January 8, 2026; collection window unpublished",
-    caveat:
-      "The public post does not disclose language, geography, industry mix, intent-labeling method, or first-turn handling.",
+    caveat: "How intents were labeled is undisclosed, and the labeling is the whole result.",
     source: {
       label: "LinkedIn",
       href: "https://www.linkedin.com/posts/joshua-blyskal_i-pulled-667k-chatgpt-conversations-from-activity-7415035320527683584-vOgG",
@@ -673,7 +668,7 @@ const fieldStudyFindings: readonly FindingRow[] = [
     finding: "ChatGPT used live web search in fewer than one in five conversations in the dataset.",
     sample: "667,000 ChatGPT conversations",
     period: "Published January 8, 2026; collection window unpublished",
-    caveat: "The result describes this conversation mix and model period, not all ChatGPT usage.",
+    caveat: "One conversation mix, one model period.",
     source: {
       label: "LinkedIn",
       href: "https://www.linkedin.com/posts/joshua-blyskal_i-pulled-667k-chatgpt-conversations-from-activity-7415035320527683584-vOgG",
@@ -686,8 +681,7 @@ const fieldStudyFindings: readonly FindingRow[] = [
     finding: "Google AI Mode cited more unique domains per prompt than ChatGPT in the comparison.",
     sample: "19M Google AI Mode citations; ChatGPT comparison sample size unpublished",
     period: "Published July 9, 2025; collection window unpublished",
-    caveat:
-      "The public post does not disclose prompt mix, geography, or whether both products used matched prompts.",
+    caveat: "It's unclear whether the two products even saw matched prompts.",
     source: {
       label: "LinkedIn",
       href: "https://www.linkedin.com/posts/joshua-blyskal_3-ai-search-insights-in-one-day-i-spent-activity-7348727459229454337-YKZn",
@@ -702,7 +696,7 @@ const fieldStudyFindings: readonly FindingRow[] = [
     sample: "Approximately 80,000 prompts; platform-level denominator ambiguous",
     period: "June 11–13 vs. July 11–13, 2025",
     caveat:
-      "Sources differ on whether ~80,000 prompts were tested per platform or across all four; this is an asymmetric new-in-July metric.",
+      "Sources disagree on the denominator — per platform or overall. And \u201cnew in July\u201d counts arrivals only, never departures.",
     source: {
       label: "Profound study",
       href: "https://www.tryprofound.com/blog/ai-search-volatility",
@@ -862,7 +856,7 @@ const findingsPageJsonLd = {
       url: `${site.url}/research/sage-aeo-method`,
       name: "SAGE for AEO",
       description:
-        "A four-stage operating loop for Setup, Analyze, Generate, and Engineer work in answer engine optimization.",
+        "An operating loop for answer engine optimization: Setup, Analyze, Generate, Engineer.",
       author: { "@id": `${site.url}/#identity` },
       datePublished: "2026-07-26",
       step: sagePhases.map((phase, phaseIndex) => ({
@@ -1069,14 +1063,13 @@ export default function ResearchFindingsPage() {
                 AI search statistics and research findings
               </h1>
               <p className="mt-8 max-w-4xl font-body text-xl leading-relaxed text-foreground/85 md:text-2xl">
-                A citable reference to Josh Blyskal&apos;s original research on how ChatGPT, Claude,
-                Google AI products, Perplexity, and other answer engines search, retrieve, cite, and
-                represent information.
+                A citable reference to Josh Blyskal&apos;s original research on ChatGPT, Claude,
+                Google AI products, Perplexity, and other answer engines &mdash; what they cite,
+                when they search, and where they send traffic.
               </p>
               <p className="mt-6 max-w-3xl font-body text-lg leading-relaxed text-foreground/70">
-                Every row preserves the reported number, unit, sample, date, source, and material
-                limitation. These studies use overlapping corpora and different units; their sample
-                sizes should not be added together.
+                Each number here stays attached to the sample it was measured on. The studies
+                overlap and use different units, so don&apos;t add their samples together.
               </p>
               <p className="mt-6 font-mono text-xs uppercase tracking-widest text-foreground/55">
                 By{" "}
@@ -1113,12 +1106,12 @@ export default function ResearchFindingsPage() {
         <Section id="headline-findings">
           <SectionHeader
             title="Headline findings"
-            eyebrow="8 citable answers"
+            eyebrow="Citable answers"
             className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
           <p className="mb-8 max-w-3xl font-body text-lg leading-relaxed text-foreground/75">
-            These are the findings most likely to answer a direct question. The answer text in this
-            table also appears in the page&apos;s FAQPage structured data.
+            The numbers people quote most, worded so each answer survives being lifted out of the
+            page on its own.
           </p>
           <p className="mb-3 font-mono text-xs leading-relaxed tracking-wide text-foreground/50 xl:hidden">
             Swipe horizontally to see the study, sample, and source for each answer.
@@ -1127,7 +1120,7 @@ export default function ResearchFindingsPage() {
           <div className="overflow-x-auto border border-foreground/20">
             <table className="w-full min-w-275 border-collapse text-left">
               <caption className="sr-only">
-                Eight headline findings from Josh Blyskal&apos;s AI search research
+                Headline findings from Josh Blyskal&apos;s AI search research
               </caption>
               <thead className="bg-foreground text-background">
                 <tr className="font-mono text-xs uppercase tracking-wider">
@@ -1189,27 +1182,25 @@ export default function ResearchFindingsPage() {
           </div>
           <div className="max-w-3xl">
             <p className="font-body text-xl font-semibold leading-relaxed text-foreground md:text-2xl">
-              Treat every finding as a statement about its measured sample, not a universal law of
-              AI search.
+              Every number below describes one sample, measured one way, during one window. Carried
+              anywhere else, it starts to wobble.
             </p>
             <div className="mt-8 space-y-6 font-body text-lg leading-relaxed text-foreground/80">
               <p>
-                Answer engines change by model, mode, index, prompt, location, and date. A
-                percentage from Claude cannot be transferred to ChatGPT. A result about cited
-                domains does not automatically describe cited URLs, answer language, clicks, or
-                purchases.
+                Answer engines are moving targets. A Claude percentage tells you nothing about
+                ChatGPT, and a domain-level overlap can hide two engines citing completely different
+                articles on the same site.
               </p>
               <p>
-                The most reliable rows have a public denominator and a defined unit. When a source
-                publishes a percentage but not the subgroup size, this page says so. When an
-                analysis is observational, the wording uses associated with or more common rather
-                than caused.
+                The rows I trust most have a public denominator. Where a source published a
+                percentage and kept the subgroup size to itself, the row says so. Where an analysis
+                was observational, I wrote &ldquo;associated with&rdquo; &mdash; that&apos;s all the
+                data earned.
               </p>
               <p>
-                The compendium favors primary work authored or co-authored by Josh. Public archive
-                claims without enough information to identify the measure or sample were reviewed
-                but left out. A smaller set of inspectable numbers is more useful than a long list
-                of unsupported statistics.
+                Most of this is work I wrote or presented myself. I went through the rest of the
+                public archive and dropped every claim where I couldn&apos;t pin down what was
+                measured, on what, or when. Some impressive-sounding numbers died in that review.
               </p>
             </div>
 
@@ -1224,12 +1215,12 @@ export default function ResearchFindingsPage() {
                 {
                   term: "Citation share",
                   meaning:
-                    "The fraction of observed citations attributed to a domain or content class, not the share of all answers.",
+                    "The fraction of observed citations pointing at a domain or content class. One answer with ten citations counts ten times.",
                 },
                 {
                   term: "Domain overlap",
                   meaning:
-                    "The share of domains common to two measured source sets. It does not require matching URLs or passages.",
+                    "The share of domains two source sets have in common. Two engines can overlap on nytimes.com while citing entirely different articles.",
                 },
                 {
                   term: "Query fanout",
@@ -1239,12 +1230,12 @@ export default function ResearchFindingsPage() {
                 {
                   term: "Intent share",
                   meaning:
-                    "The fraction of classified prompts assigned to an intent category, not the fraction of unique users.",
+                    "The fraction of classified prompts landing in each category. One busy user can supply hundreds of prompts.",
                 },
                 {
                   term: "Referral traffic",
                   meaning:
-                    "Visits carrying an answer-engine referrer. Citations and unlinked mentions can influence users without creating one.",
+                    "Visits that arrive carrying an answer-engine referrer. A citation can shape a decision without ever producing one.",
                 },
               ].map((metricDefinition) => (
                 <div key={metricDefinition.term} className="bg-background p-5">
@@ -1271,13 +1262,13 @@ export default function ResearchFindingsPage() {
           <div className="mb-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
             <div>
               <p className="font-body text-xl leading-relaxed text-foreground/85">
-                SAGE is a four-stage method for turning answer-engine observations into repeatable
-                work: Setup, Analyze, Generate, and Engineer.
+                SAGE is how I turn answer-engine observations into repeatable work: Setup, Analyze,
+                Generate, Engineer.
               </p>
               <p className="mt-5 font-body text-base leading-relaxed text-foreground/65">
-                It is a practitioner method, not an empirical dataset. The numbers below are
-                operating heuristics or linked research evidence and should not be presented as a
-                controlled validation of the framework.
+                It&apos;s a working method. No controlled study validates it, and I&apos;ve never
+                claimed one does &mdash; the numbers below are the evidence I lean on while running
+                it.
               </p>
             </div>
             <div>
@@ -1285,9 +1276,8 @@ export default function ResearchFindingsPage() {
                 Provenance
               </p>
               <p className="mt-3 font-body text-base leading-relaxed text-foreground/75">
-                Invented by Josh Blyskal at Profound and taught in Profound 101. The method keeps
-                teams from automating an AEO workflow before its prompts, diagnosis, and handoff
-                make sense by hand.
+                I built SAGE at Profound and teach it in Profound 101. Its main job is stopping
+                teams from automating a workflow they haven&apos;t yet made work by hand.
               </p>
               <div className="mt-5">
                 <SourceLink
@@ -1302,7 +1292,9 @@ export default function ResearchFindingsPage() {
           </p>
           <div className="overflow-x-auto border border-foreground/20">
             <table className="w-full min-w-250 border-collapse text-left">
-              <caption className="sr-only">The four stages of the SAGE method for AEO</caption>
+              <caption className="sr-only">
+                The SAGE method for AEO, stage by stage: Setup, Analyze, Generate, Engineer
+              </caption>
               <thead className="bg-foreground text-background">
                 <tr className="font-mono text-xs uppercase tracking-wider">
                   <th className="w-28 px-5 py-4 font-normal">Stage</th>
@@ -1368,19 +1360,17 @@ export default function ResearchFindingsPage() {
           />
           <div className="mb-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
             <p className="font-body text-xl leading-relaxed text-foreground/85">
-              These public analyses have clear numeric claims and identifiable samples but do not
-              yet have full study pages on this site. They are included because they answer
-              recurring practitioner questions about measurement, retrieval, citation speed, source
-              diversity, and volatility.
+              Numbers I published in passing &mdash; mostly LinkedIn posts &mdash; that people keep
+              asking about. None has a full study page yet, so each row states exactly what the
+              original post left out.
             </p>
             <div className="border-l-2 border-accent pl-5">
               <p className="font-mono text-xs uppercase tracking-widest text-accent">
                 Evidence tier
               </p>
               <p className="mt-3 font-body text-base leading-relaxed text-foreground/70">
-                Treat these as public field notes. Each row links to the original post and states
-                what the post did not disclose. They are not pooled with the four full studies
-                above.
+                Field notes, one tier below the studies above. Read the method note before quoting
+                any of these.
               </p>
             </div>
           </div>
@@ -1400,9 +1390,8 @@ export default function ResearchFindingsPage() {
             className="mb-10 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
           <p className="max-w-3xl font-body text-xl leading-relaxed text-foreground/85">
-            This page is a structured index of published findings, not a new pooled analysis. The
-            underlying studies used different collection systems, samples, periods, engines, and
-            units. The underlying raw data is not distributed or licensed through this page.
+            This page is an index. Every finding above was published somewhere first, on its own
+            collection system and its own clock, and the raw data stays with the original studies.
           </p>
 
           <p className="mb-3 mt-12 font-mono text-xs leading-relaxed tracking-wide text-foreground/50 xl:hidden">
@@ -1456,27 +1445,26 @@ export default function ResearchFindingsPage() {
 
           <div className="mt-12 grid gap-10 sm:grid-cols-2">
             <div>
-              <h3 className="font-display text-3xl font-medium">Inclusion standard</h3>
+              <h3 className="font-display text-3xl font-medium">What earns a row</h3>
               <ul className="mt-5 space-y-3 font-body text-base leading-relaxed text-foreground/75">
-                <li>Josh authored, co-authored, presented, or publicly documented the analysis.</li>
-                <li>The claim has a numeric value and an identifiable unit.</li>
-                <li>A primary public source remains accessible.</li>
-                <li>Missing denominators, dates, or procedures are stated rather than inferred.</li>
+                <li>I wrote, co-wrote, presented, or publicly documented the analysis.</li>
+                <li>The claim has a number and an identifiable unit.</li>
+                <li>A primary public source is still accessible.</li>
+                <li>
+                  Where a denominator or date is missing, the row says so instead of guessing.
+                </li>
               </ul>
             </div>
             <div>
-              <h3 className="font-display text-3xl font-medium">What this page does not claim</h3>
+              <h3 className="font-display text-3xl font-medium">Read before quoting</h3>
               <ul className="mt-5 space-y-3 font-body text-base leading-relaxed text-foreground/75">
-                <li>The samples are not representative of every AI answer or user.</li>
-                <li>Observed associations do not prove that a tactic caused the result.</li>
+                <li>These samples are slices. None was drawn to represent all AI usage.</li>
+                <li>Associations throughout &mdash; nobody ran controlled experiments.</li>
                 <li>
-                  Citation share is not equivalent to user attention, traffic, trust, or revenue.
+                  Citation share sits several steps upstream of attention, traffic, and revenue.
                 </li>
-                <li>
-                  The public materials do not provide enough raw data or procedural detail for
-                  independent replication.
-                </li>
-                <li>Engine behavior measured on one date may change after a product update.</li>
+                <li>Replicating any of this would require raw data that was never released.</li>
+                <li>Every number carries a date because engines ship updates constantly.</li>
               </ul>
             </div>
           </div>
@@ -1530,8 +1518,8 @@ export default function ResearchFindingsPage() {
             className="mb-10 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
           <p className="max-w-3xl font-body text-xl leading-relaxed text-foreground/85">
-            Cite this compendium when referencing the collection. Cite the individual study when
-            using a specific finding so readers can inspect its methods and limitations.
+            For the collection, cite this page. For a single number, cite the study it came from
+            &mdash; that&apos;s where the methods and limitations live.
           </p>
 
           <div className="mt-12">
@@ -1617,8 +1605,9 @@ export default function ResearchFindingsPage() {
               Do not strip the sample from the statistic.
             </p>
             <p className="mt-4 font-body text-lg leading-relaxed text-foreground/75">
-              Write &ldquo;4% to 7% across 1,311 pages,&rdquo; not simply &ldquo;SEO explains 7% of
-              AI citations.&rdquo; The unit and denominator are part of the finding.
+              Write &ldquo;4% to 7% across 1,311 pages.&rdquo; The version that drops the
+              denominator &mdash; &ldquo;SEO explains 7% of AI citations&rdquo; &mdash; is the
+              version that ends up wrong on someone&apos;s slide.
             </p>
           </div>
         </Section>
