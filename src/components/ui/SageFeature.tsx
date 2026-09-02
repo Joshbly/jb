@@ -34,10 +34,7 @@ export function SageFeature() {
           </ol>
 
           <div className="mt-8 max-w-2xl">
-            <p className="font-mono text-xs uppercase tracking-widest text-foreground/50">
-              A simple example
-            </p>
-            <p className="mt-3 font-body text-base leading-relaxed text-foreground/75 md:text-lg">
+            <p className="font-body text-base leading-relaxed text-foreground/75 md:text-lg">
               Imagine the team tracks 20 prompts every week and the brand suddenly stops appearing
               in ChatGPT for five of them. Instead of immediately writing a new page, open those
               five responses and see what changed: which competitors now appear, which websites

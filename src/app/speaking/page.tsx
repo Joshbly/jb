@@ -145,10 +145,7 @@ export default function SpeakingPage() {
             <SubpageNav activeHref="/speaking" />
             <div className="grid gap-12 py-24 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end lg:py-32">
               <div className="min-w-0">
-                <p className="font-mono text-xs uppercase tracking-widest text-foreground/55">
-                  AI search research, onstage
-                </p>
-                <h1 className="mt-5 max-w-4xl font-display text-hero-name font-normal leading-[0.92] tracking-tight">
+                <h1 className="max-w-4xl font-display text-hero-name font-normal leading-[0.92] tracking-tight">
                   Speaking
                 </h1>
                 <p className="mt-8 max-w-2xl font-body text-lg leading-relaxed text-foreground/80 md:text-xl">
@@ -218,9 +215,6 @@ export default function SpeakingPage() {
 
         <Section layout="split">
           <div className="lg:sticky lg:top-28 lg:self-start">
-            <p className="mb-5 font-mono text-xs uppercase tracking-widest text-accent">
-              Transcript-verified excerpt · 5:10–7:10
-            </p>
             <DisplayH2>
               This two-minute section explains why the answer engines rank differently.
             </DisplayH2>
@@ -324,10 +318,7 @@ export default function SpeakingPage() {
         <Section>
           <div className="grid gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)] lg:gap-24">
             <div className="min-w-0">
-              <p className="font-mono text-xs uppercase tracking-widest text-foreground/50">
-                Short bio
-              </p>
-              <h2 className="mt-5 font-display text-4xl font-normal italic">About Josh</h2>
+              <h2 className="font-display text-4xl font-normal italic">About Josh</h2>
               <div className="mt-7 space-y-5 font-body text-lg leading-relaxed text-foreground/80">
                 <p>
                   Josh Blyskal leads AI Strategy & Research at Profound, where he works on brand

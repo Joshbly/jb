@@ -34,12 +34,12 @@ export function Hero() {
 
         <div className="relative z-20 flex min-h-[64svh] w-full flex-1 items-center bg-background px-6 py-14 md:px-10 lg:min-h-screen lg:w-[58%] lg:px-12 lg:py-24 xl:px-20">
           <Reveal delay={150} className="w-full max-w-3xl">
-            <p className="mb-6 font-mono text-xs uppercase tracking-widest text-foreground/60">
-              {site.name} · AEO & GEO researcher
-            </p>
-            <h1 className="max-w-2xl font-display text-hero-name font-normal leading-[0.92] tracking-tight">
-              I study how to make brands visible in AI search.
+            <h1 className="font-display text-hero-name font-normal leading-[0.92] tracking-tight">
+              {site.name}
             </h1>
+            <p className="mt-6 max-w-2xl font-display text-2xl font-normal italic leading-snug md:text-3xl">
+              I make brands visible in AI search.
+            </p>
             <p className="mt-7 max-w-xl font-body text-lg leading-relaxed text-foreground/80 lg:text-xl">
               I joined{" "}
               <a
@@ -54,10 +54,10 @@ export function Hero() {
               ChatGPT, Claude, Gemini, and Google AI products research products, resolve brand
               identity, and decide which brands appear in an answer.
             </p>
-            <p className="mt-5 max-w-xl font-body text-base leading-relaxed text-foreground/65 lg:text-lg">
+            <p className="mt-5 max-w-xl font-body text-lg leading-relaxed text-foreground/80 lg:text-xl">
               I use research drawn from more than 10 billion AI citations and 1.5 billion real user
-              prompts across at least eight answer engines to map the customer questions, search
-              queries, product facts, and public pages that determine whether a brand appears.
+              prompts to map the customer questions, search queries, product facts, and public pages
+              that determine whether a brand appears.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-widest">

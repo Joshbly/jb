@@ -17,7 +17,7 @@ import { methodologyPageJsonLd } from "@/lib/seo";
 const pageUrl = `${site.url}/research/sage-aeo-method`;
 const title = "SAGE for AEO: A Four-Stage Operating Loop | Josh Blyskal";
 const description =
-  "SAGE is a four-stage AEO method invented by Josh Blyskal at Profound for organizing setup, analysis, execution, and repeatable workflows.";
+  "SAGE is Josh Blyskal's AEO method for organizing setup, analysis, execution, and repeatable workflows, taught in Profound 101.";
 
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -46,10 +46,7 @@ export default function SageAeoMethodPage() {
             <SubpageNav activeHref="/research/sage-aeo-method" />
 
             <div className="py-24 md:py-32">
-              <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
-                Invented by Josh Blyskal at Profound and taught in Profound 101.
-              </p>
-              <h1 className="mt-5 max-w-5xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
+              <h1 className="max-w-5xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
                 SAGE for AEO
               </h1>
               <p className="mt-8 max-w-3xl font-body text-xl leading-relaxed text-foreground/85 md:text-2xl">

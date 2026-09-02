@@ -108,7 +108,7 @@ export default function ResearchIndexPage() {
             dateLabel="Jul 26, 2026"
             title="SAGE for AEO: A Four-Stage Operating Loop"
             href="/research/sage-aeo-method"
-            description="Invented by Josh Blyskal at Profound, SAGE helps teams decide which part of an AEO process needs attention next."
+            description="SAGE helps teams decide which part of an AEO process needs attention next."
             links={[{ label: "Profound 101 lesson", href: sageLessonUrl }]}
           />
 

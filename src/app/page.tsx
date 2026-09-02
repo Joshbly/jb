@@ -7,7 +7,6 @@ import { Proof } from "@/components/ui/Proof";
 import { ResearchCredentials } from "@/components/ui/ResearchCredentials";
 import { SageFeature } from "@/components/ui/SageFeature";
 import { SpeakingFeature } from "@/components/ui/SpeakingFeature";
-import { Thesis } from "@/components/ui/Thesis";
 
 export default function Home() {
   return (
@@ -16,7 +15,6 @@ export default function Home() {
       <RevealRunner />
       <main>
         <Hero />
-        <Thesis />
         <ResearchCredentials />
         <SageFeature />
         <Proof />

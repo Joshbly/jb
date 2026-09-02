@@ -1062,10 +1062,7 @@ export default function ResearchFindingsPage() {
             <SubpageNav activeHref="/research" />
 
             <div className="py-24 md:py-32">
-              <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
-                Data reference · Published August 3, 2026
-              </p>
-              <h1 className="mt-5 max-w-6xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
+              <h1 className="max-w-6xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
                 AI search statistics and research findings
               </h1>
               <p className="mt-8 max-w-4xl font-body text-xl leading-relaxed text-foreground/85 md:text-2xl">
@@ -1086,8 +1083,8 @@ export default function ResearchFindingsPage() {
                   className="underline decoration-accent/60 underline-offset-4 hover:text-accent"
                 >
                   Josh Blyskal
-                </Link>{" "}
-                · AI Strategy &amp; Research at Profound · Study-level credits below
+                </Link>
+                , AI Strategy &amp; Research at Profound. Study-level credits below.
               </p>
               <div className="mt-9 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-widest">
                 <a
@@ -1182,9 +1179,6 @@ export default function ResearchFindingsPage() {
 
         <Section layout="split">
           <div className="space-y-6 lg:sticky lg:top-32 lg:self-start">
-            <p className="font-mono text-xs uppercase tracking-widest text-accent">
-              Reading standard
-            </p>
             <DisplayH2>How to read these numbers</DisplayH2>
           </div>
           <div className="max-w-3xl">
@@ -1285,9 +1279,8 @@ export default function ResearchFindingsPage() {
                 Provenance
               </p>
               <p className="mt-3 font-body text-base leading-relaxed text-foreground/75">
-                Invented by Josh Blyskal at Profound and taught in Profound 101. The method keeps
-                teams from automating an AEO workflow before its prompts, diagnosis, and handoff
-                make sense by hand.
+                Built at Profound and taught in Profound 101. The method keeps teams from automating
+                an AEO workflow before its prompts, diagnosis, and handoff make sense by hand.
               </p>
               <div className="mt-5">
                 <SourceLink

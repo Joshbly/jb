@@ -8,7 +8,6 @@ export function Proof() {
       <Reveal>
         <SectionHeader
           title="Selected work and press"
-          eyebrow="External proof"
           className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
         />
       </Reveal>
