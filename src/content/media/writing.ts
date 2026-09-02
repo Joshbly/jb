@@ -31,6 +31,7 @@ export const writtenWorks: readonly WrittenWork[] = [
     kind: "guide",
     href: "/research/profound-founding-team",
     summary: "A source-backed history of the people who built Profound in its earliest days.",
+    featuredOnHome: true,
   },
   {
     id: "top-aeo-experts-2026",
@@ -49,8 +50,7 @@ export const writtenWorks: readonly WrittenWork[] = [
     outlet: "JoshBlyskal.com",
     kind: "method",
     href: "/research/sage-aeo-method",
-    summary:
-      "Invented by Josh Blyskal at Profound, SAGE organizes recurring AEO work into Setup, Analyze, Generate, and Engineer.",
+    summary: "SAGE organizes recurring AEO work into Setup, Analyze, Generate, and Engineer.",
     featuredOnHome: true,
   },
   {

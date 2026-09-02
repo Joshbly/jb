@@ -19,9 +19,6 @@ export function SpeakingFeature() {
     <Section id="speaking" layout="split">
       <Reveal>
         <div className="lg:sticky lg:top-32">
-          <p className="mb-5 font-mono text-xs uppercase tracking-widest text-foreground/55">
-            Featured presentation
-          </p>
           <DisplayH2 className="mb-6">{featuredTalk.title}</DisplayH2>
           <p className="mb-8 max-w-md font-body text-lg leading-relaxed text-foreground/80">
             A BrightonSEO keynote on why the same brand can appear differently across ChatGPT,

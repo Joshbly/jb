@@ -158,10 +158,7 @@ export default function ArchivePage() {
           <div className="mx-auto max-w-7xl">
             <SubpageNav activeHref="/archive" />
             <div className="py-24 md:py-32">
-              <p className="font-mono text-xs uppercase tracking-widest text-foreground/55">
-                Public archive
-              </p>
-              <h1 className="mt-5 max-w-4xl font-display text-hero-name font-normal leading-[0.92] tracking-tight">
+              <h1 className="max-w-4xl font-display text-hero-name font-normal leading-[0.92] tracking-tight">
                 Archive
               </h1>
               <p className="mt-8 max-w-2xl font-body text-lg leading-relaxed text-foreground/80 md:text-xl">

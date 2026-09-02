@@ -12,16 +12,17 @@ export function ResearchCredentials() {
     <Section id="research" layout="split">
       <Reveal>
         <div className="lg:sticky lg:top-32">
-          <p className="mb-5 font-mono text-xs uppercase tracking-widest text-foreground/55">
-            Original research
-          </p>
           <DisplayH2 className="mb-6">
             I study what makes a brand appear in an AI-generated answer.
           </DisplayH2>
-          <p className="mb-8 max-w-md font-body text-lg leading-relaxed text-foreground/80">
+          <p className="mb-5 max-w-md font-body text-lg leading-relaxed text-foreground/80">
             That includes the prompts people ask, the fanouts an agent/answer engine runs, and the
             websites, product data, and public information it uses to understand and recommend a
             brand to a user.
+          </p>
+          <p className="mb-8 max-w-md font-body text-lg leading-relaxed text-foreground/80">
+            That work grew into the methodology Profound uses with the largest brands in the world.
+            What I learn ends up here, where anyone can use it.
           </p>
           <Link
             href="/research"
@@ -35,8 +36,7 @@ export function ResearchCredentials() {
       <div>
         <Reveal>
           <SectionHeader
-            title="Selected research"
-            eyebrow={`${selectedStudies.length} studies`}
+            title="Original research"
             className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
         </Reveal>

@@ -42,10 +42,7 @@ export default function AboutPage() {
 
             <div className="grid gap-12 py-24 md:grid-cols-[minmax(0,1fr)_20rem] md:items-center md:py-32">
               <div>
-                <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
-                  {site.role} · {site.employer.name}
-                </p>
-                <h1 className="mt-5 max-w-4xl font-display text-hero-name font-normal leading-[0.92] tracking-tight">
+                <h1 className="max-w-4xl font-display text-hero-name font-normal leading-[0.92] tracking-tight">
                   I help brands become visible in AI search.
                 </h1>
                 <p className="mt-8 max-w-xl font-body text-lg leading-relaxed text-foreground/80 md:text-xl">

@@ -7,10 +7,7 @@ export function Inquiry() {
     <Section id="inquiries" layout="split">
       <Reveal>
         <div>
-          <p className="mb-5 font-mono text-xs uppercase tracking-widest text-foreground/55">
-            Get in touch
-          </p>
-          <DisplayH2>If you want to talk about the research, I&apos;m easy to reach.</DisplayH2>
+          <DisplayH2>If you want to talk, I&apos;m easy to reach.</DisplayH2>
         </div>
       </Reveal>
       <Reveal>
