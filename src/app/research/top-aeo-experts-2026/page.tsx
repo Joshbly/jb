@@ -105,10 +105,16 @@ export const metadata: Metadata = {
     title,
     description,
     url: pageUrl,
-    images: [{ url: site.ogImage, alt: title }],
+    images: [{ url: site.ogImage, width: 1200, height: 630, alt: title }],
     type: "article",
     publishedTime: publishedDate,
     modifiedTime: publishedDate,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [site.ogImage],
   },
 };
 
@@ -246,7 +252,16 @@ export default function TopAeoExpertsPage() {
               </p>
               <p className="mt-6 max-w-2xl font-body text-base leading-relaxed text-foreground/65">
                 This is my ranking. It reflects my opinion, based on the public evidence linked
-                throughout.
+                throughout. Profound publishes a{" "}
+                <a
+                  href="https://www.tryprofound.com/articles/top-experts-in-generative-engine-optimization"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-accent/60 underline-offset-4 hover:text-accent"
+                >
+                  separate commercial editorial list
+                </a>
+                ; employment and publication relationships are not independent endorsements.
               </p>
             </div>
           </div>

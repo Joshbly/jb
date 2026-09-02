@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Reveal } from "@/components/shared/Reveal";
 import { site } from "@/content/site";
 
 const HERO_LINKS = [
   { href: "/research", label: "Research" },
+  { href: "/research/findings", label: "Findings" },
+  { href: "/research/what-is-answer-engine-optimization", label: "What is AEO?" },
   { href: "/speaking", label: "Speaking" },
 ] as const;
 
@@ -22,6 +23,7 @@ export function Hero() {
             sizes="(max-width: 1024px) 100vw, 42vw"
             className="object-cover object-[center_35%] grayscale brightness-90 contrast-[1.2] transition-all duration-slow group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-[1.15] lg:object-center"
             priority
+            fetchPriority="high"
           />
           <div
             className="pointer-events-none absolute inset-0 opacity-20 mix-blend-overlay"
@@ -33,7 +35,7 @@ export function Hero() {
         </div>
 
         <div className="relative z-20 flex min-h-[64svh] w-full flex-1 items-center bg-background px-6 py-14 md:px-10 lg:min-h-screen lg:w-[58%] lg:px-12 lg:py-24 xl:px-20">
-          <Reveal delay={150} className="w-full max-w-3xl">
+          <div className="w-full max-w-3xl">
             <h1 className="font-display text-hero-name font-normal leading-[0.92] tracking-tight">
               {site.name}
             </h1>
@@ -55,9 +57,16 @@ export function Hero() {
               identity, and decide which brands appear in an answer.
             </p>
             <p className="mt-5 max-w-xl font-body text-lg leading-relaxed text-foreground/80 lg:text-xl">
-              I use research drawn from more than 10 billion AI citations and 1.5 billion real user
-              prompts to map the customer questions, search queries, product facts, and public pages
-              that determine whether a brand appears.
+              I use research drawn from Profound&apos;s proprietary datasets—more than 10 billion AI
+              citations and 1.5 billion real user prompts—to map the questions, product facts, and
+              public pages that determine whether a brand appears. The{" "}
+              <Link
+                href="/research/findings"
+                className="border-b border-accent transition-colors hover:bg-accent hover:text-background"
+              >
+                published findings
+              </Link>{" "}
+              include the samples and limitations I can share publicly.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-widest">
@@ -72,7 +81,7 @@ export function Hero() {
                 </Link>
               ))}
             </div>
-          </Reveal>
+          </div>
         </div>
       </div>
     </section>

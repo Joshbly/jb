@@ -1,0 +1,74 @@
+{
+  "title": "AI search statistics and research findings",
+  "canonical": "https://www.joshblyskal.com/research/findings",
+  "author": "Josh Blyskal",
+  "published": "2026-08-03",
+  "modified": "2026-09-02",
+  "readingRule": "Keep each value with its sample, unit, period, and caveat. The studies use different corpora and must not be pooled.",
+  "findings": [
+    {
+      "id": "generative-intent",
+      "value": "37.5%",
+      "finding": "Generative requests were the largest classified ChatGPT prompt-intent category.",
+      "sample": "Classified sample drawn from more than 50 million prompts; classified sample size unpublished",
+      "caveat": "The unit is prompts, not unique users, and follow-up turns are included.",
+      "source": "https://www.joshblyskal.com/research/chatgpt-intent-study"
+    },
+    {
+      "id": "seo-variance",
+      "value": "4–7%",
+      "finding": "The tested traditional SEO metrics explained a small share of citation variance.",
+      "sample": "1,311 pages",
+      "caveat": "The observational association was statistically reliable at p<0.001 but does not establish causation.",
+      "source": "https://www.joshblyskal.com/research/250-million-ai-search-results"
+    },
+    {
+      "id": "citation-formats",
+      "value": "61.5%",
+      "finding": "Blogs, opinion pages, comparisons, and listicles supplied most classified citations.",
+      "sample": "8,500 classified citations",
+      "caveat": "This is citation composition, not the probability that a page of each type will be cited.",
+      "source": "https://www.joshblyskal.com/research/250-million-ai-search-results"
+    },
+    {
+      "id": "product-page-detail",
+      "value": "+848% FAQs; +103% videos",
+      "finding": "The most frequently shown product pages contained more FAQs and videos than the least shown group.",
+      "sample": "16,000 product-detail pages observed October 2–November 2, 2025",
+      "caveat": "The comparison is descriptive and does not establish that either feature caused visibility.",
+      "source": "https://www.joshblyskal.com/research/250-million-ai-search-results"
+    },
+    {
+      "id": "claude-brave",
+      "value": "79.2%",
+      "finding": "Claude citations also appeared in Brave positions one through ten.",
+      "sample": "Approximately 35,000 URLs associated with 400 queries",
+      "caveat": "The observed match does not prove that Brave directly caused Claude's source selection.",
+      "source": "https://www.joshblyskal.com/research/state-of-aeo-2026"
+    },
+    {
+      "id": "cross-engine-overlap",
+      "value": "8%",
+      "finding": "Claude and ChatGPT shared few citation domains on average.",
+      "sample": "More than 600 queries",
+      "caveat": "The public materials do not report the overlap formula, collection window, or per-engine citation counts.",
+      "source": "https://www.joshblyskal.com/research/state-of-aeo-2026"
+    },
+    {
+      "id": "reddit-share",
+      "value": "3.11%",
+      "finding": "Reddit ranked first among cited domains in the pooled answer-engine dataset.",
+      "sample": "More than 4 billion citations and 300 million responses",
+      "caveat": "The pooled result masks engine differences, including a number 31 rank on Microsoft Copilot.",
+      "source": "https://www.joshblyskal.com/research/reddit-ai-search-data"
+    },
+    {
+      "id": "natural-language-urls",
+      "value": "+11.4%",
+      "finding": "Four-to-seven-word natural-language slugs were more common in the highly cited group.",
+      "sample": "50,000 highly cited URLs compared with 50,000 low-cited URLs",
+      "caveat": "Group prevalence does not show that changing a URL causes citation growth.",
+      "source": "https://www.joshblyskal.com/research/250-million-ai-search-results"
+    }
+  ]
+}

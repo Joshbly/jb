@@ -32,7 +32,7 @@ export const meta = {
     "Research across 250 million AI responses and 3 billion citations on the page signals, formats, and query behavior behind AI search visibility.",
   excerpt:
     "Traditional SEO metrics explain 4 to 7 percent of citation variance. Content format, freshness, URLs, and query fanout fill in more of the picture.",
-  image: "/images/header2.png",
+  image: "/images/header2.jpg",
   authors: [
     {
       name: "Josh Blyskal",

@@ -33,6 +33,7 @@ export type ResearchMeta = {
   title: string;
   finding: string;
   date: string;
+  modifiedDate?: string;
   readTime: string;
   description: string;
   excerpt: string;
@@ -61,6 +62,15 @@ export const researchBySlug: Record<string, ResearchArticle> = Object.fromEntrie
   researchArticles.map((study) => [study.slug, study]),
 );
 
+export const relatedStudySlugs: Record<string, readonly string[]> = {
+  "state-of-aeo-2026": ["250-million-ai-search-results", "reddit-ai-search-data"],
+  "250-million-ai-search-results": ["state-of-aeo-2026", "chatgpt-intent-study"],
+  "reddit-ai-search-data": ["250-million-ai-search-results", "state-of-aeo-2026"],
+  "chatgpt-intent-study": ["250-million-ai-search-results", "state-of-aeo-2026"],
+};
+
 export const latestResearchDate = new Date(
-  Math.max(...researchArticles.map((study) => new Date(study.date).getTime())),
+  Math.max(
+    ...researchArticles.map((study) => new Date(study.modifiedDate ?? study.date).getTime()),
+  ),
 );

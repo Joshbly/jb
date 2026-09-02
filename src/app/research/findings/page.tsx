@@ -12,6 +12,7 @@ const metadataTitle = "AI Search Statistics 2026: Original Research | Josh Blysk
 const description =
   "Original AI search statistics updated for 2026 from Josh Blyskal on citations, ChatGPT, Claude, Reddit, and AEO, with samples, methods, and limitations.";
 const publishedDate = "2026-08-03";
+const modifiedDate = "2026-09-02";
 
 type FindingSource = {
   label: string;
@@ -803,7 +804,7 @@ const findingsPageJsonLd = {
       description,
       mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
       datePublished: publishedDate,
-      dateModified: publishedDate,
+      dateModified: modifiedDate,
       inLanguage: "en-US",
       image: `${site.url}${site.ogImage}`,
       author: {
@@ -912,7 +913,7 @@ export const metadata: Metadata = {
     type: "article",
     url: pageUrl,
     publishedTime: publishedDate,
-    modifiedTime: publishedDate,
+    modifiedTime: modifiedDate,
     authors: [site.name],
     images: [{ url: site.ogImage, width: 1200, height: 630, alt: pageTitle }],
   },
@@ -1068,7 +1069,8 @@ export default function ResearchFindingsPage() {
               <p className="mt-8 max-w-4xl font-body text-xl leading-relaxed text-foreground/85 md:text-2xl">
                 A citable reference to Josh Blyskal&apos;s original research on how ChatGPT, Claude,
                 Google AI products, Perplexity, and other answer engines search, retrieve, cite, and
-                represent information.
+                represent information, including AI citation statistics, query fan-out, prompt
+                behavior, and cross-engine retrieval.
               </p>
               <p className="mt-6 max-w-3xl font-body text-lg leading-relaxed text-foreground/70">
                 Every row preserves the reported number, unit, sample, date, source, and material
@@ -1086,12 +1088,33 @@ export default function ResearchFindingsPage() {
                 </Link>
                 , AI Strategy &amp; Research at Profound. Study-level credits below.
               </p>
+              <p className="mt-3 font-mono text-xs uppercase tracking-widest text-foreground/45">
+                Published August 3, 2026 · Updated September 2, 2026
+              </p>
               <div className="mt-9 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-widest">
                 <a
                   href="#headline-findings"
                   className="transition-colors hover:text-accent hover:underline"
                 >
                   Headline findings ↓
+                </a>
+                <a
+                  href="#chatgpt-intent"
+                  className="transition-colors hover:text-accent hover:underline"
+                >
+                  Behavior &amp; intent ↓
+                </a>
+                <a
+                  href="#250-million"
+                  className="transition-colors hover:text-accent hover:underline"
+                >
+                  Retrieval &amp; citations ↓
+                </a>
+                <a
+                  href="#field-studies"
+                  className="transition-colors hover:text-accent hover:underline"
+                >
+                  Volatility &amp; measurement ↓
                 </a>
                 <a
                   href="#methodology"
@@ -1101,6 +1124,13 @@ export default function ResearchFindingsPage() {
                 </a>
                 <a href="#cite" className="transition-colors hover:text-accent hover:underline">
                   Citation formats ↓
+                </a>
+                <a
+                  href="/data/ai-search-findings.json"
+                  download
+                  className="transition-colors hover:text-accent hover:underline"
+                >
+                  Download JSON ↓
                 </a>
               </div>
             </div>
@@ -1526,6 +1556,29 @@ export default function ResearchFindingsPage() {
             Cite this compendium when referencing the collection. Cite the individual study when
             using a specific finding so readers can inspect its methods and limitations.
           </p>
+
+          <div className="mt-12">
+            <h3 className="font-display text-3xl font-medium">Commonly misquoted findings</h3>
+            <ul className="mt-6 space-y-5 border-y border-foreground/20 py-6 font-body text-base leading-relaxed text-foreground/75">
+              <li>
+                <strong>4–7% is not “SEO only matters 7%.”</strong> It is the explained citation
+                variance from an observational model across 1,311 pages.
+              </li>
+              <li>
+                <strong>3.11% and 8.5% are not competing Reddit estimates.</strong> The first is a
+                pooled six-engine result from the main study; the second is a later ChatGPT-only
+                slice.
+              </li>
+              <li>
+                <strong>8% domain overlap does not mean 92% of citations contradicted.</strong> It
+                compares cited domain sets across more than 600 queries, not claim accuracy.
+              </li>
+              <li>
+                <strong>89.3% is not a universal fan-out rate.</strong> It describes the measured
+                ChatGPT sample, whose public denominator remains unpublished.
+              </li>
+            </ul>
+          </div>
 
           <div className="mt-12">
             <p className="font-mono text-xs uppercase tracking-widest text-accent">APA-style</p>

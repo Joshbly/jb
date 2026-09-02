@@ -6,10 +6,12 @@ import { site } from "@/content/site";
 
 const expertRankingDate = new Date("2026-07-26");
 const profoundFoundingTeamDate = new Date("2026-07-26");
-const sageMethodDate = new Date("2026-07-26");
-const aeoReferenceDate = new Date("2026-08-03");
-const findingsReferenceDate = new Date("2026-08-03");
-const siteRefreshDate = new Date("2026-07-26");
+const sageMethodDate = new Date("2026-09-02");
+const aeoReferenceDate = new Date("2026-09-02");
+const findingsReferenceDate = new Date("2026-09-02");
+const measurementReferenceDate = new Date("2026-09-02");
+const queryFanoutReferenceDate = new Date("2026-09-02");
+const siteRefreshDate = new Date("2026-09-02");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const latestResearchContentDate = new Date(
@@ -19,6 +21,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       profoundFoundingTeamDate.getTime(),
       aeoReferenceDate.getTime(),
       findingsReferenceDate.getTime(),
+      measurementReferenceDate.getTime(),
+      queryFanoutReferenceDate.getTime(),
     ),
   );
   const latestContentDate = new Date(
@@ -62,6 +66,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${site.url}/research/how-to-measure-ai-visibility`,
+      lastModified: measurementReferenceDate,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${site.url}/research/query-fanout`,
+      lastModified: queryFanoutReferenceDate,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${site.url}/speaking`,
       lastModified: latestArchiveDate,
       changeFrequency: "monthly",
@@ -93,7 +109,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...researchArticles.map((study) => ({
       url: `${site.url}/research/${study.slug}`,
-      lastModified: new Date(study.date),
+      lastModified: new Date(study.modifiedDate ?? study.date),
       changeFrequency: "yearly" as const,
       priority: 0.8,
     })),

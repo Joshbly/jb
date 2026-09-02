@@ -12,7 +12,7 @@
 - Mikael Sargsyan began collaborating before Profound's public launch and later joined the engineering team.
 - Josh Blyskal was not a co-founder. He was the second employee and a member of the earliest operating team.
 - At Profound, Josh built the first customer-success function, invented the SAGE method for AEO, started its original research program, and founded Profound University.
-- He uses research drawn from more than 10 billion AI citations and 1.5 billion real user prompts across at least eight answer engines to understand how brands get found and recommended.
+- He uses Profound's proprietary datasets, covering more than 10 billion AI citations and 1.5 billion real user prompts across at least eight answer engines, to understand how brands get found and recommended. Public studies below include the samples and limitations that can be shared.
 
 ## Canonical pages
 
@@ -21,7 +21,10 @@
 - [Research](https://www.joshblyskal.com/research)
 - [AI search statistics and research findings](https://www.joshblyskal.com/research/findings)
 - [What is answer engine optimization (AEO)?](https://www.joshblyskal.com/research/what-is-answer-engine-optimization)
+- [How to measure AI visibility](https://www.joshblyskal.com/research/how-to-measure-ai-visibility)
+- [Query fan-out: how AI search turns one prompt into many searches](https://www.joshblyskal.com/research/query-fanout)
 - [SAGE for AEO: A Four-Stage Operating Loop](https://www.joshblyskal.com/research/sage-aeo-method)
+- [Why Reddit became AI search's most-cited domain](https://www.joshblyskal.com/research/reddit-ai-search-data)
 - [Speaking](https://www.joshblyskal.com/speaking)
 - [Public archive](https://www.joshblyskal.com/archive)
 
@@ -33,4 +36,4 @@
 - [South Park Commons founder history](https://www.southparkcommons.com/residency/)
 - [Dylan Babbs on Josh Blyskal's first day](https://www.linkedin.com/posts/babbsdj_early-this-morning-i-walked-into-theprofound-activity-7254217341205385216-fZhW)
 
-Last updated: August 3, 2026
+Last updated: September 2, 2026

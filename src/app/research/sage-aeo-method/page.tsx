@@ -7,6 +7,7 @@ import { DisplayH2, Section, SectionHeader } from "@/components/shared/Section";
 import {
   methodologyFaqs,
   sageEvidence,
+  sageFailureModes,
   sageLessonUrl,
   sagePhases,
   setupWalkthrough,
@@ -17,7 +18,7 @@ import { methodologyPageJsonLd } from "@/lib/seo";
 const pageUrl = `${site.url}/research/sage-aeo-method`;
 const title = "SAGE for AEO: A Four-Stage Operating Loop | Josh Blyskal";
 const description =
-  "SAGE is Josh Blyskal's AEO method for organizing setup, analysis, execution, and repeatable workflows, taught in Profound 101.";
+  "SAGE is Josh Blyskal's AEO strategy framework for organizing setup, analysis, execution, measurement, and repeatable workflows.";
 
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -27,7 +28,13 @@ export const metadata: Metadata = {
     title,
     description,
     url: pageUrl,
-    images: [{ url: site.ogImage, alt: title }],
+    images: [{ url: site.ogImage, width: 1200, height: 630, alt: title }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [site.ogImage],
   },
 };
 
@@ -50,9 +57,10 @@ export default function SageAeoMethodPage() {
                 SAGE for AEO
               </h1>
               <p className="mt-8 max-w-3xl font-body text-xl leading-relaxed text-foreground/85 md:text-2xl">
-                I use SAGE to keep AEO work in a sensible order. It starts with agreeing on what to
-                track, then moves through diagnosis and execution. Automation comes later, after the
-                team has a process that works by hand.
+                I use SAGE as an AEO strategy framework that keeps the work in a sensible order. It
+                starts with agreeing on what to track, then moves through diagnosis, execution, and
+                measurement. Automation comes later, after the team has a process that works by
+                hand.
               </p>
               <p className="mt-6 max-w-2xl font-body text-lg leading-relaxed text-foreground/70">
                 I use the question &quot;what time is it?&quot; as shorthand. It keeps a team from
@@ -233,7 +241,7 @@ export default function SageAeoMethodPage() {
                       </div>
                     )}
 
-                    <div className="mt-10 grid gap-px border border-foreground/20 bg-foreground/20 sm:grid-cols-[0.7fr_1.3fr]">
+                    <div className="mt-10 grid gap-px border border-foreground/20 bg-foreground/20 sm:grid-cols-3">
                       <div className="bg-background p-6">
                         <h4 className="font-mono text-xs uppercase tracking-widest text-foreground/50">
                           Leave with
@@ -249,6 +257,14 @@ export default function SageAeoMethodPage() {
                         </h4>
                         <p className="mt-4 font-body text-base leading-relaxed text-foreground/80">
                           {phase.example}
+                        </p>
+                      </div>
+                      <div className="bg-background p-6">
+                        <h4 className="font-mono text-xs uppercase tracking-widest text-foreground/50">
+                          Move on when
+                        </h4>
+                        <p className="mt-4 font-body text-base leading-relaxed text-foreground/80">
+                          {phase.moveOnWhen}
                         </p>
                       </div>
                     </div>
@@ -393,6 +409,27 @@ export default function SageAeoMethodPage() {
               About Josh →
             </Link>
           </div>
+          <p className="mt-8 max-w-3xl font-mono text-xs uppercase leading-relaxed tracking-wider text-foreground/45">
+            This is an illustrative operating example, not a published performance case study.
+          </p>
+        </Section>
+
+        <Section>
+          <SectionHeader
+            title="Where the loop usually breaks"
+            eyebrow="Failure modes"
+            className="mb-10 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
+          />
+          <div className="grid gap-px border border-foreground/20 bg-foreground/20 md:grid-cols-2">
+            {sageFailureModes.map((failureMode) => (
+              <article key={failureMode.title} className="bg-background p-7">
+                <h3 className="font-display text-2xl font-medium">{failureMode.title}</h3>
+                <p className="mt-4 font-body text-base leading-relaxed text-foreground/75">
+                  {failureMode.description}
+                </p>
+              </article>
+            ))}
+          </div>
         </Section>
 
         <Section id="methodology-faq" layout="split">
@@ -423,19 +460,19 @@ export default function SageAeoMethodPage() {
           <div className="grid gap-px border border-foreground/20 bg-foreground/20 md:grid-cols-3">
             {[
               {
-                href: "/research",
-                label: "Research",
-                description: "The studies behind the numbers on this page.",
+                href: "/research/how-to-measure-ai-visibility",
+                label: "Measure AI visibility",
+                description: "The metrics, denominators, and reliability checks behind a baseline.",
               },
               {
-                href: "/speaking",
-                label: "Speaking",
-                description: "Talk topics, recordings, stages, and booking information.",
+                href: "/research/findings",
+                label: "Findings",
+                description: "The samples, dates, methods, and limitations behind the evidence.",
               },
               {
-                href: "/archive",
-                label: "Archive",
-                description: "Talks, podcasts, press, writing, decks, and public notes.",
+                href: "/research/what-is-answer-engine-optimization",
+                label: "What is AEO?",
+                description: "The discipline, answer path, and relationship to SEO and GEO.",
               },
             ].map((relatedPage) => (
               <Link

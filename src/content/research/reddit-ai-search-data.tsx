@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { PullQuote, ResearchSection } from "@/components/research/ResearchArticleElements";
 import {
   BarChart,
@@ -15,6 +16,11 @@ const sources = [
     publisher: "Profound",
     url: "https://www.tryprofound.com/blog/the-data-on-reddit-and-ai-search",
   },
+  {
+    name: "ChatGPT is explicitly searching for Reddit 24× more often",
+    publisher: "Josh Blyskal on LinkedIn",
+    url: "https://www.linkedin.com/posts/joshua-blyskal_chatgpt-is-explicitly-searching-for-reddit-activity-7467567489535700993-oM4W",
+  },
 ] as const;
 
 export const meta = {
@@ -23,12 +29,13 @@ export const meta = {
   finding:
     "Reddit ranked first in the aggregate dataset, appearing in 3.11% of citations across the tracked answer engines.",
   date: "2025-11-10",
+  modifiedDate: "2026-09-02",
   readTime: "10 min",
   description:
     "An analysis of 4 billion citations and 300 million answer-engine responses finds Reddit is the most-cited domain in aggregate and a top-three source on five major platforms.",
   excerpt:
     "Reddit led the aggregate citation ranking at 3.11 percent, and the average cited post was about one year old.",
-  image: "/images/header2.png",
+  image: "/images/header2.jpg",
   authors: [
     {
       name: "Josh Blyskal",
@@ -72,6 +79,8 @@ export const meta = {
     limitations: [
       "The aggregate ranking pools engines with materially different behavior; Microsoft Copilot ranked Reddit 31st while five others placed it in the top three.",
       "Citation share measures sourcing visibility, not whether users saw, trusted, or acted on the answer.",
+      "The study describes what answer engines cited. It does not measure Reddit Answers or establish that brands can manufacture durable visibility through coordinated community activity.",
+      "The May 2026 ChatGPT follow-up uses a separate sample and must not be pooled with the 2025 six-engine analysis.",
     ],
     detailsNotPublished:
       "Exact engine-level counts, subgroup sizes, labeling procedures, and raw-data access are not provided in the available article.",
@@ -112,6 +121,10 @@ export default function RedditAiSearchStudy() {
   return (
     <div className="space-y-20">
       <ResearchSection title="Reddit led the aggregate source ranking">
+        <p className="border-l-2 border-accent pl-5 text-foreground/75">
+          This study measures Reddit threads cited by external answer engines. It does not measure
+          Reddit Answers, Reddit&apos;s own AI search product.
+        </p>
         <p>
           No single domain supplied most AI citations. Reddit's 3.11 percent share was enough to
           rank first because answer engines draw from a fragmented web. The gap to YouTube was 0.98
@@ -266,6 +279,37 @@ export default function RedditAiSearchStudy() {
           get indexed, and surface months later when an answer engine needs the same judgment. A
           short campaign built around engagement this week will miss that value.
         </p>
+      </ResearchSection>
+
+      <ResearchSection title="A later ChatGPT sample showed Reddit entering more fan-outs">
+        <p>
+          A separate follow-up published in June 2026 found that the share of measured ChatGPT
+          fan-outs explicitly adding Reddit rose from 0.15% in January to 3.68% by late May. The
+          follow-up used roughly seven million recent ChatGPT citations and reported Reddit at 8.5%
+          of that citation slice.
+        </p>
+        <p>
+          Those figures are not an update to the 3.11% pooled result above. They describe ChatGPT
+          alone, a later window, and a different analysis. The useful comparison is directional: the
+          engine changed how often it explicitly searched for Reddit while the original study showed
+          that Reddit was already a major source across several engines.
+        </p>
+        <div className="flex flex-wrap gap-x-7 gap-y-3 font-mono text-xs uppercase tracking-widest">
+          <a
+            href="https://www.linkedin.com/posts/joshua-blyskal_chatgpt-is-explicitly-searching-for-reddit-activity-7467567489535700993-oM4W"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-accent/60 underline-offset-4 hover:text-accent"
+          >
+            Read the follow-up ↗
+          </a>
+          <Link
+            href="/research/findings#reddit"
+            className="underline decoration-accent/60 underline-offset-4 hover:text-accent"
+          >
+            Inspect both samples →
+          </Link>
+        </div>
       </ResearchSection>
 
       <ResearchSection title="How brands can contribute useful answers">

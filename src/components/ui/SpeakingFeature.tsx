@@ -44,17 +44,20 @@ export function SpeakingFeature() {
       </Reveal>
 
       <Reveal>
-        <div className="aspect-video overflow-hidden border border-foreground bg-foreground">
-          <iframe
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0`}
-            title={`${featuredTalk.title}, full recording`}
-            loading="lazy"
-            className="size-full"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          />
-        </div>
+        <a
+          href={featuredTalk.recording}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative flex aspect-video items-center justify-center overflow-hidden border border-foreground bg-cover bg-center"
+          style={{
+            backgroundImage: `linear-gradient(rgb(0 0 0 / 0.2), rgb(0 0 0 / 0.45)), url("https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg")`,
+          }}
+          aria-label={`Watch ${featuredTalk.title} on YouTube`}
+        >
+          <span className="border border-white bg-black/75 px-5 py-3 font-mono text-xs uppercase tracking-widest text-white transition-colors group-hover:bg-accent">
+            Watch the full talk ↗
+          </span>
+        </a>
         <p className="mt-4 font-mono text-xs uppercase tracking-widest text-foreground/55">
           brightonSEO · Brighton, United Kingdom · April 2025
         </p>
