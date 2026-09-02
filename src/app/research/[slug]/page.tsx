@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { SubpageNav } from "@/components/layout/SubpageNav";
 import { ResearchArticleFooter } from "@/components/research/ResearchArticleFooter";
 import { StudyNotes } from "@/components/research/StudyNotes";
-import { researchArticles, researchBySlug } from "@/content/research";
+import { relatedStudySlugs, researchArticles, researchBySlug } from "@/content/research";
 import { site } from "@/content/site";
 import { researchArticleJsonLd } from "@/lib/seo";
 import { formatDate } from "@/lib/time";
@@ -43,14 +43,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: "article",
       url: articleUrl,
       publishedTime: study.date,
+      modifiedTime: study.modifiedDate ?? study.date,
       authors: study.authors.map((author) => author.name),
-      images: [{ url: study.image, width: 1200, height: 630, alt: study.title }],
+      images: [{ url: site.ogImage, width: 1200, height: 630, alt: study.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: study.title,
       description: study.description,
-      images: [study.image],
+      images: [site.ogImage],
     },
   };
 }
@@ -63,7 +64,9 @@ export default async function ResearchArticlePage({ params }: PageProps) {
   }
 
   const Body = study.Body;
-  const relatedStudies = researchArticles.filter((candidate) => candidate.slug !== study.slug);
+  const relatedStudies = relatedStudySlugs[study.slug].map(
+    (relatedSlug) => researchBySlug[relatedSlug],
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -93,6 +96,9 @@ export default async function ResearchArticlePage({ params }: PageProps) {
                   <span>
                     {formatDate(study.date)} · {study.readTime} read
                   </span>
+                  {study.modifiedDate ? (
+                    <span>Updated {formatDate(study.modifiedDate)}</span>
+                  ) : null}
                   <span className="mt-1">
                     By {study.authors.map((author) => author.name).join(" & ")}
                   </span>

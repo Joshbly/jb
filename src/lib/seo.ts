@@ -2,8 +2,6 @@ import {
   type Appearance,
   appearances,
   decks,
-  featuredPressRecords,
-  featuredWrittenWorks,
   latestArchiveDate,
   linkedinPosts,
   pressRecords,
@@ -46,58 +44,12 @@ export const personJsonLd = {
   url: site.url,
   image: `${site.url}${site.headshot}`,
   email: site.email,
-  gender: "Male",
-  nationality: "American",
-  homeLocation: {
-    "@type": "Place",
-    name: site.location,
-    sameAs: "https://www.wikidata.org/wiki/Q60",
-  },
   sameAs: [...site.socials.map((s) => s.href), HUBSPOT_AUTHOR],
   jobTitle: site.role,
   worksFor: { "@type": "Organization", name: site.employer.name, url: site.employer.url },
   alumniOf: alumniOf.map((a) => ({ "@type": a.type, name: a.name, sameAs: a.sameAs })),
   description: site.bio,
   knowsAbout: knowsAbout.map((k) => ({ "@type": "Thing", name: k.name, sameAs: k.sameAs })),
-  subjectOf: [
-    {
-      "@type": "Article",
-      headline: "The 2026 A-list of generative engine optimization (GEO) experts",
-      url: "https://www.tryprofound.com/resources/articles/top-experts-in-generative-engine-optimization",
-      publisher: {
-        "@type": "Organization",
-        "@id": `${site.employer.url}/#organization`,
-        name: site.employer.name,
-      },
-    },
-    ...featuredPressRecords.map((record) => ({
-      "@type": "Article",
-      headline: record.title,
-      url: record.href,
-      publisher: { "@type": "Organization", name: record.outlet },
-    })),
-    ...featuredWrittenWorks.map((work) =>
-      work.href === "/research/sage-aeo-method"
-        ? {
-            "@type": "TechArticle",
-            "@id": `${site.url}/research/sage-aeo-method#article`,
-            headline: work.title,
-            url: `${site.url}${work.href}`,
-          }
-        : {
-            "@type": "Article",
-            headline: work.title,
-            url: work.href.startsWith("/") ? `${site.url}${work.href}` : work.href,
-            publisher: { "@type": "Organization", name: work.outlet },
-          },
-    ),
-    ...researchArticles.map((study) => ({
-      "@type": "Article",
-      "@id": `${site.url}/research/${study.slug}#article`,
-      headline: study.title,
-      url: `${site.url}/research/${study.slug}`,
-    })),
-  ],
 };
 
 export function researchArticleJsonLd(study: ResearchArticle) {
@@ -114,6 +66,7 @@ export function researchArticleJsonLd(study: ResearchArticle) {
     headline: study.title,
     description: study.description,
     datePublished: study.date,
+    dateModified: study.modifiedDate ?? study.date,
     image: `${site.url}${study.image}`,
     author: study.authors.map((author) =>
       author.profile
@@ -157,6 +110,8 @@ export const profilePageJsonLd = {
     `${site.url}/research`,
     `${site.url}/research/findings`,
     `${site.url}/research/what-is-answer-engine-optimization`,
+    `${site.url}/research/how-to-measure-ai-visibility`,
+    `${site.url}/research/query-fanout`,
     `${site.url}/research/profound-founding-team`,
     `${site.url}/research/sage-aeo-method`,
     `${site.url}/speaking`,
@@ -166,6 +121,79 @@ export const profilePageJsonLd = {
     "@type": "Person",
     "@id": `${site.url}/#identity`,
   },
+};
+
+const researchUrl = `${site.url}/research`;
+const researchIndexRecords = [
+  ...researchArticles.map((study) => ({
+    name: study.title,
+    url: `${researchUrl}/${study.slug}`,
+  })),
+  {
+    name: "AI search statistics and research findings",
+    url: `${researchUrl}/findings`,
+  },
+  {
+    name: "What is answer engine optimization (AEO)?",
+    url: `${researchUrl}/what-is-answer-engine-optimization`,
+  },
+  {
+    name: "How to measure AI visibility",
+    url: `${researchUrl}/how-to-measure-ai-visibility`,
+  },
+  {
+    name: "Query fan-out: how AI search turns one prompt into many searches",
+    url: `${researchUrl}/query-fanout`,
+  },
+  {
+    name: "SAGE for AEO: A Four-Stage Operating Loop",
+    url: `${researchUrl}/sage-aeo-method`,
+  },
+  {
+    name: "Profound's founding team: founders and first employees",
+    url: `${researchUrl}/profound-founding-team`,
+  },
+  {
+    name: "The 12 best AEO and GEO experts in 2026",
+    url: `${researchUrl}/top-aeo-experts-2026`,
+  },
+] as const;
+
+export const researchPageJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${researchUrl}#collection`,
+      url: researchUrl,
+      name: "AI search research",
+      description:
+        "Original studies, operating methods, and source-backed reference work by Josh Blyskal on retrieval, citations, user intent, measurement, and AI search.",
+      dateModified: "2026-09-02",
+      author: { "@id": `${site.url}/#identity` },
+      breadcrumb: { "@id": `${researchUrl}#breadcrumb` },
+      mainEntity: { "@id": `${researchUrl}#list` },
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${researchUrl}#list`,
+      numberOfItems: researchIndexRecords.length,
+      itemListElement: researchIndexRecords.map((record, recordIndex) => ({
+        "@type": "ListItem",
+        position: recordIndex + 1,
+        name: record.name,
+        url: record.url,
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${researchUrl}#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+        { "@type": "ListItem", position: 2, name: "Research", item: researchUrl },
+      ],
+    },
+  ],
 };
 
 const archiveUrl = `${site.url}/archive`;
@@ -310,7 +338,7 @@ export const speakingPageJsonLd = {
 const sageMethodUrl = `${site.url}/research/sage-aeo-method`;
 const sageMethodTitle = "SAGE for AEO: A Four-Stage Operating Loop";
 const sageMethodDescription =
-  "SAGE is Josh Blyskal's AEO method for organizing setup, analysis, execution, and repeatable workflows, taught in Profound 101.";
+  "SAGE is Josh Blyskal's AEO strategy framework for organizing setup, analysis, execution, measurement, and repeatable workflows, taught in Profound 101.";
 const sageLessonId = `${sageLessonUrl}#learning-resource`;
 const profoundId = `${site.employer.url}/#organization`;
 
@@ -341,7 +369,7 @@ export const methodologyPageJsonLd = {
       description: sageMethodDescription,
       mainEntityOfPage: { "@id": `${sageMethodUrl}#webpage` },
       datePublished: "2026-07-26",
-      dateModified: "2026-07-26",
+      dateModified: "2026-09-02",
       inLanguage: "en-US",
       image: `${site.url}${site.ogImage}`,
       author: {

@@ -1,7 +1,7 @@
 const NAME = "Josh Blyskal";
 const TAGLINE = "AEO & GEO Research";
 const EMPLOYER = { name: "Profound", url: "https://www.tryprofound.com" } as const;
-const HERO_SRC = "/images/header3.png";
+const HERO_SRC = "/images/header3.jpg";
 
 export const site = {
   url: "https://www.joshblyskal.com",
@@ -13,7 +13,7 @@ export const site = {
   locale: "en_US",
   description: `${NAME} studies how to make brands visible in AI search. He joined ${EMPLOYER.name} as its second employee and now leads AI Strategy & Research.`,
   bio: `${NAME} joined ${EMPLOYER.name} as its second employee and now leads AI Strategy & Research, studying how to make brands visible in AI search.`,
-  ogImage: HERO_SRC,
+  ogImage: "/opengraph-image",
   headshot: "/images/headshot.png",
   heroImage: {
     src: HERO_SRC,
@@ -21,7 +21,7 @@ export const site = {
   },
   employer: EMPLOYER,
   socials: [
-    { label: "LinkedIn", href: "https://linkedin.com/in/joshuablyskal" },
+    { label: "LinkedIn", href: "https://linkedin.com/in/joshua-blyskal" },
     { label: "X", href: "https://x.com/JBlyskal" },
     { label: "Speaker Deck", href: "https://speakerdeck.com/joshbly" },
   ],
@@ -33,6 +33,7 @@ export const site = {
     { href: "/about", label: "About" },
   ],
   footerNav: [
+    { href: "/research/findings", label: "Findings" },
     { href: "/archive", label: "Archive" },
     { href: "/archive#press", label: "Press" },
   ],

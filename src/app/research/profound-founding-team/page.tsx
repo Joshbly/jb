@@ -635,11 +635,20 @@ export const metadata: Metadata = {
     type: "article",
     publishedTime: publishedDate,
     modifiedTime: publishedDate,
+    images: [
+      {
+        url: `${pageUrl}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: title,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
+    images: [`${pageUrl}/opengraph-image`],
   },
 };
 

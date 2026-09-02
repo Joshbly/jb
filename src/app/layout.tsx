@@ -37,6 +37,12 @@ export const metadata: Metadata = {
     type: "website",
     images: [{ url: site.ogImage, width: 1200, height: 630, alt: site.name }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: titleFull,
+    description: site.description,
+    images: [site.ogImage],
+  },
   robots: {
     index: true,
     follow: true,

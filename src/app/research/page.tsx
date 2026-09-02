@@ -7,6 +7,7 @@ import { Section, SectionHeader } from "@/components/shared/Section";
 import { sageLessonUrl } from "@/content/methodology";
 import { researchArticles } from "@/content/research";
 import { site } from "@/content/site";
+import { researchPageJsonLd } from "@/lib/seo";
 import { formatDate } from "@/lib/time";
 
 const title = "Research";
@@ -23,6 +24,12 @@ export const metadata: Metadata = {
     url: `${site.url}/research`,
     images: [{ url: site.ogImage, width: 1200, height: 630, alt: title }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [site.ogImage],
+  },
 };
 
 export default function ResearchIndexPage() {
@@ -31,6 +38,11 @@ export default function ResearchIndexPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD is generated from the static research index rendered below
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(researchPageJsonLd) }}
+      />
       <main>
         <header className="px-6 pt-6">
           <div className="mx-auto max-w-7xl">
@@ -55,6 +67,25 @@ export default function ResearchIndexPage() {
                   Archive
                 </Link>
                 .
+              </p>
+              <p className="mt-5 max-w-2xl font-mono text-xs uppercase leading-relaxed tracking-wider text-foreground/55">
+                <Link href="/research/findings" className="hover:text-accent hover:underline">
+                  Statistics
+                </Link>{" "}
+                · studies for evidence ·{" "}
+                <Link
+                  href="/research/sage-aeo-method"
+                  className="hover:text-accent hover:underline"
+                >
+                  SAGE for operations
+                </Link>{" "}
+                ·{" "}
+                <Link
+                  href="/research/what-is-answer-engine-optimization"
+                  className="hover:text-accent hover:underline"
+                >
+                  AEO definition
+                </Link>
               </p>
             </div>
           </div>
@@ -114,7 +145,7 @@ export default function ResearchIndexPage() {
 
           <SectionHeader
             title="Reference"
-            eyebrow="4 pages"
+            eyebrow="6 pages"
             className="mt-20 mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
           <ArchiveEntry
@@ -132,6 +163,22 @@ export default function ResearchIndexPage() {
             title="What is answer engine optimization (AEO)?"
             href="/research/what-is-answer-engine-optimization"
             description="A definitive guide to how AEO works, how it differs from SEO, and why AEO and GEO are two names for the same discipline."
+          />
+          <ArchiveEntry
+            source="Measurement reference"
+            date="2026-09-02"
+            dateLabel="Sep 2, 2026"
+            title="How to measure AI visibility"
+            href="/research/how-to-measure-ai-visibility"
+            description="A defensible way to design prompt panels, define visibility metrics, separate engines, and read change without overstating precision."
+          />
+          <ArchiveEntry
+            source="Retrieval reference"
+            date="2026-09-02"
+            dateLabel="Sep 2, 2026"
+            title="Query fan-out: how AI search turns one prompt into many searches"
+            href="/research/query-fanout"
+            description="Observed fan-out behavior across ChatGPT and Claude, with samples, limitations, and a practical diagnostic workflow."
           />
           <ArchiveEntry
             source="Company history"

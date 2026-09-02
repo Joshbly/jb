@@ -19,9 +19,6 @@ const quotedBy = pressRecords
       quotedOutletOrder.indexOf(secondRecord.outlet),
   )
   .map((record) => ({ name: record.outlet, href: record.href, domain: record.domain }));
-const redditEarningsCall = pressRecords.find(
-  (record) => record.id === "reddit-q2-2025-profound-data",
-);
 
 function OrganizationMark({ name, href, domain }: { name: string; href: string; domain: string }) {
   return (

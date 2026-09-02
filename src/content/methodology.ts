@@ -15,6 +15,7 @@ export type SagePhase = {
   inputs: readonly string[];
   actions: readonly string[];
   output: string;
+  moveOnWhen: string;
   example: string;
   sources: readonly MethodSource[];
 };
@@ -40,6 +41,8 @@ export const sagePhases: readonly SagePhase[] = [
       "Record the engines, region, persona, competitor set, and start date",
     ],
     output: "A baseline with a clear reason for every topic, prompt, competitor, and filter.",
+    moveOnWhen:
+      "Every prompt has a reason to exist, somebody has read the first answers, and the engine, market, competitor, and date filters are fixed for the comparison.",
     example:
       "I would start with roughly 20 prompts that somebody on the team has actually read and can defend. Once those answers are in front of us, it becomes much easier to see whether the setup is missing a buyer, a comparison, or a part of the category. That is a better reason to expand than an arbitrary target of 500 prompts.",
     sources: [
@@ -74,6 +77,8 @@ export const sagePhases: readonly SagePhase[] = [
       "Write down what changed, why it probably changed, and who can act on it",
     ],
     output: "A prioritized set of gaps with evidence behind each diagnosis.",
+    moveOnWhen:
+      "The team can explain the movement in plain language, point to the affected prompts and sources, and name the person who can act on the diagnosis.",
     example:
       "Suppose ChatGPT visibility falls while citation share looks healthy overall. I would isolate the ChatGPT citations, find the publisher or competitor that gained, and read the page it started using. From there, the team can decide whether it needs a better page of its own or a credible place in the source that already shapes the answer.",
     sources: [
@@ -107,6 +112,8 @@ export const sagePhases: readonly SagePhase[] = [
       "Use generated copy as a working brief and have an editor finish it",
     ],
     output: "A published page or another concrete change that responds to the diagnosed gap.",
+    moveOnWhen:
+      "The smallest intervention that addresses the diagnosed gap is live, attributable to an owner, and tied to the prompt panel that will be rerun.",
     example:
       "If the cited results are focused comparison pages and the brand only has a broad category guide, I would create the comparison instead of adding more sections to the guide. The title and URL should make the question obvious, and the team should monitor that page against the prompt that led to it.",
     sources: [
@@ -140,6 +147,8 @@ export const sagePhases: readonly SagePhase[] = [
       "Store the prompts and filters somewhere the next person can inspect",
     ],
     output: "A repeatable workflow that keeps a person responsible for the decision.",
+    moveOnWhen:
+      "The manual sequence has worked more than once, the repeated collection steps are clear, and a person still owns the diagnosis and next decision.",
     example:
       "A basic weekly agent can read the previous baseline, pull the current visibility and citation domains, draft a short diagnosis, send it to Slack, and save the new baseline. If it cannot explain what changed, it should hand the problem to a person instead of recommending a fix.",
     sources: [
@@ -222,6 +231,29 @@ export const sageEvidence = [
     description:
       "Across 1,311 pages, the tested SEO metrics explained a small share of citation variance. I still inspect the exact answer, page format, freshness, and the passage the model could reuse.",
     href: "/research/250-million-ai-search-results",
+  },
+] as const;
+
+export const sageFailureModes = [
+  {
+    title: "The baseline keeps moving",
+    description:
+      "Changing prompts, engines, markets, and competitors between periods makes the comparison impossible to interpret.",
+  },
+  {
+    title: "The aggregate hides the engine",
+    description:
+      "A portfolio score can look stable while ChatGPT falls and Claude rises. Read the engine and prompt underneath the average.",
+  },
+  {
+    title: "Every diagnosis becomes a new article",
+    description:
+      "The missing evidence may belong in product data, an existing page, or a credible third-party source. Content is one intervention, not the default.",
+  },
+  {
+    title: "Automation arrives before judgment",
+    description:
+      "A workflow nobody trusts by hand will repeat unresolved decisions faster when it becomes an agent.",
   },
 ] as const;
 

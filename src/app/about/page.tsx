@@ -22,7 +22,13 @@ export const metadata: Metadata = {
     title,
     description,
     url: `${site.url}/about`,
-    images: [{ url: site.headshot, alt: site.name }],
+    images: [{ url: site.ogImage, width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [site.ogImage],
   },
 };
 
@@ -115,6 +121,23 @@ export default function AboutPage() {
               products, and other answer engines. I use large-scale research and real user prompts
               to see which questions include the brand, which comparisons exclude it, and whether
               agents can access the product information they need.
+            </p>
+            <p>
+              The public record lives in the{" "}
+              <Link
+                href="/research/findings"
+                className="underline decoration-1 underline-offset-4 hover:text-accent"
+              >
+                findings compendium
+              </Link>{" "}
+              and my working definition of{" "}
+              <Link
+                href="/research/what-is-answer-engine-optimization"
+                className="underline decoration-1 underline-offset-4 hover:text-accent"
+              >
+                answer engine optimization
+              </Link>
+              .
             </p>
             <p>
               Before Profound, I worked at HubSpot, where I co-founded its Marketing AI practice and

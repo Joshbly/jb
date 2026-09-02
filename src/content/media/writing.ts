@@ -2,6 +2,28 @@ import type { WrittenWork } from "./types";
 
 export const writtenWorks: readonly WrittenWork[] = [
   {
+    id: "how-to-measure-ai-visibility",
+    date: "2026-09-02",
+    title: "How to measure AI visibility",
+    outlet: "JoshBlyskal.com",
+    kind: "guide",
+    href: "/research/how-to-measure-ai-visibility",
+    summary:
+      "A defensible method for prompt panels, visibility metrics, engine separation, and measurement reliability.",
+    featuredOnHome: true,
+  },
+  {
+    id: "query-fanout",
+    date: "2026-09-02",
+    title: "Query fan-out: how AI search turns one prompt into many searches",
+    outlet: "JoshBlyskal.com",
+    kind: "guide",
+    href: "/research/query-fanout",
+    summary:
+      "Observed fan-out behavior in ChatGPT and Claude, with limitations and a practical diagnostic workflow.",
+    featuredOnHome: true,
+  },
+  {
     id: "ai-search-research-findings",
     date: "2026-08-03",
     title: "AI search statistics and research findings",

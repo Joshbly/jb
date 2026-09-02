@@ -11,6 +11,27 @@ const metadataTitle = "What Is Answer Engine Optimization (AEO)? | Josh Blyskal"
 const description =
   "Answer engine optimization is the work of improving retrieval, citation, inclusion, and representation in AI-generated answers. A practitioner-led guide to AEO, GEO, and SEO.";
 const publishedDate = "2026-08-03";
+const modifiedDate = "2026-09-02";
+
+const aeoAtAGlance = [
+  {
+    label: "Unit of work",
+    value: "A buyer question, its retrieval path, the available sources, and the generated answer.",
+  },
+  {
+    label: "Primary outcomes",
+    value: "Retrieval, citation, brand inclusion, ordering, and accurate representation.",
+  },
+  {
+    label: "Core measures",
+    value: "Visibility, answer rank, citation share, cited URLs, mentions, and answer language.",
+  },
+  {
+    label: "When to start smaller",
+    value:
+      "When buyer demand, the prompt set, or the facts the team can maintain are still unclear.",
+  },
+] as const;
 
 const aeoQuestions = {
   definition: {
@@ -151,7 +172,7 @@ const aeoReferencePageJsonLd = {
       description,
       mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
       datePublished: publishedDate,
-      dateModified: publishedDate,
+      dateModified: modifiedDate,
       inLanguage: "en-US",
       image: `${site.url}${site.ogImage}`,
       author: {
@@ -222,7 +243,7 @@ export const metadata: Metadata = {
     type: "article",
     url: pageUrl,
     publishedTime: publishedDate,
-    modifiedTime: publishedDate,
+    modifiedTime: modifiedDate,
     authors: [site.name],
     images: [{ url: site.ogImage, width: 1200, height: 630, alt: pageTitle }],
   },
@@ -250,7 +271,7 @@ export default function WhatIsAnswerEngineOptimizationPage() {
 
             <div className="py-24 md:py-32">
               <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
-                Practitioner reference · Published August 3, 2026
+                Practitioner reference · Published August 3, 2026 · Updated September 2, 2026
               </p>
               <h1 className="mt-5 max-w-5xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
                 What is answer engine optimization?
@@ -263,6 +284,18 @@ export default function WhatIsAnswerEngineOptimizationPage() {
                 trace retrieval, inspect source selection, read the answer, and measure the
                 brand&apos;s presence.
               </p>
+              <dl className="mt-10 grid gap-px border border-foreground/20 bg-foreground/20 sm:grid-cols-2 lg:grid-cols-4">
+                {aeoAtAGlance.map((glanceItem) => (
+                  <div key={glanceItem.label} className="bg-background p-5">
+                    <dt className="font-mono text-xs uppercase tracking-widest text-accent">
+                      {glanceItem.label}
+                    </dt>
+                    <dd className="mt-3 font-body text-sm leading-relaxed text-foreground/75">
+                      {glanceItem.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
               <blockquote className="mt-10 max-w-4xl border-l-4 border-accent pl-6 font-display text-3xl font-normal italic leading-tight md:text-5xl">
                 AEO and GEO are two names for the same discipline. Change my mind.
               </blockquote>
@@ -271,6 +304,11 @@ export default function WhatIsAnswerEngineOptimizationPage() {
                 in AI-generated answers. This page uses AEO for the discipline and tests every
                 proposed distinction from GEO against the work a practitioner actually does.
               </p>
+              <p className="mt-5 max-w-3xl font-body text-base leading-relaxed text-foreground/65">
+                AEO, GEO, LLM SEO, LLMO, and AI search optimization are overlapping labels. This
+                page uses AEO because the work begins with the answer path, then tests whether a
+                naming distinction changes the practitioner&apos;s workflow.
+              </p>
               <div className="mt-9 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-widest">
                 <a
                   href="#questions"
@@ -278,12 +316,15 @@ export default function WhatIsAnswerEngineOptimizationPage() {
                 >
                   Read the eight questions ↓
                 </a>
-                <Link
-                  href="/research/sage-aeo-method"
-                  className="transition-colors hover:text-accent hover:underline"
-                >
-                  See the SAGE method →
-                </Link>
+                <a href="#aeo-vs-seo" className="hover:text-accent hover:underline">
+                  AEO vs SEO ↓
+                </a>
+                <a href="#aeo-vs-geo" className="hover:text-accent hover:underline">
+                  AEO vs GEO ↓
+                </a>
+                <a href="#start-aeo" className="hover:text-accent hover:underline">
+                  How to start ↓
+                </a>
               </div>
             </div>
           </div>
@@ -801,10 +842,10 @@ export default function WhatIsAnswerEngineOptimizationPage() {
                   that another channel matters more.
                 </p>
                 <Link
-                  href="/research/top-aeo-experts-2026"
+                  href="/research/how-to-measure-ai-visibility"
                   className="mt-7 inline-block font-mono text-xs uppercase tracking-widest underline decoration-accent underline-offset-4"
                 >
-                  See the source-backed expert ranking →
+                  Build a defensible measurement baseline →
                 </Link>
               </div>
             </div>
@@ -882,6 +923,17 @@ export default function WhatIsAnswerEngineOptimizationPage() {
                       description: "The Setup, Analyze, Generate, Engineer operating loop.",
                     },
                     {
+                      href: "/research/how-to-measure-ai-visibility",
+                      title: "How to measure AI visibility",
+                      description: "Metrics, denominators, prompt panels, and reliability checks.",
+                    },
+                    {
+                      href: "/research/query-fanout",
+                      title: "Query fan-out",
+                      description:
+                        "How one prompt becomes several searches across different engines.",
+                    },
+                    {
                       href: "/research/250-million-ai-search-results",
                       title: "250 million AI search results",
                       description:
@@ -891,12 +943,6 @@ export default function WhatIsAnswerEngineOptimizationPage() {
                       href: "/research/state-of-aeo-2026",
                       title: "The State of AEO 2026",
                       description: "How Claude, ChatGPT, Brave, and Google follow different paths.",
-                    },
-                    {
-                      href: "/research/top-aeo-experts-2026",
-                      title: "AEO and GEO experts",
-                      description:
-                        "A source-backed ranking of practitioners publishing public work.",
                     },
                   ].map((operatingGuide) => (
                     <Link

@@ -37,12 +37,20 @@ export function ResearchArticleFooter({ study, relatedStudies }: ResearchArticle
                 </li>
               ))}
             </ol>
-            <Link
-              href="/research/findings"
-              className="mt-7 inline-block font-mono text-xs uppercase tracking-widest underline decoration-accent/60 underline-offset-4 transition-colors hover:text-accent"
-            >
-              Browse the citable findings compendium →
-            </Link>
+            <div className="mt-7 flex flex-wrap gap-x-7 gap-y-3 font-mono text-xs uppercase tracking-widest">
+              <Link
+                href="/research/findings"
+                className="underline decoration-accent/60 underline-offset-4 transition-colors hover:text-accent"
+              >
+                Citable findings →
+              </Link>
+              <Link
+                href="/research"
+                className="underline decoration-accent/60 underline-offset-4 transition-colors hover:text-accent"
+              >
+                All research →
+              </Link>
+            </div>
             <p className="mt-7 font-body text-sm text-foreground/65">
               Questions about the research?{" "}
               <a
@@ -59,7 +67,7 @@ export function ResearchArticleFooter({ study, relatedStudies }: ResearchArticle
       <section className="pt-16">
         <SectionHeader
           title="Related research"
-          eyebrow="Ref. List 04"
+          eyebrow="Selected studies"
           className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
         />
         <div className="divide-y divide-foreground/20 border-y border-foreground/20">

@@ -21,8 +21,8 @@ export function ResearchCredentials() {
             brand to a user.
           </p>
           <p className="mb-8 max-w-md font-body text-lg leading-relaxed text-foreground/80">
-            That work grew into the methodology Profound uses with the largest brands in the world.
-            What I learn ends up here, where anyone can use it.
+            That work grew into the methodology Profound uses with enterprise teams. What I learn
+            ends up here, with the sample and limitations attached.
           </p>
           <Link
             href="/research"
@@ -53,6 +53,32 @@ export function ResearchCredentials() {
             />
           </Reveal>
         ))}
+        <Reveal index={selectedStudies.length}>
+          <div className="grid gap-px border-b border-foreground/20 bg-foreground/20 sm:grid-cols-2">
+            <Link
+              href="/research/findings"
+              className="group bg-background py-6 pr-6 transition-colors hover:bg-foreground/5 sm:p-6"
+            >
+              <span className="font-mono text-xs uppercase tracking-widest text-accent">
+                Data reference
+              </span>
+              <span className="mt-2 block font-display text-xl font-medium group-hover:underline">
+                Citable AI search findings →
+              </span>
+            </Link>
+            <Link
+              href="/research/what-is-answer-engine-optimization"
+              className="group bg-background py-6 pr-6 transition-colors hover:bg-foreground/5 sm:p-6"
+            >
+              <span className="font-mono text-xs uppercase tracking-widest text-accent">
+                Practitioner reference
+              </span>
+              <span className="mt-2 block font-display text-xl font-medium group-hover:underline">
+                What is AEO? →
+              </span>
+            </Link>
+          </div>
+        </Reveal>
       </div>
     </Section>
   );

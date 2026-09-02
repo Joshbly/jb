@@ -42,7 +42,7 @@ export const meta = {
     "Research on Claude, ChatGPT, Brave, AI search ads, and Google AI Mode finds that each answer engine follows a distinct retrieval system.",
   excerpt:
     "Claude searched only 36.6 percent of the time; in a separate comparison, 79.2 percent of its cited URLs also appeared in Brave's top 10.",
-  image: "/images/header2.png",
+  image: "/images/header2.jpg",
   authors: [
     {
       name: "Josh Blyskal",

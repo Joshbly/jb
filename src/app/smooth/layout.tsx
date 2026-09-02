@@ -1,4 +1,9 @@
+import type { Metadata } from "next";
 import "./screenplay.css";
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 export default function SmoothLayout({ children }: { children: React.ReactNode }) {
   return (

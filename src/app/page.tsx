@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { RevealRunner } from "@/components/shared/RevealRunner";
@@ -7,6 +8,11 @@ import { Proof } from "@/components/ui/Proof";
 import { ResearchCredentials } from "@/components/ui/ResearchCredentials";
 import { SageFeature } from "@/components/ui/SageFeature";
 import { SpeakingFeature } from "@/components/ui/SpeakingFeature";
+import { site } from "@/content/site";
+
+export const metadata: Metadata = {
+  alternates: { canonical: site.url },
+};
 
 export default function Home() {
   return (

@@ -26,7 +26,7 @@ export const meta = {
     "A study of more than 50 million ChatGPT prompts finds that generative intent is larger than informational, commercial, navigational, or transactional intent.",
   excerpt:
     "Generative requests account for 37.5 percent of classified ChatGPT prompts, while navigational intent falls from 32.2 percent in traditional search to 2.1 percent.",
-  image: "/images/header2.png",
+  image: "/images/header2.jpg",
   authors: [
     {
       name: "Josh Blyskal",

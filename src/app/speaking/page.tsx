@@ -129,6 +129,12 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [`https://i.ytimg.com/vi/${brightonVideoId}/maxresdefault.jpg`],
+  },
 };
 
 export default function SpeakingPage() {
