@@ -40,8 +40,19 @@ export function ResearchCredentials() {
             className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
         </Reveal>
+        <Reveal index={0}>
+          <ArchiveEntry
+            source="Measurement essay"
+            sourceDetail="12 min"
+            date="2026-09-02"
+            dateLabel="Sep 2, 2026"
+            title="How I measure AI visibility"
+            href="/research/how-to-measure-ai-visibility"
+            description="Why I read visibility rank before score, how citations reveal what shaped an answer, and where attribution breaks."
+          />
+        </Reveal>
         {selectedStudies.map((study, index) => (
-          <Reveal key={study.slug} index={index}>
+          <Reveal key={study.slug} index={index + 1}>
             <ArchiveEntry
               source="Research"
               sourceDetail={study.readTime}
@@ -53,17 +64,6 @@ export function ResearchCredentials() {
             />
           </Reveal>
         ))}
-        <Reveal index={2}>
-          <ArchiveEntry
-            source="Measurement essay"
-            sourceDetail="12 min"
-            date="2026-09-02"
-            dateLabel="Sep 2, 2026"
-            title="How I measure AI visibility"
-            href="/research/how-to-measure-ai-visibility"
-            description="Why I read visibility rank before score, how citations reveal what shaped an answer, and where attribution breaks."
-          />
-        </Reveal>
         <Reveal index={3}>
           <div className="grid gap-px border-b border-foreground/20 bg-foreground/20 sm:grid-cols-2">
             <Link
