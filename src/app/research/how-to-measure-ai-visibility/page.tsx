@@ -83,7 +83,7 @@ export const metadata: Metadata = {
   },
 };
 
-function EssayImage({ src, alt, caption }: { src: string; alt: string; caption: string }) {
+function EssayImage({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
   return (
     <figure>
       <div className="relative aspect-3/2 overflow-hidden border border-foreground/20 bg-foreground/5">
@@ -96,9 +96,11 @@ function EssayImage({ src, alt, caption }: { src: string; alt: string; caption: 
           quality={82}
         />
       </div>
-      <figcaption className="mt-4 max-w-2xl font-body text-sm italic leading-relaxed text-foreground/55">
-        {caption}
-      </figcaption>
+      {caption ? (
+        <figcaption className="mt-4 max-w-2xl font-body text-sm italic leading-relaxed text-foreground/55">
+          {caption}
+        </figcaption>
+      ) : null}
     </figure>
   );
 }
@@ -124,45 +126,72 @@ export default function MeasureAiVisibilityPage() {
                 <h1 className="mt-4 max-w-5xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
                   How I measure AI visibility
                 </h1>
-                <div className="mt-10 max-w-3xl space-y-5 font-body text-xl leading-relaxed text-foreground/80 md:text-2xl">
-                  <p>Imagine walking into a store with no aisles.</p>
-                  <p>
-                    You ask for the best corporate card for a fifty-three-person software company
-                    that uses NetSuite and has a sales team that keeps expensing sushi at midnight.
-                  </p>
-                  <p>
-                    Only then do the shelves roll across the floor. The store builds an aisle around
-                    your request, decides which brands belong, and places one at eye level and
-                    another near your shoes. When the next customer asks a different question, it
-                    takes the aisle apart and starts again.
-                  </p>
-                </div>
+                <p className="mt-10 max-w-3xl font-body text-xl leading-relaxed text-foreground/80 md:text-2xl">
+                  Imagine walking into a store with no aisles.
+                </p>
               </div>
             </div>
           </header>
 
-          <div className="mx-auto max-w-7xl px-6 pb-24 md:pb-28">
-            <EssayImage
-              src="/images/research/ai-visibility/sequence-empty.jpg"
-              alt="An empty store floor before the customer makes a request"
-              caption="Before the customer asks, most of the store has no reason to exist."
-            />
+          <div className="mx-auto max-w-7xl space-y-20 px-6 pb-24 md:pb-28">
+            <div className="grid gap-10 lg:grid-cols-[3fr_2fr] lg:items-center lg:gap-14">
+              <EssayImage
+                src="/images/research/ai-visibility/sequence-request.jpg"
+                alt="A red shopping basket sitting alone on an empty store floor"
+              />
+              <p className="font-body text-xl leading-[1.7] text-foreground/80">
+                You ask for the best corporate card for a fifty-three-person software company that
+                uses NetSuite and has a sales team that keeps expensing sushi at midnight.
+              </p>
+            </div>
+
+            <div className="grid gap-10 lg:grid-cols-[2fr_3fr] lg:items-center lg:gap-14">
+              <p className="font-display text-3xl font-normal italic leading-tight lg:order-1 md:text-4xl">
+                Only then do the shelves roll across the floor.
+              </p>
+              <div className="lg:order-2">
+                <EssayImage
+                  src="/images/research/ai-visibility/sequence-stocked-sibling.jpg"
+                  alt="Movable store shelving assembled around the red shopping basket"
+                />
+              </div>
+            </div>
+
+            <div className="grid gap-10 lg:grid-cols-[3fr_2fr] lg:items-center lg:gap-14">
+              <EssayImage
+                src="/images/research/ai-visibility/sequence-pantry-final.jpg"
+                alt="The movable aisle stocked with products around the red basket"
+              />
+              <p className="font-display text-3xl font-normal italic leading-tight md:text-4xl">
+                The store decides which brands belong.
+              </p>
+            </div>
+
+            <div className="grid gap-10 lg:grid-cols-[2fr_3fr] lg:items-center lg:gap-14">
+              <p className="font-body text-xl leading-[1.7] text-foreground/80 lg:order-1">
+                The next customer asks a different question, so the store stocks a different answer.
+              </p>
+              <div className="lg:order-2">
+                <EssayImage
+                  src="/images/research/ai-visibility/sequence-household-final.jpg"
+                  alt="The same aisle and basket with a completely different set of products"
+                />
+              </div>
+            </div>
           </div>
 
           <Section layout="narrow">
             <div className="mx-auto max-w-3xl space-y-10 font-body text-lg leading-[1.75] text-foreground/90 md:text-xl">
               <p>
                 In retail, the diagram that decides where every product belongs is called a
-                planogram. It specifies which brands sit at eye level, which ones get an endcap, and
-                how many facings each product receives. Consumer brands spend fortunes trying to
-                improve this arrangement because the shelf is stable enough to fight over. A
-                merchandiser can photograph the aisle on Monday, return on Friday, and measure what
-                moved.
+                planogram. It is a set of instructions for what the shelf needs to look like.
+                Notably, it exists for all shoppers at the same time. There is one shelf. There is
+                not my shelf and your shelf. There is the shelf.
               </p>
               <EssayImage
-                src="/images/research/ai-visibility/sequence-request.jpg"
-                alt="A red shopping basket sitting alone on the empty store floor"
-                caption="The customer supplies the request before the store has anything to sell."
+                src="/images/research/ai-visibility/planogram-merchandiser-b.jpg"
+                alt="A retail merchandiser comparing a red planogram clipboard with an empty store shelf"
+                caption="The shelf is decided before the customer arrives."
               />
               <p>
                 Search results behaved enough like a planogram to inherit the same measurement
@@ -178,22 +207,12 @@ export default function MeasureAiVisibilityPage() {
                 the engine has to decide what kind of store would answer that question before it can
                 decide what belongs inside it.
               </p>
-              <EssayImage
-                src="/images/research/ai-visibility/sequence-assembled.jpg"
-                alt="Movable store shelving assembled around the red shopping basket"
-                caption="The question decides which aisle needs to exist."
-              />
               <p>
                 It might build one shelf for accounting integrations, another for card controls, and
                 a third for the stories finance teams tell after implementation. It chooses which
                 brands belong, where to place them, which facts to print on the labels, and which
                 outside sources to trust while assembling the display.
               </p>
-              <EssayImage
-                src="/images/research/ai-visibility/sequence-stocked.jpg"
-                alt="The movable aisle stocked with products around the red basket"
-                caption="The answer is stocked from the sources the engine can find."
-              />
               <p>
                 AI visibility lives inside these temporary aisles. There is no single shelf position
                 that belongs to the brand, because the shelf is rebuilt for every question. What we
@@ -202,12 +221,17 @@ export default function MeasureAiVisibilityPage() {
                 process look objective, but its most important decision happened before the first
                 answer was generated: somebody chose the questions.
               </p>
+              <EssayImage
+                src="/images/research/ai-visibility/aisles-at-scale-clean-a.jpg"
+                alt="A merchandiser with a red clipboard inspecting many parallel grocery-store aisles"
+                caption="One person chooses which aisles to inspect."
+              />
             </div>
           </Section>
 
           <Section layout="split">
             <p className="max-w-md font-display text-3xl font-normal italic leading-tight md:text-4xl">
-              Polling the wrong electorate more carefully does not improve the forecast.
+              A survey of the wrong people gives the wrong answer.
             </p>
             <div className="max-w-2xl space-y-10 font-body text-lg leading-[1.75] text-foreground/90">
               <p>
@@ -255,6 +279,11 @@ export default function MeasureAiVisibilityPage() {
                 whether competitors appeared more often, or whether the entire category became
                 easier for every brand to enter.
               </p>
+              <EssayImage
+                src="/images/research/ai-visibility/visibility-rank-b.jpg"
+                alt="A red product with one facing among competitors occupying most of a supermarket shelf"
+                caption="The red product is visible. Its competitors have more of the shelf."
+              />
               <p>
                 Imagine two months in which a brand&apos;s score rises from twenty percent to thirty
                 percent. It seems to have gained ground. Now imagine that its three closest
@@ -285,12 +314,12 @@ export default function MeasureAiVisibilityPage() {
           <Section layout="split">
             <div className="space-y-8">
               <p className="max-w-md font-display text-3xl font-normal italic leading-tight md:text-4xl">
-                Being stocked everywhere does not mean being chosen anywhere.
+                A product can be stocked everywhere and still sit on the bottom shelf.
               </p>
               <EssayImage
-                src="/images/research/ai-visibility/position.jpg"
+                src="/images/research/ai-visibility/position-bottom-final.jpg"
                 alt="A mostly empty store shelf with one red box among muted products"
-                caption="Stocked everywhere. Placed within easy reach nowhere."
+                caption="The product is there. Its position is a separate question."
               />
             </div>
             <div className="max-w-2xl space-y-10 font-body text-lg leading-[1.75] text-foreground/90">
@@ -322,7 +351,7 @@ export default function MeasureAiVisibilityPage() {
               <EssayImage
                 src="/images/research/ai-visibility/supply-chain.jpg"
                 alt="A red stocking cart carrying boxes from a retail stockroom toward the sales floor"
-                caption="The answer on the shelf begins with the sources in the stockroom."
+                caption="The cart brings products from the stockroom to the shelf."
               />
               <p>
                 The store also has to decide where its product information comes from. It may use
@@ -361,7 +390,7 @@ export default function MeasureAiVisibilityPage() {
 
           <Section layout="split">
             <p className="max-w-md font-display text-3xl font-normal italic leading-tight md:text-4xl">
-              A product can be on every shelf and still carry the wrong label.
+              The label can still be wrong.
             </p>
             <div className="max-w-2xl space-y-10 font-body text-lg leading-[1.75] text-foreground/90">
               <p>
@@ -395,7 +424,7 @@ export default function MeasureAiVisibilityPage() {
               <EssayImage
                 src="/images/research/ai-visibility/engine-vending.jpg"
                 alt="Three vending machines stocking the same red product differently"
-                caption="The same product enters three stores and finds three different shelves."
+                caption="Each store puts the same product in a different place."
               />
               <p>
                 Our imaginary store becomes stranger still when we remember that there is more than
@@ -421,7 +450,7 @@ export default function MeasureAiVisibilityPage() {
 
           <Section layout="split">
             <p className="max-w-md font-display text-3xl font-normal italic leading-tight md:text-4xl">
-              Asking the same ten customers a hundred times does not give you a thousand customers.
+              Asking ten people the same question 100 times is still a survey of ten people.
             </p>
             <div className="max-w-2xl space-y-10 font-body text-lg leading-[1.75] text-foreground/90">
               <p>
@@ -471,7 +500,7 @@ export default function MeasureAiVisibilityPage() {
               <EssayImage
                 src="/images/research/ai-visibility/checkout.jpg"
                 alt="A red product at an empty supermarket checkout"
-                caption="The register records the sale. It cannot see the conversation that caused it."
+                caption="The register knows what was bought, not how the customer found it."
               />
               <p>
                 One last hypothetical reveals what the dashboard cannot measure. A buyer spends
