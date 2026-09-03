@@ -6,7 +6,7 @@ import { researchArticles } from "@/content/research";
 import { formatDate } from "@/lib/time";
 
 export function ResearchCredentials() {
-  const selectedStudies = researchArticles.slice(0, 3);
+  const selectedStudies = researchArticles.slice(0, 2);
 
   return (
     <Section id="research" layout="split">
@@ -53,7 +53,18 @@ export function ResearchCredentials() {
             />
           </Reveal>
         ))}
-        <Reveal index={selectedStudies.length}>
+        <Reveal index={2}>
+          <ArchiveEntry
+            source="Measurement essay"
+            sourceDetail="12 min"
+            date="2026-09-02"
+            dateLabel="Sep 2, 2026"
+            title="How I measure AI visibility"
+            href="/research/how-to-measure-ai-visibility"
+            description="Why I read visibility rank before score, how citations reveal what shaped an answer, and where attribution breaks."
+          />
+        </Reveal>
+        <Reveal index={3}>
           <div className="grid gap-px border-b border-foreground/20 bg-foreground/20 sm:grid-cols-2">
             <Link
               href="/research/findings"
