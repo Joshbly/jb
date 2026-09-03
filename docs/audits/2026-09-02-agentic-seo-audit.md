@@ -28,6 +28,8 @@ The audit ran as an iterative evidence loop rather than a single scoring script.
 9. Editorial, technical, and skeptical reviews compared the site with the extracted winners and retained disagreements where the evidence did not support causality.
 10. The surviving recommendations were implemented, built, rendered, tested, and measured with repeated Lighthouse runs.
 
+A later voice-and-doctrine pass reviewed 25 additional first-party or closely related sources. Firecrawl returned 17 usable articles, lesson summaries, decks, transcripts, and interviews; eight LinkedIn posts were blocked. Indexed snippets and Profound documentation supplied the missing terminology without treating third-party wording as Josh's voice. Josh's own writing sample and direct corrections remained authoritative.
+
 Small collectors obtained observations from APIs. Strategy, exclusions, confidence, and priority decisions remained in the review loop instead of being encoded as universal SEO rules.
 
 ## Evidence ledger
@@ -218,7 +220,7 @@ Technical:
 
 Content and authority:
 
-- New AI-visibility measurement reference
+- New AI-visibility measurement reference, rewritten around Josh's actual hierarchy: visibility rank, visibility score, position, citation share as influence on answer construction, accuracy, then downstream attribution
 - New query-fan-out reference
 - Research hub registration, sitemap entries, writing archive entries, profile links, and `llms.txt` links
 - AEO at-a-glance block, alias note, comparison anchors, revision date, and stronger reference links

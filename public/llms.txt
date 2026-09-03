@@ -21,7 +21,7 @@
 - [Research](https://www.joshblyskal.com/research)
 - [AI search statistics and research findings](https://www.joshblyskal.com/research/findings)
 - [What is answer engine optimization (AEO)?](https://www.joshblyskal.com/research/what-is-answer-engine-optimization)
-- [How to measure AI visibility](https://www.joshblyskal.com/research/how-to-measure-ai-visibility)
+- [How I measure AI visibility](https://www.joshblyskal.com/research/how-to-measure-ai-visibility)
 - [Query fan-out: how AI search turns one prompt into many searches](https://www.joshblyskal.com/research/query-fanout)
 - [SAGE for AEO: A Four-Stage Operating Loop](https://www.joshblyskal.com/research/sage-aeo-method)
 - [Why Reddit became AI search's most-cited domain](https://www.joshblyskal.com/research/reddit-ai-search-data)
