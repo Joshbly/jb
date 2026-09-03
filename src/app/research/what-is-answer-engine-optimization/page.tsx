@@ -9,7 +9,7 @@ const pageUrl = `${site.url}/research/what-is-answer-engine-optimization`;
 const pageTitle = "What is answer engine optimization (AEO)?";
 const metadataTitle = "What Is Answer Engine Optimization (AEO)? | Josh Blyskal";
 const description =
-  "Answer engine optimization is the work of improving retrieval, citation, inclusion, and representation in AI-generated answers. A practitioner-led guide to AEO, GEO, and SEO.";
+  "Answer engine optimization is the work of improving retrieval, citation, inclusion, position, and accuracy in AI-generated answers. A practitioner-led guide to AEO, GEO, and SEO.";
 const publishedDate = "2026-08-03";
 const modifiedDate = "2026-09-02";
 
@@ -20,11 +20,12 @@ const aeoAtAGlance = [
   },
   {
     label: "Primary outcomes",
-    value: "Retrieval, citation, brand inclusion, ordering, and accurate representation.",
+    value: "Retrieval, citation, brand inclusion, position, and accuracy.",
   },
   {
     label: "Core measures",
-    value: "Visibility, answer rank, citation share, cited URLs, mentions, and answer language.",
+    value:
+      "Visibility rank, visibility score, position, citation share, cited URLs, accuracy, and answer language.",
   },
   {
     label: "When to start smaller",
@@ -42,12 +43,12 @@ const aeoQuestions = {
   geo: {
     question: "Is AEO the same as GEO?",
     answer:
-      "Yes, in current AI-search practice, AEO and GEO are two names for the same discipline. Both use the same inputs, systems, actions, outputs, and success metrics to improve visibility and representation in generated answers. A claimed difference matters only when it produces a materially different workflow or measurement system.",
+      "Yes, in current AI-search practice, AEO and GEO are two names for the same discipline. Both use the same inputs, systems, actions, outputs, and success metrics to improve visibility, position, and accuracy in generated answers. A claimed difference matters only when it produces a materially different workflow or measurement system.",
   },
   seo: {
     question: "What is the difference between AEO and SEO?",
     answer:
-      "SEO primarily improves a page's eligibility and position in ranked search results, while AEO improves whether and how a source or brand becomes part of a generated answer. SEO remains a foundation because many answer engines retrieve from search indexes, but rankings and clicks alone do not measure citation, inclusion, or representation inside the answer.",
+      "SEO primarily improves a page's eligibility and position in ranked search results, while AEO improves whether and how a source or brand becomes part of a generated answer. SEO remains a foundation because many answer engines retrieve from search indexes, but rankings and clicks alone do not measure citation, inclusion, position, or accuracy inside the answer.",
   },
   competingDefinitions: {
     question: "Why do people say AEO and GEO are different?",
@@ -83,7 +84,7 @@ const aeoGeoComparisons = [
     distinction: "AEO extracts direct answers; GEO synthesizes narratives.",
     workflow:
       "Research the question, make the source retrievable, publish a clear and supported passage, inspect the cited sources, and rerun the answer.",
-    outcome: "Citation or inclusion in a generated answer, with accurate source representation.",
+    outcome: "Citation or inclusion in a generated answer, with the source used accurately.",
     verdict: "Different descriptions of the presentation layer; no separate practitioner workflow.",
   },
   {
@@ -97,7 +98,7 @@ const aeoGeoComparisons = [
     distinction: "AEO earns citations; GEO earns mentions and recommendations.",
     workflow:
       "Map prompts, entities, competitors, evidence, and source gaps; then improve the information available to the engine.",
-    outcome: "Citation, mention, recommendation, or more accurate representation in the response.",
+    outcome: "Citation, mention, recommendation, or a more accurate description in the response.",
     verdict: "The desired answer behavior changes, but the discipline does not.",
   },
   {
@@ -136,12 +137,12 @@ const answerPath = [
   {
     name: "Brand inclusion",
     description:
-      "A brand can appear as the cited source, an option in a comparison, the subject of a recommendation, or an entity described by third-party evidence. AEO therefore covers more than winning a link. It also asks whether the brand was included, what claim it was attached to, and whether the representation was accurate.",
+      "A brand can appear as the cited source, an option in a comparison, the subject of a recommendation, or an entity described by third-party evidence. AEO therefore covers more than winning a link. It also asks whether the brand was included, what claim it was attached to, and whether the answer got the facts right.",
   },
   {
     name: "Measurement",
     description:
-      "The practitioner reruns a stable set of prompts and separates the results by engine, market, and intent. Useful measures include visibility, answer rank, citation share, cited URLs, mention share, competitors, sentiment, and the language used to describe the brand. The exact panel can change; the need for a comparable baseline does not.",
+      "The practitioner reruns a stable set of prompts and separates the results by engine, market, and intent. I read visibility rank first, then visibility score, position, citation share, cited URLs, accuracy, and the exact language used to describe the brand.",
   },
 ] as const;
 
@@ -731,7 +732,7 @@ export default function WhatIsAnswerEngineOptimizationPage() {
                   {
                     term: "Unit of visibility",
                     seo: "SEO: usually the page or listing and its position.",
-                    aeo: "AEO: the source, passage, entity, claim, citation, mention, and resulting brand representation.",
+                    aeo: "AEO: the source, passage, entity, claim, citation, position, and accuracy of the resulting brand description.",
                   },
                   {
                     term: "Query path",
@@ -741,7 +742,7 @@ export default function WhatIsAnswerEngineOptimizationPage() {
                   {
                     term: "Core measurement",
                     seo: "SEO: rankings, impressions, clicks, traffic, and conversions.",
-                    aeo: "AEO: visibility, citations, mentions, answer rank, share of voice, language, sentiment, and downstream behavior.",
+                    aeo: "AEO: visibility rank, visibility score, position, citation share, accuracy, answer language, and downstream behavior.",
                   },
                 ].map((seoDifference) => (
                   <div
@@ -924,8 +925,9 @@ export default function WhatIsAnswerEngineOptimizationPage() {
                     },
                     {
                       href: "/research/how-to-measure-ai-visibility",
-                      title: "How to measure AI visibility",
-                      description: "Metrics, denominators, prompt panels, and reliability checks.",
+                      title: "How I measure AI visibility",
+                      description:
+                        "Why I read visibility rank first, then score, position, citation share, and accuracy.",
                     },
                     {
                       href: "/research/query-fanout",

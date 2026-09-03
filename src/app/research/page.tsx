@@ -168,9 +168,9 @@ export default function ResearchIndexPage() {
             source="Measurement reference"
             date="2026-09-02"
             dateLabel="Sep 2, 2026"
-            title="How to measure AI visibility"
+            title="How I measure AI visibility"
             href="/research/how-to-measure-ai-visibility"
-            description="A defensible way to design prompt panels, define visibility metrics, separate engines, and read change without overstating precision."
+            description="Why I read visibility rank first, then use score, position, citation share, and accuracy to decide what to do next."
           />
           <ArchiveEntry
             source="Retrieval reference"

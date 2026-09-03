@@ -138,7 +138,7 @@ const researchIndexRecords = [
     url: `${researchUrl}/what-is-answer-engine-optimization`,
   },
   {
-    name: "How to measure AI visibility",
+    name: "How I measure AI visibility",
     url: `${researchUrl}/how-to-measure-ai-visibility`,
   },
   {

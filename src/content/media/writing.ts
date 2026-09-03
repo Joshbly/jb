@@ -4,12 +4,12 @@ export const writtenWorks: readonly WrittenWork[] = [
   {
     id: "how-to-measure-ai-visibility",
     date: "2026-09-02",
-    title: "How to measure AI visibility",
+    title: "How I measure AI visibility",
     outlet: "JoshBlyskal.com",
     kind: "guide",
     href: "/research/how-to-measure-ai-visibility",
     summary:
-      "A defensible method for prompt panels, visibility metrics, engine separation, and measurement reliability.",
+      "Why visibility rank comes first, followed by score, position, citation share, accuracy, and attribution.",
     featuredOnHome: true,
   },
   {

@@ -65,7 +65,7 @@ export const sagePhases: readonly SagePhase[] = [
       "When a dashboard changes, I start with the prompts underneath the number. I read the answers, separate the engines, and inspect the exact pages they cited. Sometimes the explanation is a new publisher, sometimes it is a competitor page, and sometimes the engine simply changed how it framed the question. The analysis is finished when I can describe what happened in plain language and point to the evidence behind it.",
     inputs: [
       "The prompts inside the topic, especially the ones that moved",
-      "Visibility, rank, and citation share for each engine separately",
+      "Visibility rank, visibility score, position, citation share, and accuracy for each engine separately",
       "The domains and pages that supplied the answer",
       "How the engine described the brand over several weeks",
       "Whether the expected page was fetched, selected, and easy to quote",
@@ -80,7 +80,7 @@ export const sagePhases: readonly SagePhase[] = [
     moveOnWhen:
       "The team can explain the movement in plain language, point to the affected prompts and sources, and name the person who can act on the diagnosis.",
     example:
-      "Suppose ChatGPT visibility falls while citation share looks healthy overall. I would isolate the ChatGPT citations, find the publisher or competitor that gained, and read the page it started using. From there, the team can decide whether it needs a better page of its own or a credible place in the source that already shapes the answer.",
+      "Suppose ChatGPT visibility score falls while visibility rank holds. I would isolate ChatGPT, read the affected prompts, and find the publisher or competitor that changed position. Citation share shows which sources shaped the new answers. From there, the team can decide whether it needs a better page of its own or a credible place in the source already doing the talking.",
     sources: [
       {
         label: "Citation portfolio lesson",
@@ -222,7 +222,7 @@ export const sageEvidence = [
     value: "8%",
     title: "Claude and ChatGPT relied on largely different citation domains",
     description:
-      "Claude and ChatGPT shared 8% of citation domains on average in the sample. I keep their analysis separate because a combined visibility score would hide most of that difference.",
+      "Claude and ChatGPT shared 8% of citation domains on average in the sample. I read each engine separately because visibility rank tells a different competitive story when the source sets barely overlap.",
     href: "/research/state-of-aeo-2026",
   },
   {
@@ -281,7 +281,7 @@ export const methodologyFaqs = [
   {
     question: "How do you measure a SAGE cycle?",
     answer:
-      "I keep the prompt set and filters fixed for the period being compared, then review visibility, rank, citations, cited pages, and the language in the answer for each engine. The useful output is an explanation that a specific person can act on.",
+      "I keep the prompt set, competitor set, and filters fixed for the period being compared. I read visibility rank first, then visibility score, position, citation share, cited pages, accuracy, and the exact language in each engine's answers. The useful output is an explanation a specific person can act on.",
   },
   {
     question: "Can a team use SAGE without Profound?",

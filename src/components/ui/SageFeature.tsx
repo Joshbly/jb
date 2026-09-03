@@ -11,7 +11,8 @@ export function SageFeature() {
           <DisplayH2 className="mb-6">SAGE for AEO</DisplayH2>
           <p className="mb-8 max-w-md font-body text-lg leading-relaxed text-foreground/80">
             I built SAGE at Profound to keep AEO work in order: establish the baseline, diagnose the
-            constraint, ship the response, then make the elements that had the highest impact repeatable.
+            constraint, ship the response, then make the elements that had the highest impact
+            repeatable.
           </p>
           <Link
             href="/research/sage-aeo-method"
