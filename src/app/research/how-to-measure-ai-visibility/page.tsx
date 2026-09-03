@@ -189,7 +189,7 @@ export default function MeasureAiVisibilityPage() {
                 not my shelf and your shelf. There is the shelf.
               </p>
               <EssayImage
-                src="/images/research/ai-visibility/planogram-merchandiser-b.jpg"
+                src="/images/research/ai-visibility/50686b78-894a-4136-88d9-67196bd5bdb2-51c62fbd-47e2.png"
                 alt="A retail merchandiser comparing a red planogram clipboard with an empty store shelf"
                 caption="The shelf is decided before the customer arrives."
               />
