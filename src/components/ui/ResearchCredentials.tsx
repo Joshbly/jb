@@ -42,7 +42,6 @@ export function ResearchCredentials() {
         </Reveal>
         <Reveal index={0}>
           <ArchiveEntry
-            source="Measurement essay"
             sourceDetail="12 min"
             date="2026-09-02"
             dateLabel="Sep 2, 2026"
@@ -54,7 +53,6 @@ export function ResearchCredentials() {
         {selectedStudies.map((study, index) => (
           <Reveal key={study.slug} index={index + 1}>
             <ArchiveEntry
-              source="Research"
               sourceDetail={study.readTime}
               date={study.date}
               dateLabel={formatDate(study.date)}
@@ -70,10 +68,7 @@ export function ResearchCredentials() {
               href="/research/findings"
               className="group bg-background py-6 pr-6 transition-colors hover:bg-foreground/5 sm:p-6"
             >
-              <span className="font-mono text-xs uppercase tracking-widest text-accent">
-                Data reference
-              </span>
-              <span className="mt-2 block font-display text-xl font-medium group-hover:underline">
+              <span className="block font-display text-xl font-medium group-hover:underline">
                 Citable AI search findings →
               </span>
             </Link>
@@ -81,10 +76,7 @@ export function ResearchCredentials() {
               href="/research/what-is-answer-engine-optimization"
               className="group bg-background py-6 pr-6 transition-colors hover:bg-foreground/5 sm:p-6"
             >
-              <span className="font-mono text-xs uppercase tracking-widest text-accent">
-                Practitioner reference
-              </span>
-              <span className="mt-2 block font-display text-xl font-medium group-hover:underline">
+              <span className="block font-display text-xl font-medium group-hover:underline">
                 What is AEO? →
               </span>
             </Link>

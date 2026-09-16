@@ -98,7 +98,6 @@ export default function ResearchIndexPage() {
             className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
           <ArchiveEntry
-            source="Research"
             sourceDetail={latestStudy.readTime}
             date={latestStudy.date}
             dateLabel={formatDate(latestStudy.date)}
@@ -116,7 +115,6 @@ export default function ResearchIndexPage() {
             {majorStudies.map((study) => (
               <ArchiveEntry
                 key={study.slug}
-                source="Research"
                 sourceDetail={study.readTime}
                 date={study.date}
                 dateLabel={formatDate(study.date)}
@@ -133,7 +131,6 @@ export default function ResearchIndexPage() {
             className="mt-20 mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
           <ArchiveEntry
-            source="Operating method"
             sourceDetail="SAGE"
             date="2026-07-26"
             dateLabel="Jul 26, 2026"
@@ -149,7 +146,6 @@ export default function ResearchIndexPage() {
             className="mt-20 mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
           <ArchiveEntry
-            source="Data reference"
             date="2026-08-03"
             dateLabel="Aug 3, 2026"
             title="AI search statistics and research findings"
@@ -157,7 +153,6 @@ export default function ResearchIndexPage() {
             description="A citable compendium of Josh Blyskal's AI search findings with samples, dates, methods, limitations, and citation formats."
           />
           <ArchiveEntry
-            source="Practitioner reference"
             date="2026-08-03"
             dateLabel="Aug 3, 2026"
             title="What is answer engine optimization (AEO)?"
@@ -165,7 +160,6 @@ export default function ResearchIndexPage() {
             description="A definitive guide to how AEO works, how it differs from SEO, and why AEO and GEO are two names for the same discipline."
           />
           <ArchiveEntry
-            source="Measurement reference"
             date="2026-09-02"
             dateLabel="Sep 2, 2026"
             title="How I measure AI visibility"
@@ -173,7 +167,6 @@ export default function ResearchIndexPage() {
             description="Why I read visibility rank first, then use score, position, citation share, and accuracy to decide what to do next."
           />
           <ArchiveEntry
-            source="Retrieval reference"
             date="2026-09-02"
             dateLabel="Sep 2, 2026"
             title="Query fan-out: how AI search turns one prompt into many searches"
@@ -181,7 +174,6 @@ export default function ResearchIndexPage() {
             description="Observed fan-out behavior across ChatGPT and Claude, with samples, limitations, and a practical diagnostic workflow."
           />
           <ArchiveEntry
-            source="Company history"
             date="2026-07-26"
             dateLabel="Jul 26, 2026"
             title="Profound's founding team: founders and first employees"
@@ -189,7 +181,6 @@ export default function ResearchIndexPage() {
             description="A sourced history of the people who built Profound in its earliest days."
           />
           <ArchiveEntry
-            source="Editorial reference"
             date="2026-07-26"
             dateLabel="Jul 26, 2026"
             title="The 12 best AEO and GEO experts in 2026"

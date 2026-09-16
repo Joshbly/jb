@@ -6,7 +6,7 @@ export type ArchiveEntryLink = {
 };
 
 type ArchiveEntryProps = {
-  source: string;
+  source?: string;
   sourceDetail?: string;
   date: string;
   dateLabel: string;
@@ -43,8 +43,12 @@ export function ArchiveEntry({
     >
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3 font-mono text-xs uppercase tracking-wider">
         <p className="min-w-0 leading-snug">
-          <span className="text-accent">{source}</span>
-          {sourceDetail ? <span className="ml-2 text-foreground/40">{sourceDetail}</span> : null}
+          {source ? <span className="text-accent">{source}</span> : null}
+          {sourceDetail ? (
+            <span className={source ? "ml-2 text-foreground/40" : "text-foreground/40"}>
+              {sourceDetail}
+            </span>
+          ) : null}
         </p>
         <time className="text-right text-foreground/40" dateTime={date}>
           {dateLabel}
