@@ -365,19 +365,19 @@ export default function SpeakingPage() {
                       src={site.headshot}
                       alt={`Portrait of ${site.name}`}
                       fill
-                      sizes="(min-width: 640px) 25vw, 100vw"
-                      className="object-cover grayscale"
+                      unoptimized
+                      className="object-cover object-bottom grayscale"
                     />
                   </div>
                   <figcaption className="mt-4">
                     <a
                       href={site.headshot}
-                      download="josh-blyskal-headshot.png"
+                      download="josh-blyskal-headshot.jpg"
                       className="font-mono text-xs uppercase tracking-widest underline decoration-accent/50 underline-offset-4 transition-colors hover:text-accent"
                     >
-                      Download headshot · PNG
+                      Download headshot · JPG
                     </a>
-                    <p className="mt-2 font-body text-sm text-foreground/55">1509 × 1726 pixels</p>
+                    <p className="mt-2 font-body text-sm text-foreground/55">1280 × 1920 pixels</p>
                   </figcaption>
                 </figure>
                 <figure className="min-w-0">

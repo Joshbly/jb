@@ -14,7 +14,7 @@ export const site = {
   description: `${NAME} studies how to make brands visible in AI search. He joined ${EMPLOYER.name} as its second employee and now leads AI Strategy & Research.`,
   bio: `${NAME} joined ${EMPLOYER.name} as its second employee and now leads AI Strategy & Research, studying how to make brands visible in AI search.`,
   ogImage: "/opengraph-image",
-  headshot: "/images/headshot.png",
+  headshot: "/images/headshot.jpg",
   heroImage: {
     src: HERO_SRC,
     alt: `${NAME} speaking at Profound's Zero Click conference`,

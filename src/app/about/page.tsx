@@ -84,15 +84,24 @@ export default function AboutPage() {
                 </div>
               </div>
               <figure className="w-full max-w-sm md:justify-self-end">
-                <div className="relative aspect-4/5 overflow-hidden border border-foreground">
+                <div className="group relative overflow-hidden border border-foreground">
+                  {/* unoptimized: serve the original file, never a recompressed copy */}
                   <Image
                     src={site.headshot}
                     alt={`Portrait of ${site.name}`}
-                    fill
-                    sizes="(min-width: 768px) 320px, 60vw"
-                    className="object-cover grayscale"
+                    width={1280}
+                    height={1920}
+                    unoptimized
+                    className="block h-auto w-full"
                     priority
                   />
+                  <a
+                    href={site.headshot}
+                    download="josh-blyskal-headshot.jpg"
+                    className="absolute top-3 right-3 border border-foreground bg-background px-3 py-2 font-mono text-xs uppercase tracking-widest opacity-0 transition hover:border-accent hover:bg-accent hover:text-background focus-visible:opacity-100 group-hover:opacity-100 pointer-coarse:opacity-100"
+                  >
+                    Download · JPG
+                  </a>
                 </div>
                 <figcaption className="mt-3 font-mono text-xs uppercase tracking-wider text-foreground/50">
                   {site.name} · Williamsburg, Brooklyn
