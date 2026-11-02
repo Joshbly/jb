@@ -78,7 +78,7 @@ export default function OpenGraphImage() {
             Co-founders
           </span>
           <span style={{ fontFamily: "Georgia, serif", fontSize: 26 }}>
-            James Cadwallader · Dylan Babbs
+            James Cadwallader and Dylan Babbs
           </span>
         </div>
         <span

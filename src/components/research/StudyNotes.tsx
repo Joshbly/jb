@@ -43,7 +43,7 @@ export function StudyNotes({ notes }: StudyNotesProps) {
     {
       label: "Access",
       entries: notes.access?.map((source) => ({
-        text: `${source.name} · ${source.publisher}`,
+        text: `${source.name}, ${source.publisher}`,
         url: source.url,
       })),
     },
@@ -90,7 +90,7 @@ export function StudyNotes({ notes }: StudyNotesProps) {
                       >
                         {noteEntries.length > 1 ? (
                           <span aria-hidden="true" className="text-accent">
-                            ·
+                            –
                           </span>
                         ) : null}
                         {noteEntry.url ? (

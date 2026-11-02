@@ -272,7 +272,7 @@ export default function WhatIsAnswerEngineOptimizationPage() {
 
             <div className="py-24 md:py-32">
               <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
-                Practitioner reference · Published August 3, 2026 · Updated September 2, 2026
+                Practitioner reference, published August 3, 2026, and updated September 2, 2026
               </p>
               <h1 className="mt-5 max-w-5xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
                 What is answer engine optimization?

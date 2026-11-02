@@ -147,7 +147,7 @@ function linksFor(appearance: Appearance) {
 
 function appearanceDate(appearance: Appearance) {
   const date = appearance.dateLabel ?? formatDate(appearance.date);
-  return appearance.status === "upcoming" ? `Upcoming · ${date}` : date;
+  return appearance.status === "upcoming" ? `${date} (upcoming)` : date;
 }
 
 export default function ArchivePage() {
@@ -221,7 +221,7 @@ export default function ArchivePage() {
         <MediaPhotoBreak
           src="/images/media/zero-click-nyc-2025.jpg"
           alt="Josh Blyskal presenting a ChatGPT shopping example onstage at Zero Click New York"
-          kicker="Zero Click New York · Oct 2025"
+          kicker="Zero Click New York, Oct 2025"
           caption="The Machine Customer Era, live at the inaugural Zero Click conference."
           sourceHref="https://www.tryprofound.com/blog/zero-click-new-york-inagaural-ai-search-nyc-summit"
           sourceLabel="Event archive"
@@ -250,7 +250,7 @@ export default function ArchivePage() {
         <MediaPhotoBreak
           src="/images/media/techseo-connect-2025.jpg"
           alt="TechSEO Connect title card for Josh Blyskal's 250 million AI response study"
-          kicker="TechSEO Connect · Raleigh · Dec 2025"
+          kicker="TechSEO Connect, Raleigh, Dec 2025"
           caption="Presenting research drawn from 250 million AI responses."
           sourceHref="https://www.youtube.com/watch?v=ll_kZh5GVX0"
           sourceLabel="Watch the recording"
@@ -338,7 +338,7 @@ export default function ArchivePage() {
         <MediaPhotoBreak
           src="/images/media/brightonseo-san-diego-2025.jpg"
           alt="Josh Blyskal presenting semantic URL citation research at brightonSEO San Diego"
-          kicker="brightonSEO · San Diego · Sep 2025"
+          kicker="brightonSEO, San Diego, Sep 2025"
           caption="A field note on semantic URLs and AI citations."
           sourceHref="https://www.linkedin.com/posts/joshua-blyskal_thats-a-wrap-on-brighton-seo-san-diego-2025-activity-7377089308924739584-VOVN"
           sourceLabel="Original post"

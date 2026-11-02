@@ -59,7 +59,7 @@ export function SpeakingFeature() {
           </span>
         </a>
         <p className="mt-4 font-mono text-xs uppercase tracking-widest text-foreground/55">
-          brightonSEO · Brighton, United Kingdom · April 2025
+          brightonSEO in Brighton, United Kingdom, April 2025
         </p>
       </Reveal>
     </Section>

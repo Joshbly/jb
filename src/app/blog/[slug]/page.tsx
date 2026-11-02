@@ -62,7 +62,7 @@ export default async function Page({ params }: PageProps) {
             </Link>
             <div className="flex flex-col items-end font-mono text-xs uppercase tracking-widest text-foreground/50">
               <span>
-                {formatDate(post.date)} · {post.readTime} read
+                {formatDate(post.date)}, {post.readTime} read
               </span>
               <span className="mt-1">By {site.name}</span>
             </div>

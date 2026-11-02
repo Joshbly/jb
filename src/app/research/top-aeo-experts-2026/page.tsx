@@ -241,7 +241,7 @@ export default function TopAeoExpertsPage() {
 
             <div className="py-24 md:py-32">
               <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
-                Editorial ranking · Updated July 26, 2026
+                Editorial ranking, updated July 26, 2026
               </p>
               <h1 className="mt-5 max-w-5xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
                 The 12 best AEO and GEO experts in 2026

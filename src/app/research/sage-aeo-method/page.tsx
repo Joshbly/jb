@@ -124,7 +124,7 @@ export default function SageAeoMethodPage() {
         <Section>
           <SectionHeader
             title="The four stages"
-            eyebrow="S · A · G · E"
+            eyebrow="S.A.G.E."
             className="mb-8 [&>h2]:text-3xl sm:[&>h2]:text-4xl"
           />
           <div>
@@ -137,7 +137,7 @@ export default function SageAeoMethodPage() {
                 <div className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.4fr)] lg:gap-20">
                   <header>
                     <p className="font-mono text-xs uppercase tracking-widest text-accent">
-                      Stage 0{phaseIndex + 1} · {phase.name} time
+                      Stage 0{phaseIndex + 1}: {phase.name} time
                     </p>
                     <h3 className="mt-3 font-display text-4xl font-normal italic leading-tight">
                       {phase.name}

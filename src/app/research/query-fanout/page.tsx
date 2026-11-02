@@ -154,7 +154,7 @@ export default function QueryFanoutPage() {
             <SubpageNav activeHref="/research" />
             <div className="py-24 md:py-32">
               <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
-                Retrieval reference · Published September 2, 2026
+                Retrieval reference, published September 2, 2026
               </p>
               <h1 className="mt-4 max-w-6xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
                 Query fan-out

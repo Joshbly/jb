@@ -94,7 +94,7 @@ export default async function ResearchArticlePage({ params }: PageProps) {
                 </Link>
                 <div className="flex flex-col font-mono text-xs uppercase tracking-widest text-foreground/50 sm:items-end">
                   <span>
-                    {formatDate(study.date)} · {study.readTime} read
+                    {formatDate(study.date)}, {study.readTime} read
                   </span>
                   {study.modifiedDate ? (
                     <span>Updated {formatDate(study.modifiedDate)}</span>

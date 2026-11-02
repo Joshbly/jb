@@ -496,7 +496,7 @@ const redditStudy: EmpiricalStudy = {
   id: "reddit",
   title: "Why Reddit became AI search's most-cited domain",
   shortTitle: "Reddit citation study",
-  published: "Nov 2025 · May 2026 update",
+  published: "Nov 2025, updated May 2026",
   description:
     "An aggregate and engine-level analysis of Reddit citation share, source pairing, sentiment, community concentration, and cited-post age.",
   scope:
@@ -1021,7 +1021,7 @@ function EmpiricalStudySection({ study }: { study: EmpiricalStudy }) {
           </p>
           <p className="mt-4 font-body text-sm leading-relaxed text-foreground/55">
             By {study.authors.join(" and ")}
-            {study.contributors.length > 0 ? ` · ${study.contributors.join(" · ")}` : ""}
+            {study.contributors.length > 0 ? `; ${study.contributors.join("; ")}` : ""}
           </p>
           <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
             <SourceLink source={{ label: "Full write-up", href: study.fullWriteup }} />
@@ -1089,7 +1089,7 @@ export default function ResearchFindingsPage() {
                 , AI Strategy &amp; Research at Profound. Study-level credits below.
               </p>
               <p className="mt-3 font-mono text-xs uppercase tracking-widest text-foreground/45">
-                Published August 3, 2026 · Updated September 2, 2026
+                Published August 3, 2026, and updated September 2, 2026
               </p>
               <div className="mt-9 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-widest">
                 <a

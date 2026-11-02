@@ -75,17 +75,17 @@ const completeRecordings = [
 const stageCredits = [
   {
     label: "MozCon",
-    detail: "New York · 2026",
+    detail: "New York, 2026",
     appearance: appearanceById("2026-07-14-mozcon"),
   },
   {
     label: "BrightonSEO",
-    detail: "Brighton and San Diego · 2025",
+    detail: "Brighton and San Diego, 2025",
     appearance: brightonTalk,
   },
   {
     label: "TechSEO Connect",
-    detail: "Raleigh · 2025",
+    detail: "Raleigh, 2025",
     appearance: techSeoTalk,
   },
   {
@@ -95,12 +95,12 @@ const stageCredits = [
   },
   {
     label: "Spotlight AR",
-    detail: "Kansas City · 2025",
+    detail: "Kansas City, 2025",
     appearance: appearanceById("2025-09-29-spotlight-ar"),
   },
   {
     label: "Shenzhen SEO Conference",
-    detail: "Upcoming · September 2026",
+    detail: "September 2026 (upcoming)",
     appearance: appearanceById("2026-09-shenzhen-seo"),
   },
 ];
@@ -212,7 +212,7 @@ export default function SpeakingPage() {
                   {talkTopic.description}
                 </p>
                 <p className="mt-7 font-mono text-xs uppercase leading-relaxed tracking-wider text-foreground/45">
-                  {talkTopic.appearances.map((appearance) => appearance.event).join(" · ")}
+                  {talkTopic.appearances.map((appearance) => appearance.event).join(", ")}
                 </p>
               </article>
             ))}
@@ -249,7 +249,7 @@ export default function SpeakingPage() {
               />
             </div>
             <p className="mt-4 font-mono text-xs uppercase leading-relaxed tracking-wider text-foreground/50">
-              {brightonTalk.event} · {brightonTalk.location}
+              {brightonTalk.event} in {brightonTalk.location}
             </p>
           </div>
         </Section>
@@ -275,7 +275,7 @@ export default function SpeakingPage() {
                   />
                 </div>
                 <p className="mt-5 font-mono text-xs uppercase tracking-widest text-accent">
-                  {appearance.event} · {duration}
+                  {appearance.event} ({duration})
                 </p>
                 <h3 className="mt-3 font-display text-2xl font-medium leading-snug">
                   {appearance.title}
@@ -375,7 +375,7 @@ export default function SpeakingPage() {
                       download="josh-blyskal-headshot.jpg"
                       className="font-mono text-xs uppercase tracking-widest underline decoration-accent/50 underline-offset-4 transition-colors hover:text-accent"
                     >
-                      Download headshot · JPG
+                      Download headshot (JPG)
                     </a>
                     <p className="mt-2 font-body text-sm text-foreground/55">1280 × 1920 pixels</p>
                   </figcaption>
@@ -396,7 +396,7 @@ export default function SpeakingPage() {
                       download="josh-blyskal-onstage.jpg"
                       className="font-mono text-xs uppercase tracking-widest underline decoration-accent/50 underline-offset-4 transition-colors hover:text-accent"
                     >
-                      Download stage photo · JPG
+                      Download stage photo (JPG)
                     </a>
                     <p className="mt-2 font-body text-sm text-foreground/55">1600 × 2400 pixels</p>
                   </figcaption>

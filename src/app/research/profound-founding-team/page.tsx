@@ -19,7 +19,7 @@ const earlyTeam = [
     name: "James Cadwallader",
     group: "Co-founder",
     role: "Co-founder & CEO",
-    joined: "Founded · 2024",
+    joined: "Founded 2024",
     profile: "https://www.linkedin.com/in/jsca",
     summary:
       "James co-founded Profound with Dylan after the two met at South Park Commons. He became CEO.",
@@ -40,7 +40,7 @@ const earlyTeam = [
     name: "Dylan Babbs",
     group: "Co-founder",
     role: "Co-founder & CTO",
-    joined: "Founded · 2024",
+    joined: "Founded 2024",
     profile: "https://www.linkedin.com/in/babbsdj",
     summary:
       "Dylan co-founded Profound with James and became CTO. His August 2024 post announced the company publicly.",
@@ -188,7 +188,7 @@ const mikaelSargsyan = {
   name: "Mikael Sargsyan",
   group: "Early collaborator",
   role: "Early product collaborator",
-  joined: "First involved · July 2024",
+  joined: "First involved July 2024",
   profile: "https://www.linkedin.com/in/mikael-sargsyan",
   summary:
     "Mikael contacted Dylan before Profound's public launch and began collaborating from Argentina. He contributed to the early product and later joined the engineering team.",
@@ -285,13 +285,13 @@ const answerQuestions = [
 const earlyFunctions = [
   {
     name: "Company and product direction",
-    people: "James Cadwallader · Dylan Babbs",
+    people: "James Cadwallader and Dylan Babbs",
     description:
       "James handled the company side as CEO. Dylan led product and technology as CTO. The two had met at South Park Commons before settling on the problem that became Profound.",
   },
   {
     name: "Engineering",
-    people: "Charles Zhou · Praneeth Alla · Mikael Sargsyan",
+    people: "Charles Zhou, Praneeth Alla, and Mikael Sargsyan",
     description:
       "Charles was the first employee and founding engineer. Praneeth became the second engineer. Mikael's path started with a remote collaboration before he later joined the engineering team.",
   },
@@ -303,7 +303,7 @@ const earlyFunctions = [
   },
   {
     name: "Business development and operations",
-    people: "Eliott Lee · Stephanie Kramer · Joseph Turtel",
+    people: "Eliott Lee, Stephanie Kramer, and Joseph Turtel",
     description:
       "Eliott worked across business development and partnerships. Stephanie worked on the business-operations side of the company. Joseph joined as Chief of Staff to the CEO.",
   },
@@ -668,15 +668,15 @@ export default function ProfoundFoundingTeamPage() {
               <SubpageNav activeHref="/research" />
               <div className="py-24 md:py-32">
                 <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
-                  Company history · By{" "}
+                  Company history by{" "}
                   <Link
                     href="/about"
                     rel="author"
                     className="underline decoration-1 underline-offset-4 hover:text-accent"
                   >
                     Josh Blyskal
-                  </Link>{" "}
-                  · Updated <time dateTime={publishedDate}>July 26, 2026</time>
+                  </Link>
+                  , updated <time dateTime={publishedDate}>July 26, 2026</time>
                 </p>
                 <h1 className="mt-5 max-w-5xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
                   {title}

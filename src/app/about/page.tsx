@@ -100,11 +100,11 @@ export default function AboutPage() {
                     download="josh-blyskal-headshot.jpg"
                     className="absolute top-3 right-3 border border-foreground bg-background px-3 py-2 font-mono text-xs uppercase tracking-widest opacity-0 transition hover:border-accent hover:bg-accent hover:text-background focus-visible:opacity-100 group-hover:opacity-100 pointer-coarse:opacity-100"
                   >
-                    Download · JPG
+                    Download JPG
                   </a>
                 </div>
                 <figcaption className="mt-3 font-mono text-xs uppercase tracking-wider text-foreground/50">
-                  {site.name} · Williamsburg, Brooklyn
+                  {site.name}, Williamsburg, Brooklyn
                 </figcaption>
               </figure>
             </div>
@@ -169,7 +169,7 @@ export default function AboutPage() {
                 AEO programs at Profound
               </dt>
               <dd className="mt-3 font-display text-2xl font-medium leading-snug md:text-3xl">
-                Ramp · Indeed · U.S. Bank · G2 · MongoDB · Golin
+                Ramp, Indeed, U.S. Bank, G2, MongoDB, Golin
               </dd>
               <p className="mt-3 max-w-2xl font-body text-sm leading-relaxed text-foreground/60">
                 Contributed to AEO programs for teams at these brands through Profound.
@@ -200,10 +200,10 @@ export default function AboutPage() {
                 Conference stages
               </dt>
               <dd className="mt-3 font-display text-2xl font-medium leading-snug md:text-3xl">
-                MozCon · BrightonSEO · TechSEO Connect · Zero Click · Spotlight AR
+                MozCon, BrightonSEO, TechSEO Connect, Zero Click, Spotlight AR
               </dd>
               <p className="mt-3 font-mono text-xs uppercase tracking-wider text-foreground/50">
-                U.S. and U.K. stages since 2025 · SEO Shenzhen upcoming
+                U.S. and U.K. stages since 2025, with SEO Shenzhen upcoming
               </p>
             </div>
           </dl>

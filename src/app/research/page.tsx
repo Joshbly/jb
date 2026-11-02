@@ -72,14 +72,14 @@ export default function ResearchIndexPage() {
                 <Link href="/research/findings" className="hover:text-accent hover:underline">
                   Statistics
                 </Link>{" "}
-                · studies for evidence ·{" "}
+                and studies for evidence,{" "}
                 <Link
                   href="/research/sage-aeo-method"
                   className="hover:text-accent hover:underline"
                 >
                   SAGE for operations
-                </Link>{" "}
-                ·{" "}
+                </Link>
+                , and the{" "}
                 <Link
                   href="/research/what-is-answer-engine-optimization"
                   className="hover:text-accent hover:underline"

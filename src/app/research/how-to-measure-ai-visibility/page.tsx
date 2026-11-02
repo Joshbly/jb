@@ -121,7 +121,7 @@ export default function MeasureAiVisibilityPage() {
               <SubpageNav activeHref="/research" />
               <div className="py-24 md:py-32">
                 <p className="font-mono text-xs uppercase tracking-widest text-foreground/60">
-                  Measurement essay · Published September 2, 2026
+                  Measurement essay, published September 2, 2026
                 </p>
                 <h1 className="mt-4 max-w-5xl font-display text-hero-name font-normal leading-[0.9] tracking-tight">
                   How I measure AI visibility
