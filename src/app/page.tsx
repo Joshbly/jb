@@ -25,7 +25,7 @@ export default function Home() {
         <SageFeature />
         <Proof />
         <SpeakingFeature />
-        <Inquiry />
+        <Inquiry showStagePhoto />
       </main>
       <Footer />
     </div>

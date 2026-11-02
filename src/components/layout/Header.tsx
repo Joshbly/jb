@@ -20,18 +20,10 @@ const INNER = cn(
   "group-data-[scrolled=true]/header:py-3",
 );
 
-const TITLE = cn(
-  "shrink-0 pr-1 text-[9px] min-[360px]:text-[10px] sm:text-header-fluid md:pr-0",
-  "text-white md:mix-blend-difference transition-colors duration-medium",
-  "group-data-[scrolled=true]/header:text-foreground",
-  "group-data-[scrolled=true]/header:mix-blend-normal",
-);
+const TITLE = "shrink-0 pr-1 text-[9px] min-[360px]:text-[10px] sm:text-header-fluid md:pr-0";
 
-const LINKS = cn(
-  "flex gap-0 text-[9px] min-[360px]:gap-0.5 min-[360px]:text-[10px] sm:gap-[clamp(4px,2.5vw,24px)] sm:text-header-fluid",
-  "text-white md:text-foreground transition-colors duration-medium",
-  "group-data-[scrolled=true]/header:text-foreground",
-);
+const LINKS =
+  "flex gap-0 text-[9px] min-[360px]:gap-0.5 min-[360px]:text-[10px] sm:gap-[clamp(4px,2.5vw,24px)] sm:text-header-fluid";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);

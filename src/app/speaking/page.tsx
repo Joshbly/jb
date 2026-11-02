@@ -383,8 +383,8 @@ export default function SpeakingPage() {
                 <figure className="min-w-0">
                   <div className="relative aspect-4/5 overflow-hidden border border-foreground">
                     <Image
-                      src={site.heroImage.src}
-                      alt={site.heroImage.alt}
+                      src={site.stagePhoto.src}
+                      alt={site.stagePhoto.alt}
                       fill
                       sizes="(min-width: 640px) 25vw, 100vw"
                       className="object-cover grayscale"
@@ -392,13 +392,13 @@ export default function SpeakingPage() {
                   </div>
                   <figcaption className="mt-4">
                     <a
-                      href={site.heroImage.src}
-                      download="josh-blyskal-onstage.png"
+                      href={site.stagePhoto.src}
+                      download="josh-blyskal-onstage.jpg"
                       className="font-mono text-xs uppercase tracking-widest underline decoration-accent/50 underline-offset-4 transition-colors hover:text-accent"
                     >
-                      Download stage photo · PNG
+                      Download stage photo · JPG
                     </a>
-                    <p className="mt-2 font-body text-sm text-foreground/55">4000 × 6000 pixels</p>
+                    <p className="mt-2 font-body text-sm text-foreground/55">1600 × 2400 pixels</p>
                   </figcaption>
                 </figure>
               </div>

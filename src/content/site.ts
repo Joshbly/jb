@@ -1,7 +1,6 @@
 const NAME = "Josh Blyskal";
 const TAGLINE = "AEO & GEO Research";
 const EMPLOYER = { name: "Profound", url: "https://www.tryprofound.com" } as const;
-const HERO_SRC = "/images/header3.jpg";
 
 export const site = {
   url: "https://www.joshblyskal.com",
@@ -15,8 +14,8 @@ export const site = {
   bio: `${NAME} joined ${EMPLOYER.name} as its second employee and now leads AI Strategy & Research, studying how to make brands visible in AI search.`,
   ogImage: "/opengraph-image",
   headshot: "/images/headshot.jpg",
-  heroImage: {
-    src: HERO_SRC,
+  stagePhoto: {
+    src: "/images/header3.jpg",
     alt: `${NAME} speaking at Profound's Zero Click conference`,
   },
   employer: EMPLOYER,

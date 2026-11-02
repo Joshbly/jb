@@ -10,27 +10,19 @@ const HERO_LINKS = [
 ] as const;
 
 export function Hero() {
-  const hero = site.heroImage;
-
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
       <div className="flex min-h-screen w-full flex-col lg:flex-row">
-        <div className="group relative h-[36svh] w-full shrink-0 overflow-hidden border-b-2 border-foreground bg-black lg:h-auto lg:min-h-screen lg:w-[42%] lg:border-r-2 lg:border-b-0">
+        <div className="relative h-[36svh] w-full shrink-0 overflow-hidden border-b-2 border-foreground bg-foreground/10 lg:h-auto lg:min-h-screen lg:w-[42%] lg:border-r-2 lg:border-b-0">
+          {/* unoptimized: serve the original file, never a recompressed copy */}
           <Image
-            src={hero.src}
-            alt={hero.alt}
+            src={site.headshot}
+            alt={`Portrait of ${site.name}`}
             fill
-            sizes="(max-width: 1024px) 100vw, 42vw"
-            className="object-cover object-[center_35%] grayscale brightness-90 contrast-[1.2] transition-all duration-slow group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-[1.15] lg:object-center"
+            unoptimized
+            className="object-cover object-[center_30%] lg:object-bottom"
             priority
             fetchPriority="high"
-          />
-          <div
-            className="pointer-events-none absolute inset-0 opacity-20 mix-blend-overlay"
-            style={{
-              backgroundImage: "radial-gradient(#000 1px, transparent 1px)",
-              backgroundSize: "4px 4px",
-            }}
           />
         </div>
 
