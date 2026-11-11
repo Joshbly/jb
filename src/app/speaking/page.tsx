@@ -25,7 +25,7 @@ function youtubeVideoId(recordingUrl: string) {
 const pageUrl = `${site.url}/speaking`;
 const title = "Speaking";
 const description =
-  "Talks and booking information for Josh Blyskal on making brands visible in AI search.";
+  "Talks and booking information for Josh Blyskal, Head of Insights at Profound, on making brands visible in AI search.";
 const bookingHref = `mailto:${site.email}?subject=Speaking%20inquiry`;
 const speakerDeck = site.socials.find(
   (social) => social.label === "Speaker Deck",
@@ -327,8 +327,8 @@ export default function SpeakingPage() {
               <h2 className="font-display text-4xl font-normal italic">About Josh</h2>
               <div className="mt-7 space-y-5 font-body text-lg leading-relaxed text-foreground/80">
                 <p>
-                  Josh Blyskal leads AI Strategy & Research at Profound, where he works on brand
-                  visibility in answer engines and agent-led discovery.
+                  Josh Blyskal is {site.role} at Profound, where he works on brand visibility in
+                  answer engines and agent-led discovery.
                 </p>
                 <p>
                   Before Profound, he co-founded HubSpot&apos;s Marketing AI practice and built the

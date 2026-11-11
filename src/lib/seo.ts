@@ -319,7 +319,7 @@ export const speakingPageJsonLd = {
       url: speakingUrl,
       name: `Speaking | ${site.name}`,
       description:
-        "Talks and booking information for Josh Blyskal, an AI search researcher and speaker.",
+        "Talks and booking information for Josh Blyskal, Head of Insights at Profound and an AI search researcher and speaker.",
       about: { "@id": `${site.url}/#identity` },
       mainEntity: { "@id": `${site.url}/#identity` },
       hasPart: speakingVideos.map((video) => ({ "@id": video["@id"] })),

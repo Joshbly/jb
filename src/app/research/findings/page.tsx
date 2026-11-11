@@ -1086,7 +1086,7 @@ export default function ResearchFindingsPage() {
                 >
                   Josh Blyskal
                 </Link>
-                , AI Strategy &amp; Research at Profound. Study-level credits below.
+                , Head of Insights at Profound. Study-level credits below.
               </p>
               <p className="mt-3 font-mono text-xs uppercase tracking-widest text-foreground/45">
                 Published August 3, 2026, and updated September 2, 2026

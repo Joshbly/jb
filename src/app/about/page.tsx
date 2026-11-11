@@ -10,9 +10,9 @@ import { featuredPressRecords } from "@/content/media";
 import { site } from "@/content/site";
 import { profilePageJsonLd } from "@/lib/seo";
 
-const title = `${site.name}, AEO & GEO researcher`;
+const title = `${site.name}, ${site.role} at ${site.employer.name}`;
 const description =
-  "Josh Blyskal leads AI Strategy & Research at Profound and helps brands become visible in AI search.";
+  "Josh Blyskal is Head of Insights at Profound, where he researches AEO and GEO and helps brands become visible in AI search.";
 
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -59,8 +59,8 @@ export default function AboutPage() {
                   >
                     founding team
                   </Link>
-                  . I now lead AI Strategy & Research and help teams understand how AI systems find,
-                  describe, and recommend brands.
+                  . I am now {site.role} at Profound, where I help teams understand how AI systems
+                  find, describe, and recommend brands.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-widest">
                   <Link

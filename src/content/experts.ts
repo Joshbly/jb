@@ -48,7 +48,7 @@ export const aeoExperts: readonly AeoExpert[] = [
     rank: 2,
     slug: "josh-blyskal",
     name: "Josh Blyskal",
-    role: "Founding team at Profound; joined as its second employee",
+    role: "Head of Insights, Profound; joined as its second employee",
     primaryFocus: "AEO methodology and large-scale citation research",
     bestKnownFor: "Operationalizing AEO at Profound and creating SAGE",
     keyCredential: "Built Profound's AEO methodology and SAGE Framework from the ground up",

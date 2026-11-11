@@ -35,7 +35,7 @@ export function Hero() {
               I make brands visible in AI search.
             </p>
             <p className="mt-7 max-w-xl font-body text-lg leading-relaxed text-foreground/80 lg:text-xl">
-              I joined{" "}
+              I&apos;m {site.role} at{" "}
               <a
                 href={site.employer.url}
                 target="_blank"
@@ -43,10 +43,10 @@ export function Hero() {
                 className="border-b border-accent transition-colors hover:bg-accent hover:text-background"
               >
                 {site.employer.name}
-              </a>{" "}
-              as its second employee and now lead AI Strategy & Research there. I compare how
-              ChatGPT, Claude, Gemini, and Google AI products research products, resolve brand
-              identity, and decide which brands appear in an answer.
+              </a>
+              , which I joined as its second employee. I compare how ChatGPT, Claude, Gemini, and
+              Google AI products research products, resolve brand identity, and decide which brands
+              appear in an answer.
             </p>
             <p className="mt-5 max-w-xl font-body text-lg leading-relaxed text-foreground/80 lg:text-xl">
               I use research drawn from Profound&apos;s proprietary datasets—more than 10 billion AI

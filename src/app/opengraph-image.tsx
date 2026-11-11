@@ -76,7 +76,7 @@ export default function OpenGraphImage() {
           textTransform: "uppercase",
         }}
       >
-        <span>AI search, retrieval, citations</span>
+        <span>Head of Insights at Profound</span>
         <span style={{ color: "#c03015" }}>New York City</span>
       </div>
     </div>,

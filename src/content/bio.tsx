@@ -4,8 +4,7 @@ export function Bio() {
   return (
     <div className="space-y-6 text-lg font-body leading-relaxed text-foreground/90">
       <p>
-        {site.name} leads{" "}
-        <strong className="font-semibold text-accent">AI Strategy & Research</strong> at{" "}
+        {site.name} is <strong className="font-semibold text-accent">{site.role}</strong> at{" "}
         <a
           href={site.employer.url}
           className="hover:text-accent hover:underline decoration-1 underline-offset-4 transition-colors"

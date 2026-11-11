@@ -1,17 +1,18 @@
 const NAME = "Josh Blyskal";
 const TAGLINE = "AEO & GEO Research";
+const ROLE = "Head of Insights";
 const EMPLOYER = { name: "Profound", url: "https://www.tryprofound.com" } as const;
 
 export const site = {
   url: "https://www.joshblyskal.com",
   name: NAME,
   email: "josh@tryprofound.com",
-  role: "AI Strategy & Research",
+  role: ROLE,
   tagline: TAGLINE,
   location: "New York City",
   locale: "en_US",
-  description: `${NAME} studies how to make brands visible in AI search. He joined ${EMPLOYER.name} as its second employee and now leads AI Strategy & Research.`,
-  bio: `${NAME} joined ${EMPLOYER.name} as its second employee and now leads AI Strategy & Research, studying how to make brands visible in AI search.`,
+  description: `${NAME} is ${ROLE} at ${EMPLOYER.name}, where he studies how to make brands visible in AI search. He joined ${EMPLOYER.name} as its second employee.`,
+  bio: `${NAME} is ${ROLE} at ${EMPLOYER.name}. He joined ${EMPLOYER.name} as its second employee and studies how to make brands visible in AI search.`,
   ogImage: "/opengraph-image",
   headshot: "/images/headshot.jpg",
   stagePhoto: {
