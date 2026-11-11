@@ -434,10 +434,10 @@ export default function MeasureAiVisibilityPage() {
                 different source universe and makes different decisions about when to search.
               </p>
               <p>
-                In my analysis, Claude and ChatGPT shared only eight percent of their cited
-                domains. Put less statistically, almost none of the names on one store&apos;s
-                supplier list appeared on the other&apos;s. Averaging the stores into one market
-                would conceal the reason the brand wins in one place and loses in another.
+                In my analysis, Claude and ChatGPT shared only eight percent of their cited domains.
+                Put less statistically, almost none of the names on one store&apos;s supplier list
+                appeared on the other&apos;s. Averaging the stores into one market would conceal the
+                reason the brand wins in one place and loses in another.
               </p>
               <p>
                 I therefore read visibility rank, score, position, citation share, and accuracy by
