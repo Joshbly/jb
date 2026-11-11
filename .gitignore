@@ -22,9 +22,16 @@
 
 # misc
 .DS_Store
+Thumbs.db
 *.pem
 
+# editors
+.idea/
+*.swp
+*.swo
+
 # debug
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -39,3 +46,21 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# python
+.venv*/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# local FLUX image pipeline: working files only, the site ships just the finished images.
+# /scripts/ is ignored wholesale, so drop that line before adding a script meant for the repo.
+.pipeline/
+/scripts/
+/docs/flux-style-*.md
+/.cursor/skills/flux-style-images/
+/public/images/research/ai-visibility/style-system/
+/public/images/research/ai-visibility/*-reference-study*.jpg
+/public/images/research/ai-visibility/image.png
