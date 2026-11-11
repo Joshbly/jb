@@ -31,7 +31,7 @@ export function SpeakingFeature() {
               rel="noopener noreferrer"
               className="underline decoration-accent/50 underline-offset-4 transition-colors hover:text-accent"
             >
-              Watch the presentation ↗
+              Watch ↗
             </a>
             <Link
               href="/speaking"
@@ -55,7 +55,7 @@ export function SpeakingFeature() {
           aria-label={`Watch ${featuredTalk.title} on YouTube`}
         >
           <span className="border border-white bg-black/75 px-5 py-3 font-mono text-xs uppercase tracking-widest text-white transition-colors group-hover:bg-accent">
-            Watch the full talk ↗
+            Watch ↗
           </span>
         </a>
         <p className="mt-4 font-mono text-xs uppercase tracking-widest text-foreground/55">
