@@ -6,7 +6,7 @@ const EMPLOYER = { name: "Profound", url: "https://www.tryprofound.com" } as con
 export const site = {
   url: "https://www.joshblyskal.com",
   name: NAME,
-  email: "josh@tryprofound.com",
+  email: "hello@joshblyskal.com",
   role: ROLE,
   tagline: TAGLINE,
   location: "New York City",

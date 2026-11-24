@@ -1037,7 +1037,7 @@ export default function WhatIsAnswerEngineOptimizationPage() {
                 </p>
               </div>
               <a
-                href="mailto:josh@tryprofound.com?subject=AEO%20vs%20GEO%3A%20a%20concrete%20distinction"
+                href={`mailto:${site.email}?subject=AEO%20vs%20GEO%3A%20a%20concrete%20distinction`}
                 className="mt-10 inline-block border-b-2 border-accent pb-1 font-mono text-xs uppercase tracking-widest transition-colors hover:text-accent"
               >
                 Submit a distinction that passes the test →
